@@ -14,27 +14,25 @@ below templates). I tested the calculation speeds for each in Excel 2013
 
 Here’s the VBA test code:
 
-+--------------------------------------------------------------------------+
-| ``` {.vb style="font-family:monospace;"}                                 |
-| Sub test()                                                               |
-|                                                                          |
-|     Dim dTimer As Double                                                 |
-|     Dim iLoops As Integer, iTotalIterations As Integer                   |
-|     Dim wksStage As Worksheet                                            |
-|                                                                          |
-|     Set wksStage = ThisWorkbook.Worksheets("Staging Area")               |
-|     iTotalIterations = 1                                                 |
-|     dTimer = Timer()                                                     |
-|                                                                          |
-|     For iLoops = 0 To iTotalIterations                                   |
-|         wksStage.Calculate                                               |
-|     Next iLoops                                                          |
-|                                                                          |
-|     Debug.Print Timer() - dTimer                                         |
-|                                                                          |
-| End Sub                                                                  |
-| ```                                                                      |
-+--------------------------------------------------------------------------+
+```VBScript
+Sub test()
+
+    Dim dTimer As Double
+    Dim iLoops As Integer, iTotalIterations As Integer
+    Dim wksStage As Worksheet
+
+    Set wksStage = ThisWorkbook.Worksheets("Staging Area")
+    iTotalIterations = 1
+    dTimer = Timer()
+
+    For iLoops = 0 To iTotalIterations
+        wksStage.Calculate
+    Next iLoops
+
+    Debug.Print Timer() - dTimer
+
+End Sub
+```
 
 And here’s the results (seconds):
 

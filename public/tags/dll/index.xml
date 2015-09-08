@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dll on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/dll/</link>
+    <link>http://localhost:1313/tags/dll/</link>
     <description>Recent content in Dll on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Dec 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/dll/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/dll/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Excel Queries</title>
-      <link>http://jnyman.com/2012/12/03/excel_queries/</link>
+      <link>http://localhost:1313/2012/12/03/excel_queries/</link>
       <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/12/03/excel_queries/</guid>
+      <guid>http://localhost:1313/2012/12/03/excel_queries/</guid>
       <description>&lt;p&gt;I came across some nice libraries to use while programming to query
 Excel. Right now I’m am using the standard COM interface for my
 projects, which is fine for small ranges (which is true for most users –

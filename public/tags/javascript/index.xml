@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/javascript/</link>
+    <link>http://localhost:1313/tags/javascript/</link>
     <description>Recent content in Javascript on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -108,6 +108,24 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If you want to play around with these concepts in jsFiddle you can use lodash.js&amp;rsquo; &lt;code&gt;_.assign&lt;/code&gt; method. I&amp;rsquo;ve set up the &lt;a href=&#34;http://jsfiddle.net/jon49/3xRNT/&#34;&gt;jsFiddle here.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/2014/06/07/html/</link>
+      <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2014/06/07/html/</guid>
+      <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
+functional manner). I’ve also gone the way of Linux away from Windows. I
+love Excel and its power. But I see the writing on the wall and am
+moving to where I can hopefully get some work and starting making some
+moolah. You can follow my new blog over at
+&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.\
+ If anyone is interested in the products I’ve made let me know how you
+like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
+me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

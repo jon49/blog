@@ -2,7 +2,9 @@
 languageCode: en-us
 baseurl: http://jnyman.com/
 title: Hamsters Byte
+description: A blog on programming.
 theme: nofancy
+
 author:
   name: Jon Nyman
   github: jon49

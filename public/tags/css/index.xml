@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Css on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/css/</link>
+    <link>http://localhost:1313/tags/css/</link>
     <description>Recent content in Css on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Dec 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CSS Media Object</title>
-      <link>http://jnyman.com/2014/12/30/css_media_object/</link>
+      <link>http://localhost:1313/2014/12/30/css_media_object/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/12/30/css_media_object/</guid>
+      <guid>http://localhost:1313/2014/12/30/css_media_object/</guid>
       <description>&lt;p&gt;I just finished attending the RockIt Bootcamp (12 week program). It&amp;rsquo;s a program that teaches the LAMP full stack development (Linux, Apache, mySQL, PHP). In the next little while I will be going over some of the things which I learned.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;css media object&lt;/em&gt; was first coined by &lt;a href=&#34;http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/&#34;&gt;Nicole Sullivan&lt;/a&gt; in 2010. It is still one of the most basic constructs to learn and understand in created good CSS content.&lt;/p&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Efficiency on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/efficiency/</link>
+    <link>http://localhost:1313/tags/efficiency/</link>
     <description>Recent content in Efficiency on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 28 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/efficiency/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Calculation Efficiency</title>
-      <link>http://jnyman.com/2012/03/28/calculation_effeciency_array_formulas/</link>
+      <link>http://localhost:1313/2012/03/28/calculation_effeciency_array_formulas/</link>
       <pubDate>Wed, 28 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/03/28/calculation_effeciency_array_formulas/</guid>
+      <guid>http://localhost:1313/2012/03/28/calculation_effeciency_array_formulas/</guid>
       <description>&lt;p&gt;Chandoo had some posts on speeding up Excel worksheets, one of the posts focuses on formulas and another he let the general readers make their suggestions. I made the suggestion that people use array formulas. But most of the other suggestions said not to use array formulas since they slow down your spreadsheet. Needless to say, I was a bit confused, I have seen quite the performance boost from using array formulas.&lt;/p&gt;
 
 &lt;p&gt;So I did a little test to see why I was getting differing results. The testing showed that both of us were right. Array formulas are faster for UDFs and regular formulas are better for built in Excel functions. There might be circumstances where the opposite is true. I used Excel DNA for my UDF function. It just shows, if you are trying to make things fast, isolate a workbook with a small data set and see which method is faster.&lt;/p&gt;

@@ -2,33 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vba on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/vba/</link>
+    <link>http://localhost:1313/tags/vba/</link>
     <description>Recent content in Vba on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Oct 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jun 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vba/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Site Ending</title>
-      <link>http://jnyman.com/2014/10/28/html/</link>
-      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/2014/06/07/html/</link>
+      <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/10/28/html/</guid>
-      <description>&lt;p&gt;This site will be going the way of the ether come next week. You can
-still see the posts over
-at &lt;a href=&#34;http://spreadsheetbudget.com.s3-website-us-east-1.amazonaws.com/blog/&#34;&gt;http://spreadsheetbudget.com.s3-website-us-east-1.amazonaws.com/blog/&lt;/a&gt;.
-It’s been great. Check out my web development blog over
-at &lt;a href=&#34;http://jon.prescottprogrammers.com/&#34;&gt;http://jon.prescottprogrammers.com/&lt;/a&gt;.&lt;/p&gt;
+      <guid>http://localhost:1313/2014/06/07/html/</guid>
+      <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
+functional manner). I’ve also gone the way of Linux away from Windows. I
+love Excel and its power. But I see the writing on the wall and am
+moving to where I can hopefully get some work and starting making some
+moolah. You can follow my new blog over at
+&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.\
+ If anyone is interested in the products I’ve made let me know how you
+like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
+me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
-      <link>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
+      <link>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
       <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
+      <guid>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
 Sync) is great software which can be used for syncing files. I use it
 for backing up all my pictures/videos/music/files/mobile computers.
@@ -78,20 +82,20 @@ of&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>Zipping Files with VBA and USB Drives</title>
-      <link>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
+      <link>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
       <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
+      <guid>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
       <description>&lt;p&gt;I used &lt;a href=&#34;http://www.rondebruin.nl/win/s7/win001.htm&#34;&gt;Ron de Bruin&amp;rsquo;s file zipping (and sending) code with Excel&lt;/a&gt;. It works great with a few tweaks. Unfortunately when someone is using a USB drive with their workbook on it it fails to work. So warning: Make sure the users are using it on the main computer when trouble shooting!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>SUMIFS vs MATCH &amp; INDEX</title>
-      <link>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</link>
+      <link>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</link>
       <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</guid>
+      <guid>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</guid>
       <description>&lt;p&gt;I have one Time Card template setup with SUMIFS (used for Excel 2007 and
 above templates) and one set up with MATCH/INDEX (used for my 2003 and
 below templates). I tested the calculation speeds for each in Excel 2013
@@ -99,27 +103,24 @@ below templates). I tested the calculation speeds for each in Excel 2013
 
 &lt;p&gt;Here’s the VBA test code:&lt;/p&gt;
 
-&lt;p&gt;+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;+
-| &lt;code&gt;{.vb style=&amp;quot;font-family:monospace;&amp;quot;}                                 |
-| Sub test()                                                               |
-|                                                                          |
-|     Dim dTimer As Double                                                 |
-|     Dim iLoops As Integer, iTotalIterations As Integer                   |
-|     Dim wksStage As Worksheet                                            |
-|                                                                          |
-|     Set wksStage = ThisWorkbook.Worksheets(&amp;quot;Staging Area&amp;quot;)               |
-|     iTotalIterations = 1                                                 |
-|     dTimer = Timer()                                                     |
-|                                                                          |
-|     For iLoops = 0 To iTotalIterations                                   |
-|         wksStage.Calculate                                               |
-|     Next iLoops                                                          |
-|                                                                          |
-|     Debug.Print Timer() - dTimer                                         |
-|                                                                          |
-| End Sub                                                                  |
-|&lt;/code&gt;                                                                      |
-+&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-VBScript&#34;&gt;Sub test()
+
+    Dim dTimer As Double
+    Dim iLoops As Integer, iTotalIterations As Integer
+    Dim wksStage As Worksheet
+
+    Set wksStage = ThisWorkbook.Worksheets(&amp;quot;Staging Area&amp;quot;)
+    iTotalIterations = 1
+    dTimer = Timer()
+
+    For iLoops = 0 To iTotalIterations
+        wksStage.Calculate
+    Next iLoops
+
+    Debug.Print Timer() - dTimer
+
+End Sub
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;And here’s the results (seconds):&lt;/p&gt;
 
@@ -155,10 +156,10 @@ huge issue.&lt;/p&gt;
     
     <item>
       <title>Max Write to Excel (2003) in Array</title>
-      <link>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</link>
+      <link>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</guid>
+      <guid>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</guid>
       <description>&lt;p&gt;I normally don’t deal with very long strings. But I’m working on a
 project that requires storing a text file in Excel that I can later
 access (it would be nice just to embed it but Excel doesn’t like viruses
@@ -175,101 +176,98 @@ and you’ll get an error.&lt;/p&gt;
     
     <item>
       <title>List of Excel Functions - Code To Use List</title>
-      <link>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
+      <link>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
       <pubDate>Wed, 05 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
+      <guid>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
       <description>&lt;p&gt;I saw a few people were downloading &lt;a href=&#34;2012/08/27/list-of-excel-functions/&#34;&gt;my list of Excel functions that I created&lt;/a&gt;. I thought it might be useful show the code that I use to get that data to a manageable format. Although the code is written in VB.NET it should be easily converted to VBA.&lt;/p&gt;
 
 &lt;p&gt;[wpdm_file id=3]&lt;/p&gt;
 
 &lt;p&gt;I use a simple structure (type in VBA) for the data.&lt;/p&gt;
 
-&lt;pre lang=&#34;VB&#34;&gt;
-    Private Structure ExcelFunctionInfo
-        Dim Name As String
-        Dim Category As String
-        Dim ExcelVersion As Integer
-        Dim Description As String
-        Dim Syntax As String
-        Dim URL As String
-    End Structure
-&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;Private Structure ExcelFunctionInfo
+    Dim Name As String
+    Dim Category As String
+    Dim ExcelVersion As Integer
+    Dim Description As String
+    Dim Syntax As String
+    Dim URL As String
+End Structure
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I then just loop through the data in the string that was gotten from the text file.&lt;/p&gt;
 
-&lt;pre lang=&#34;VB&#34;&gt;
-    &#39;&#39;&#39; &lt;summary&gt;
-    &#39;&#39;&#39; Takes string of Excel functions and puts it into dictionary.
-    &#39;&#39;&#39; &lt;/summary&gt;
-    &#39;&#39;&#39; &lt;param name=&#34;sExcelFunctions&#34;&gt;String of Excel functions&lt;/param&gt;
-    &#39;&#39;&#39; &lt;param name=&#34;iExcelVersion_Descriptive&#34;&gt;Descriptive version of Excel&lt;/param&gt;
-    &#39;&#39;&#39; &lt;returns&gt;Dictionary of Excel functions.&lt;/returns&gt;
-    &#39;&#39;&#39; &lt;remarks&gt;Jon Nyman 20120920&lt;/remarks&gt;
-    Private Function GetExcelFunctionsFromTextToDictionary(ByVal sExcelFunctions As String _
-                    , ByVal iExcelVersion_Descriptive As Integer) As Dictionary(Of String, List(Of ExcelFunctionInfo))
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;&#39;&#39; &amp;lt;summary&amp;gt;
+&#39;&#39;&#39; Takes string of Excel functions and puts it into dictionary.
+&#39;&#39;&#39; &amp;lt;/summary&amp;gt;
+&#39;&#39;&#39; &amp;lt;param name=&amp;quot;sExcelFunctions&amp;quot;&amp;gt;String of Excel functions&amp;lt;/param&amp;gt;
+&#39;&#39;&#39; &amp;lt;param name=&amp;quot;iExcelVersion_Descriptive&amp;quot;&amp;gt;Descriptive version of Excel&amp;lt;/param&amp;gt;
+&#39;&#39;&#39; &amp;lt;returns&amp;gt;Dictionary of Excel functions.&amp;lt;/returns&amp;gt;
+&#39;&#39;&#39; &amp;lt;remarks&amp;gt;Jon Nyman 20120920&amp;lt;/remarks&amp;gt;
+Private Function GetExcelFunctionsFromTextToDictionary(ByVal sExcelFunctions As String _
+                , ByVal iExcelVersion_Descriptive As Integer) As Dictionary(Of String, List(Of ExcelFunctionInfo))
 
-        Dim dicExcelFunctions As New Dictionary(Of String, List(Of ExcelFunctionInfo))
+    Dim dicExcelFunctions As New Dictionary(Of String, List(Of ExcelFunctionInfo))
 
-        For Each sLine In sExcelFunctions.Split(CChar(vbLf))
-            Dim sEachTab = sLine.Split(CChar(vbTab))
-            Dim xlFuncs As ExcelFunctionInfo
-            If sEachTab.Length = 6 AndAlso CInt(sEachTab(0)) &lt;= iExcelVersion_Descriptive Then
-                xlFuncs.Name = sEachTab(1)
-                xlFuncs.ExcelVersion = CInt(sEachTab(0))
-                xlFuncs.URL = sEachTab(5)
-                xlFuncs.Syntax = sEachTab(4)
-                xlFuncs.Category = sEachTab(2)
-                xlFuncs.Description = sEachTab(3)
-                If Not dicExcelFunctions.ContainsKey(xlFuncs.Name) Then
-                    Dim lst = New List(Of ExcelFunctionInfo)
-                    lst.Add(xlFuncs)
-                    dicExcelFunctions.Add(xlFuncs.Name, lst)
-                Else
-                    Dim lst = dicExcelFunctions(xlFuncs.Name)
-                    lst.Add(xlFuncs)
-                    dicExcelFunctions(xlFuncs.Name) = lst
-                End If
+    For Each sLine In sExcelFunctions.Split(CChar(vbLf))
+        Dim sEachTab = sLine.Split(CChar(vbTab))
+        Dim xlFuncs As ExcelFunctionInfo
+        If sEachTab.Length = 6 AndAlso CInt(sEachTab(0)) &amp;lt;= iExcelVersion_Descriptive Then
+            xlFuncs.Name = sEachTab(1)
+            xlFuncs.ExcelVersion = CInt(sEachTab(0))
+            xlFuncs.URL = sEachTab(5)
+            xlFuncs.Syntax = sEachTab(4)
+            xlFuncs.Category = sEachTab(2)
+            xlFuncs.Description = sEachTab(3)
+            If Not dicExcelFunctions.ContainsKey(xlFuncs.Name) Then
+                Dim lst = New List(Of ExcelFunctionInfo)
+                lst.Add(xlFuncs)
+                dicExcelFunctions.Add(xlFuncs.Name, lst)
+            Else
+                Dim lst = dicExcelFunctions(xlFuncs.Name)
+                lst.Add(xlFuncs)
+                dicExcelFunctions(xlFuncs.Name) = lst
             End If
-        Next
+        End If
+    Next
 
-        Return dicExcelFunctions
+    Return dicExcelFunctions
 
-    End Function
-&lt;/pre&gt;
+End Function
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This is where I read the text file.&lt;/p&gt;
 
-&lt;pre lang=&#34;VB&#34;&gt;
-    &#39;&#39;&#39; &lt;summary&gt;
-    &#39;&#39;&#39; Gets excel functions from text document and put it in dictionary.
-    &#39;&#39;&#39; &lt;/summary&gt;
-    &#39;&#39;&#39; &lt;param name=&#34;sxlAppVersion&#34;&gt;Excel app version.&lt;/param&gt;
-    &#39;&#39;&#39; &lt;returns&gt;Dictionary of excel functions list.&lt;/returns&gt;
-    &#39;&#39;&#39; &lt;remarks&gt;Jon Nyman 20120920&lt;/remarks&gt;
-    Private Function LoadExcelFunctions(ByVal sxlAppVersion As String) As Dictionary(Of String, List(Of ExcelFunctionInfo))
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;&#39;&#39; &amp;lt;summary&amp;gt;
+&#39;&#39;&#39; Gets excel functions from text document and put it in dictionary.
+&#39;&#39;&#39; &amp;lt;/summary&amp;gt;
+&#39;&#39;&#39; &amp;lt;param name=&amp;quot;sxlAppVersion&amp;quot;&amp;gt;Excel app version.&amp;lt;/param&amp;gt;
+&#39;&#39;&#39; &amp;lt;returns&amp;gt;Dictionary of excel functions list.&amp;lt;/returns&amp;gt;
+&#39;&#39;&#39; &amp;lt;remarks&amp;gt;Jon Nyman 20120920&amp;lt;/remarks&amp;gt;
+Private Function LoadExcelFunctions(ByVal sxlAppVersion As String) As Dictionary(Of String, List(Of ExcelFunctionInfo))
 
-        Dim sExcelFunctions = My.Resources.ExcelFunctionsListCleaned
+    Dim sExcelFunctions = My.Resources.ExcelFunctionsListCleaned
 
-        &#39;Excel Functions
-        Return GetExcelFunctionsFromTextToDictionary(sExcelFunctions, CExcel.GetExcelVersion_Descriptive(sxlAppVersion, 11))
+    &#39;Excel Functions
+    Return GetExcelFunctionsFromTextToDictionary(sExcelFunctions, CExcel.GetExcelVersion_Descriptive(sxlAppVersion, 11))
 
-    End Function
-&lt;/pre&gt;
+End Function
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
       <title>Sheet Exists</title>
-      <link>http://jnyman.com/2012/09/13/sheet_exists/</link>
+      <link>http://localhost:1313/2012/09/13/sheet_exists/</link>
       <pubDate>Thu, 13 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/09/13/sheet_exists/</guid>
+      <guid>http://localhost:1313/2012/09/13/sheet_exists/</guid>
       <description>&lt;p&gt;I was looking at &lt;a href=&#34;http://www.siddharthrout.com&#34;&gt;Siddharth Rout&amp;rsquo;s new blog&lt;/a&gt; (&lt;a href=&#34;http://www.siddharthrout.com/2012/09/10/addingdeleting-sheets-to-the-excel-file/&#34;&gt;Adding/Deleting Sheets to the Excel File&lt;/a&gt;) and realized that I haven&amp;rsquo;t posted my version of sheet exists. Mine probably does too much per &lt;a href=&#34;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;qid=1347565033&amp;sr=8-1&amp;keywords=code+complete&#34;&gt;Code Complete&lt;/a&gt; standards, but it is nice not to have to think of multiple.&lt;/p&gt;
 
 &lt;p&gt;If I were to &lt;a href=&#34;http://en.wikipedia.org/wiki/Refactor&#34;&gt;refactor&lt;/a&gt; this code I would take out the code for the charts and probably just make it work only for checking if the sheet exists and adding a new sheet if it doesn&amp;rsquo;t. I would create a separate function for deleting sheets. But once you have lot&amp;rsquo;s of code written it is difficult to refactor all your code just to change one function (and I use this function quite a bit).&lt;/p&gt;
 
-&lt;pre lang=&#34;VB&#34;&gt;&#39;SheetExists
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;SheetExists
 &#39; --------------------------------------------------------------
 &#39;Comments:  This function returns TRUE if the sheet exists in the
 &#39;           active workbook and adds new sheet if bAddSheet is true.
@@ -281,7 +279,7 @@ and you’ll get an error.&lt;/p&gt;
 &#39;
 &#39;Source:    http://www.exceltip.com/st/Determine_if_a_sheet_exists_in_a_workbook_using_VBA_in_Microsoft_Excel/485.html
 &#39;Notes:     This was created for use of Jon Nyman and can be distributed by Paciolan.
-&#39;           Tristates require reference to &#34;Microsoft Scripting Runtime&#34;
+&#39;           Tristates require reference to &amp;quot;Microsoft Scripting Runtime&amp;quot;
 &#39;Date           Developer   History
 &#39;--------------------------------------------------------------
 &#39;01/13/10       Jon Nyman   Initial version
@@ -290,9 +288,9 @@ and you’ll get an error.&lt;/p&gt;
 Public Function SheetExists(ByVal sSheetName As String, Optional ByVal bAddSheet As Boolean = False, _
     Optional ByVal wkb As Workbook = Nothing, Optional ByVal bCreateChart As Boolean = False _
     , Optional ByVal bDeleteSheet As Boolean = False, Optional ByRef wks As Object) As Tristate
-    
+
     Dim bByRef As Boolean
-    
+
     &#39;Get current workbook that function will be working on.
     bByRef = True
     If wkb Is Nothing Then
@@ -332,13 +330,14 @@ Public Function SheetExists(ByVal sSheetName As String, Optional ByVal bAddSheet
     ElseIf SheetExists Then
         Set wks = wkb.Sheets(sSheetName)
     End If
-    
+
 SheetExists_Exit:
     If Not bByRef Then Set wkb = Nothing
-    
-End Function&lt;/pre&gt;
 
-&lt;pre lang=&#34;VB&#34;&gt;&#39;ExistsInCollection
+End Function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;ExistsInCollection
 &#39; --------------------------------------------------------------
 &#39;Comments:  This procedure deletes names in a workbook.
 &#39;
@@ -363,16 +362,17 @@ Public Function ExistsInCollection(ByRef colObject As Object, ByRef sItem As Str
 
     Set oObj = Nothing
 
-End Function&lt;/pre&gt;
+End Function
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
       <title>Creating a Settings Class in VBA</title>
-      <link>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</link>
+      <link>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</link>
       <pubDate>Wed, 29 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</guid>
+      <guid>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</guid>
       <description>&lt;p&gt;In .NET they have a nice settings class you can create using &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/system.configuration.applicationsettingsbase.aspx&#34;&gt;ApplicationSettingsBase base class&lt;/a&gt;. In VBA it takes a bit more work to get it working, but can be fairly elegant if done correctly.&lt;/p&gt;
 
 &lt;p&gt;Some criteria that is needed for a settings class in vba are:
@@ -422,10 +422,10 @@ End Property
     
     <item>
       <title>AdvancedFilter Class Part 2</title>
-      <link>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
+      <link>http://localhost:1313/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
       <pubDate>Wed, 15 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
+      <guid>http://localhost:1313/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
       <description>&lt;p&gt;The first thing we’ll want to do is determine what macro options we would like in the class.&lt;/p&gt;
 
 &lt;p&gt;The options I currently have are:&lt;/p&gt;
@@ -550,10 +550,10 @@ End Sub
     
     <item>
       <title>Wrapping a Class Around the AdvancedFilter Method</title>
-      <link>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
+      <link>http://localhost:1313/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
       <pubDate>Fri, 10 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
+      <guid>http://localhost:1313/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.cpearson.com/excel/classes.aspx&#34;&gt;Classes&lt;/a&gt; are a tool in &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;object-oriented programming&lt;/a&gt; that make programming much simpler. One class that I have developed in VBA is a class that makes using the &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa221800(v=office.11).aspx&#34;&gt;AdvancedFilter method&lt;/a&gt; extremely easy and useful. In fact, I like it so much that I stopped using the regular &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa195730(v=office.11).aspx&#34;&gt;find method&lt;/a&gt;. In the coming weeks I will demonstrate how this was done.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt; This is how the AdvancedFilter method works&lt;/strong&gt;:
@@ -625,10 +625,10 @@ End Sub
     
     <item>
       <title>Range Address from Number to Letter</title>
-      <link>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</link>
+      <link>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</link>
       <pubDate>Fri, 20 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</guid>
+      <guid>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</guid>
       <description>&lt;p&gt;Sometimes, before I realize it (and, I’m sure, others too) I do a bunch of work, that turns out that I didn’t need to do before. The RangeAddress function that I created is a perfect example of this. This function goes from a column number to a letter and returns the whole string range address. I started off &lt;a href=&#34;http://www.excelforum.com/excel-programming/638861-vb-convert-column-letter-to-number.html&#34;&gt;with someones else’s code&lt;/a&gt;. I then made it work for me. Their code only worked for Excel 2003 and below. The code below will work for All Excel versions. But there is a better way! The better way is in the &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/12/get-range-from-row-and-column-numbers/&#34;&gt;RRange function&lt;/a&gt; I posted about before. Below this code I’ll show you the basic gist on how to go about it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;RangeAddress
@@ -741,10 +741,10 @@ Range Address: $AI$1:$AL$1
     
     <item>
       <title>Find Last Cell</title>
-      <link>http://jnyman.com/2012/01/13/find_last_cell/</link>
+      <link>http://localhost:1313/2012/01/13/find_last_cell/</link>
       <pubDate>Fri, 13 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/13/find_last_cell/</guid>
+      <guid>http://localhost:1313/2012/01/13/find_last_cell/</guid>
       <description>&lt;p&gt;Finding the last cell is a common thing people look for when they are coding in VBA. I made a function that does this automatically for me when I am looking for the last cell. In conjunction with the &lt;a href=&#34;2012/01/12/get-range-from-row-and-column-numbers/&#34;&gt;RRange function&lt;/a&gt; this simplifies the programming life for VBA significantly.&lt;/p&gt;
 
 &lt;p&gt;Heres some example code on how to use the function FindEnd.&lt;/p&gt;
@@ -853,10 +853,10 @@ End Function
     
     <item>
       <title>Get Range from Row &amp; Column Numbers</title>
-      <link>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</link>
+      <link>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</link>
       <pubDate>Thu, 12 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</guid>
+      <guid>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</guid>
       <description>&lt;p&gt;Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below I’ve simplified it considerably by using the Cells method.&lt;/p&gt;
 
 &lt;p&gt;In the function below I use a &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/13/find-last-cell/&#34;&gt;function called FindEnd&lt;/a&gt;.&lt;/p&gt;
@@ -917,10 +917,10 @@ End Function
     
     <item>
       <title>Import Data from Excel to VBA</title>
-      <link>http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/</link>
+      <link>http://localhost:1313/2012/01/04/import_data_from_excel_to_vba/</link>
       <pubDate>Wed, 04 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/</guid>
+      <guid>http://localhost:1313/2012/01/04/import_data_from_excel_to_vba/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always wanted a function that can get me data from excel in a format that will always be the same. Sometimes I get the data and I expect a 2D variant array but instead get a string or double value. So I created a function to make it easy for myself, getting the same format that I expect.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;ImportExcelData

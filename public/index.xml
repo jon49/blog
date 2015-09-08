@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hamsters Byte</title>
-    <link>http://jnyman.com/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Sep 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>http://jnyman.com/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s about the code, chè!.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>CSS Media Object</title>
-      <link>http://jnyman.com/2014/12/30/css_media_object/</link>
+      <link>http://localhost:1313/2014/12/30/css_media_object/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/12/30/css_media_object/</guid>
+      <guid>http://localhost:1313/2014/12/30/css_media_object/</guid>
       <description>&lt;p&gt;I just finished attending the RockIt Bootcamp (12 week program). It&amp;rsquo;s a program that teaches the LAMP full stack development (Linux, Apache, mySQL, PHP). In the next little while I will be going over some of the things which I learned.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;css media object&lt;/em&gt; was first coined by &lt;a href=&#34;http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/&#34;&gt;Nicole Sullivan&lt;/a&gt; in 2010. It is still one of the most basic constructs to learn and understand in created good CSS content.&lt;/p&gt;
@@ -80,25 +80,11 @@
     </item>
     
     <item>
-      <title>Site Ending</title>
-      <link>http://jnyman.com/2014/10/28/html/</link>
-      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2014/10/28/html/</guid>
-      <description>&lt;p&gt;This site will be going the way of the ether come next week. You can
-still see the posts over
-at &lt;a href=&#34;http://spreadsheetbudget.com.s3-website-us-east-1.amazonaws.com/blog/&#34;&gt;http://spreadsheetbudget.com.s3-website-us-east-1.amazonaws.com/blog/&lt;/a&gt;.
-It’s been great. Check out my web development blog over
-at &lt;a href=&#34;http://jon.prescottprogrammers.com/&#34;&gt;http://jon.prescottprogrammers.com/&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Angular.js vs React.js vs Mithril.js</title>
-      <link>http://jnyman.com/2014/10/03/angular_vs_react_mithril/</link>
+      <link>http://localhost:1313/2014/10/03/angular_vs_react_mithril/</link>
       <pubDate>Fri, 03 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/10/03/angular_vs_react_mithril/</guid>
+      <guid>http://localhost:1313/2014/10/03/angular_vs_react_mithril/</guid>
       <description>&lt;p&gt;Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! &lt;a href=&#34;https://www.youtube.com/watch?v=IVvHPPcl2TM&#34;&gt;https://www.youtube.com/watch?v=IVvHPPcl2TM&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://youtu.be/nYkdrAPrdcw?t=40m30s&#34;&gt;http://youtu.be/nYkdrAPrdcw?t=40m30s&lt;/a&gt;
@@ -159,10 +145,10 @@ having everyone relearn the nomenclature.&lt;/p&gt;
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -261,10 +247,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>Match Expression for JavaScript?</title>
-      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
+      <link>http://localhost:1313/2014/06/20/match_expression_javascript/</link>
       <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
+      <guid>http://localhost:1313/2014/06/20/match_expression_javascript/</guid>
       <description>&lt;p&gt;Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of &lt;code&gt;if&lt;/code&gt; statements. &lt;code&gt;if&lt;/code&gt; was awfully cluttered. I had looked at &lt;a href=&#34;http://bilby.brianmckenna.org/examples/validation.htm&#34;&gt;bilby.js examples&lt;/a&gt; and hadn&amp;rsquo;t realized that you can do multiple &lt;code&gt;ternary expressions&lt;/code&gt; in a row.&lt;/p&gt;
 
 &lt;p&gt;So, instead of,&lt;/p&gt;
@@ -368,10 +354,10 @@ return value
     
     <item>
       <title>A Distributed &amp; Robust Feedly</title>
-      <link>http://jnyman.com/2014/06/12/distributed_robust_feedly/</link>
+      <link>http://localhost:1313/2014/06/12/distributed_robust_feedly/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/12/distributed_robust_feedly/</guid>
+      <guid>http://localhost:1313/2014/06/12/distributed_robust_feedly/</guid>
       <description>&lt;p&gt;In light of the recent attack on &lt;a href=&#34;http://feedly.com/&#34;&gt;Feedly.com&lt;/a&gt; I thought it might be interesting to see other ways we could propogate data accross the Interent without being succeptible to attacks, or, at least less accessible.&lt;/p&gt;
 
 &lt;p&gt;With the approach outlined below we need to use an actual app instead of being able to use a browser (there might be a way to use a browser also, not sure how it would work though).&lt;/p&gt;
@@ -382,7 +368,7 @@ return value
 
 &lt;p&gt;It will be nice when the internet will catch up with the distributed model of doing things.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://jnyman.com/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://jnyman.com/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A Simple Outline of How to Set Up a Distributed Feedly&lt;/p&gt;
@@ -390,11 +376,29 @@ return value
     </item>
     
     <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/2014/06/07/html/</link>
+      <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2014/06/07/html/</guid>
+      <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
+functional manner). I’ve also gone the way of Linux away from Windows. I
+love Excel and its power. But I see the writing on the wall and am
+moving to where I can hopefully get some work and starting making some
+moolah. You can follow my new blog over at
+&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.\
+ If anyone is interested in the products I’ve made let me know how you
+like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
+me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Prototypes &amp; Compositions with Objects</title>
-      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
+      <link>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
+      <guid>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</guid>
       <description>&lt;p&gt;I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that &lt;a href=&#34;http://lodash.com/&#34;&gt;lo-dash&lt;/a&gt; and other libraries have done a good job bridging those worlds.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s say you have an object &lt;code&gt;O&lt;/code&gt; such that&lt;/p&gt;
@@ -497,10 +501,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Functional Immutability in JavaScript</title>
-      <link>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</link>
+      <link>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</link>
       <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</guid>
+      <guid>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</guid>
       <description>&lt;p&gt;This is taken from Michael Fogus&amp;rsquo; book &lt;em&gt;Functional JavaScript&lt;/em&gt; in the chapter &lt;em&gt;Purity, Immutability, and Policies for Change&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Immutability is impossible to achieve in JavaScript without using &lt;code&gt;Object.freeze&lt;/code&gt; but it only performs makes the object immutable shallowing, you have to roll your own &lt;code&gt;deepFreeze&lt;/code&gt; if you would like to make the object truly immutable.&lt;/p&gt;
@@ -529,10 +533,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Functional or Object Oriented JavaScript?</title>
-      <link>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</link>
+      <link>http://localhost:1313/2014/05/29/functional_or_oo_javascript/</link>
       <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</guid>
+      <guid>http://localhost:1313/2014/05/29/functional_or_oo_javascript/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;When people are first exposed to JavaScript and its minimal set of tools (functions, objects, prototypes, and arrays), many are underwhelmed. Therefore, in order to “modify” JavaScript to conform to their idea of what it takes to model software solutions, they very often seek out or re-create class-based systems using the primordial ooze.&lt;/p&gt;
 
@@ -557,10 +561,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Notes on Monads, Monoids, and Make Believe</title>
-      <link>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
+      <link>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
       <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
+      <guid>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
       <description>
 
 &lt;h2 id=&#34;with-brian-lonsdorf:0ca8684476f81d878f3c655714614cce&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
@@ -619,10 +623,10 @@ fmap(validNumber, social)
     
     <item>
       <title>bilby.js &amp; functional programming</title>
-      <link>http://jnyman.com/2014/05/13/bilby_functional_programming/</link>
+      <link>http://localhost:1313/2014/05/13/bilby_functional_programming/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/13/bilby_functional_programming/</guid>
+      <guid>http://localhost:1313/2014/05/13/bilby_functional_programming/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been learning functional programming for quite some time and like the programming paradigm. But, it can be difficult sometimes. Some libraries like lodash.js can be easy to start learning, but others like bilby.js require that you understand more of the functional approach. So, here are some videos that have helped me understand bilby.js better.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -643,10 +647,10 @@ fmap(validNumber, social)
     
     <item>
       <title>Notes On Functional Programming</title>
-      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
+      <link>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
+      <guid>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</guid>
       <description>
 
 &lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
@@ -760,44 +764,75 @@ log(result)
     </item>
     
     <item>
-      <title>Filler</title>
-      <link>http://jnyman.com/2014/04/15/filler/</link>
-      <pubDate>Tue, 15 Apr 2014 00:00:00 +0000</pubDate>
+      <title>Spreadsheet Budget Launched</title>
+      <link>http://localhost:1313/2013/10/28/spreadsheet_budget_launched/</link>
+      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/04/15/filler/</guid>
-      <description>
+      <guid>http://localhost:1313/2013/10/28/spreadsheet_budget_launched/</guid>
+      <description>&lt;p&gt;This first version is pretty basic - yet powerful. It will import your financial data from &lt;a href=&#34;http://kmymoney2.sourceforge.net/index-home.html&#34;&gt;KMyMoney&lt;/a&gt; (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (&lt;a href=&#34;wyday.com/wyupdate/‎&#34;&gt;wyUpdate&lt;/a&gt;) so you can stay up to date with the latest version with small packages.&lt;/p&gt;
 
-&lt;h3 id=&#34;filled:d2871fa57ae2d72b9a7571c6b7ddfa15&#34;&gt;Filled&lt;/h3&gt;
+&lt;p&gt;Let me know what financial program you use so I can add it to the list for future compatibility.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Already&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How to install the add-in.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/hJbNhsCR-Qk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Spreadsheet Budget Launched</title>
-      <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
-      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
+      <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
+      <link>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
+      <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
-      <description>&lt;p&gt;This first version is pretty basic - yet powerful. It will import your financial data from &lt;a href=&#34;http://kmymoney2.sourceforge.net/index-home.html&#34;&gt;KMyMoney&lt;/a&gt; (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (&lt;a href=&#34;wyday.com/wyupdate/‎&#34;&gt;wyUpdate&lt;/a&gt;) so you can stay up to date with the latest version with small packages.&lt;/p&gt;
+      <guid>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
+Sync) is great software which can be used for syncing files. I use it
+for backing up all my pictures/videos/music/files/mobile computers.
+Well, I did some testing and it looks like it can be used for installing
+and updating software also.&lt;/p&gt;
 
-&lt;p&gt;Let me know what financial program you use so I can add it to the list for future compatibility.
-&lt;div align=&#34;center&#34;&gt;[wpdm_file id=6]&lt;/div&gt;
-&lt;strong&gt;How to install the add-in.&lt;/strong&gt;
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/hJbNhsCR-Qk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;div align=&#34;center&#34;&gt;
-&lt;table align=&#34;center&#34;&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;[singlepic id=8 w=100 h=100]&lt;/td&gt;
-&lt;td&gt;[singlepic id=9 w=100 h=100]&lt;/td&gt;
-&lt;td&gt;[singlepic id=10 w=100 h=100]&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;I tested it with my Windows 8 computer over to my Windows XP computer. I
+created an Excel xla add-in file and I also created an executable file.
+Both worked fine after syncing. The following procedure was used:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create folder for program you would like synced&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync/get-started.html&#34;&gt;Create a syncing
+folder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Copy read only secret
+
+&lt;ul&gt;
+&lt;li&gt;right click on folder to sync in BT Sync “Show folder
+preferences” then copy read only secret&lt;/li&gt;
+&lt;li&gt;Careful not to copy the wrong folder! You don’t want others
+getting your data!&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Give the secret to all those that you would like to have it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;BT Sync could probably work for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This seems like a good idea for open source projects which are free.&lt;/li&gt;
+&lt;li&gt;It could probably also work for paid products which allow for
+updates for a year or more. For paid products a developer could just
+create a new folder after the latest cutoff period.&lt;/li&gt;
+&lt;li&gt;This might be ideal for corporate wide add-ins also. The main
+problem with that is security of course. So I am not quite sure how
+that would be worked out.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The down side would be that for people which don’t want to install BT
+Sync you would need a back up updater/installer.&lt;/p&gt;
+
+&lt;p&gt;Let me know what you think! It would be interesting to hear other ideas
+on how this could work in the programming environment &lt;a href=&#34;http://blog.bittorrent.com/tag/bittorrent-sync/&#34;&gt;which haven’t
+already been thought
+of&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -18,36 +18,22 @@ filled in).
 
 Here’s an example:
 
-+--------------------------------------------------------------------------+
-| ``` {.vbnet style="font-family:monospace;"}                              |
-|     ''' <summary>                                                        |
-|     ''' Search sorted 2D array.                                          |
-|     ''' </summary>                                                       |
-|     ''' <param name="oaArray">Array to search.</param>                   |
-|     ''' <param name="IsEqual">Predicate determining equality (-1 - less  |
-| than, 0 - equal, 1 - greater than)</param>                               |
-|     ''' <param name="iSearchColumnIndex">Sorted column to search.</param |
-| >                                                                        |
-|     ''' <returns>First index of item or negative value before where the  |
-| value would be located.</returns>                                        |
-|     ''' <remarks>Jon Nyman @ www.SpreadsheetBudget.com 120507            |
-|     ''' Source:https://en.wikipedia.org/wiki/Binary_search_algorithm#Def |
-| erred_detection_of_equality </remarks>                                   |
-|     <Extension()>                                                        |
-|     Public Function BinarySearch(ByRef oaArray(,) As Object _            |
-|                                  , ByVal IsEqual As Func(Of Object, Inte |
-| ger) _                                                                   |
-|                                  , ByVal iSearchColumnIndex As Integer)  |
-| As Integer                                                               |
-| ```                                                                      |
-+--------------------------------------------------------------------------+
-
- 
-
-Here’s how the intellisense would look:
-
- 
-
-[![](http://www.spreadsheetbudget.com/wp-content/uploads/2012/08/XMLCommentPopUp.jpg "XML Comment Intellisense")](http://www.spreadsheetbudget.com/wp-content/uploads/2012/08/XMLCommentPopUp.jpg)
-
-XML Comment Intellisense
+```vbscript
+''' <summary>
+''' Search sorted 2D array.
+''' </summary>
+''' <param name="oaArray">Array to search.</param>
+''' <param name="IsEqual">Predicate determining equality (-1 - less than, 0 -
+    equal, 1 - greater than)</param>
+''' <param name="iSearchColumnIndex">Sorted column to search.</param>
+''' <returns>First index of item or negative value before where
+    the value would be located.</returns>
+''' <remarks>Jon Nyman @ www.SpreadsheetBudget.com 120507
+''' Source:https://en.wikipedia.org/wiki/Binary_search_algorithm#Def
+erred_detection_of_equality </remarks>
+<Extension()>
+Public Function BinarySearch(ByRef oaArray(,) As Object _
+                             , ByVal IsEqual As Func(Of Object, Integer) _
+                             , ByVal iSearchColumnIndex As Integer)
+As Integer
+```

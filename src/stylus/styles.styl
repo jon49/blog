@@ -1,0 +1,194 @@
+background = #C2DFFF
+color-border = #CCC
+color-font-main = color-border //#BAC4CF
+fireRed = #86555C
+fireOrange = #987F5A
+fireYellow = #A49A59
+color-background-highlight = #83A4D2
+menu-width = 0px
+max-content-width = 800px
+color = #36465D
+
+small = 12px
+regular = 16px
+large = 32px
+
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+
+body
+  background-color background //#C4D8DE
+  font-family sans-serif
+  color color
+
+  > *
+    margin 0 auto
+    width 100%
+
+a
+  color fireRed
+
+  &:visited
+    color color
+
+
+
+nav
+.archive
+.footer-menu
+.nav-posts
+  text-align center
+  font-size regular
+  line-height 24px
+
+  ul
+    padding 0
+
+  li
+    list-style-type none
+
+  a
+    text-decoration none
+    color color
+    padding 15px
+
+  a:hover
+    color background
+    background-color color-background-highlight
+
+.posts a
+  padding-top 3px
+  padding-bottom 3px
+  display block
+
+.nav-posts
+  margin-top 15px
+  font-weight bold
+  .previous::before
+    content '«'
+  .next::after
+    content ' »'
+  a
+    text-decoration none
+
+
+
+nav
+.footer-menu
+  li
+    display inline-block
+
+h1
+  border-bottom solid color 1px
+  padding 10px
+  font-size large
+
+footer
+  font-size small
+  text-align center
+
+@media screen and (min-width 801px)
+  .site-logo
+    background-color transparent
+    background-image url("/images/fire.png")
+    display block
+    width 80px
+    height 80px
+    margin 0 auto
+    border solid color 2px
+    border-radius 50%
+
+  body
+    > *
+      width 800px
+
+/* Atelier-Estuary Red */
+.hljs-variable
+.hljs-attribute
+.hljs-tag
+.hljs-regexp
+.hljs-name
+.ruby .hljs-constant
+.xml .hljs-tag .hljs-title
+.xml .hljs-pi
+.xml .hljs-doctype
+.html .hljs-doctype
+.css .hljs-id
+.css .hljs-class
+.css .hljs-pseudo
+  color fireRed
+
+/* Atelier-Estuary Orange */
+.hljs-number
+.hljs-preprocessor
+.hljs-built_in
+.hljs-literal
+.hljs-params
+.hljs-constant
+  color fireOrange
+
+/* Atelier-Estuary Yellow */
+.ruby .hljs-class .hljs-title
+.css .hljs-rule .hljs-attribute
+  color fireYellow
+
+/* Atelier-Estuary Green */
+.hljs-string
+.hljs-value
+.hljs-inheritance
+.hljs-header
+.ruby .hljs-symbol
+.xml .hljs-cdata
+  color #7d9726
+
+/* Atelier-Estuary Aqua */
+.hljs-title
+.css .hljs-hexcolor
+  color #5b9d48
+
+/* Atelier-Estuary Blue */
+.hljs-function
+.python .hljs-decorator
+.python .hljs-title
+.ruby .hljs-function .hljs-title
+.ruby .hljs-title .hljs-keyword
+.perl .hljs-sub
+.javascript .hljs-title
+.coffeescript .hljs-title
+  color color-background-highlight
+
+/* Atelier-Estuary Purple */
+.hljs-keyword
+.javascript .hljs-function
+  color #5f9182
+
+.diff .hljs-deletion
+.diff .hljs-addition
+  color #22221b
+  display inline-block
+  width 100%
+
+.diff .hljs-deletion
+  background-color #ba6236
+
+.diff .hljs-addition
+  background-color #7d9726
+
+.diff .hljs-change
+  color #36a166
+
+.hljs
+  display block
+  overflow-x auto
+  background color
+  color background
+  padding 0.5em
+  -webkit-text-size-adjust none
+
+.coffeescript .javascript
+.javascript .xml
+.tex .hljs-formula
+.xml .javascript
+.xml .vbscript
+.xml .css
+.xml .hljs-cdata
+  opacity 0.5

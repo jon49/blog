@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Range on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/range/</link>
+    <link>http://localhost:1313/tags/range/</link>
     <description>Recent content in Range on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Jan 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/range/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/range/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Range Address from Number to Letter</title>
-      <link>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</link>
+      <link>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</link>
       <pubDate>Fri, 20 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</guid>
+      <guid>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</guid>
       <description>&lt;p&gt;Sometimes, before I realize it (and, I’m sure, others too) I do a bunch of work, that turns out that I didn’t need to do before. The RangeAddress function that I created is a perfect example of this. This function goes from a column number to a letter and returns the whole string range address. I started off &lt;a href=&#34;http://www.excelforum.com/excel-programming/638861-vb-convert-column-letter-to-number.html&#34;&gt;with someones else’s code&lt;/a&gt;. I then made it work for me. Their code only worked for Excel 2003 and below. The code below will work for All Excel versions. But there is a better way! The better way is in the &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/12/get-range-from-row-and-column-numbers/&#34;&gt;RRange function&lt;/a&gt; I posted about before. Below this code I’ll show you the basic gist on how to go about it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;RangeAddress
@@ -127,10 +127,10 @@ Range Address: $AI$1:$AL$1
     
     <item>
       <title>Get Range from Row &amp; Column Numbers</title>
-      <link>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</link>
+      <link>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</link>
       <pubDate>Thu, 12 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</guid>
+      <guid>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</guid>
       <description>&lt;p&gt;Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below I’ve simplified it considerably by using the Cells method.&lt;/p&gt;
 
 &lt;p&gt;In the function below I use a &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/13/find-last-cell/&#34;&gt;function called FindEnd&lt;/a&gt;.&lt;/p&gt;

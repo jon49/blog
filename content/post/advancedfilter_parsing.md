@@ -31,16 +31,16 @@ Card](http://www.spreadsheetbudget.com/products/excel-time-card/) add-in
 it enough I might even release it as its own project.
 
 So this is how I imagine the user interacting with the Report Generator.
-A simple text box (I like to keep things as simple as possible
-![:)](http://www.spreadsheetbudget.com/wp-includes/images/smilies/icon_smile.gif)
+A simple text box (I like to keep things as simple as possible :-)
 ) will be on a windows form. When the user types there will be helps for
 the user to choose from in an auto complete drop down box. Below would
 be a possible report requested from a user (called [infix
 notation](http://en.wikipedia.org/wiki/Infix_notation) – you learn quite
 a bit of English when you code):
 
-> [Jobs]= Job1 AND [Time]\>2 OR ([Jobs]=Job2 OR [Jobs]=Job3 AND
-> [Comments]=Project\*)
+```
+[Jobs]= Job1 AND [Time]\>2 OR ([Jobs]=Job2 OR [Jobs]=Job3 AND [Comments]=Project\*)
+```
 
 I need the parentheses since [logic order of
 operations](http://en.wikipedia.org/wiki/Logical_connective#Order_of_precedence)
@@ -48,17 +48,21 @@ dictates that AND is before OR. Now I only need to worry about AND and
 ORs because Excel will figure out the rest for me, e.g., instead of
 putting
 
-> [Jobs]=Job2
+```
+[Jobs]=Job2
+```
 
 one could put
 
-> [Jobs]\<\>Job2.
+```
+[Jobs]\<\>Job2.
+```
 
 Now, this may look difficult for a user, but remember, there will be a
 drop down list for a user to choose from. Also, I will pull out the
 dates and supply a calendar to make it even easier on the user.
 
-[ I found someone that put the shunting algorithm in
+[I found someone that put the shunting algorithm in
 Java](http://andreinc.net/2010/10/05/converting-infix-to-rpn-shunting-yard-algorithm/).
 After programming for some time, it becomes much easier to look at the
 work of others in different languages and convert them to your own.
@@ -72,11 +76,15 @@ This notation is a bit confusing at first. But once you look at it for a
 while you get used to it. Let’s take the example shown in the Java code
 mentioned above. So this is the equation you need to parse:
 
+```
 (1+2)\*(3/4)\^(5+6)
+```
 
 The result after putting the code through the shunting algorithm is:
 
+```
 1 2 + 3 4 / 5 6 + \^ \*
+```
 
 So, to get the answer from the RPN notation we need to start from left
 to right. If there are two numbers in a row then perform operation, else

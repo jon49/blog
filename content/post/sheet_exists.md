@@ -11,7 +11,8 @@ I was looking at <a href="http://www.siddharthrout.com">Siddharth Rout's new blo
 
 If I were to <a href="http://en.wikipedia.org/wiki/Refactor">refactor</a> this code I would take out the code for the charts and probably just make it work only for checking if the sheet exists and adding a new sheet if it doesn't. I would create a separate function for deleting sheets. But once you have lot's of code written it is difficult to refactor all your code just to change one function (and I use this function quite a bit).
 
-<pre lang="VB">'SheetExists
+```vbscript
+'SheetExists
 ' --------------------------------------------------------------
 'Comments:  This function returns TRUE if the sheet exists in the
 '           active workbook and adds new sheet if bAddSheet is true.
@@ -32,9 +33,9 @@ If I were to <a href="http://en.wikipedia.org/wiki/Refactor">refactor</a> this c
 Public Function SheetExists(ByVal sSheetName As String, Optional ByVal bAddSheet As Boolean = False, _
     Optional ByVal wkb As Workbook = Nothing, Optional ByVal bCreateChart As Boolean = False _
     , Optional ByVal bDeleteSheet As Boolean = False, Optional ByRef wks As Object) As Tristate
-    
+
     Dim bByRef As Boolean
-    
+
     'Get current workbook that function will be working on.
     bByRef = True
     If wkb Is Nothing Then
@@ -74,13 +75,15 @@ Public Function SheetExists(ByVal sSheetName As String, Optional ByVal bAddSheet
     ElseIf SheetExists Then
         Set wks = wkb.Sheets(sSheetName)
     End If
-    
+
 SheetExists_Exit:
     If Not bByRef Then Set wkb = Nothing
-    
-End Function</pre>
 
-<pre lang="VB">'ExistsInCollection
+End Function
+```
+
+```vbscript
+'ExistsInCollection
 ' --------------------------------------------------------------
 'Comments:  This procedure deletes names in a workbook.
 '
@@ -105,4 +108,5 @@ Public Function ExistsInCollection(ByRef colObject As Object, ByRef sItem As Str
 
     Set oObj = Nothing
 
-End Function</pre>
+End Function
+```

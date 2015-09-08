@@ -14,7 +14,7 @@ Overloading pretty much works just by writing the same procedure two or more tim
 
 Here's how it looks when you call it on your screen when typing out the function name:
 
-[pic name="Overload.png"]
+![Overloading](/images/Overload.png)
 
 So here's some code that uses overloading:
 ``` vbscript

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Extensions on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/extensions/</link>
+    <link>http://localhost:1313/tags/extensions/</link>
     <description>Recent content in Extensions on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Apr 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/extensions/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/extensions/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Lambda Expressions</title>
-      <link>http://jnyman.com/2012/04/14/lambda_expressions_an_introduction/</link>
+      <link>http://localhost:1313/2012/04/14/lambda_expressions_an_introduction/</link>
       <pubDate>Sat, 14 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/04/14/lambda_expressions_an_introduction/</guid>
+      <guid>http://localhost:1313/2012/04/14/lambda_expressions_an_introduction/</guid>
       <description>&lt;p&gt;Another thing that I like about programming in .NET beyond &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/11/linq-an-introduction/&#34;&gt;LINQ&lt;/a&gt; and &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/05/extensions-in-vb-net/&#34;&gt;Extensions&lt;/a&gt; is &lt;a href=&#34;http://msdn.microsoft.com/en-us/magazine/cc163362.aspx&#34;&gt;lambda expressions&lt;/a&gt;. (It should be noted that LINQ, Extensions, and lambda expressions are all related). Lambda expressions are &amp;ldquo;are callable entities that are defined within a function, you can return a lambda expression from a function and you can pass lambda expressions to other functions.&amp;rdquo; Lambda expressions come with the System.Core library, so no need to add a reference nor Imports at the top of your class.&lt;/p&gt;
 
 &lt;p&gt;Lambda expressions simplify your code by allowing you to call internal functions within functions, even create &amp;ldquo;function variables.&amp;rdquo; To get a full overview read the link on &lt;a href=&#34;http://msdn.microsoft.com/en-us/magazine/cc163362.aspx&#34;&gt;lambda expressions&lt;/a&gt;.&lt;/p&gt;
@@ -110,10 +110,10 @@ Return FindIndex2DSortedLambda(oaArray, Function(a As Object) String.Compare(a.T
     
     <item>
       <title>Extensions in VB.NET</title>
-      <link>http://jnyman.com/2012/04/05/extensions_in_vb_net/</link>
+      <link>http://localhost:1313/2012/04/05/extensions_in_vb_net/</link>
       <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/04/05/extensions_in_vb_net/</guid>
+      <guid>http://localhost:1313/2012/04/05/extensions_in_vb_net/</guid>
       <description>&lt;p&gt;Learning how to use VB.NET can be quite the leap from VBA, but once you start learning VB.NET and have much more control it’s difficult to want to go back to VBA.&lt;/p&gt;
 
 &lt;p&gt;One of the things that I like about VB.NET is methods. Extensions allow you to extend data type methods. So, let’s say you have a String data type (Strings in VB.NET are like a class in and of themselves) and you want it to have the method of appending “]” at the end. So you would have an extension method like so:&lt;/p&gt;

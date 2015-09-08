@@ -10,4 +10,4 @@ For the advanced filter I need a list of Excel functions. There are lists, unfor
 
 I thought others might be able to use this list also. Feel free to download it!
 
-<a href="#{site.download.XL_Functions.fullName}" title="#{site.download.XL_Functions.title}"><i class="fa fa-download fa-large"></i></a>
+<a href="/files/ExcelFunctionsListCleaned.zip" title="List of Excel Functions"><i class="fa fa-download fa-large"></i></a>

@@ -11,23 +11,15 @@ So this year, I'm at it again, but on a bigger scale.
 
 &nbsp;
 
-<div class="image">
+<img src="/images/Hugelkultur-pit.jpg" style="width:400px;">
 
-[pic name="Hugelkulture-pit.jpg" w="100%" h="100%" alt="Pit"]
-
-<p>8 feet by 4 feet wide by 3 feet deep pit for wood.</p>
-
-</div>
+*8 feet by 4 feet wide by 3 feet deep pit for wood.*
 
 &nbsp;
 
-<div class="image">
+<img src="/images/Hugelkultur.jpg" style="width:400px;">
 
-[pic name="Hugelkultur.jpg" w="100%" h="100%" alt="Stack"]
-
-<p>All the logs put in the pit. About 4 feet tall.</p>
-
-</div>
+*All the logs put in the pit. About 4 feet tall.*
 
 &nbsp;
 

@@ -1,13 +1,18 @@
 ---
-date: 2014-10-28
-title: Site Ending
+date: 2014-06-07
+title: JavaScript
 tags: 
     - excel
     - vba
+    - javascript
 ---
 
-This site will be going the way of the ether come next week. You can
-still see the posts over
-at <http://spreadsheetbudget.com.s3-website-us-east-1.amazonaws.com/blog/>.
-It’s been great. Check out my web development blog over
-at <http://jon.prescottprogrammers.com/>.
+I’ve jumped ship from Excel programming over to JavaScript (in a
+functional manner). I’ve also gone the way of Linux away from Windows. I
+love Excel and its power. But I see the writing on the wall and am
+moving to where I can hopefully get some work and starting making some
+moolah. You can follow my new blog over at
+<http://thisisafiller.ghoster.io/>.\
+ If anyone is interested in the products I’ve made let me know how you
+like them and [send me an e-mail](http://nymanjon@gmail.com). Or tweet
+me [@NymanJon](https://twitter.com/NymanJon).

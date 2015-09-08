@@ -15,78 +15,78 @@ So here is a list of <a href="http://stackoverflow.com/questions/366418/resource
 So let's see some old code compared to the cleaner new code I grabbed from an algorithm:
 <h4>Old code</h4>
 
-``` vbscript
-    Public Function FindIndexSorted(ByRef oaArray(,) As Object, ByVal IsEqual As Func(Of Object, Integer), ByVal iSearchIndex As Integer) As Integer
+```vbscript
+Public Function FindIndexSorted(ByRef oaArray(,) As Object, ByVal IsEqual As Func(Of Object, Integer), ByVal iSearchIndex As Integer) As Integer
 
-        Dim iResult As Integer = 0, iTest As Integer, iNext As Integer
-        Dim iUpperSearch As Integer = oaArray.GetUpperBound(0)
-        Dim iLowerSearch As Integer = 0
-        Dim iPrevious As Integer = -1
+    Dim iResult As Integer = 0, iTest As Integer, iNext As Integer
+    Dim iUpperSearch As Integer = oaArray.GetUpperBound(0)
+    Dim iLowerSearch As Integer = 0
+    Dim iPrevious As Integer = -1
 
-        Try
-            If IsEqual(oaArray(0, iSearchIndex)) &lt; 0 Then 'If value is the less than the first index then skip                 Return -1             ElseIf IsEqual(oaArray(iUpperSearch, iSearchIndex)) &gt; 0 Then 'If it is greater than the last index then skip
-                Return -(iUpperSearch + 1)
-            Else
-                iResult = -1
-            End If
-
-            'Find start indexes
-            Do While iResult = -1
-                iNext = (iUpperSearch + iLowerSearch) \ 2 'Get new search location
-                iTest = IsEqual(oaArray(iNext, iSearchIndex))
-                If iTest &gt; 0 Then 'Get new lower search location
-                    iLowerSearch = iNext
-                ElseIf iTest &lt; 0 Then 'Get new upper search location                     iUpperSearch = iNext                 Else 'If equal find first instance of item                     iResult = iNext - 1                     If iResult &gt; -1 Then
-                        Do While IsEqual(oaArray(iResult, iSearchIndex)) = 0
-                            iResult -= 1
-                            If iResult = -1 Then Exit Do
-                        Loop
-                    End If
-                    iResult += 1
-                End If
-                If iPrevious = iNext Then 'Get first item
-                    If IsEqual(oaArray(iLowerSearch, iSearchIndex)) &lt; 0 Then Return -(iLowerSearch - 1)
-                    iTest = IsEqual(oaArray(iUpperSearch, iSearchIndex))
-                    If iTest &lt; 0 Then
-                        Return -(iUpperSearch - 1)
-                    ElseIf iTest = 0 Then
-                        Return iUpperSearch
-                    End If
-                Else
-                    iPrevious = iNext
-                End If
-            Loop
-        Catch ex As InvalidCastException
+    Try
+        If IsEqual(oaArray(0, iSearchIndex)) &lt; 0 Then 'If value is the less than the first index then skip                 Return -1             ElseIf IsEqual(oaArray(iUpperSearch, iSearchIndex)) &gt; 0 Then 'If it is greater than the last index then skip
+            Return -(iUpperSearch + 1)
+        Else
             iResult = -1
-        End Try
+        End If
 
-        Return iResult
+        'Find start indexes
+        Do While iResult = -1
+            iNext = (iUpperSearch + iLowerSearch) \ 2 'Get new search location
+            iTest = IsEqual(oaArray(iNext, iSearchIndex))
+            If iTest &gt; 0 Then 'Get new lower search location
+                iLowerSearch = iNext
+            ElseIf iTest &lt; 0 Then 'Get new upper search location                     iUpperSearch = iNext                 Else 'If equal find first instance of item                     iResult = iNext - 1                     If iResult &gt; -1 Then
+                    Do While IsEqual(oaArray(iResult, iSearchIndex)) = 0
+                        iResult -= 1
+                        If iResult = -1 Then Exit Do
+                    Loop
+                End If
+                iResult += 1
+            End If
+            If iPrevious = iNext Then 'Get first item
+                If IsEqual(oaArray(iLowerSearch, iSearchIndex)) &lt; 0 Then Return -(iLowerSearch - 1)
+                iTest = IsEqual(oaArray(iUpperSearch, iSearchIndex))
+                If iTest &lt; 0 Then
+                    Return -(iUpperSearch - 1)
+                ElseIf iTest = 0 Then
+                    Return iUpperSearch
+                End If
+            Else
+                iPrevious = iNext
+            End If
+        Loop
+    Catch ex As InvalidCastException
+        iResult = -1
+    End Try
 
-    End Function
+    Return iResult
+
+End Function
 ```
 
 <h4>New Cleaner Code</h4>
 
-``` vbscript
+```vbscript
 'https://en.wikipedia.org/wiki/Binary_search_algorithm#Deferred_detection_of_equality
 
-    Public Function BinarySearch(ByRef oaArray(,) As Object, ByVal IsEqual As Func(Of Object, Integer) _
-                                , ByVal iSearchColumnIndex As Integer) As Integer
+Public Function BinarySearch(ByRef oaArray(,) As Object, ByVal IsEqual As Func(Of Object, Integer) _
+                            , ByVal iSearchColumnIndex As Integer) As Integer
 
-        Dim iMin = 0, iMax = oaArray.GetUpperBound(0)
+    Dim iMin = 0, iMax = oaArray.GetUpperBound(0)
 
-        '// continually narrow search until just one element remains
-        Do While iMin &lt; iMax
-            Dim iMid = CInt(Math.Floor((iMin + iMax) / 2))
+    '// continually narrow search until just one element remains
+    Do While iMin &lt; iMax
+        Dim iMid = CInt(Math.Floor((iMin + iMax) / 2))
 
-            '// code must guarantee the interval is reduced at each iteration
-            Debug.Assert(iMid &lt; iMax)
-            '// note: 0  0 Then
-                    iMin += 1
-                End If
+        '// code must guarantee the interval is reduced at each iteration
+        Debug.Assert(iMid &lt; iMax)
+        '// note: 0  0 Then
+                iMin += 1
             End If
-            Return -iMin
         End If
+        Return -iMin
+    End If
 
-    End Function
+End Function
 ```

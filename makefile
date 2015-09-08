@@ -22,6 +22,9 @@ watch:
 	watch make posts & \
 		hugo server -w
 
+stylus:
+	node ./node_modules/.bin/stylus -w -c src/stylus/ -o layouts/css/
+
 all: posts
 
 clean:

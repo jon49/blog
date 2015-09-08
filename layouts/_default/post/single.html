@@ -1,0 +1,33 @@
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+
+<!-- <div class="post"> -->
+  <!-- <header> -->
+  <!--   <p class="footnote"> -->
+  <!--     <span>{{ $page.Date.Format "Mon Jan 2, 2006" }}</span> -->
+  <!--     {{ $baseurl := .Site.BaseURL }} -->
+  <!--         {{ if or .Params.tags .Params.categories .Params.series }} -->
+  <!--         | -->
+  <!--         {{ end }} -->
+  <!--         {{ if isset .Params "tags" }} -->
+  <!--         tags:{{ range .Params.tags }}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }} -->
+  <!--         {{ end }} -->
+  <!--  -->
+  <!--         {{ if isset .Params "categories" }} -->
+  <!--         categories:{{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }} -->
+  <!--         {{ end }} -->
+  <!--  -->
+  <!--         {{ if isset .Params "series" }} -->
+  <!--         series:{{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }} -->
+  <!--         {{ end }} -->
+  <!--     </p> -->
+  <!--     <h1>{{ .Title }}</h1> -->
+  <!-- </header> -->
+  <!--  -->
+  <article>
+    {{ .Content }}
+  </article>
+<!-- </div> -->
+
+{{ partial "footer.html" . }}

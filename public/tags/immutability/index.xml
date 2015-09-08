@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Immutability on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/immutability/</link>
+    <link>http://localhost:1313/tags/immutability/</link>
     <description>Recent content in Immutability on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/immutability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/immutability/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -113,10 +113,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>Functional Immutability in JavaScript</title>
-      <link>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</link>
+      <link>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</link>
       <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</guid>
+      <guid>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</guid>
       <description>&lt;p&gt;This is taken from Michael Fogus&amp;rsquo; book &lt;em&gt;Functional JavaScript&lt;/em&gt; in the chapter &lt;em&gt;Purity, Immutability, and Policies for Change&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Immutability is impossible to achieve in JavaScript without using &lt;code&gt;Object.freeze&lt;/code&gt; but it only performs makes the object immutable shallowing, you have to roll your own &lt;code&gt;deepFreeze&lt;/code&gt; if you would like to make the object truly immutable.&lt;/p&gt;

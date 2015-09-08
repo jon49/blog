@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "description": "Programming Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jon49/blog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Jon Nyman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jon49/blog/issues"
+  },
+  "homepage": "https://github.com/jon49/blog#readme",
+  "devDependencies": {
+    "stylus": "^0.52.4"
+  }
+}

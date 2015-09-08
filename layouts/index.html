@@ -1,0 +1,22 @@
+{{ partial "head.html" . }}
+{{ partial "navbar.html" . }}
+{{ partial "header.html" . }}
+
+<main class="archive">
+  <h1>Archive</h1>
+  <article>
+    {{ .Description }}
+  </article>
+  <ul class="posts">
+    {{ $baseurl := .Site.BaseURL }}
+    {{ range $name, $page := .Site.Pages }}
+      {{ if eq .Type "post" }}
+        <li>
+          <a href="{{ .Permalink }}">{{ $page.Title }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</main>
+
+{{ partial "footer.html" . }}
