@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Excel on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/excel/</link>
+    <link>http://jnyman.com/tags/excel/</link>
     <description>Recent content in Excel on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/excel/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/2014/06/07/html/</link>
+      <link>http://jnyman.com/2014/06/07/html/</link>
       <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/07/html/</guid>
+      <guid>http://jnyman.com/2014/06/07/html/</guid>
       <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
 functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am
@@ -29,20 +29,20 @@ me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;
     
     <item>
       <title>Zipping Files with VBA and USB Drives</title>
-      <link>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
+      <link>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
       <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
+      <guid>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
       <description>&lt;p&gt;I used &lt;a href=&#34;http://www.rondebruin.nl/win/s7/win001.htm&#34;&gt;Ron de Bruin&amp;rsquo;s file zipping (and sending) code with Excel&lt;/a&gt;. It works great with a few tweaks. Unfortunately when someone is using a USB drive with their workbook on it it fails to work. So warning: Make sure the users are using it on the main computer when trouble shooting!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>SUMIFS vs MATCH &amp; INDEX</title>
-      <link>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</link>
+      <link>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</link>
       <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</guid>
+      <guid>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</guid>
       <description>&lt;p&gt;I have one Time Card template setup with SUMIFS (used for Excel 2007 and
 above templates) and one set up with MATCH/INDEX (used for my 2003 and
 below templates). I tested the calculation speeds for each in Excel 2013
@@ -103,10 +103,10 @@ huge issue.&lt;/p&gt;
     
     <item>
       <title>Excel Extensions</title>
-      <link>http://localhost:1313/2013/02/25/excel_extensions/</link>
+      <link>http://jnyman.com/2013/02/25/excel_extensions/</link>
       <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/25/excel_extensions/</guid>
+      <guid>http://jnyman.com/2013/02/25/excel_extensions/</guid>
       <description>&lt;p&gt;Excel extensions extend the range object to use
 &lt;a href=&#34;http://www.spreadsheetbudget.com/2013/02/25/linqto2darray/&#34;&gt;LinqTo2dArray&lt;/a&gt;
 (see also &lt;a href=&#34;http://linqto2darray.codeplex.com/&#34;&gt;Codeplex&lt;/a&gt;). It also
@@ -450,10 +450,10 @@ GetUpperBound(1) + 1);
     
     <item>
       <title>LinqTo2dArray</title>
-      <link>http://localhost:1313/2013/02/25/linqto2darray/</link>
+      <link>http://jnyman.com/2013/02/25/linqto2darray/</link>
       <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/25/linqto2darray/</guid>
+      <guid>http://jnyman.com/2013/02/25/linqto2darray/</guid>
       <description>&lt;p&gt;LinqTo2dArray written in C# (&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0(v=vs.100&#34;&gt;to allow iteration over the
 rows&lt;/a&gt;.aspx)).
 Also found on &lt;a href=&#34;http://linqto2darray.codeplex.com/&#34;&gt;CodePlex&lt;/a&gt;.&lt;/p&gt;
@@ -726,10 +726,10 @@ ber of columns. Compose.&amp;quot;);
     
     <item>
       <title>Max Write to Excel (2003) in Array</title>
-      <link>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</link>
+      <link>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</guid>
+      <guid>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</guid>
       <description>&lt;p&gt;I normally don’t deal with very long strings. But I’m working on a
 project that requires storing a text file in Excel that I can later
 access (it would be nice just to embed it but Excel doesn’t like viruses
@@ -746,10 +746,10 @@ and you’ll get an error.&lt;/p&gt;
     
     <item>
       <title>AdvancedFilter Wrapper Engine</title>
-      <link>http://localhost:1313/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</link>
+      <link>http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</link>
       <pubDate>Tue, 18 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</guid>
+      <guid>http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</guid>
       <description>&lt;p&gt;A while back ago I promised to produce my engine for the advancedfilter wrapper. Well, at the prodding of &lt;a href=&#34;http://blog.contextures.com/archives/2011/03/02/excel-autofilter-or-advanced-filter/#comment-43397&#34;&gt;Hugo&lt;/a&gt; I finally put it together. I took the code from my VB.NET project and converted it to VBA. Man, that reminds of why I love .NET so much! If you ever get a chance to learn .NET of VBA definitely take the opportunity. At first it is difficult but then it gets to the point where you don&amp;rsquo;t want to go back.&lt;/p&gt;
 
 &lt;p&gt;In the next few weeks I&amp;rsquo;ll go over how to use the Search class and its particulars. For anyone that uses it all I ask is that you credit me and that you spread the word about &lt;a href=&#34;products/scribble-filter/&#34;&gt;Scribble Filter&lt;/a&gt;! If you find any bugs let me know and I&amp;rsquo;ll fix them.&lt;/p&gt;
@@ -768,10 +768,10 @@ StandardCode.bas&lt;/p&gt;
     
     <item>
       <title>List of Excel Functions - Code To Use List</title>
-      <link>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
+      <link>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
       <pubDate>Wed, 05 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
+      <guid>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
       <description>&lt;p&gt;I saw a few people were downloading &lt;a href=&#34;2012/08/27/list-of-excel-functions/&#34;&gt;my list of Excel functions that I created&lt;/a&gt;. I thought it might be useful show the code that I use to get that data to a manageable format. Although the code is written in VB.NET it should be easily converted to VBA.&lt;/p&gt;
 
 &lt;p&gt;[wpdm_file id=3]&lt;/p&gt;
@@ -851,10 +851,10 @@ End Function
     
     <item>
       <title>Scribble Filter (For Excel)</title>
-      <link>http://localhost:1313/2012/11/01/scribble_filter_for_excel_overview_part_4/</link>
+      <link>http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</link>
       <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/11/01/scribble_filter_for_excel_overview_part_4/</guid>
+      <guid>http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
@@ -878,10 +878,10 @@ End Function
     
     <item>
       <title>Scribble Filter: Installation &amp; Opening</title>
-      <link>http://localhost:1313/2012/10/31/scribble_filter_installation_opening/</link>
+      <link>http://jnyman.com/2012/10/31/scribble_filter_installation_opening/</link>
       <pubDate>Wed, 31 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/10/31/scribble_filter_installation_opening/</guid>
+      <guid>http://jnyman.com/2012/10/31/scribble_filter_installation_opening/</guid>
       <description>&lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.&lt;/p&gt;
 
 &lt;p&gt;Points discussed in video:&lt;/p&gt;
@@ -900,10 +900,10 @@ End Function
     
     <item>
       <title>Scribble Filter (For Excel)</title>
-      <link>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_2/</link>
+      <link>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</link>
       <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_2/</guid>
+      <guid>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.&lt;/p&gt;
@@ -930,10 +930,10 @@ End Function
     
     <item>
       <title>Scribble Filter (For Excel) Overview Part 3</title>
-      <link>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_3/</link>
+      <link>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</link>
       <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_3/</guid>
+      <guid>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel,
@@ -962,10 +962,10 @@ making it easy to work with and adding new capabilities.&lt;/p&gt;
     
     <item>
       <title>Scribble Filter Overview Part 1</title>
-      <link>http://localhost:1313/2012/10/15/scribble_filter_overview/</link>
+      <link>http://jnyman.com/2012/10/15/scribble_filter_overview/</link>
       <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/10/15/scribble_filter_overview/</guid>
+      <guid>http://jnyman.com/2012/10/15/scribble_filter_overview/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a wrapper for the Advanced Filter in Excel,
@@ -993,10 +993,10 @@ you want something ORed first, otherwise it will be ANDed first.&lt;/li&gt;
     
     <item>
       <title>Sheet Exists</title>
-      <link>http://localhost:1313/2012/09/13/sheet_exists/</link>
+      <link>http://jnyman.com/2012/09/13/sheet_exists/</link>
       <pubDate>Thu, 13 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/09/13/sheet_exists/</guid>
+      <guid>http://jnyman.com/2012/09/13/sheet_exists/</guid>
       <description>&lt;p&gt;I was looking at &lt;a href=&#34;http://www.siddharthrout.com&#34;&gt;Siddharth Rout&amp;rsquo;s new blog&lt;/a&gt; (&lt;a href=&#34;http://www.siddharthrout.com/2012/09/10/addingdeleting-sheets-to-the-excel-file/&#34;&gt;Adding/Deleting Sheets to the Excel File&lt;/a&gt;) and realized that I haven&amp;rsquo;t posted my version of sheet exists. Mine probably does too much per &lt;a href=&#34;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;qid=1347565033&amp;sr=8-1&amp;keywords=code+complete&#34;&gt;Code Complete&lt;/a&gt; standards, but it is nice not to have to think of multiple.&lt;/p&gt;
 
 &lt;p&gt;If I were to &lt;a href=&#34;http://en.wikipedia.org/wiki/Refactor&#34;&gt;refactor&lt;/a&gt; this code I would take out the code for the charts and probably just make it work only for checking if the sheet exists and adding a new sheet if it doesn&amp;rsquo;t. I would create a separate function for deleting sheets. But once you have lot&amp;rsquo;s of code written it is difficult to refactor all your code just to change one function (and I use this function quite a bit).&lt;/p&gt;
@@ -1103,15 +1103,15 @@ End Function
     
     <item>
       <title>List of Excel Functions</title>
-      <link>http://localhost:1313/2012/08/27/list_of_excel_functions/</link>
+      <link>http://jnyman.com/2012/08/27/list_of_excel_functions/</link>
       <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/08/27/list_of_excel_functions/</guid>
+      <guid>http://jnyman.com/2012/08/27/list_of_excel_functions/</guid>
       <description>&lt;p&gt;For the advanced filter I need a list of Excel functions. There are lists, unfortunately I needed the list with the function parameters (syntax). I also wanted it by date. I have lists of just the functions for Excel 2003, 2007, and 2010 without the syntax. So I did some screen scraping of &lt;a href=&#34;http://office.microsoft.com/en-us/excel-help/excel-functions-by-category-HA102752955.aspx?CTT=1#_Toc309306719&#34;&gt;Microsoft&amp;rsquo;s list of Excel functions&lt;/a&gt; where I was able to get the function name, category, description, syntax, and website URL for that function.&lt;/p&gt;
 
 &lt;p&gt;I thought others might be able to use this list also. Feel free to download it!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/files/ExcelFunctionsListCleaned.zip&#34; title=&#34;List of Excel Functions&#34;&gt;&lt;i class=&#34;fa fa-download fa-large&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://jnyman.com/files/ExcelFunctionsListCleaned.zip&#34; title=&#34;List of Excel Functions&#34;&gt;&lt;i class=&#34;fa fa-download fa-large&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

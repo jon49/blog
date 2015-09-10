@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Btsync on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/btsync/</link>
+    <link>http://jnyman.com/tags/btsync/</link>
     <description>Recent content in Btsync on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Sep 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/btsync/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/btsync/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
-      <link>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
+      <link>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
       <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
+      <guid>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
 Sync) is great software which can be used for syncing files. I use it
 for backing up all my pictures/videos/music/files/mobile computers.

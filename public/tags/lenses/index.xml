@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lenses on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/lenses/</link>
+    <link>http://jnyman.com/tags/lenses/</link>
     <description>Recent content in Lenses on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/lenses/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/lenses/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Prototypes &amp; Compositions with Objects</title>
-      <link>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</link>
+      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</guid>
+      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
       <description>&lt;p&gt;I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that &lt;a href=&#34;http://lodash.com/&#34;&gt;lo-dash&lt;/a&gt; and other libraries have done a good job bridging those worlds.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s say you have an object &lt;code&gt;O&lt;/code&gt; such that&lt;/p&gt;
@@ -117,10 +117,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Notes On Functional Programming</title>
-      <link>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</link>
+      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</guid>
+      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
       <description>
 
 &lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;

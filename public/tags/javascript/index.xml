@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/javascript/</link>
+    <link>http://jnyman.com/tags/javascript/</link>
     <description>Recent content in Javascript on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -113,10 +113,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/2014/06/07/html/</link>
+      <link>http://jnyman.com/2014/06/07/html/</link>
       <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/07/html/</guid>
+      <guid>http://jnyman.com/2014/06/07/html/</guid>
       <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
 functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am

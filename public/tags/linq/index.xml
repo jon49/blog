@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linq on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/linq/</link>
+    <link>http://jnyman.com/tags/linq/</link>
     <description>Recent content in Linq on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Dec 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/linq/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/linq/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Excel Queries</title>
-      <link>http://localhost:1313/2012/12/03/excel_queries/</link>
+      <link>http://jnyman.com/2012/12/03/excel_queries/</link>
       <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/03/excel_queries/</guid>
+      <guid>http://jnyman.com/2012/12/03/excel_queries/</guid>
       <description>&lt;p&gt;I came across some nice libraries to use while programming to query
 Excel. Right now I’m am using the standard COM interface for my
 projects, which is fine for small ranges (which is true for most users –
@@ -66,10 +66,10 @@ opportunity for me to do just that!&lt;/p&gt;
     
     <item>
       <title>Linq: An Introduction</title>
-      <link>http://localhost:1313/2012/04/11/linq_an_introduction/</link>
+      <link>http://jnyman.com/2012/04/11/linq_an_introduction/</link>
       <pubDate>Wed, 11 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/04/11/linq_an_introduction/</guid>
+      <guid>http://jnyman.com/2012/04/11/linq_an_introduction/</guid>
       <description>&lt;p&gt;Another thing that I like about programming in VB.NET beyond &lt;a href=&#34;2012/04/05/extensions-in-vb-net/&#34;&gt;Extensions&lt;/a&gt; is &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/bb308959.aspx&#34;&gt;LINQ&lt;/a&gt;. LINQ is similar to &lt;a href=&#34;http://en.wikipedia.org/wiki/Sql&#34;&gt;SQL&lt;/a&gt; in structure - which is &amp;ldquo;a &lt;a href=&#34;http://en.wikipedia.org/wiki/Declarative_programming&#34;&gt;declarative programming&lt;/a&gt; paradigm that expresses the logic of a computation without describing its control flow.&amp;rdquo; So LINQ takes declarative paradigm and applies it to &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;object oriented programming&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;What&amp;rsquo;s so great about this? Well, it does slow the program down, but it speeds up the the programming process, puts the information in a form that is more descriptive (although that is no excuse not to thoroughly comment your code), and makes programming easier.&lt;/p&gt;

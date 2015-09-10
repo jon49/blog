@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bilby.Js on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/bilby/index.js/</link>
+    <link>http://jnyman.com/tags/bilby/index.js/</link>
     <description>Recent content in Bilby.Js on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/bilby.js/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/bilby.js/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -113,10 +113,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>bilby.js &amp; functional programming</title>
-      <link>http://localhost:1313/2014/05/13/bilby_functional_programming/</link>
+      <link>http://jnyman.com/2014/05/13/bilby_functional_programming/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/13/bilby_functional_programming/</guid>
+      <guid>http://jnyman.com/2014/05/13/bilby_functional_programming/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been learning functional programming for quite some time and like the programming paradigm. But, it can be difficult sometimes. Some libraries like lodash.js can be easy to start learning, but others like bilby.js require that you understand more of the functional approach. So, here are some videos that have helped me understand bilby.js better.&lt;/p&gt;
 
 &lt;hr /&gt;

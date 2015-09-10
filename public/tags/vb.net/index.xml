@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vb.Net on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/vb/index.net/</link>
+    <link>http://jnyman.com/tags/vb/index.net/</link>
     <description>Recent content in Vb.Net on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/vb.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/vb.net/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Attempted to Read or Write Protected Memory</title>
-      <link>http://localhost:1313/2013/02/12/attempted_to_read_or_write_protected_memory/</link>
+      <link>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/12/attempted_to_read_or_write_protected_memory/</guid>
+      <guid>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been working on switching over to a &amp;ldquo;new&amp;rdquo; machine (more on that in a new post). In the process my time card program stopped working with the following error:&lt;/p&gt;
 
 &lt;blockquote&gt;System.AccessViolationException was unhandled
@@ -31,10 +31,10 @@ This is often an indication that other memory is corrupt.&lt;/blockquote&gt;
     
     <item>
       <title>Excel Queries</title>
-      <link>http://localhost:1313/2012/12/03/excel_queries/</link>
+      <link>http://jnyman.com/2012/12/03/excel_queries/</link>
       <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/03/excel_queries/</guid>
+      <guid>http://jnyman.com/2012/12/03/excel_queries/</guid>
       <description>&lt;p&gt;I came across some nice libraries to use while programming to query
 Excel. Right now I’m am using the standard COM interface for my
 projects, which is fine for small ranges (which is true for most users –
@@ -86,10 +86,10 @@ opportunity for me to do just that!&lt;/p&gt;
     
     <item>
       <title>XML Comments</title>
-      <link>http://localhost:1313/2012/08/27/xml_comments/</link>
+      <link>http://jnyman.com/2012/08/27/xml_comments/</link>
       <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/08/27/xml_comments/</guid>
+      <guid>http://jnyman.com/2012/08/27/xml_comments/</guid>
       <description>&lt;p&gt;Comment headers above procedures can be convenient when you want to know
 what a function does and what the parameters are for – especially if
 they weren’t named with enough description. Luckily Visual Studio
@@ -125,10 +125,10 @@ As Integer
     
     <item>
       <title>Algorithm Resources</title>
-      <link>http://localhost:1313/2012/07/16/algorithm_resources/</link>
+      <link>http://jnyman.com/2012/07/16/algorithm_resources/</link>
       <pubDate>Mon, 16 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/07/16/algorithm_resources/</guid>
+      <guid>http://jnyman.com/2012/07/16/algorithm_resources/</guid>
       <description>&lt;p&gt;&lt;h3&gt;Introduction&lt;/h3&gt;
 I was reading through Code Complete a classic coding book &lt;a href=&#34;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;amp;qid=1342466735&amp;amp;sr=8-1&amp;amp;keywords=code+complete&#34;&gt;&lt;em&gt;that is widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade&lt;/em&gt;&lt;/a&gt;. And he mentioned algorithm books. What, there exists algorithm books? You mean I don&amp;rsquo;t need to come up with this code all by myself? Combined with the internet to figure out what exactly these algorithms are called, they could be a huge help.
 &lt;h3&gt;Resources&lt;/h3&gt;
@@ -215,10 +215,10 @@ End Function
     
     <item>
       <title>Generic Types</title>
-      <link>http://localhost:1313/2012/06/18/generic_types/</link>
+      <link>http://jnyman.com/2012/06/18/generic_types/</link>
       <pubDate>Mon, 18 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/06/18/generic_types/</guid>
+      <guid>http://jnyman.com/2012/06/18/generic_types/</guid>
       <description>&lt;p&gt;Last time we went over &lt;a href=&#34;2012/06/07/overloading-in-vb-net/&#34;&gt;Overloading&lt;/a&gt; function in .NET. Today we&amp;rsquo;ll take a look at &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/w256ka79.aspx&#34;&gt;generics&lt;/a&gt;. I had been wondering how to do this for some time, seeing that I could do it with Microsoft&amp;rsquo;s built in code. I have to say, it is pretty nice and really makes coding much easier and cleaner.&lt;/p&gt;
 
 &lt;blockquote&gt;A generic type is a single programming element that adapts to perform the same functionality for a variety of data types. When you define a generic class or procedure, you do not have to define a separate version for each data type for which you might want to perform that functionality.&lt;/blockquote&gt;
@@ -266,10 +266,10 @@ End Function&amp;lt;/pre&amp;gt;
     
     <item>
       <title>Overloading in VB.NET</title>
-      <link>http://localhost:1313/2012/06/07/overloading_in_vb_net/</link>
+      <link>http://jnyman.com/2012/06/07/overloading_in_vb_net/</link>
       <pubDate>Thu, 07 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/06/07/overloading_in_vb_net/</guid>
+      <guid>http://jnyman.com/2012/06/07/overloading_in_vb_net/</guid>
       <description>&lt;p&gt;In previous posts I showed how you can use &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/05/extensions-in-vb-net/&#34;&gt;Extensions&lt;/a&gt; and &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/14/lambda-expressions-an-introduction/&#34;&gt;Lambda Expressions&lt;/a&gt; to make some pretty versatile functions in .NET. Today I&amp;rsquo;ll show a method that really helps for the readability and organization of your code.&lt;/p&gt;
 
 &lt;p&gt;In the past we used optional parameters to make a function do multiple things. We even needed to make new functions that did pretty much the same thing in order to make it better organized. Well, now we can avoid using those by &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/ms973896.aspx&#34;&gt;overloading the functions&lt;/a&gt;. I still use optional parameters and even new functions but this has been greatly reduced by the ability to overload.&lt;/p&gt;
@@ -278,7 +278,7 @@ End Function&amp;lt;/pre&amp;gt;
 
 &lt;p&gt;Here&amp;rsquo;s how it looks when you call it on your screen when typing out the function name:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Overload.png&#34; alt=&#34;Overloading&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://jnyman.com/images/Overload.png&#34; alt=&#34;Overloading&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;So here&amp;rsquo;s some code that uses overloading:&lt;/p&gt;
@@ -360,10 +360,10 @@ End Function
     
     <item>
       <title>Lambda Expressions</title>
-      <link>http://localhost:1313/2012/04/14/lambda_expressions_an_introduction/</link>
+      <link>http://jnyman.com/2012/04/14/lambda_expressions_an_introduction/</link>
       <pubDate>Sat, 14 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/04/14/lambda_expressions_an_introduction/</guid>
+      <guid>http://jnyman.com/2012/04/14/lambda_expressions_an_introduction/</guid>
       <description>&lt;p&gt;Another thing that I like about programming in .NET beyond &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/11/linq-an-introduction/&#34;&gt;LINQ&lt;/a&gt; and &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/04/05/extensions-in-vb-net/&#34;&gt;Extensions&lt;/a&gt; is &lt;a href=&#34;http://msdn.microsoft.com/en-us/magazine/cc163362.aspx&#34;&gt;lambda expressions&lt;/a&gt;. (It should be noted that LINQ, Extensions, and lambda expressions are all related). Lambda expressions are &amp;ldquo;are callable entities that are defined within a function, you can return a lambda expression from a function and you can pass lambda expressions to other functions.&amp;rdquo; Lambda expressions come with the System.Core library, so no need to add a reference nor Imports at the top of your class.&lt;/p&gt;
 
 &lt;p&gt;Lambda expressions simplify your code by allowing you to call internal functions within functions, even create &amp;ldquo;function variables.&amp;rdquo; To get a full overview read the link on &lt;a href=&#34;http://msdn.microsoft.com/en-us/magazine/cc163362.aspx&#34;&gt;lambda expressions&lt;/a&gt;.&lt;/p&gt;
@@ -459,10 +459,10 @@ Return FindIndex2DSortedLambda(oaArray, Function(a As Object) String.Compare(a.T
     
     <item>
       <title>Linq: An Introduction</title>
-      <link>http://localhost:1313/2012/04/11/linq_an_introduction/</link>
+      <link>http://jnyman.com/2012/04/11/linq_an_introduction/</link>
       <pubDate>Wed, 11 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/04/11/linq_an_introduction/</guid>
+      <guid>http://jnyman.com/2012/04/11/linq_an_introduction/</guid>
       <description>&lt;p&gt;Another thing that I like about programming in VB.NET beyond &lt;a href=&#34;2012/04/05/extensions-in-vb-net/&#34;&gt;Extensions&lt;/a&gt; is &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/bb308959.aspx&#34;&gt;LINQ&lt;/a&gt;. LINQ is similar to &lt;a href=&#34;http://en.wikipedia.org/wiki/Sql&#34;&gt;SQL&lt;/a&gt; in structure - which is &amp;ldquo;a &lt;a href=&#34;http://en.wikipedia.org/wiki/Declarative_programming&#34;&gt;declarative programming&lt;/a&gt; paradigm that expresses the logic of a computation without describing its control flow.&amp;rdquo; So LINQ takes declarative paradigm and applies it to &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;object oriented programming&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;What&amp;rsquo;s so great about this? Well, it does slow the program down, but it speeds up the the programming process, puts the information in a form that is more descriptive (although that is no excuse not to thoroughly comment your code), and makes programming easier.&lt;/p&gt;
@@ -481,10 +481,10 @@ Dim sNewVersion = _
     
     <item>
       <title>Extensions in VB.NET</title>
-      <link>http://localhost:1313/2012/04/05/extensions_in_vb_net/</link>
+      <link>http://jnyman.com/2012/04/05/extensions_in_vb_net/</link>
       <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/04/05/extensions_in_vb_net/</guid>
+      <guid>http://jnyman.com/2012/04/05/extensions_in_vb_net/</guid>
       <description>&lt;p&gt;Learning how to use VB.NET can be quite the leap from VBA, but once you start learning VB.NET and have much more control it’s difficult to want to go back to VBA.&lt;/p&gt;
 
 &lt;p&gt;One of the things that I like about VB.NET is methods. Extensions allow you to extend data type methods. So, let’s say you have a String data type (Strings in VB.NET are like a class in and of themselves) and you want it to have the method of appending “]” at the end. So you would have an extension method like so:&lt;/p&gt;
