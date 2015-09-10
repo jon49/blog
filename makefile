@@ -30,4 +30,11 @@ all: posts
 clean:
 	rm -rf content/post/*
 
-.PHONY: all posts init clean watch
+cleanAll:
+	make clean & rm -rf publish/*
+
+publish:
+	make cleanAll && make posts && hugo && \
+		git subtree push --prefix=public https://github.com/jon49/blog.git gh-pages
+
+.PHONY: all posts init clean watch publish cleanAll

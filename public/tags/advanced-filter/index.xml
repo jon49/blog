@@ -32,34 +32,6 @@ StandardCode.bas&lt;/p&gt;
     </item>
     
     <item>
-      <title>Updates</title>
-      <link>http://jnyman.com/2012/03/23/updates/</link>
-      <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2012/03/23/updates/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;AdvancedFilter Class&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Just so everyone knows. I&amp;rsquo;m going to postpone the AdvancedFilter series until I start working on it in .NET, that way I&amp;rsquo;ll remember more about what I was doing before. I&amp;rsquo;ll start working on that when I finish up the Time Card application and the Chart Manipulator.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Time Card&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I probably won&amp;rsquo;t be finishing up the beta version of the time card until early April. I&amp;rsquo;m currently debugging the UDF function &amp;ldquo;SumDate&amp;rdquo; which is pretty central to the time card. For some reason it is outputting the correct results for all but one result in an array of results. I&amp;rsquo;ll probably get that figured out today.&lt;/p&gt;
-
-&lt;p&gt;Items that I have left before release:&lt;/p&gt;
-
-&lt;ol&gt;
-    &lt;li&gt;Update version via internet.&lt;/li&gt;
-    &lt;li&gt;Time Card Template&lt;/li&gt;
-    &lt;li&gt;Change items directly on chart. (This item will only be partially complete for the beta version.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt; New Series&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ll be starting a new series on a dll I developed for the time card that makes it easier to work with Excel, Excel DNA, and .NET.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>AdvancedFilter Class Part 3</title>
       <link>http://jnyman.com/2012/03/02/advancedfilter_class_part_3_creating_the_sub_class/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
