@@ -33,8 +33,7 @@ clean:
 cleanAll:
 	make clean & rm -rf publish/*
 
-publish:
-	make cleanAll && make posts && hugo && \
-		git subtree push --prefix=public https://github.com/jon49/blog.git gh-pages
+deploy:
+	./deploy.sh
 
-.PHONY: all posts init clean watch publish cleanAll
+.PHONY: all posts init clean watch deploy cleanAll
