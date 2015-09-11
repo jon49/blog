@@ -27,13 +27,13 @@ stylus:
 
 all: posts
 
-clean:
+cleanPosts:
 	rm -rf content/post/*
 
-cleanAll:
-	make clean & rm -rf publish/*
+cleanAll: cleanPosts
+	rm -rf public/*
 
 deploy:
 	./deploy.sh
 
-.PHONY: all posts init clean watch deploy cleanAll
+.PHONY: all posts init cleanPosts watch deploy cleanAll
