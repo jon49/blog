@@ -18,7 +18,7 @@ posts: $(POSTS)
 init:
 	mkdir -p content/post/
 
-watch:
+hugo:
 	hugo server -w
 
 stylus:
@@ -35,4 +35,4 @@ cleanAll: cleanPosts
 deploy:
 	./deploy.sh
 
-.PHONY: all posts init cleanPosts watch deploy cleanAll
+.PHONY: all posts init cleanPosts hugo deploy cleanAll

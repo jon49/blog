@@ -29,55 +29,62 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 
 
 
+<main class="archive">
+  <h1>Excel Extensions</h1>
+  <ul class="posts">
+    
+    <li>
+      <a href="http://jnyman.com/2013/02/25/excel_extensions/">Excel Extensions</a>
 
+      <p class="footnote">
+      submitted <span>Mon Feb 25, 2013</span>
 
+      
+      to
+      
 
+      
+      tags:[ <a href="http://jnyman.com/tags/c#.net">c#.net</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
+      
 
+      
 
+      
 
+      </p>
+    </li>
+    
+    
 
+<main class="archive">
+  <h1>LinqTo2dArray</h1>
+  <ul class="posts">
+    
+    <li>
+      <a href="http://jnyman.com/2013/02/25/linqto2darray/">LinqTo2dArray</a>
 
+      <p class="footnote">
+      submitted <span>Mon Feb 25, 2013</span>
 
+      
+      to
+      
 
+      
+      tags:[ <a href="http://jnyman.com/tags/c#.net">c#.net</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
+      
 
+      
 
+      
 
+      </p>
+    </li>
+    
+    
+  </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</main>
 
 <div class="footer-menu">
   <ul>

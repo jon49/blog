@@ -29,32 +29,35 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 
 
 
+<main class="archive">
+  <h1>.NET and Modeless Forms</h1>
+  <ul class="posts">
+    
+    <li>
+      <a href="http://jnyman.com/2012/01/23/dot_net_and_modeless_forms_in_excel/">.NET and Modeless Forms</a>
 
+      <p class="footnote">
+      submitted <span>Mon Jan 23, 2012</span>
 
+      
+      to
+      
 
+      
+      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/modeless-forms">modeless-forms</a> <a href="http://jnyman.com/tags/.net">.net</a> ]
+      
 
+      
 
+      
 
+      </p>
+    </li>
+    
+    
+  </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</main>
 
 <div class="footer-menu">
   <ul>
