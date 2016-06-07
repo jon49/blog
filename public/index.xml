@@ -6,8 +6,244 @@
     <description>Recent content on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Building a Convention Based Routes in Node.js</title>
+      <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Convention_over_configuration&#34;&gt;Convention over
+configuration&lt;/a&gt;
+(also known as coding by convention) is a software design paradigm which
+seeks to decrease the number of decisions that developers need to make,
+gaining simplicity, and not necessarily losing flexibility.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It seems in programming, if we haven&amp;rsquo;t learned the basic practices of others,
+we&amp;rsquo;ll end of repeating those practices; discovering them on our own. This isn&amp;rsquo;t
+necessarily a bad thing. It can be a good way to learn. But at the same time,
+we can learn faster just by learning from others first. I also like to think
+about how a pattern or architecture could come about.&lt;/p&gt;
+
+&lt;p&gt;Take for example the library &lt;a href=&#34;http://intercoolerjs.org/&#34;&gt;intercooler.js&lt;/a&gt;. You
+can see where that library originated from. In HTML you can call a function
+directly by adding an event to it. E.g.,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&amp;lt;div onclick=&amp;quot;clicked(this, &#39;my string I am passing&#39;)&amp;quot;&amp;gt;Click Me!&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, intercooler.js took it the next step. They made it so you can create a
+declarative HTML syntax. Similar to the code above, but an abstraction of that.
+Now, I can see where &lt;a href=&#34;https://angularjs.org/&#34;&gt;angular.js&lt;/a&gt; came from (note, I&amp;rsquo;ve
+never actually used angular.js). It just takes another abstraction layer up.&lt;/p&gt;
+
+&lt;p&gt;Well, for convention of configuration. I came up with something for node.js,
+but, after coming up with the idea I noticed that other people had come up with
+similar ideas. In the end I liked mine more than theirs. But, many times we
+think we are being original, but many of the ideas have probably existed for
+the past thirty plus years.&lt;/p&gt;
+
+&lt;p&gt;I went to a class at work where they were showing ASP.NET WebAPI. It is also
+convention based and pretty much did the same thing I came up with, but more
+powerful. I can understand why people don&amp;rsquo;t like convention over configuration
+since you need to learn the conventions before you can understand the code,
+since there is a certain amount of &amp;ldquo;magic&amp;rdquo;. But once you get past the magic it
+becomes nice since you don&amp;rsquo;t need to write the same code over and over again.&lt;/p&gt;
+
+&lt;p&gt;So, after that long introduction, here&amp;rsquo;s how I did convention based node.js.&lt;/p&gt;
+
+&lt;p&gt;The file structure is like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root
+  ┕ controllers
+    ┝ people
+    │ ┝ get-{id}.js
+    │ ┕ get-{id}-animals.js
+    ┕ animals
+      ┝ get-{id}.js
+      ┕ delete-{id}.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These directories/files would correspond to the routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/api/people/{id} → Method: GET
+/api/people/{id} → Method: GET
+/api/animals/{id} → Method: GET
+/api/animals/{id} → Method: DELETE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see you could set up whatever combination you would like. I like
+this method of convention also, since it keeps things simple. All your routes
+are in your controller and easy to scan. So, when I need to edit a file I can
+quickly find which one I&amp;rsquo;m looking for. Some of the other libraries nest the
+routes in directories, which becomes very tedious.&lt;/p&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;http://swagger.io/&#34;&gt;swagger&lt;/a&gt; to map the route definitions to the route
+methods. This way, I must have documentation in order to have a route. No
+documentation, no route. But it also leaves me the flexibility to create routes
+outside of this documentation if I really need to. But it just means it won&amp;rsquo;t
+be set up in the normal way.&lt;/p&gt;
+
+&lt;p&gt;So, in swagger (using YAML), the code would look like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;paths:
+
+    /api/people/{id}:
+      get:
+        _call:
+          - [params, id]
+
+    /api/animals/{id}:
+      delete:
+        _call:
+          - [params, id]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, you can see how you can pass pretty much anything into your route method.
+Each array element is passed into the method in the order given. The call takes
+the parameters from the &lt;code&gt;request&lt;/code&gt; object that &lt;code&gt;express.js&lt;/code&gt; passes in. For more
+complex items you can even pass in an object from different parts of the
+&lt;code&gt;request&lt;/code&gt; object like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;_call:
+  - userId: [params, id]
+    userName: [user, username]
+    guid: [user, guid]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where &lt;code&gt;user&lt;/code&gt; comes from some middleware which validates the user authentication
+information.&lt;/p&gt;
+
+&lt;p&gt;This way of doing things also comes in handy since it means I can automate
+integration tests. I can test each route in the &lt;code&gt;swagger&lt;/code&gt; file and make sure
+that it is validated against the json-schema associated with that route.&lt;/p&gt;
+
+&lt;p&gt;So, let&amp;rsquo;s look at the glue for all of this. I didn&amp;rsquo;t create an npm library for
+this. I was thinking I would eventually, but since I just use WebAPI now, I
+don&amp;rsquo;t want to support it. But, luckily the code is simple enough that that
+isn&amp;rsquo;t a problem!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import path = require(&#39;path&#39;)
+
+module SwaggerRoutes {
+    export interface Options {
+        swagger: any
+        baseRoute: any
+        response: any
+        baseDirectory: string
+    }
+    export interface CreateRoutes {
+        (options: Options): void
+    }
+}
+
+const
+fail = reason =&amp;gt; {throw new Error(reason)},
+type = o =&amp;gt; Object.prototype.toString.call(o),
+isFunction = o =&amp;gt; type(o) === &#39;[object Function]&#39;,
+isArray = o =&amp;gt; type(o) === &#39;[object Array]&#39;,
+isObject = o =&amp;gt; type(o) === &#39;[object Object]&#39;,
+getPropValue = (path, obj) =&amp;gt;
+    path.reduce((acc, prop) =&amp;gt; acc === void 0 ? void 0 : acc[prop], obj),
+args = (o, xs) =&amp;gt;
+    xs.map(x =&amp;gt; (
+        isArray(x)
+            ? getPropValue(x, o)
+        : isObject(x)
+            ? (Object
+                .keys(x)
+                .reduce((acc, name) =&amp;gt;
+                    (acc[name] = getPropValue(x[name], o), acc), {}))
+        : void 0
+    ))
+
+const routePath = (route: string) =&amp;gt; {
+    const
+    components = route.slice(1).split(&#39;/&#39;),
+    dir = components[0],
+    baseFileName = components.slice(1).join(&#39;-&#39;)
+    return [dir, baseFileName]
+}
+
+const expressCallback = (response, routeProperties, method, controller) =&amp;gt;
+    (request, client, error) =&amp;gt; {
+
+        const send = &amp;lt;any&amp;gt; response.bind(response, client)
+        controller.apply(controller, args(request, routeProperties[method]._call))
+        .then(send)
+        .catch(error)
+
+    }
+
+const createRoutes: SwaggerRoutes.CreateRoutes = (o: SwaggerRoutes.Options) =&amp;gt; {
+    const paths = o.swagger.paths
+    Object.keys(paths)
+    .filter(x =&amp;gt; x.charAt(0) === &#39;/&#39;)
+    .forEach(routeName =&amp;gt; {
+
+        const
+        routeProperties = paths[routeName],
+        basePath = routePath(routeName)
+
+        Object.keys(routeProperties)
+        .forEach(method =&amp;gt; {
+            if (routeProperties[method]._call) {
+                const
+                requirePath = path.resolve(
+                    __dirname,
+                    path.join(
+                        o.baseDirectory,
+                        basePath[0],
+                        (basePath[1] ? `${method}-${basePath[1]}` : method))),
+                handler = require(requirePath),
+                controller =
+                    isFunction(handler)
+                        ? handler
+                    : isFunction(handler.default)
+                        ? handler.default
+                    : fail(&#39;Could not retrieve `handler` function.&#39;)
+
+                const
+                routePath = routeName.replace(/{(\w+)}/g, &#39;:$1&#39;),
+                altPath =
+                    (routeProperties[method].parameters || [])
+                    .reduce((acc, x) =&amp;gt;
+                        x.required ? acc : acc.replace(RegExp(`/:${x.name}`), &#39;&#39;), routePath),
+                routePaths = altPath !== routePath ? [altPath, routePath] : [routePath]
+
+                routePaths.forEach(x =&amp;gt; {
+                    o.baseRoute(x)
+                    [method](expressCallback(o.response, routeProperties, method, controller))
+                })
+
+            }
+        })
+
+    })
+}
+
+export = createRoutes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how you would call that code to set up your routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import swaggerRoutes = require(&#39;./swagger-routes&#39;)
+const yaml = require(&#39;js-yaml&#39;)
+
+swaggerRoutes({
+    swagger: yaml.load(readFileSync(&#39;./api/api.yml&#39;, &#39;utf-8&#39;)),
+    baseRoute: authenticatedRoute,
+    response: (client: express.Response, result) =&amp;gt;
+        client.send(omit([&#39;httpStatusCode&#39;], withMessageAs(result))),
+    baseDirectory: &#39;../controllers&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -105,7 +341,7 @@
 &amp;gt; applications as you scale up you start to miss the past 40 or 50 years
 &amp;gt; of research and how to abstract a program. So if you&amp;hellip;
 &amp;gt; push that kind of data binding concern out to the edges of your
-&amp;gt; system like React does I think it leads to faster iteration time.\
+&amp;gt; system like React does I think it leads to faster iteration time.&lt;br /&gt;
 &amp;gt; &amp;ndash; &lt;em&gt;Pete
 &amp;gt; Hunt - Engineering Manager, Rethinking Web App Development at Facebook,
 &amp;gt; Facebook&lt;/em&gt;&lt;/p&gt;
@@ -368,8 +604,7 @@ return value
 
 &lt;p&gt;It will be nice when the internet will catch up with the distributed model of doing things.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://jnyman.com/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://jnyman.com/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;
-&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://jnyman.com/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://jnyman.com/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A Simple Outline of How to Set Up a Distributed Feedly&lt;/p&gt;
 </description>
@@ -386,7 +621,7 @@ functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am
 moving to where I can hopefully get some work and starting making some
 moolah. You can follow my new blog over at
-&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.\
+&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.&lt;br /&gt;
  If anyone is interested in the products I’ve made let me know how you
 like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
 me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
@@ -567,11 +802,11 @@ var change = function(f, value, thisArg){
       <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
       <description>
 
-&lt;h2 id=&#34;with-brian-lonsdorf:0ca8684476f81d878f3c655714614cce&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
+&lt;h2 id=&#34;with-brian-lonsdorf&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
 
-&lt;h3 id=&#34;working-with-objects:0ca8684476f81d878f3c655714614cce&#34;&gt;Working with Objects&lt;/h3&gt;
+&lt;h3 id=&#34;working-with-objects&#34;&gt;Working with Objects&lt;/h3&gt;
 
-&lt;h4 id=&#34;the-better-way:0ca8684476f81d878f3c655714614cce&#34;&gt;the better way&lt;/h4&gt;
+&lt;h4 id=&#34;the-better-way&#34;&gt;the better way&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var SSN = Constructor(function(number, current_user){
 	this.number = number
@@ -592,7 +827,7 @@ social.fmap(function(number){return number.reverse()})
 //=&amp;gt; SSN(&#39;1234-56-789&#39;, user)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;the-functor-way:0ca8684476f81d878f3c655714614cce&#34;&gt;the functor way&lt;/h4&gt;
+&lt;h4 id=&#34;the-functor-way&#34;&gt;the functor way&lt;/h4&gt;
 
 &lt;p&gt;Note: &lt;a href=&#34;https://github.com/DrBoolean/Functor/blob/master/functor.js&#34;&gt;Functor function defined.&lt;/a&gt;&lt;/p&gt;
 
@@ -622,6 +857,124 @@ fmap(validNumber, social)
     </item>
     
     <item>
+      <title>Notes On Functional Programming</title>
+      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
+      <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
+      <description>
+
+&lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
+
+&lt;h3 id=&#34;lenses&#34;&gt;Lenses&lt;/h3&gt;
+
+&lt;p&gt;Using lenses for composable/polymorphic model manipulation.&lt;/p&gt;
+
+&lt;p&gt;E.g.,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var user = {id:1, name:{first:&#39;doris&#39;, last:&#39;day&#39;}}
+var L = makeLenses([&#39;name&#39;, &#39;first&#39;])
+var firstNameChar = compose(L.name, L.first, _1)
+over(firstNameChar, toUpperCase, user)
+//=&amp;gt; {id:1, name:{first:&#39;Doris&#39;, last:&#39;day&#39;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;maybe&#34;&gt;Maybe&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;code&gt;Maybe&lt;/code&gt; (Haskell) types (&lt;code&gt;Option&lt;/code&gt; types in bilby.js / Scala style) to make composition easier. This works with &lt;code&gt;fmap&lt;/code&gt; (functor maps). Returns resultant &lt;code&gt;option&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;error-handling-either&#34;&gt;Error Handling (Either)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;Either(&#39;need an int&#39;, 3)
+//=&amp;gt; Right(3)
+
+Either(&#39;need an int&#39;, undefined)
+//=&amp;gt; Left(&#39;need an int&#39;)
+
+fmap(function(x){return x+1;}, Right(2))
+//=&amp;gt; Right(3)
+
+fmap(function(x){return x+1;}, Left(&#39;need an int&#39;))
+//=&amp;gt; Left(&#39;need an int&#39;)
+
+compose(fmap(f), Either(error))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;future-values&#34;&gt;Future Values&lt;/h3&gt;
+
+&lt;p&gt;I&amp;rsquo;ll have to come back to this one later when I use it more.&lt;/p&gt;
+
+&lt;h3 id=&#34;functor&#34;&gt;Functor&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Something that implements &lt;strong&gt;map&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Like Promise, Maybe, Either, etc.&lt;/p&gt;
+
+&lt;h3 id=&#34;nesting&#34;&gt;Nesting&lt;/h3&gt;
+
+&lt;p&gt;Use mjoin (flatMap &amp;ndash; bilby.js) to flatten nesting.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getField = compose(Maybe, document.querySelector)
+var getValue = compose(Maybe, pluck(&#39;value&#39;))
+
+var greet = compose(fmap(fmap(concat(&#39;hello&#39;)))
+                    , fmap(getValue), getField)
+greet(&#39;#name&#39;)
+//=&amp;gt; Maybe(Maybe(&#39;hello chris&#39;))
+
+var greet = compose(fmap(concat(&#39;hello&#39;))
+                    , mjoin
+                    , fmap(getValue), getField)
+greet(&#39;#name&#39;)
+//=&amp;gt; Maybe(&#39;hello chris&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mutiple-values-lifta2&#34;&gt;Mutiple Values (liftA2)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;liftA2(f, A(x), A(y))
+
+liftA2(add, Maybe(3), Maybe(4))
+//=&amp;gt; Maybe(7)
+
+liftA2(add, Maybe(null), Maybe(4))
+//=&amp;gt; Maybe(null)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;lenses-1&#34;&gt;Lenses&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var L = makeLenses([&#39;body&#39;, &#39;viewed&#39;])
+var comment = {id:2, body: &amp;quot;this is a *great* post&amp;quot;, viewed: false}
+var showOnScreen = log
+var prog = compose(showOnScreen, set(L.viewed, true), over(L.body, markdown))
+prog(comment)
+//=&amp;gt; {id:2, body: &#39;&amp;lt;p&amp;gt;this is a &amp;lt;em&amp;gt;great&amp;lt;/em&amp;gt; post!&amp;lt;/p&amp;gt;&#39;, viewed: true}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;either-maybe&#34;&gt;Either/Maybe&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getWords = compose(Either(&#39;you need some words&#39;)
+               , match(/\w+/g))
+var showCount = compose(concat(&#39;The count is: &#39;)
+                , pluck(&#39;length&#39;))
+var prog = compose(fmap(showCount), getWords)
+var result = progr(&#39; blah &#39;)
+log(result)
+//=&amp;gt; Right(&#39;The count is: 1&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;These notes came from the video below:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/DrBoolean/patterns_talk&#34;&gt;The full slides are also available.&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/AvgwKjTPMmM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
       <title>bilby.js &amp; functional programming</title>
       <link>http://jnyman.com/2014/05/13/bilby_functional_programming/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
@@ -646,124 +999,6 @@ fmap(validNumber, social)
     </item>
     
     <item>
-      <title>Notes On Functional Programming</title>
-      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
-      <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
-      <description>
-
-&lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
-
-&lt;h3 id=&#34;lenses:84395a4544571503aa2619881045cc3a&#34;&gt;Lenses&lt;/h3&gt;
-
-&lt;p&gt;Using lenses for composable/polymorphic model manipulation.&lt;/p&gt;
-
-&lt;p&gt;E.g.,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var user = {id:1, name:{first:&#39;doris&#39;, last:&#39;day&#39;}}
-var L = makeLenses([&#39;name&#39;, &#39;first&#39;])
-var firstNameChar = compose(L.name, L.first, _1)
-over(firstNameChar, toUpperCase, user)
-//=&amp;gt; {id:1, name:{first:&#39;Doris&#39;, last:&#39;day&#39;}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;maybe:84395a4544571503aa2619881045cc3a&#34;&gt;Maybe&lt;/h3&gt;
-
-&lt;p&gt;Use &lt;code&gt;Maybe&lt;/code&gt; (Haskell) types (&lt;code&gt;Option&lt;/code&gt; types in bilby.js / Scala style) to make composition easier. This works with &lt;code&gt;fmap&lt;/code&gt; (functor maps). Returns resultant &lt;code&gt;option&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;error-handling-either:84395a4544571503aa2619881045cc3a&#34;&gt;Error Handling (Either)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;Either(&#39;need an int&#39;, 3)
-//=&amp;gt; Right(3)
-
-Either(&#39;need an int&#39;, undefined)
-//=&amp;gt; Left(&#39;need an int&#39;)
-
-fmap(function(x){return x+1;}, Right(2))
-//=&amp;gt; Right(3)
-
-fmap(function(x){return x+1;}, Left(&#39;need an int&#39;))
-//=&amp;gt; Left(&#39;need an int&#39;)
-
-compose(fmap(f), Either(error))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;future-values:84395a4544571503aa2619881045cc3a&#34;&gt;Future Values&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;ll have to come back to this one later when I use it more.&lt;/p&gt;
-
-&lt;h3 id=&#34;functor:84395a4544571503aa2619881045cc3a&#34;&gt;Functor&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Something that implements &lt;strong&gt;map&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Like Promise, Maybe, Either, etc.&lt;/p&gt;
-
-&lt;h3 id=&#34;nesting:84395a4544571503aa2619881045cc3a&#34;&gt;Nesting&lt;/h3&gt;
-
-&lt;p&gt;Use mjoin (flatMap &amp;ndash; bilby.js) to flatten nesting.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getField = compose(Maybe, document.querySelector)
-var getValue = compose(Maybe, pluck(&#39;value&#39;))
-
-var greet = compose(fmap(fmap(concat(&#39;hello&#39;)))
-                    , fmap(getValue), getField)
-greet(&#39;#name&#39;)
-//=&amp;gt; Maybe(Maybe(&#39;hello chris&#39;))
-
-var greet = compose(fmap(concat(&#39;hello&#39;))
-                    , mjoin
-                    , fmap(getValue), getField)
-greet(&#39;#name&#39;)
-//=&amp;gt; Maybe(&#39;hello chris&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;mutiple-values-lifta2:84395a4544571503aa2619881045cc3a&#34;&gt;Mutiple Values (liftA2)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;liftA2(f, A(x), A(y))
-
-liftA2(add, Maybe(3), Maybe(4))
-//=&amp;gt; Maybe(7)
-
-liftA2(add, Maybe(null), Maybe(4))
-//=&amp;gt; Maybe(null)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;examples:84395a4544571503aa2619881045cc3a&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;lenses-1:84395a4544571503aa2619881045cc3a&#34;&gt;Lenses&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var L = makeLenses([&#39;body&#39;, &#39;viewed&#39;])
-var comment = {id:2, body: &amp;quot;this is a *great* post&amp;quot;, viewed: false}
-var showOnScreen = log
-var prog = compose(showOnScreen, set(L.viewed, true), over(L.body, markdown))
-prog(comment)
-//=&amp;gt; {id:2, body: &#39;&amp;lt;p&amp;gt;this is a &amp;lt;em&amp;gt;great&amp;lt;/em&amp;gt; post!&amp;lt;/p&amp;gt;&#39;, viewed: true}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;either-maybe:84395a4544571503aa2619881045cc3a&#34;&gt;Either/Maybe&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getWords = compose(Either(&#39;you need some words&#39;)
-               , match(/\w+/g))
-var showCount = compose(concat(&#39;The count is: &#39;)
-                , pluck(&#39;length&#39;))
-var prog = compose(fmap(showCount), getWords)
-var result = progr(&#39; blah &#39;)
-log(result)
-//=&amp;gt; Right(&#39;The count is: 1&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;These notes came from the video below:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/DrBoolean/patterns_talk&#34;&gt;The full slides are also available.&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/AvgwKjTPMmM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Spreadsheet Budget Launched</title>
       <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
       <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
@@ -780,59 +1015,6 @@ log(result)
 &lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
-      <link>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
-      <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
-Sync) is great software which can be used for syncing files. I use it
-for backing up all my pictures/videos/music/files/mobile computers.
-Well, I did some testing and it looks like it can be used for installing
-and updating software also.&lt;/p&gt;
-
-&lt;p&gt;I tested it with my Windows 8 computer over to my Windows XP computer. I
-created an Excel xla add-in file and I also created an executable file.
-Both worked fine after syncing. The following procedure was used:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create folder for program you would like synced&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync/get-started.html&#34;&gt;Create a syncing
-folder&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Copy read only secret
-
-&lt;ul&gt;
-&lt;li&gt;right click on folder to sync in BT Sync “Show folder
-preferences” then copy read only secret&lt;/li&gt;
-&lt;li&gt;Careful not to copy the wrong folder! You don’t want others
-getting your data!&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Give the secret to all those that you would like to have it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;BT Sync could probably work for:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This seems like a good idea for open source projects which are free.&lt;/li&gt;
-&lt;li&gt;It could probably also work for paid products which allow for
-updates for a year or more. For paid products a developer could just
-create a new folder after the latest cutoff period.&lt;/li&gt;
-&lt;li&gt;This might be ideal for corporate wide add-ins also. The main
-problem with that is security of course. So I am not quite sure how
-that would be worked out.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The down side would be that for people which don’t want to install BT
-Sync you would need a back up updater/installer.&lt;/p&gt;
-
-&lt;p&gt;Let me know what you think! It would be interesting to hear other ideas
-on how this could work in the programming environment &lt;a href=&#34;http://blog.bittorrent.com/tag/bittorrent-sync/&#34;&gt;which haven’t
-already been thought
-of&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

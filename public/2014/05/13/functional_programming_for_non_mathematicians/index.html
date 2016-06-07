@@ -30,9 +30,9 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 <article>
   
 
-<h2 id="patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a">Patterns for the Non-Mathematician with Brian Lonsdorf</h2>
+<h2 id="patterns-for-the-non-mathematician-with-brian-lonsdorf">Patterns for the Non-Mathematician with Brian Lonsdorf</h2>
 
-<h3 id="lenses:84395a4544571503aa2619881045cc3a">Lenses</h3>
+<h3 id="lenses">Lenses</h3>
 
 <p>Using lenses for composable/polymorphic model manipulation.</p>
 
@@ -45,11 +45,11 @@ over(firstNameChar, toUpperCase, user)
 //=&gt; {id:1, name:{first:'Doris', last:'day'}}
 </code></pre>
 
-<h3 id="maybe:84395a4544571503aa2619881045cc3a">Maybe</h3>
+<h3 id="maybe">Maybe</h3>
 
 <p>Use <code>Maybe</code> (Haskell) types (<code>Option</code> types in bilby.js / Scala style) to make composition easier. This works with <code>fmap</code> (functor maps). Returns resultant <code>option</code>.</p>
 
-<h3 id="error-handling-either:84395a4544571503aa2619881045cc3a">Error Handling (Either)</h3>
+<h3 id="error-handling-either">Error Handling (Either)</h3>
 
 <pre><code class="language-javascript">Either('need an int', 3)
 //=&gt; Right(3)
@@ -66,11 +66,11 @@ fmap(function(x){return x+1;}, Left('need an int'))
 compose(fmap(f), Either(error))
 </code></pre>
 
-<h3 id="future-values:84395a4544571503aa2619881045cc3a">Future Values</h3>
+<h3 id="future-values">Future Values</h3>
 
 <p>I&rsquo;ll have to come back to this one later when I use it more.</p>
 
-<h3 id="functor:84395a4544571503aa2619881045cc3a">Functor</h3>
+<h3 id="functor">Functor</h3>
 
 <blockquote>
 <p>Something that implements <strong>map</strong></p>
@@ -78,7 +78,7 @@ compose(fmap(f), Either(error))
 
 <p>Like Promise, Maybe, Either, etc.</p>
 
-<h3 id="nesting:84395a4544571503aa2619881045cc3a">Nesting</h3>
+<h3 id="nesting">Nesting</h3>
 
 <p>Use mjoin (flatMap &ndash; bilby.js) to flatten nesting.</p>
 
@@ -97,7 +97,7 @@ greet('#name')
 //=&gt; Maybe('hello chris')
 </code></pre>
 
-<h3 id="mutiple-values-lifta2:84395a4544571503aa2619881045cc3a">Mutiple Values (liftA2)</h3>
+<h3 id="mutiple-values-lifta2">Mutiple Values (liftA2)</h3>
 
 <pre><code class="language-javascript">liftA2(f, A(x), A(y))
 
@@ -108,9 +108,9 @@ liftA2(add, Maybe(null), Maybe(4))
 //=&gt; Maybe(null)
 </code></pre>
 
-<h3 id="examples:84395a4544571503aa2619881045cc3a">Examples</h3>
+<h3 id="examples">Examples</h3>
 
-<h4 id="lenses-1:84395a4544571503aa2619881045cc3a">Lenses</h4>
+<h4 id="lenses-1">Lenses</h4>
 
 <pre><code class="language-javascript">var L = makeLenses(['body', 'viewed'])
 var comment = {id:2, body: &quot;this is a *great* post&quot;, viewed: false}
@@ -120,7 +120,7 @@ prog(comment)
 //=&gt; {id:2, body: '&lt;p&gt;this is a &lt;em&gt;great&lt;/em&gt; post!&lt;/p&gt;', viewed: true}
 </code></pre>
 
-<h4 id="either-maybe:84395a4544571503aa2619881045cc3a">Either/Maybe</h4>
+<h4 id="either-maybe">Either/Maybe</h4>
 
 <pre><code class="language-javascript">var getWords = compose(Either('you need some words')
                , match(/\w+/g))
@@ -166,7 +166,7 @@ log(result)
 
 <div class="nav-posts">
   
-    <a class="next" href="http://jnyman.com/2013/10/28/spreadsheet_budget_launched/"> Spreadsheet Budget Launched</a>
+    <a class="next" href="http://jnyman.com/2014/05/13/bilby_functional_programming/"> bilby.js &amp; functional programming</a>
   
 
   
@@ -174,7 +174,7 @@ log(result)
       
       ✴
       
-      <a class="previous" href="http://jnyman.com/2014/05/13/bilby_functional_programming/"> bilby.js &amp; functional programming</a>
+      <a class="previous" href="http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/"> Notes on Monads, Monoids, and Make Believe</a>
     
   
 </div>

@@ -230,11 +230,11 @@ var change = function(f, value, thisArg){
       <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
       <description>
 
-&lt;h2 id=&#34;with-brian-lonsdorf:0ca8684476f81d878f3c655714614cce&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
+&lt;h2 id=&#34;with-brian-lonsdorf&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
 
-&lt;h3 id=&#34;working-with-objects:0ca8684476f81d878f3c655714614cce&#34;&gt;Working with Objects&lt;/h3&gt;
+&lt;h3 id=&#34;working-with-objects&#34;&gt;Working with Objects&lt;/h3&gt;
 
-&lt;h4 id=&#34;the-better-way:0ca8684476f81d878f3c655714614cce&#34;&gt;the better way&lt;/h4&gt;
+&lt;h4 id=&#34;the-better-way&#34;&gt;the better way&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var SSN = Constructor(function(number, current_user){
 	this.number = number
@@ -255,7 +255,7 @@ social.fmap(function(number){return number.reverse()})
 //=&amp;gt; SSN(&#39;1234-56-789&#39;, user)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;the-functor-way:0ca8684476f81d878f3c655714614cce&#34;&gt;the functor way&lt;/h4&gt;
+&lt;h4 id=&#34;the-functor-way&#34;&gt;the functor way&lt;/h4&gt;
 
 &lt;p&gt;Note: &lt;a href=&#34;https://github.com/DrBoolean/Functor/blob/master/functor.js&#34;&gt;Functor function defined.&lt;/a&gt;&lt;/p&gt;
 
