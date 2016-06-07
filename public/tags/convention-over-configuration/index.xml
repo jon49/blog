@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Convention Over Configuration on Hamsters Byte</title>
+    <link>http://jnyman.com/tags/convention-over-configuration/</link>
+    <description>Recent content in Convention Over Configuration on Hamsters Byte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://jnyman.com/tags/convention-over-configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Building a Convention Based Routes in Node.js</title>
+      <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Convention_over_configuration&#34;&gt;Convention over
+configuration&lt;/a&gt;
+(also known as coding by convention) is a software design paradigm which
+seeks to decrease the number of decisions that developers need to make,
+gaining simplicity, and not necessarily losing flexibility.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It seems in programming, if we haven&amp;rsquo;t learned the basic practices of others,
+we&amp;rsquo;ll end of repeating those practices; discovering them on our own. This isn&amp;rsquo;t
+necessarily a bad thing. It can be a good way to learn. But at the same time,
+we can learn faster just by learning from others first. I also like to think
+about how a pattern or architecture could come about.&lt;/p&gt;
+
+&lt;p&gt;Take for example the library &lt;a href=&#34;http://intercoolerjs.org/&#34;&gt;intercooler.js&lt;/a&gt;. You
+can see where that library originated from. In HTML you can call a function
+directly by adding an event to it. E.g.,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;&amp;lt;div onclick=&amp;quot;clicked(this, &#39;my string I am passing&#39;)&amp;quot;&amp;gt;Click Me!&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, intercooler.js took it the next step. They made it so you can create a
+declarative HTML syntax. Similar to the code above, but an abstraction of that.
+Now, I can see where &lt;a href=&#34;https://angularjs.org/&#34;&gt;angular.js&lt;/a&gt; came from (note, I&amp;rsquo;ve
+never actually used angular.js). It just takes another abstraction layer up.&lt;/p&gt;
+
+&lt;p&gt;Well, for convention of configuration. I came up with something for node.js,
+but, after coming up with the idea I noticed that other people had come up with
+similar ideas. In the end I liked mine more than theirs. But, many times we
+think we are being original, but many of the ideas have probably existed for
+the past thirty plus years.&lt;/p&gt;
+
+&lt;p&gt;I went to a class at work where they were showing ASP.NET WebAPI. It is also
+convention based and pretty much did the same thing I came up with, but more
+powerful. I can understand why people don&amp;rsquo;t like convention over configuration
+since you need to learn the conventions before you can understand the code,
+since there is a certain amount of &amp;ldquo;magic&amp;rdquo;. But once you get past the magic it
+becomes nice since you don&amp;rsquo;t need to write the same code over and over again.&lt;/p&gt;
+
+&lt;p&gt;So, after that long introduction, here&amp;rsquo;s how I did convention based node.js.&lt;/p&gt;
+
+&lt;p&gt;The file structure is like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root
+  ┕ controllers
+    ┝ people
+    │ ┝ get-{id}.js
+    │ ┕ get-{id}-animals.js
+    ┕ animals
+      ┝ get-{id}.js
+      ┕ delete-{id}.js
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These directories/files would correspond to the routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/api/people/{id} → Method: GET
+/api/people/{id} → Method: GET
+/api/animals/{id} → Method: GET
+/api/animals/{id} → Method: DELETE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see you could set up whatever combination you would like. I like
+this method of convention also, since it keeps things simple. All your routes
+are in your controller and easy to scan. So, when I need to edit a file I can
+quickly find which one I&amp;rsquo;m looking for. Some of the other libraries nest the
+routes in directories, which becomes very tedious.&lt;/p&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;http://swagger.io/&#34;&gt;swagger&lt;/a&gt; to map the route definitions to the route
+methods. This way, I must have documentation in order to have a route. No
+documentation, no route. But it also leaves me the flexibility to create routes
+outside of this documentation if I really need to. But it just means it won&amp;rsquo;t
+be set up in the normal way.&lt;/p&gt;
+
+&lt;p&gt;So, in swagger (using YAML), the code would look like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;paths:
+
+    /api/people/{id}:
+      get:
+        _call:
+          - [params, id]
+
+    /api/animals/{id}:
+      delete:
+        _call:
+          - [params, id]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, you can see how you can pass pretty much anything into your route method.
+Each array element is passed into the method in the order given. The call takes
+the parameters from the &lt;code&gt;request&lt;/code&gt; object that &lt;code&gt;express.js&lt;/code&gt; passes in. For more
+complex items you can even pass in an object from different parts of the
+&lt;code&gt;request&lt;/code&gt; object like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;_call:
+  - userId: [params, id]
+    userName: [user, username]
+    guid: [user, guid]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where &lt;code&gt;user&lt;/code&gt; comes from some middleware which validates the user authentication
+information.&lt;/p&gt;
+
+&lt;p&gt;This way of doing things also comes in handy since it means I can automate
+integration tests. I can test each route in the &lt;code&gt;swagger&lt;/code&gt; file and make sure
+that it is validated against the json-schema associated with that route.&lt;/p&gt;
+
+&lt;p&gt;So, let&amp;rsquo;s look at the glue for all of this. I didn&amp;rsquo;t create an npm library for
+this. I was thinking I would eventually, but since I just use WebAPI now, I
+don&amp;rsquo;t want to support it. But, luckily the code is simple enough that that
+isn&amp;rsquo;t a problem!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import path = require(&#39;path&#39;)
+
+module SwaggerRoutes {
+    export interface Options {
+        swagger: any
+        baseRoute: any
+        response: any
+        baseDirectory: string
+    }
+    export interface CreateRoutes {
+        (options: Options): void
+    }
+}
+
+const
+fail = reason =&amp;gt; {throw new Error(reason)},
+type = o =&amp;gt; Object.prototype.toString.call(o),
+isFunction = o =&amp;gt; type(o) === &#39;[object Function]&#39;,
+isArray = o =&amp;gt; type(o) === &#39;[object Array]&#39;,
+isObject = o =&amp;gt; type(o) === &#39;[object Object]&#39;,
+getPropValue = (path, obj) =&amp;gt;
+    path.reduce((acc, prop) =&amp;gt; acc === void 0 ? void 0 : acc[prop], obj),
+args = (o, xs) =&amp;gt;
+    xs.map(x =&amp;gt; (
+        isArray(x)
+            ? getPropValue(x, o)
+        : isObject(x)
+            ? (Object
+                .keys(x)
+                .reduce((acc, name) =&amp;gt;
+                    (acc[name] = getPropValue(x[name], o), acc), {}))
+        : void 0
+    ))
+
+const routePath = (route: string) =&amp;gt; {
+    const
+    components = route.slice(1).split(&#39;/&#39;),
+    dir = components[0],
+    baseFileName = components.slice(1).join(&#39;-&#39;)
+    return [dir, baseFileName]
+}
+
+const expressCallback = (response, routeProperties, method, controller) =&amp;gt;
+    (request, client, error) =&amp;gt; {
+
+        const send = &amp;lt;any&amp;gt; response.bind(response, client)
+        controller.apply(controller, args(request, routeProperties[method]._call))
+        .then(send)
+        .catch(error)
+
+    }
+
+const createRoutes: SwaggerRoutes.CreateRoutes = (o: SwaggerRoutes.Options) =&amp;gt; {
+    const paths = o.swagger.paths
+    Object.keys(paths)
+    .filter(x =&amp;gt; x.charAt(0) === &#39;/&#39;)
+    .forEach(routeName =&amp;gt; {
+
+        const
+        routeProperties = paths[routeName],
+        basePath = routePath(routeName)
+
+        Object.keys(routeProperties)
+        .forEach(method =&amp;gt; {
+            if (routeProperties[method]._call) {
+                const
+                requirePath = path.resolve(
+                    __dirname,
+                    path.join(
+                        o.baseDirectory,
+                        basePath[0],
+                        (basePath[1] ? `${method}-${basePath[1]}` : method))),
+                handler = require(requirePath),
+                controller =
+                    isFunction(handler)
+                        ? handler
+                    : isFunction(handler.default)
+                        ? handler.default
+                    : fail(&#39;Could not retrieve `handler` function.&#39;)
+
+                const
+                routePath = routeName.replace(/{(\w+)}/g, &#39;:$1&#39;),
+                altPath =
+                    (routeProperties[method].parameters || [])
+                    .reduce((acc, x) =&amp;gt;
+                        x.required ? acc : acc.replace(RegExp(`/:${x.name}`), &#39;&#39;), routePath),
+                routePaths = altPath !== routePath ? [altPath, routePath] : [routePath]
+
+                routePaths.forEach(x =&amp;gt; {
+                    o.baseRoute(x)
+                    [method](expressCallback(o.response, routeProperties, method, controller))
+                })
+
+            }
+        })
+
+    })
+}
+
+export = createRoutes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how you would call that code to set up your routes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import swaggerRoutes = require(&#39;./swagger-routes&#39;)
+const yaml = require(&#39;js-yaml&#39;)
+
+swaggerRoutes({
+    swagger: yaml.load(readFileSync(&#39;./api/api.yml&#39;, &#39;utf-8&#39;)),
+    baseRoute: authenticatedRoute,
+    response: (client: express.Response, result) =&amp;gt;
+        client.send(omit([&#39;httpStatusCode&#39;], withMessageAs(result))),
+    baseDirectory: &#39;../controllers&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
