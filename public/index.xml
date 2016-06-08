@@ -10,6 +10,18 @@
     <atom:link href="http://jnyman.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>About</title>
+      <link>http://jnyman.com/about/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/about/</guid>
+      <description>&lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
+
+&lt;p&gt;¡It&amp;rsquo;s about the code, chè!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Building a Convention Based Routes in Node.js</title>
       <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
       <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
@@ -242,16 +254,6 @@ swaggerRoutes({
     baseDirectory: &#39;../controllers&#39;
 })
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://jnyman.com/about/</link>
-      <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/about/</guid>
-      <description>&lt;p&gt;¡It&amp;rsquo;s about the code, chè!&lt;/p&gt;
 </description>
     </item>
     

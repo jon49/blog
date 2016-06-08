@@ -1,6 +1,9 @@
 ---
 title: About
-date: 2015-09-03
+date: 2016-06-07
+type: Page
 ---
+
+Father of four who enjoys, backpacking, reading, and programming.
 
 ¡It's about the code, chè!
