@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>History on Hamsters Byte</title>
+    <link>http://jnyman.com/tags/history/</link>
+    <description>Recent content in History on Hamsters Byte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://jnyman.com/tags/history/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>On-the-Fly Lambda Expressions in JavaScript</title>
+      <link>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</link>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</guid>
+      <description>&lt;p&gt;Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a couple libraries that did this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/fschaefer/Lambda.js&#34;&gt;https://github.com/fschaefer/Lambda.js&lt;/a&gt;
+&lt;a href=&#34;https://github.com/dfellis/lambda-js&#34;&gt;https://github.com/dfellis/lambda-js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it basically worked:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var f = function(func){
+   var funcArray = func.split(&#39;-&amp;gt;&#39;)
+   return   (funcArray.length === 1)
+            ? new Function(&#39;x&#39;, &#39;return (&#39; + funcArray[0].trim() + &#39;)&#39;)
+            : new Function(funcArray[0].trim(), &#39;return (&#39; + funcArray[1].trim() + &#39;)&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty simple, but definitely not best practice now days.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,8 +6,35 @@
     <description>Recent content on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jun 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>On-the-Fly Lambda Expressions in JavaScript</title>
+      <link>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</link>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</guid>
+      <description>&lt;p&gt;Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a couple libraries that did this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/fschaefer/Lambda.js&#34;&gt;https://github.com/fschaefer/Lambda.js&lt;/a&gt;
+&lt;a href=&#34;https://github.com/dfellis/lambda-js&#34;&gt;https://github.com/dfellis/lambda-js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it basically worked:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var f = function(func){
+   var funcArray = func.split(&#39;-&amp;gt;&#39;)
+   return   (funcArray.length === 1)
+            ? new Function(&#39;x&#39;, &#39;return (&#39; + funcArray[0].trim() + &#39;)&#39;)
+            : new Function(funcArray[0].trim(), &#39;return (&#39; + funcArray[1].trim() + &#39;)&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty simple, but definitely not best practice now days.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -997,26 +1024,6 @@ log(result)
 &lt;p&gt;&lt;strong&gt;This helped me learn about design patterns used in the library bilby.js&lt;/strong&gt;&lt;/p&gt;
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/Mw_Jnn_Y5iA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Spreadsheet Budget Launched</title>
-      <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
-      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
-      <description>&lt;p&gt;This first version is pretty basic - yet powerful. It will import your financial data from &lt;a href=&#34;http://kmymoney2.sourceforge.net/index-home.html&#34;&gt;KMyMoney&lt;/a&gt; (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (&lt;a href=&#34;wyday.com/wyupdate/‎&#34;&gt;wyUpdate&lt;/a&gt;) so you can stay up to date with the latest version with small packages.&lt;/p&gt;
-
-&lt;p&gt;Let me know what financial program you use so I can add it to the list for future compatibility.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How to install the add-in.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/hJbNhsCR-Qk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
 </description>
     </item>
     

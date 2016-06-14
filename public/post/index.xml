@@ -6,8 +6,35 @@
     <description>Recent content in Posts on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jun 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>On-the-Fly Lambda Expressions in JavaScript</title>
+      <link>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</link>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</guid>
+      <description>&lt;p&gt;Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a couple libraries that did this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/fschaefer/Lambda.js&#34;&gt;https://github.com/fschaefer/Lambda.js&lt;/a&gt;
+&lt;a href=&#34;https://github.com/dfellis/lambda-js&#34;&gt;https://github.com/dfellis/lambda-js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how it basically worked:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var f = function(func){
+   var funcArray = func.split(&#39;-&amp;gt;&#39;)
+   return   (funcArray.length === 1)
+            ? new Function(&#39;x&#39;, &#39;return (&#39; + funcArray[0].trim() + &#39;)&#39;)
+            : new Function(funcArray[0].trim(), &#39;return (&#39; + funcArray[1].trim() + &#39;)&#39;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty simple, but definitely not best practice now days.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Building a Convention Based Routes in Node.js</title>
@@ -1005,59 +1032,6 @@ log(result)
 &lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
-      <link>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
-      <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
-Sync) is great software which can be used for syncing files. I use it
-for backing up all my pictures/videos/music/files/mobile computers.
-Well, I did some testing and it looks like it can be used for installing
-and updating software also.&lt;/p&gt;
-
-&lt;p&gt;I tested it with my Windows 8 computer over to my Windows XP computer. I
-created an Excel xla add-in file and I also created an executable file.
-Both worked fine after syncing. The following procedure was used:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create folder for program you would like synced&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync/get-started.html&#34;&gt;Create a syncing
-folder&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Copy read only secret
-
-&lt;ul&gt;
-&lt;li&gt;right click on folder to sync in BT Sync “Show folder
-preferences” then copy read only secret&lt;/li&gt;
-&lt;li&gt;Careful not to copy the wrong folder! You don’t want others
-getting your data!&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Give the secret to all those that you would like to have it.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;BT Sync could probably work for:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;This seems like a good idea for open source projects which are free.&lt;/li&gt;
-&lt;li&gt;It could probably also work for paid products which allow for
-updates for a year or more. For paid products a developer could just
-create a new folder after the latest cutoff period.&lt;/li&gt;
-&lt;li&gt;This might be ideal for corporate wide add-ins also. The main
-problem with that is security of course. So I am not quite sure how
-that would be worked out.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The down side would be that for people which don’t want to install BT
-Sync you would need a back up updater/installer.&lt;/p&gt;
-
-&lt;p&gt;Let me know what you think! It would be interesting to hear other ideas
-on how this could work in the programming environment &lt;a href=&#34;http://blog.bittorrent.com/tag/bittorrent-sync/&#34;&gt;which haven’t
-already been thought
-of&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

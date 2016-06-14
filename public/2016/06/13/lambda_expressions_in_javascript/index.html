@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Javascript</title>
+  <title>On-the-Fly Lambda Expressions in JavaScript</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,92 +26,55 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
+<h1>On-the-Fly Lambda Expressions in JavaScript</h1>
+<article>
+  <p>Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.</p>
 
+<p>Here&rsquo;s a couple libraries that did this.</p>
 
+<p><a href="https://github.com/fschaefer/Lambda.js">https://github.com/fschaefer/Lambda.js</a>
+<a href="https://github.com/dfellis/lambda-js">https://github.com/dfellis/lambda-js</a></p>
 
-<main class="archive">
-  <h1>On-the-Fly Lambda Expressions in JavaScript</h1>
-  <ul class="posts">
+<p>Here&rsquo;s how it basically worked:</p>
+
+<pre><code>var f = function(func){
+   var funcArray = func.split('-&gt;')
+   return   (funcArray.length === 1)
+            ? new Function('x', 'return (' + funcArray[0].trim() + ')')
+            : new Function(funcArray[0].trim(), 'return (' + funcArray[1].trim() + ')')
+}
+</code></pre>
+
+<p>Pretty simple, but definitely not best practice now days.</p>
+
+</article>
+<p>
+<span>Mon Jun 13, 2016</span>
+   | 
+
+  
+    tags:
+      <a href="/tags/javascript">JavaScript</a>
     
-    <li>
-      <a href="http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/">On-the-Fly Lambda Expressions in JavaScript</a>
-
-      <p class="footnote">
-      submitted <span>Mon Jun 13, 2016</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/javascript">JavaScript</a> <a href="http://jnyman.com/tags/history">History</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
+      <a href="/tags/history">History</a>
     
-    
+  
 
-<main class="archive">
-  <h1>bilby.js &amp; lenses</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/">bilby.js &amp; lenses</a>
+  
 
-      <p class="footnote">
-      submitted <span>Tue Jul 1, 2014</span>
+  
 
-      
-      to
-      
+</p>
 
-      
-      tags:[ <a href="http://jnyman.com/tags/bilby.js">bilby.js</a> <a href="http://jnyman.com/tags/immutability">immutability</a> <a href="http://jnyman.com/tags/javascript">javascript</a> <a href="http://jnyman.com/tags/functional-programming">functional programming</a> ]
-      
 
-      
+<div class="nav-posts">
+  
+    <a class="next" href="http://jnyman.com/about/"> About</a>
+  
 
-      
+  
+</div>
 
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>JavaScript</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2014/06/07/javascript/">JavaScript</a>
-
-      <p class="footnote">
-      submitted <span>Sat Jun 7, 2014</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/javascript">javascript</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-  </ul>
-
-</main>
 
 <div class="footer-menu">
   <ul>
@@ -144,3 +107,6 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </body>
 </html>
 
+
+<script src="/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
