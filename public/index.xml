@@ -37,18 +37,6 @@
     </item>
     
     <item>
-      <title>About</title>
-      <link>http://jnyman.com/about/</link>
-      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/about/</guid>
-      <description>&lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
-
-&lt;p&gt;¡It&amp;rsquo;s about the code, chè!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Building a Convention Based Routes in Node.js</title>
       <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
       <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
@@ -1024,6 +1012,26 @@ log(result)
 &lt;p&gt;&lt;strong&gt;This helped me learn about design patterns used in the library bilby.js&lt;/strong&gt;&lt;/p&gt;
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/Mw_Jnn_Y5iA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spreadsheet Budget Launched</title>
+      <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
+      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
+      <description>&lt;p&gt;This first version is pretty basic - yet powerful. It will import your financial data from &lt;a href=&#34;http://kmymoney2.sourceforge.net/index-home.html&#34;&gt;KMyMoney&lt;/a&gt; (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (&lt;a href=&#34;wyday.com/wyupdate/‎&#34;&gt;wyUpdate&lt;/a&gt;) so you can stay up to date with the latest version with small packages.&lt;/p&gt;
+
+&lt;p&gt;Let me know what financial program you use so I can add it to the list for future compatibility.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How to install the add-in.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/hJbNhsCR-Qk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
 </description>
     </item>
     

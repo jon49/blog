@@ -12,11 +12,6 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/about/</loc>
-    <lastmod>2016-06-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</loc>
     <lastmod>2016-06-07T00:00:00+00:00</lastmod>
   </url>
@@ -329,6 +324,10 @@
   <url>
     <loc>http://jnyman.com/2012/01/04/0welcome/</loc>
     <lastmod>2012-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jnyman.com/about/</loc>
   </url>
   
 </urlset>

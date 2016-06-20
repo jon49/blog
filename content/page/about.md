@@ -1,6 +1,5 @@
 ---
 title: About
-date: 2016-06-07
 type: Page
 ---
 

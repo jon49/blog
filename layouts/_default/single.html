@@ -7,7 +7,9 @@
   {{ .Content }}
 </article>
 <p>
-<span>{{ .Date.Format "Mon Jan 2, 2006" }}</span>
+{{ if eq .Type "post" }}
+    <span>{{ .Date.Format "Mon Jan 2, 2006" }}</span>
+{{ end }}
   {{ if or .Params.tags .Params.categories .Params.series }} | {{ end }}
 
   {{ if isset .Params "tags" }}
