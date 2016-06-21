@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>On-the-Fly Lambda Expressions in JavaScript</title>
+  <title>Build Tool</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,64 +26,38 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
-<h1>On-the-Fly Lambda Expressions in JavaScript</h1>
-<article>
-  <p>Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.</p>
 
-<p>Here&rsquo;s a couple libraries that did this.</p>
 
-<p><a href="https://github.com/fschaefer/Lambda.js">https://github.com/fschaefer/Lambda.js</a>
-<a href="https://github.com/dfellis/lambda-js">https://github.com/dfellis/lambda-js</a></p>
 
-<p>Here&rsquo;s how it basically worked:</p>
-
-<pre><code>var f = function(func){
-   var funcArray = func.split('-&gt;')
-   return   (funcArray.length === 1)
-            ? new Function('x', 'return (' + funcArray[0].trim() + ')')
-            : new Function(funcArray[0].trim(), 'return (' + funcArray[1].trim() + ')')
-}
-</code></pre>
-
-<p>Pretty simple, but definitely not best practice now days.</p>
-
-</article>
-<p>
-
-    <span>Mon Jun 13, 2016</span>
-
-   | 
-
-  
-    tags:
-      <a href="/tags/javascript">JavaScript</a>
+<main class="archive">
+  <h1>Using NPM as a Build Tool</h1>
+  <ul class="posts">
     
-      <a href="/tags/history">History</a>
-    
-  
+    <li>
+      <a href="http://jnyman.com/2016/06/21/npm_as_build_tool/">Using NPM as a Build Tool</a>
 
-  
+      <p class="footnote">
+      submitted <span>Tue Jun 21, 2016</span>
 
-  
-
-</p>
-
-
-<div class="nav-posts">
-  
-    <a class="next" href="http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/"> Building a Convention Based Routes in Node.js</a>
-  
-
-  
-    
       
-      ✴
+      to
       
-      <a class="previous" href="http://jnyman.com/2016/06/21/npm_as_build_tool/"> Using NPM as a Build Tool</a>
-    
-  
-</div>
 
+      
+      tags:[ <a href="http://jnyman.com/tags/npm">npm</a> <a href="http://jnyman.com/tags/build-tool">build tool</a> <a href="http://jnyman.com/tags/javascript">javascript</a> <a href="http://jnyman.com/tags/yaml">yaml</a> ]
+      
+
+      
+
+      
+
+      </p>
+    </li>
+    
+    
+  </ul>
+
+</main>
 
 <div class="footer-menu">
   <ul>
@@ -116,6 +90,3 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </body>
 </html>
 
-
-<script src="/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>

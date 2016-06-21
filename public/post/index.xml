@@ -6,8 +6,125 @@
     <description>Recent content in Posts on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jun 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using NPM as a Build Tool</title>
+      <link>http://jnyman.com/2016/06/21/npm_as_build_tool/</link>
+      <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
+      <description>&lt;p&gt;I really like simplicity. The tools I use, I like them to make my life easy,
+not hard. They need to work out of the box. No huge configuration settings,
+just make it easy so I can get to work.&lt;/p&gt;
+
+&lt;p&gt;Well, along come &lt;code&gt;grunt&lt;/code&gt;, &lt;code&gt;gulp&lt;/code&gt;, and now even more tools since I first started
+writing this that I won&amp;rsquo;t mention. Two build tools for JavaScript. Wonderful,
+we need tools to help us build our files. Wait a minute. We already have a
+build tool, it&amp;rsquo;s called NPM. By the time I started learning JavaScript,
+&lt;code&gt;gulp.js&lt;/code&gt; was the cool thing. I think &lt;code&gt;gulpl.js&lt;/code&gt; is a really nice tool. But, if
+you are building simple apps or even complex apps you can get away with just
+the command line and keep things simple and concise.&lt;/p&gt;
+
+&lt;p&gt;So, if you really want to learn how to use NPM as your build tool there&amp;rsquo;s a
+well written tutorial called &lt;a href=&#34;http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&#34;&gt;How to Use npm as a Build
+Tool&lt;/a&gt; which you
+can read.&lt;/p&gt;
+
+&lt;p&gt;So, some gripes people have about using NPM as a command tool are that you
+can&amp;rsquo;t comment your scripts and that you can&amp;rsquo;t write variables. Well, enter
+YAML. I haven&amp;rsquo;t done variables in YAML but you can write them. You can also
+comment in YAML. You can even &lt;a href=&#34;http://unix.stackexchange.com/a/56449/89551&#34;&gt;write variables in your command
+line&lt;/a&gt;. So, I write my scripts in
+YAML and merge that into my &lt;code&gt;package.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my scripts in YAML.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# scripts run with npm. to build to package.json
+# in command line in directory `.../mobiledlr/dist`
+# `node ./tasks/buildPackage`
+scripts:
+
+  # bring together api.yml file with d.ts definitions
+  # print to public
+  api: |
+    cpx &amp;quot;../ts/api/**&amp;quot; api
+    &amp;amp;&amp;amp; node ./tasks/api-generator.js
+  browserify: browserify
+  deploy: node ./tasks/deploy.js
+
+  # dsr app
+  dsr: |
+    browserify ./views/dealer_service_report/dsr.js
+    | uglifyjs -m -c
+    | tee ./public/js/dsr.min.js
+    | ngzip
+    &amp;gt; ./public/js/dsr.min.js.gz
+  r: ramda
+  start: node ./app.js --use_strict
+
+  # Copy convert stylus files in directory to css
+  # files in public directory.
+  stylus: stylus -w -c ../static/stylus -o public/css
+  test: node ./tasks/tests.js
+  typescript: |
+    tsc
+    --isolatedModules
+    -m commonjs
+    -t es5
+    --removeComments
+    --sourceMap
+    --outDir ./
+    --rootDir ../ts
+
+  watch: nodemon ./app.js --use_strict
+
+  # this has been deprecated in preference for browserify
+  webpack: |
+    ./node_modules/.bin/webpack -w --cache --config ./config/webpack.config.js
+
+  # e.g., npm run watchify ./dsr.js -o ./public/dsr.js
+  watchify: watchify
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here is the code I use to merge it with my &lt;code&gt;package.json&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-typescript&#34;&gt;import r = require(&#39;ramda&#39;)
+import yaml = require(&#39;js-yaml&#39;)
+import {readFile, writeFile} from &#39;fs&#39;
+
+var npmPackage = require(&#39;../package.json&#39;)
+
+readFile(&#39;../scripts.yml&#39;, &#39;utf-8&#39;, (err, file) =&amp;gt; {
+    if (err) {
+        console.log(&#39;Error reading scripts.yml&#39;, err)
+        return process.exit(1)
+    }
+
+    const
+    scripts = yaml.load(file),
+    combined = r.merge(npmPackage, scripts)
+
+    writeFile(&#39;./package.json&#39;, JSON.stringify(combined, null, &#39;  &#39;).replace(/\\n/g, &#39; &#39;), err =&amp;gt; {
+        if (err) {
+            console.error(&#39;There was an error writing to package.json!&#39;, err)
+            return process.exit(1)
+        }
+        process.exit(0)
+    })
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I put the scripts script in a directory called &lt;code&gt;tasks&lt;/code&gt; and just use the command
+line &lt;code&gt;node ./tasks/scriptsPackage&lt;/code&gt; anytime I change my &lt;code&gt;scripts.yml&lt;/code&gt; file. I
+suppose I could make it a CLI compatible command. But I haven&amp;rsquo;t needed to. But
+I&amp;rsquo;m sure I would eventually want to. Once I do that I could add it to my
+&lt;code&gt;scripts.yml&lt;/code&gt; file! Only the first time I call it would I need to call it
+directly, so it would be something like this: &lt;code&gt;node
+./.node_modules/.bin/scripts ../ts/scripts.yml&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>On-the-Fly Lambda Expressions in JavaScript</title>
@@ -1012,26 +1129,6 @@ log(result)
 &lt;p&gt;&lt;strong&gt;This helped me learn about design patterns used in the library bilby.js&lt;/strong&gt;&lt;/p&gt;
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/Mw_Jnn_Y5iA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Spreadsheet Budget Launched</title>
-      <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
-      <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
-      <description>&lt;p&gt;This first version is pretty basic - yet powerful. It will import your financial data from &lt;a href=&#34;http://kmymoney2.sourceforge.net/index-home.html&#34;&gt;KMyMoney&lt;/a&gt; (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (&lt;a href=&#34;wyday.com/wyupdate/‎&#34;&gt;wyUpdate&lt;/a&gt;) so you can stay up to date with the latest version with small packages.&lt;/p&gt;
-
-&lt;p&gt;Let me know what financial program you use so I can add it to the list for future compatibility.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How to install the add-in.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/hJbNhsCR-Qk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;How to get started with the add-in.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div align=&#34;center&#34;&gt;&lt;iframe src=&#34;//www.youtube.com/embed/OQFAi5MKwxk&#34; height=&#34;315&#34; width=&#34;420&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/div&gt;
 </description>
     </item>
     
