@@ -30,8 +30,6 @@ a
   &:visited
     color color
 
-
-
 nav
 .archive
 .footer-menu
@@ -70,8 +68,6 @@ nav
   a
     text-decoration none
 
-
-
 nav
 .footer-menu
   li
@@ -86,20 +82,65 @@ footer
   font-size small
   text-align center
 
-@media screen and (min-width 801px)
-  .site-logo
-    background-color transparent
-    background-image url("/images/fire.png")
-    display block
-    width 80px
-    height 80px
-    margin 0 auto
-    border solid color 2px
-    border-radius 50%
+// @media screen and (min-width 801px)
+//   .site-logo
+//     background-color transparent
+//     background-image url("/images/fire.png")
+//     display block
+//     width 80px
+//     height 80px
+//     margin 0 auto
+//     border solid color 2px
+//     border-radius 50%
+//
+//   body
+//     > *
+//       width 800px
 
-  body
-    > *
-      width 800px
+/* Jon Nyman Animation  */
+header
+  text-align center
+
+header *
+  color fireRed
+
+.header-logo
+  display inline-block
+
+.header-logo > *
+  font-size large
+  position relative
+  float left
+
+.hider
+  overflow hidden
+
+#t-com
+    animation-name slideInRight
+    animation-iteration-count 1
+    animation-duration 3s
+    animation-fill-mode forwards
+
+#t-on
+#t-space
+  left 0
+  animation-name slideOutLeft
+  animation-iteration-count 1
+  animation-duration 5s
+  animation-delay 1s
+  animation-fill-mode  forwards
+
+@keyframes slideInRight
+  0%
+    transform translateX(100%)
+  100%
+    transform translateX(0)
+
+@keyframes slideOutLeft
+  0%
+    margin-left 0
+  100%
+    margin-left -268px
 
 /* Atelier-Estuary Red */
 .hljs-variable
