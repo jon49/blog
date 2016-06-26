@@ -41,9 +41,10 @@ let myData () = async {
     // return result
 }
 ```
+
 Now it is doing it at the same time! To me this feels a bit unintuitive. Enter
 JavaScript-style promises. Promise objects point to data and don't execute
-until you are ready to execute them.
+until you are ready to execute them as an `async` function does in F#.
 
 ```js
 let myData () =
@@ -60,7 +61,7 @@ Let's say you would like to have two asynchronous functions run at once.
 
 ```fsharp
 module Async =
-    let Parallel2 a b =
+    let Spread2 a b =
         async {
             let! a = Async.StartChild a
             let! b = Async.StartChild b
@@ -75,7 +76,7 @@ Which would flow like so:
 
 ```fsharp
 let myData () =
-    Async.Parallel2 (myData1 ()) (myData2 ())
+    Async.Spread2 (myData1 ()) (myData2 ())
     |> fun (resultA, resultB) -> // Do stuff here.
 ```
 
@@ -83,7 +84,7 @@ Pretty close to what the JavaScript promise looked like. In my opinion this
 work flow is much more intuitive and cleaner. It has a nicer flow than the
 `async` computation-style programming by not having to deal with the boiler
 plate code. I could see having a few parallel functions all the way up to perhaps
-`Async.Parallel6`. It would be very rare for me to ever need to call anything with
+`Async.Spread6`. It would be very rare for me to ever need to call anything with
 more external calls. Usually, I'm only calling two or three web services with the
 rare five or six.
 
@@ -93,7 +94,7 @@ adding it to mine.
 
 ```fsharp
 module Async =
-    let Parallel2With (a, f1) (b, f2) =
+    let Spread2With (a, f1) (b, f2) =
         async {
             let! a = Async.StartChild a
             let! b = Async.StartChild b
@@ -103,6 +104,8 @@ module Async =
         }
         |> Async.RunSynchronously
 ```
+
+I also debate whether it is smart to add the `Async.RunSynchronously` at the end. If I didn't have it I could use `Spread2` to create `Spread4` etc. If I ever needed more than six it might be worth it. But for now I haven't run into that problem since I started using this pattern.
 
 Inspiration for this post:
 

@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Using NPM as a Build Tool</title>
+  <title>JavaScript-Style Promises in F#</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,133 +36,122 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
-<h1>Using NPM as a Build Tool</h1>
+<h1>JavaScript-Style Promises in F#</h1>
 <article>
-  <p>I really like simplicity. The tools I use, I like them to make my life easy,
-not hard. They need to work out of the box. No huge configuration settings,
-just make it easy so I can get to work.</p>
+  <p>Working in enterprise level back end software often times I need to get
+information from many different sources. When you have enough of these sources
+the time it takes to get all the information can really add up. That&rsquo;s when F#
+<code>async</code> work flow really comes in handy. Except, there is a gotcha.</p>
 
-<p>Well, along come <code>grunt</code>, <code>gulp</code>, and now even more tools since I first started
-writing this that I won&rsquo;t mention. Two build tools for JavaScript. Wonderful,
-we need tools to help us build our files. Wait a minute. We already have a
-build tool, it&rsquo;s called NPM. By the time I started learning JavaScript,
-<code>gulp.js</code> was the cool thing. I think <code>gulpl.js</code> is a really nice tool. But, if
-you are building simple apps or even complex apps you can get away with just
-the command line and keep things simple and concise.</p>
+<p>Let&rsquo;s say we have two sources we need to fetch data from:</p>
 
-<p>So, if you really want to learn how to use NPM as your build tool there&rsquo;s a
-well written tutorial called <a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">How to Use npm as a Build
-Tool</a> which you
-can read.</p>
-
-<p>So, some gripes people have about using NPM as a command tool are that you
-can&rsquo;t comment your scripts and that you can&rsquo;t write variables. Well, enter
-YAML. I haven&rsquo;t done variables in YAML but you can write them. You can also
-comment in YAML. You can even <a href="http://unix.stackexchange.com/a/56449/89551">write variables in your command
-line</a>. So, I write my scripts in
-YAML and merge that into my <code>package.json</code> file.</p>
-
-<p>Here&rsquo;s my scripts in YAML.</p>
-
-<pre><code class="language-yaml"># scripts run with npm. to build to package.json
-# in command line in directory `.../mobiledlr/dist`
-# `node ./tasks/buildPackage`
-scripts:
-
-  # bring together api.yml file with d.ts definitions
-  # print to public
-  api: |
-    cpx &quot;../ts/api/**&quot; api
-    &amp;&amp; node ./tasks/api-generator.js
-  browserify: browserify
-  deploy: node ./tasks/deploy.js
-
-  # dsr app
-  dsr: |
-    browserify ./views/dealer_service_report/dsr.js
-    | uglifyjs -m -c
-    | tee ./public/js/dsr.min.js
-    | ngzip
-    &gt; ./public/js/dsr.min.js.gz
-  r: ramda
-  start: node ./app.js --use_strict
-
-  # Copy convert stylus files in directory to css
-  # files in public directory.
-  stylus: stylus -w -c ../static/stylus -o public/css
-  test: node ./tasks/tests.js
-  typescript: |
-    tsc
-    --isolatedModules
-    -m commonjs
-    -t es5
-    --removeComments
-    --sourceMap
-    --outDir ./
-    --rootDir ../ts
-
-  watch: nodemon ./app.js --use_strict
-
-  # this has been deprecated in preference for browserify
-  webpack: |
-    ./node_modules/.bin/webpack -w --cache --config ./config/webpack.config.js
-
-  # e.g., npm run watchify ./dsr.js -o ./public/dsr.js
-  watchify: watchify
+<pre><code class="language-fsharp">let myData () = async {
+    let! a = myData1 ()
+    let! b = myData2 ()
+    let resultA = a
+    let resultB = b
+    // ... do stuff
+    // return result
+}
 </code></pre>
 
-<p>And here is the code I use to merge it with my <code>package.json</code> file:</p>
+<p>So, when you look at that it looks like it should fetch the two data sources at
+the same time. Well, it doesn&rsquo;t. It does it one at a time, serially. It just
+doesn&rsquo;t block the thread while it is doing the fetching for each asynchronous
+call.</p>
 
-<pre><code class="language-typescript">import r = require('ramda')
-import yaml = require('js-yaml')
-import {readFile, writeFile} from 'fs'
+<p>This is what you need to do to do it in parallel:</p>
 
-var npmPackage = require('../package.json')
+<pre><code class="language-fsharp">let myData () = async {
+    let! a = Async.StartChild &lt;| myData1 ()
+    let! b = Async.StartChild &lt;| myData2 ()
+    let! resultA = a
+    let! resultB = b
+    // ... do stuff
+    // return result
+}
+</code></pre>
 
-readFile('../scripts.yml', 'utf-8', (err, file) =&gt; {
-    if (err) {
-        console.log('Error reading scripts.yml', err)
-        return process.exit(1)
-    }
+<p>Now it is doing it at the same time! To me this feels a bit unintuitive. Enter
+JavaScript-style promises. Promise objects point to data and don&rsquo;t execute
+until you are ready to execute them as an <code>async</code> function does in F#.</p>
 
-    const
-    scripts = yaml.load(file),
-    combined = r.merge(npmPackage, scripts)
+<pre><code class="language-js">let myData () =
+    Q
+    .all([myData1(), myData2()]) // Call two promises at the same time.
+    .spread((resultA, resultB) =&gt; {/* Do stuff here. */})
+</code></pre>
 
-    writeFile('./package.json', JSON.stringify(combined, null, '  ').replace(/\\n/g, ' '), err =&gt; {
-        if (err) {
-            console.error('There was an error writing to package.json!', err)
-            return process.exit(1)
+<p>Could we do something like that in F#? We can mimic the process in F# by having
+multiple functions depending on how many asynchronous processes you would like
+to run at a time.</p>
+
+<p>Let&rsquo;s say you would like to have two asynchronous functions run at once.</p>
+
+<pre><code class="language-fsharp">module Async =
+    let Spread2 a b =
+        async {
+            let! a = Async.StartChild a
+            let! b = Async.StartChild b
+            let! result1 = a
+            let! result2 = b
+            return result1, result2
         }
-        process.exit(0)
-    })
-})
+        |&gt; Async.RunSynchronously
 </code></pre>
 
-<p>I put the scripts script in a directory called <code>tasks</code> and just use the command
-line <code>node ./tasks/scriptsPackage</code> anytime I change my <code>scripts.yml</code> file. I
-suppose I could make it a CLI compatible command. But I haven&rsquo;t needed to. But
-I&rsquo;m sure I would eventually want to. Once I do that I could add it to my
-<code>scripts.yml</code> file! Only the first time I call it would I need to call it
-directly, so it would be something like this: <code>node
-./.node_modules/.bin/scripts ../ts/scripts.yml</code>.</p>
+<p>Which would flow like so:</p>
+
+<pre><code class="language-fsharp">let myData () =
+    Async.Spread2 (myData1 ()) (myData2 ())
+    |&gt; fun (resultA, resultB) -&gt; // Do stuff here.
+</code></pre>
+
+<p>Pretty close to what the JavaScript promise looked like. In my opinion this
+work flow is much more intuitive and cleaner. It has a nicer flow than the
+<code>async</code> computation-style programming by not having to deal with the boiler
+plate code. I could see having a few parallel functions all the way up to perhaps
+<code>Async.Spread6</code>. It would be very rare for me to ever need to call anything with
+more external calls. Usually, I&rsquo;m only calling two or three web services with the
+rare five or six.</p>
+
+<p>A variation on the function above would be to add mapping functions to your parallel
+function. I&rsquo;m not sure if that would be useful in practice, but if it is I&rsquo;ll be
+adding it to mine.</p>
+
+<pre><code class="language-fsharp">module Async =
+    let Spread2With (a, f1) (b, f2) =
+        async {
+            let! a = Async.StartChild a
+            let! b = Async.StartChild b
+            let! result1 = a
+            let! result2 = b
+            return (f1 result1), (f2 result2)
+        }
+        |&gt; Async.RunSynchronously
+</code></pre>
+
+<p>I also debate whether it is smart to add the <code>Async.RunSynchronously</code> at the end. If I didn&rsquo;t have it I could use <code>Spread2</code> to create <code>Spread4</code> etc. If I ever needed more than six it might be worth it. But for now I haven&rsquo;t run into that problem since I started using this pattern.</p>
+
+<p>Inspiration for this post:</p>
+
+<p><a href="http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658">http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658</a><br />
+<a href="http://stackoverflow.com/a/15829290/632495">http://stackoverflow.com/a/15829290/632495</a></p>
 
 </article>
 <p>
 
-    <span>Tue Jun 21, 2016</span>
+    <span>Sun Jun 26, 2016</span>
 
    | 
 
   
     tags:
-      <a href="/tags/npm">npm</a>
+      <a href="/tags/f">F#</a>
     
-      <a href="/tags/build-tool">build tool</a>
+      <a href="/tags/promises">Promises</a>
     
-      <a href="/tags/javascript">javascript</a>
-    
-      <a href="/tags/yaml">yaml</a>
+      <a href="/tags/async">Async</a>
     
   
 
@@ -175,16 +164,9 @@ directly, so it would be something like this: <code>node
 
 <div class="nav-posts">
   
-    <a class="next" href="http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/"> On-the-Fly Lambda Expressions in JavaScript</a>
+    <a class="next" href="http://jnyman.com/2016/06/21/npm_as_build_tool/"> Using NPM as a Build Tool</a>
   
 
-  
-    
-      
-      ✴
-      
-      <a class="previous" href="http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/"> JavaScript-Style Promises in F#</a>
-    
   
 </div>
 
