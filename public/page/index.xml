@@ -14,7 +14,19 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/about/</guid>
-      <description>&lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
+
+&lt;p&gt;I enjoy functional programming and am currently doing mostly F# with ASP.NET WebAPI with some ASP.NET MVC and front end programming (JavaScript/HTML/CSS).&lt;/p&gt;
+
+&lt;p&gt;I was doing node.js with MongoDB but found F# to a great language to work with in a .NET shop. So I ported it back to .NET platform.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/document/d/14KSYBndNxDSWHhrwrGgmeahqaUvo4MVDWgKsKqp6mWc/edit?usp=sharing&#34;&gt;See my full resume.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;my-programming-story&#34;&gt;My Programming Story&lt;/h3&gt;
+
+&lt;p&gt;Coming soon!&lt;/p&gt;
 
 &lt;p&gt;¡It&amp;rsquo;s about the code, chè!&lt;/p&gt;
 </description>
