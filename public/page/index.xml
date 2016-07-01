@@ -16,7 +16,11 @@
       <guid>http://jnyman.com/about/</guid>
       <description>
 
+&lt;h3 id=&#34;personal&#34;&gt;Personal&lt;/h3&gt;
+
 &lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
+
+&lt;h3 id=&#34;work-in-a-nutshell&#34;&gt;Work in a Nutshell&lt;/h3&gt;
 
 &lt;p&gt;I enjoy functional programming and am currently doing mostly F# with ASP.NET WebAPI with some ASP.NET MVC and front end programming (JavaScript/HTML/CSS).&lt;/p&gt;
 

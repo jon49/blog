@@ -3,7 +3,11 @@ title: About
 type: Page
 ---
 
+### Personal
+
 Father of four who enjoys, backpacking, reading, and programming.
+
+### Work in a Nutshell
 
 I enjoy functional programming and am currently doing mostly F# with ASP.NET WebAPI with some ASP.NET MVC and front end programming (JavaScript/HTML/CSS).
 
