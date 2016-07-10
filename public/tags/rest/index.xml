@@ -46,7 +46,7 @@ been mapped something like this instead:&lt;/p&gt;
   - url: /api/reports/{id}
     headers:
       - Content-Type: text/html
-    response: ...
+        response: ...
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;It appears that the standard might become more flexible in the future.  &lt;a href=&#34;https://github.com/OAI/OpenAPI-Specification/issues/146&#34;&gt;See

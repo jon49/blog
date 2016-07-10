@@ -41,7 +41,7 @@ paths:
   - url: /api/reports/{id}
     headers:
       - Content-Type: text/html
-    response: ...
+        response: ...
 ```
 
 It appears that the standard might become more flexible in the future.  [See
