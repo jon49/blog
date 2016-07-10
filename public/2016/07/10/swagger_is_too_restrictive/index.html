@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>JavaScript-Style Promises in F#</title>
+  <title>Swagger is too Restrictive</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,122 +36,59 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
-<h1>JavaScript-Style Promises in F#</h1>
+<h1>Swagger is too Restrictive</h1>
 <article>
-  <p>Working in enterprise level back end software often times I need to get
-information from many different sources. When you have enough of these sources
-the time it takes to get all the information can really add up. That&rsquo;s when F#
-<code>async</code> work flow really comes in handy. Except, there is a gotcha.</p>
+  <p>Swagger has a definite idea of what makes a good URL. But if you want to do
+anything outside of that good luck. I think, that even though it seems like a
+good idea to push people towards a standard it doesn&rsquo;t allow the user to really
+create RESTful APIs which suit their own needs.</p>
 
-<p>Let&rsquo;s say we have two sources we need to fetch data from:</p>
+<p>Let&rsquo;s say that you have a reports resource. Sometimes you would like to get the
+JSON data of the report. Sometimes you would like a partial static HTML page of
+the report. Well, with RESTful APIs you could have something like:</p>
 
-<pre><code class="language-fsharp">let myData () = async {
-    let! a = myData1 ()
-    let! b = myData2 ()
-    let resultA = a
-    let resultB = b
-    // ... do stuff
-    // return result
-}
+<pre><code>GET /api/reports/{id}
 </code></pre>
 
-<p>So, when you look at that it looks like it should fetch the two data sources at
-the same time. Well, it doesn&rsquo;t. It does it one at a time, serially. It just
-doesn&rsquo;t block the thread while it is doing the fetching for each asynchronous
-call.</p>
+<p>This will get the data which you wanted. Now, what about the report? You could:</p>
 
-<p>This is what you need to do to do it in parallel:</p>
+<p><code>GET reports/{id}</code></p>
 
-<pre><code class="language-fsharp">let myData () = async {
-    let! a = Async.StartChild &lt;| myData1 ()
-    let! b = Async.StartChild &lt;| myData2 ()
-    let! resultA = a
-    let! resultB = b
-    // ... do stuff
-    // return result
-}
+<p>But that seems like it would get you a full page, not a partial page. What if
+you did this instead?</p>
+
+<pre><code>GET /api/reports/{id}
+Content-Type text/html
 </code></pre>
 
-<p>Now it is doing it at the same time! To me this feels a bit unintuitive. Enter
-JavaScript-style promises. Promise objects point to data and don&rsquo;t execute
-until you are ready to execute them as an <code>async</code> function does in F#.</p>
+<p>The mapping of resources should be use all the available HTTP standards.
+Swagger doesn&rsquo;t allow for this. This is unfortunate.  The routes could have
+been mapped something like this instead:</p>
 
-<pre><code class="language-js">let myData () =
-    Q
-    .all([myData1(), myData2()]) // Call two promises at the same time.
-    .spread((resultA, resultB) =&gt; {/* Do stuff here. */})
+<pre><code class="language-yaml">paths:
+  - url: /api/reports/{id}
+    headers:
+      - Content-Type: text/html
+    response: ...
 </code></pre>
 
-<p>Could we do something like that in F#? We can mimic the process in F# by having
-multiple functions depending on how many asynchronous processes you would like
-to run at a time.</p>
-
-<p>Let&rsquo;s say you would like to have two asynchronous functions run at once.</p>
-
-<pre><code class="language-fsharp">module Async =
-    let Spread2 a b =
-        async {
-            let! a = Async.StartChild a
-            let! b = Async.StartChild b
-            let! result1 = a
-            let! result2 = b
-            return result1, result2
-        }
-        |&gt; Async.RunSynchronously
-</code></pre>
-
-<p>Which would flow like so:</p>
-
-<pre><code class="language-fsharp">let myData () =
-    Async.Spread2 (myData1 ()) (myData2 ())
-    |&gt; fun (resultA, resultB) -&gt; // Do stuff here.
-</code></pre>
-
-<p>Pretty close to what the JavaScript promise looked like. In my opinion this
-work flow is much more intuitive and cleaner. It has a nicer flow than the
-<code>async</code> computation-style programming by not having to deal with the boiler
-plate code. I could see having a few parallel functions all the way up to perhaps
-<code>Async.Spread6</code>. It would be very rare for me to ever need to call anything with
-more external calls. Usually, I&rsquo;m only calling two or three web services with the
-rare five or six.</p>
-
-<p>A variation on the function above would be to add mapping functions to your parallel
-function. I&rsquo;m not sure if that would be useful in practice, but if it is I&rsquo;ll be
-adding it to mine.</p>
-
-<pre><code class="language-fsharp">module Async =
-    let Spread2With (a, f1) (b, f2) =
-        async {
-            let! a = Async.StartChild a
-            let! b = Async.StartChild b
-            let! result1 = a
-            let! result2 = b
-            return (f1 result1), (f2 result2)
-        }
-        |&gt; Async.RunSynchronously
-</code></pre>
-
-<p>I also debate whether it is smart to add the <code>Async.RunSynchronously</code> at the end. If I didn&rsquo;t have it I could use <code>Spread2</code> to create <code>Spread4</code> etc. If I ever needed more than six it might be worth it. But for now I haven&rsquo;t run into that problem since I started using this pattern.</p>
-
-<p>Inspiration for this post:</p>
-
-<p><a href="http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658">http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658</a><br />
-<a href="http://stackoverflow.com/a/15829290/632495">http://stackoverflow.com/a/15829290/632495</a></p>
+<p>It appears that the standard might become more flexible in the future.  <a href="https://github.com/OAI/OpenAPI-Specification/issues/146">See
+the issue on Github</a>.</p>
 
 </article>
 <p>
 
-    <span>Sun Jun 26, 2016</span>
+    <span>Sun Jul 10, 2016</span>
 
    | 
 
   
     tags:
-      <a href="/tags/f">F#</a>
+      <a href="/tags/swagger">swagger</a>
     
-      <a href="/tags/promises">Promises</a>
+      <a href="/tags/rest">REST</a>
     
-      <a href="/tags/async">Async</a>
+      <a href="/tags/api">API</a>
     
   
 
@@ -164,16 +101,9 @@ adding it to mine.</p>
 
 <div class="nav-posts">
   
-    <a class="next" href="http://jnyman.com/2016/06/21/npm_as_build_tool/"> Using NPM as a Build Tool</a>
+    <a class="next" href="http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/"> JavaScript-Style Promises in F#</a>
   
 
-  
-    
-      
-      ✴
-      
-      <a class="previous" href="http://jnyman.com/2016/07/10/swagger_is_too_restrictive/"> Swagger is too Restrictive</a>
-    
   
 </div>
 

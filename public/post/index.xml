@@ -6,8 +6,53 @@
     <description>Recent content in Posts on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jul 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Swagger is too Restrictive</title>
+      <link>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</link>
+      <pubDate>Sun, 10 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</guid>
+      <description>&lt;p&gt;Swagger has a definite idea of what makes a good URL. But if you want to do
+anything outside of that good luck. I think, that even though it seems like a
+good idea to push people towards a standard it doesn&amp;rsquo;t allow the user to really
+create RESTful APIs which suit their own needs.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say that you have a reports resource. Sometimes you would like to get the
+JSON data of the report. Sometimes you would like a partial static HTML page of
+the report. Well, with RESTful APIs you could have something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GET /api/reports/{id}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will get the data which you wanted. Now, what about the report? You could:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;GET reports/{id}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;But that seems like it would get you a full page, not a partial page. What if
+you did this instead?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GET /api/reports/{id}
+Content-Type text/html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The mapping of resources should be use all the available HTTP standards.
+Swagger doesn&amp;rsquo;t allow for this. This is unfortunate.  The routes could have
+been mapped something like this instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;paths:
+  - url: /api/reports/{id}
+    headers:
+      - Content-Type: text/html
+    response: ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It appears that the standard might become more flexible in the future.  &lt;a href=&#34;https://github.com/OAI/OpenAPI-Specification/issues/146&#34;&gt;See
+the issue on Github&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>JavaScript-Style Promises in F#</title>
@@ -1095,124 +1140,6 @@ fmap(validNumber, social)
 &lt;p&gt;He then goes into other useful patterns with monads. But I&amp;rsquo;ll revisit that later after I get a better handle on this!&lt;/p&gt;
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/ww2Z1URx-G0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Notes On Functional Programming</title>
-      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
-      <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
-      <description>
-
-&lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
-
-&lt;h3 id=&#34;lenses&#34;&gt;Lenses&lt;/h3&gt;
-
-&lt;p&gt;Using lenses for composable/polymorphic model manipulation.&lt;/p&gt;
-
-&lt;p&gt;E.g.,&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var user = {id:1, name:{first:&#39;doris&#39;, last:&#39;day&#39;}}
-var L = makeLenses([&#39;name&#39;, &#39;first&#39;])
-var firstNameChar = compose(L.name, L.first, _1)
-over(firstNameChar, toUpperCase, user)
-//=&amp;gt; {id:1, name:{first:&#39;Doris&#39;, last:&#39;day&#39;}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;maybe&#34;&gt;Maybe&lt;/h3&gt;
-
-&lt;p&gt;Use &lt;code&gt;Maybe&lt;/code&gt; (Haskell) types (&lt;code&gt;Option&lt;/code&gt; types in bilby.js / Scala style) to make composition easier. This works with &lt;code&gt;fmap&lt;/code&gt; (functor maps). Returns resultant &lt;code&gt;option&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;error-handling-either&#34;&gt;Error Handling (Either)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;Either(&#39;need an int&#39;, 3)
-//=&amp;gt; Right(3)
-
-Either(&#39;need an int&#39;, undefined)
-//=&amp;gt; Left(&#39;need an int&#39;)
-
-fmap(function(x){return x+1;}, Right(2))
-//=&amp;gt; Right(3)
-
-fmap(function(x){return x+1;}, Left(&#39;need an int&#39;))
-//=&amp;gt; Left(&#39;need an int&#39;)
-
-compose(fmap(f), Either(error))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;future-values&#34;&gt;Future Values&lt;/h3&gt;
-
-&lt;p&gt;I&amp;rsquo;ll have to come back to this one later when I use it more.&lt;/p&gt;
-
-&lt;h3 id=&#34;functor&#34;&gt;Functor&lt;/h3&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Something that implements &lt;strong&gt;map&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Like Promise, Maybe, Either, etc.&lt;/p&gt;
-
-&lt;h3 id=&#34;nesting&#34;&gt;Nesting&lt;/h3&gt;
-
-&lt;p&gt;Use mjoin (flatMap &amp;ndash; bilby.js) to flatten nesting.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getField = compose(Maybe, document.querySelector)
-var getValue = compose(Maybe, pluck(&#39;value&#39;))
-
-var greet = compose(fmap(fmap(concat(&#39;hello&#39;)))
-                    , fmap(getValue), getField)
-greet(&#39;#name&#39;)
-//=&amp;gt; Maybe(Maybe(&#39;hello chris&#39;))
-
-var greet = compose(fmap(concat(&#39;hello&#39;))
-                    , mjoin
-                    , fmap(getValue), getField)
-greet(&#39;#name&#39;)
-//=&amp;gt; Maybe(&#39;hello chris&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;mutiple-values-lifta2&#34;&gt;Mutiple Values (liftA2)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;liftA2(f, A(x), A(y))
-
-liftA2(add, Maybe(3), Maybe(4))
-//=&amp;gt; Maybe(7)
-
-liftA2(add, Maybe(null), Maybe(4))
-//=&amp;gt; Maybe(null)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;lenses-1&#34;&gt;Lenses&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var L = makeLenses([&#39;body&#39;, &#39;viewed&#39;])
-var comment = {id:2, body: &amp;quot;this is a *great* post&amp;quot;, viewed: false}
-var showOnScreen = log
-var prog = compose(showOnScreen, set(L.viewed, true), over(L.body, markdown))
-prog(comment)
-//=&amp;gt; {id:2, body: &#39;&amp;lt;p&amp;gt;this is a &amp;lt;em&amp;gt;great&amp;lt;/em&amp;gt; post!&amp;lt;/p&amp;gt;&#39;, viewed: true}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;either-maybe&#34;&gt;Either/Maybe&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getWords = compose(Either(&#39;you need some words&#39;)
-               , match(/\w+/g))
-var showCount = compose(concat(&#39;The count is: &#39;)
-                , pluck(&#39;length&#39;))
-var prog = compose(fmap(showCount), getWords)
-var result = progr(&#39; blah &#39;)
-log(result)
-//=&amp;gt; Right(&#39;The count is: 1&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;These notes came from the video below:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/DrBoolean/patterns_talk&#34;&gt;The full slides are also available.&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;//www.youtube.com/embed/AvgwKjTPMmM&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
     </item>
     

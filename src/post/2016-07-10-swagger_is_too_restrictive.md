@@ -2,6 +2,8 @@
 title: Swagger is too Restrictive
 tags:
   - swagger
+  - REST
+  - API
 ---
 
 Swagger has a definite idea of what makes a good URL. But if you want to do
@@ -30,9 +32,8 @@ Content-Type text/html
 ```
 
 The mapping of resources should be use all the available HTTP standards.
-Swagger doesn't allow for this. This is unfortunate. It's too bad Swagger has
-gained so much popularity when a more flexible standard could have been
-created. The routes could have been mapped something like this instead:
+Swagger doesn't allow for this. This is unfortunate.  The routes could have
+been mapped something like this instead:
 
 ```yaml
 paths:
@@ -42,10 +43,5 @@ paths:
     response: ...
 ```
 
-You get the point. This would allow for a much more flexible API that can
-change with the changing standards of the web. Since the curators have chosen
-to be staunch in their position that URLs can only return a single type
-regardless of what is in the headers will make Swagger become obsolete in the
-long run. Which is unfortunate, because a lot of work has gone into making this
-standard. Maybe they will eventually catch up to the changing standards of
-today, but I'll be doing my own thing before that ever happens it appears.
+It appears that the standard might become more flexible in the future.  [See
+the issue on Github](https://github.com/OAI/OpenAPI-Specification/issues/146).
