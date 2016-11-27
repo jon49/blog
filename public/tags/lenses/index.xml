@@ -123,9 +123,9 @@ var change = function(f, value, thisArg){
       <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
       <description>
 
-&lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
+&lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
 
-&lt;h3 id=&#34;lenses&#34;&gt;Lenses&lt;/h3&gt;
+&lt;h3 id=&#34;lenses:84395a4544571503aa2619881045cc3a&#34;&gt;Lenses&lt;/h3&gt;
 
 &lt;p&gt;Using lenses for composable/polymorphic model manipulation.&lt;/p&gt;
 
@@ -138,11 +138,11 @@ over(firstNameChar, toUpperCase, user)
 //=&amp;gt; {id:1, name:{first:&#39;Doris&#39;, last:&#39;day&#39;}}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;maybe&#34;&gt;Maybe&lt;/h3&gt;
+&lt;h3 id=&#34;maybe:84395a4544571503aa2619881045cc3a&#34;&gt;Maybe&lt;/h3&gt;
 
 &lt;p&gt;Use &lt;code&gt;Maybe&lt;/code&gt; (Haskell) types (&lt;code&gt;Option&lt;/code&gt; types in bilby.js / Scala style) to make composition easier. This works with &lt;code&gt;fmap&lt;/code&gt; (functor maps). Returns resultant &lt;code&gt;option&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;error-handling-either&#34;&gt;Error Handling (Either)&lt;/h3&gt;
+&lt;h3 id=&#34;error-handling-either:84395a4544571503aa2619881045cc3a&#34;&gt;Error Handling (Either)&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;Either(&#39;need an int&#39;, 3)
 //=&amp;gt; Right(3)
@@ -159,11 +159,11 @@ fmap(function(x){return x+1;}, Left(&#39;need an int&#39;))
 compose(fmap(f), Either(error))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;future-values&#34;&gt;Future Values&lt;/h3&gt;
+&lt;h3 id=&#34;future-values:84395a4544571503aa2619881045cc3a&#34;&gt;Future Values&lt;/h3&gt;
 
 &lt;p&gt;I&amp;rsquo;ll have to come back to this one later when I use it more.&lt;/p&gt;
 
-&lt;h3 id=&#34;functor&#34;&gt;Functor&lt;/h3&gt;
+&lt;h3 id=&#34;functor:84395a4544571503aa2619881045cc3a&#34;&gt;Functor&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Something that implements &lt;strong&gt;map&lt;/strong&gt;&lt;/p&gt;
@@ -171,7 +171,7 @@ compose(fmap(f), Either(error))
 
 &lt;p&gt;Like Promise, Maybe, Either, etc.&lt;/p&gt;
 
-&lt;h3 id=&#34;nesting&#34;&gt;Nesting&lt;/h3&gt;
+&lt;h3 id=&#34;nesting:84395a4544571503aa2619881045cc3a&#34;&gt;Nesting&lt;/h3&gt;
 
 &lt;p&gt;Use mjoin (flatMap &amp;ndash; bilby.js) to flatten nesting.&lt;/p&gt;
 
@@ -190,7 +190,7 @@ greet(&#39;#name&#39;)
 //=&amp;gt; Maybe(&#39;hello chris&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mutiple-values-lifta2&#34;&gt;Mutiple Values (liftA2)&lt;/h3&gt;
+&lt;h3 id=&#34;mutiple-values-lifta2:84395a4544571503aa2619881045cc3a&#34;&gt;Mutiple Values (liftA2)&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;liftA2(f, A(x), A(y))
 
@@ -201,9 +201,9 @@ liftA2(add, Maybe(null), Maybe(4))
 //=&amp;gt; Maybe(null)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;h3 id=&#34;examples:84395a4544571503aa2619881045cc3a&#34;&gt;Examples&lt;/h3&gt;
 
-&lt;h4 id=&#34;lenses-1&#34;&gt;Lenses&lt;/h4&gt;
+&lt;h4 id=&#34;lenses-1:84395a4544571503aa2619881045cc3a&#34;&gt;Lenses&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var L = makeLenses([&#39;body&#39;, &#39;viewed&#39;])
 var comment = {id:2, body: &amp;quot;this is a *great* post&amp;quot;, viewed: false}
@@ -213,7 +213,7 @@ prog(comment)
 //=&amp;gt; {id:2, body: &#39;&amp;lt;p&amp;gt;this is a &amp;lt;em&amp;gt;great&amp;lt;/em&amp;gt; post!&amp;lt;/p&amp;gt;&#39;, viewed: true}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;either-maybe&#34;&gt;Either/Maybe&lt;/h4&gt;
+&lt;h4 id=&#34;either-maybe:84395a4544571503aa2619881045cc3a&#34;&gt;Either/Maybe&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var getWords = compose(Either(&#39;you need some words&#39;)
                , match(/\w+/g))

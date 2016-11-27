@@ -1,0 +1,327 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Validation in F#</title>
+  <meta name="description" content="">
+  <meta name="author" content="Jon Nyman">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
+body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{margin:0 auto;width:100%}a{color:#86555c;}a:visited{color:#36465d}nav,.archive,.footer-menu,.nav-posts{text-align:center;font-size:16px;line-height:24px;}nav ul,.archive ul,.footer-menu ul,.nav-posts ul{padding:0}nav li,.archive li,.footer-menu li,.nav-posts li{list-style-type:none}nav a,.archive a,.footer-menu a,.nav-posts a{text-decoration:none;color:#36465d;padding:15px}nav a:hover,.archive a:hover,.footer-menu a:hover,.nav-posts a:hover{color:#c2dfff;background-color:#83a4d2}.posts a{padding-top:3px;padding-bottom:3px;display:block}.nav-posts{margin-top:15px;font-weight:bold;}.nav-posts .next::before{content:'«'}.nav-posts .previous::after{content:' »'}.nav-posts a{text-decoration:none}nav li,.footer-menu li{display:inline-block}h1{border-bottom:solid #36465d 1px;padding:10px;font-size:32px}footer{font-size:12px;text-align:center}@media screen and (min-width:801px){body > *{width:800px}}header{text-align:center}header *{color:#86555c}.header-logo{display:inline-block}.header-logo > *{font-size:32px;position:relative;float:left}.hider{overflow:hidden}#t-com{animation-name:slideInRight;animation-iteration-count:1;animation-duration:3s;animation-fill-mode:forwards}#t-on,#t-space{left:0;animation-name:slideOutLeft;animation-iteration-count:1;animation-duration:5s;animation-delay:1.5s;animation-fill-mode:forwards}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.hljs-name,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#86555c}.hljs-number,.hljs-preprocessor,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#987f5a}.ruby .hljs-class .hljs-title,.css .hljs-rule .hljs-attribute{color:#a49a59}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#7d9726}.hljs-title,.css .hljs-hexcolor{color:#5b9d48}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#83a4d2}.hljs-keyword,.javascript .hljs-function{color:#5f9182}.diff .hljs-deletion,.diff .hljs-addition{color:#22221b;display:inline-block;width:100%}.diff .hljs-deletion{background-color:#ba6236}.diff .hljs-addition{background-color:#7d9726}.diff .hljs-change{color:#36a166}.hljs{display:block;overflow-x:auto;background:#36465d;color:#c2dfff;padding:.5em;-webkit-text-size-adjust:none}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}@-moz-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-webkit-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-o-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-moz-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-webkit-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-o-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/">Archive</a>
+    </li>
+    <li>
+      <a href="/about/">About</a>
+    </li>
+  </ul>
+</nav>
+
+<header>
+  <a href="/" class="header-logo">
+      <div id="t-j">J</div>
+      <div class="hider">
+          <div id="t-on">on</div>
+      </div>
+      <div id="t-space">&nbsp;</div>
+      <div id="t-nyman">Nyman</div>
+      <div class="hider">
+          <div id="t-com">.com</div>
+      </div>
+  </a>
+</header>
+
+
+<h1>Validation in F#</h1>
+<article>
+  <p><a href="https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2">The full code for this article is up on GitHub.</a></p>
+
+<p>I like to the keep things as simple as possible and, ideally, reusable. At my
+previous employment I came up with a method of validation, but I was never
+entirely happy with the results. Some of the code repeated itself, and it was
+difficult to extend to arrays and array comparison. So, I went back to the
+drawing board building on top of the ideas that I created with the first
+validation library I created.</p>
+
+<p>Here&rsquo;s how the original API looked:</p>
+
+<pre><code class="language-fsharp">validate &quot;Name&quot; a.Name [nonEmptyString]
+</code></pre>
+
+<p>So, you needed to add the name of your property, the property, and a list of
+validators you would like to validate. The list of validators would return a
+<code>Choice&lt;string, 'a&gt;</code>.</p>
+
+<p>The new validation has a pretty straight forward API that is used throughout.
+You can validate against an <code>Object</code>, <code>Array</code>, <code>Primitive</code>, or <code>Raw</code> value.</p>
+
+<p>The <code>Object</code> validation validates against each property in a <code>Record</code>. If one
+fails then it will continue to validate the other properties also. But if
+there are multiple validators on a single property the first failure will
+return but not the others. <code>Object</code> has the following signature:</p>
+
+<pre><code class="language-fsharp">| Object of
+    value : Expr&lt;'a&gt; *
+    required : bool *
+    proof : ('a -&gt; (string list option) list)
+</code></pre>
+
+<p>Where <code>value</code> is the quotation value of the property you are testing.
+<code>required</code> tests if the property is <code>null</code> or not if you mark it as true,
+otherwise it doesn&rsquo;t care if it is <code>null</code> or not. <code>proof</code> is the list of
+provided validators. A single validator has the signature
+<code>a -&gt; string option</code>. If the property is valid the validator returns <code>None</code>
+otherwise it returns <code>Some</code> with a message describing why it didn&rsquo;t pass
+validation.</p>
+
+<p>I like this way of validating since it keeps things simple. The validators are
+reusable functions which return a simple <code>string option</code>. The validators are
+composable functions that can be put in a list. The discriminated union
+validation object is also composable.</p>
+
+<p>Some things that I don&rsquo;t like about validating this way. There is no compile
+time check to determine if you validated each field in an object. For that
+matter there is no runtime test for that either. It would be nice to have a
+least a runtime way to tell if all properties were tested, or, even better, a
+compile time way. But this works for now.</p>
+
+<p>Here&rsquo;s an example of using all the validators in with an object.</p>
+
+<pre><code class="language-fsharp">type Person =
+    {
+    Name : Name
+    BirthDate : DateTime
+    Favorites : string[]
+    FavoriteNumbers : int[]
+    }
+    static member Proof a =
+                [
+                prove &lt;| Primitive (&lt;@ a.BirthDate @&gt;, true, [])
+                prove &lt;| Object (&lt;@ a.Name @&gt;, true, Name.Proof)
+                prove &lt;|
+                    Array (
+                        &lt;@ a.Favorites @&gt;,
+                        true,
+                        [arrayMinLength 1],
+                        (fun favorite -&gt; Primitive (&lt;@ favorite @&gt;, true, [stringMax 5]) ))
+                prove &lt;|
+                    Array (
+                        &lt;@ a.FavoriteNumbers @&gt;,
+                        true,
+                        [arrayMinLength 1],
+                        fun favorite -&gt; Primitive (&lt;@ favorite @&gt;, true, [greaterThan 2])
+                    )
+                prove &lt;|
+                    Raw (
+                        (a.Favorites, a.FavoriteNumbers),
+                        &quot;Person.Favorites, Person.FavoriteNumbers&quot;,
+                        [
+                        fun (a, b) -&gt;
+                            match a, b with
+                            | null, null | null, _ | _, null -&gt; Some &quot;Arrays must not be null.&quot;
+                            | _ -&gt; None
+                        fun (a, b) -&gt;
+                            if a.Length = b.Length then
+                                None
+                            else
+                                Some &lt;| sprintf &quot;Arrays must have same length but Person.Favorites has %i and Person.FavoriteNumbers has %i&quot; a.Length b.Length
+                        ]
+                    )
+                ]
+    static member Validate a =
+        prove &lt;| Object (&lt;@ a @&gt;, true, Person.Proof)
+
+let jon = {
+    Name = { First = &quot;Jon&quot;; Last = &quot;Nyman1&quot; }
+    BirthDate = new DateTime(1947, 9, 9)
+    Favorites = [| &quot;Reading&quot;; &quot;Red&quot;;  &quot;Writing&quot; |]
+    FavoriteNumbers = [| 1 |]
+    }
+
+jon
+|&gt; validate Person.Validate
+// |&gt; ....
+
+// OR
+jon
+|&gt; validate (fun a -&gt; prove &lt;| Object (&lt;@ a @&gt;, true, Person.Proof))
+
+</code></pre>
+
+<p>where <code>prove</code> is</p>
+
+<pre><code class="language-fsharp">let rec prove validation =
+    match validation with
+    | Primitive (v, required, fs) -&gt;
+        match required, getValue v with
+        | true, None -&gt; Some [sprintf &quot;The value `%s` is required but was found to be `null`.&quot; v.Type.Name]
+        | false, None -&gt; None
+        | _, Some value -&gt;
+            fs
+            |&gt; List.fold (fun acc f -&gt;
+                match acc with
+                | None -&gt; f value
+                | Some _ -&gt; acc
+                ) None
+            |&gt; Option.map (fun x -&gt; [printParameterWith &quot; - &quot; v + x] )
+    | Object (v, required, f) -&gt;
+        match required, getValue v with
+        | true, None -&gt; Some [sprintf &quot;The object `%s` is required but was found to be `null`.&quot; (getOrElse &quot;Unknown Parameter&quot; &lt;| getParameterName v)]
+        | false, None -&gt; None
+        | _, Some x -&gt;
+            f x
+            |&gt; List.fold (
+                fun acc option -&gt;
+                match option, acc with
+                | Some newError, Some error -&gt; Some (List.append error newError)
+                | Some newError, None -&gt; Some newError
+                | None, Some error -&gt; Some error
+                | None, None -&gt; None
+                ) None
+    | Array (vs, required, proof, proveItems) -&gt; 
+        match required, getValue vs with
+        | true, None -&gt; Some [sprintf &quot;%s: %s&quot; (getOrElse &quot;Unknown Parameter&quot; &lt;| getParameterName vs) &quot;This array is required.&quot;]
+        | false, None -&gt; None
+        | _, Some xs -&gt;
+            let validSelf =
+                proof
+                |&gt; List.fold (fun acc f -&gt;
+                    match acc with
+                    | None -&gt; f xs
+                    | Some _ -&gt; acc
+                ) None
+            match validSelf, obj.Equals(vs, null) with
+            | Some error, _ -&gt; 
+                Some [(printParameterWith &quot;: &quot; vs) + error]
+            | _, true -&gt;
+                None
+            | None, false -&gt;
+                xs
+                |&gt; Array.fold (fun (i, acc) x -&gt;
+                    let i = i + 1
+                    match (prove (proveItems x) ), acc with
+                    | Some newError, Some error -&gt; 
+                        (i, Some &lt;| List.append error [prettyIndex i newError])
+                    | Some newError, None -&gt; (i, Some [prettyIndex i newError])
+                    | None, Some error -&gt; (i, Some error)
+                    | None, None -&gt; (i, None)
+                ) (-1, None)
+                |&gt; snd
+                |&gt; Option.map (fun xs -&gt; (printParameterWith &quot;:&quot; vs)::xs)
+    | Raw (a, msg, fs) -&gt;
+        fs
+        |&gt; List.fold (fun acc f -&gt;
+            match acc with
+            | None -&gt; f a
+            | Some _ -&gt; acc
+            ) None
+        |&gt; Option.map (fun x -&gt; [msg+&quot; - &quot;+x] )
+</code></pre>
+
+<p>And <code>validate</code> is:</p>
+
+<pre><code class="language-fsharp">let validate f a =
+    match f a with
+    | Some xs -&gt; Choice1Of2 &lt;| String.concat &quot;\n&quot; xs
+    | None -&gt; Choice2Of2 a
+</code></pre>
+
+<p>And <code>Validate</code> is:</p>
+
+<pre><code class="language-fsharp">type Validate&lt;'a&gt; =
+    | Object of
+        value : Expr&lt;'a&gt; *
+        required : bool *
+        proof : ('a -&gt; (string list option) list)
+    | Array of
+        value : Expr&lt;'a[]&gt; *
+        required : bool *
+        proof : ('a[] -&gt; string Option) list *
+        proveItems : ('a -&gt; Validate&lt;'a&gt;)
+    | Primitive of
+        value : Expr&lt;'a&gt; *
+        required : bool *
+        proof : ('a -&gt; string Option) list
+    | Raw of
+        value : 'a *
+        message : string *
+        proof : ('a -&gt; string Option) list
+</code></pre>
+
+<p>Other F# validation libraries (that I know of).</p>
+
+<p><a href="http://fsharpforfunandprofit.com/posts/recipe-part2/">http://fsharpforfunandprofit.com/posts/recipe-part2/</a></p>
+
+</article>
+<p>
+
+    <span>Sun Nov 27, 2016</span>
+
+   | 
+
+  
+    tags:
+      <a href="/tags/f">F#</a>
+    
+      <a href="/tags/validation">validation</a>
+    
+      <a href="/tags/.net">.net</a>
+    
+      <a href="/tags/webapi">webapi</a>
+    
+  
+
+  
+
+  
+
+</p>
+
+
+<div class="nav-posts">
+  
+    <a class="next" href="http://jnyman.com/2016/07/10/swagger_is_too_restrictive/"> Swagger is too Restrictive</a>
+  
+
+  
+</div>
+
+
+<div class="footer-menu">
+  <ul>
+
+    <li>
+      <a class=" fa fa-rss fa-2x" href="/index.xml" title="RSS Feed"></a>
+    </li>
+
+    <li>
+      <a class=" fa fa-github fa-2x" href="https://github.com/jon49/" title="Personal Github Account"></a>
+    </li>
+
+    <li>
+      <a class=" fa fa-twitter fa-2x" href="https://twitter.com/NymanJon" title="Personal Twitter Account"></a>
+    </li>
+
+  </ul>
+</div>
+
+<footer>
+  <p>
+  © 2016 Jon Nyman
+    <br>
+    nymanjon@gmail.com
+    <br>
+    Hamsters Byte
+  </p>
+</footer>
+
+</body>
+</html>
+
+
+<script src="/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

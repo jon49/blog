@@ -3,7 +3,13 @@
   
   <url>
     <loc>http://jnyman.com/</loc>
-    <lastmod>2016-07-10T00:00:00+00:00</lastmod>
+    <lastmod>2016-11-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jnyman.com/2016/11/27/validation_in_fsharp/</loc>
+    <lastmod>2016-11-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -67,12 +73,12 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</loc>
+    <loc>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</loc>
     <lastmod>2014-05-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</loc>
+    <loc>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</loc>
     <lastmod>2014-05-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -82,12 +88,12 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</loc>
+    <loc>http://jnyman.com/2014/05/13/bilby_functional_programming/</loc>
     <lastmod>2014-05-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/13/bilby_functional_programming/</loc>
+    <loc>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</loc>
     <lastmod>2014-05-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -327,17 +333,17 @@
   </url>
   
   <url>
+    <loc>http://jnyman.com/2012/01/04/0welcome/</loc>
+    <lastmod>2012-01-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://jnyman.com/2012/01/04/coming_soon/</loc>
     <lastmod>2012-01-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/</loc>
-    <lastmod>2012-01-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jnyman.com/2012/01/04/0welcome/</loc>
     <lastmod>2012-01-04T00:00:00+00:00</lastmod>
   </url>
   
