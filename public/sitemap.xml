@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://jnyman.com/</loc>
-    <lastmod>2016-11-27T00:00:00+00:00</lastmod>
+    <lastmod>2016-12-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jnyman.com/2016/12/04/fsharp_with_webapi/</loc>
+    <lastmod>2016-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -73,12 +78,12 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</loc>
+    <loc>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</loc>
     <lastmod>2014-05-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</loc>
+    <loc>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</loc>
     <lastmod>2014-05-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,12 +183,12 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</loc>
+    <loc>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</loc>
     <lastmod>2012-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</loc>
+    <loc>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</loc>
     <lastmod>2012-10-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -218,12 +223,12 @@
   </url>
   
   <url>
-    <loc>http://jnyman.com/2012/06/19/time_card_alternatives/</loc>
+    <loc>http://jnyman.com/2012/06/19/using_pivot_tables_as_a_staging_resource/</loc>
     <lastmod>2012-06-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://jnyman.com/2012/06/19/using_pivot_tables_as_a_staging_resource/</loc>
+    <loc>http://jnyman.com/2012/06/19/time_card_alternatives/</loc>
     <lastmod>2012-06-19T00:00:00+00:00</lastmod>
   </url>
   

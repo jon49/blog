@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Railway Oriented Programming on Hamsters Byte</title>
+    <link>http://jnyman.com/tags/railway-oriented-programming/</link>
+    <description>Recent content in Railway Oriented Programming on Hamsters Byte</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://jnyman.com/tags/railway-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>F# with Web API and Railway-Oriented Programming</title>
+      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <description>
+
+&lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code
+Camp&lt;/a&gt;. The topic was &lt;em&gt;WebAPI
+with F#&lt;/em&gt;. I also did a video series to go along with the talk. The talk and
+video series basically goes over how to use F# in a functional manner by
+building out all the pieces from scratch.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the series, hope you enjoy it!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/playlist?list=PLBrr7-AbuzAfeA4vVhHEDsaAPBep2SUVI&#34;&gt;F# WebAPI From Start to
+Finish&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some set up steps and notes that are important to the success of the project:&lt;/p&gt;
+
+&lt;p&gt;Rather than using a custom Railway-Oriented code like in the videos you can use
+&lt;a href=&#34;https://fsprojects.github.io/Chessie/railway.html&#34;&gt;Chessie&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://jnyman.com/2016/11/27/validation_in_fsharp/&#34;&gt;I&amp;rsquo;ve updated my validation library.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;setting-up-your-project:b907d02c7024fd468e4e916e6de9753a&#34;&gt;Setting Up Your Project&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/136b942e-9f2c-4c0b-8bac-86d774189cff&#34;&gt;Install Visual F# Power Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create new C# WebAPI&lt;/li&gt;
+&lt;li&gt;Create new F# Library&lt;/li&gt;
+&lt;li&gt;Add reference to F# Library from C# project.&lt;/li&gt;
+&lt;li&gt;Make sure works&lt;/li&gt;
+&lt;li&gt;Add reference to System.Net.Http&lt;/li&gt;
+&lt;li&gt;Add reference to System.Web.Http &amp;rarr; Need to install Nuget package
+Microsoft.AspNet.WebApi.Core&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.ploeh.dk/2015/03/19/posting-json-to-an-f-web-api/&#34;&gt;Add configuration&lt;/a&gt;
+&amp;rarr;
+&lt;code&gt;GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eulerfx/JsonNet.FSharp&#34;&gt;Add FSharp Converters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Configuration
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fsharp.github.io/FSharp.Data/library/JsonProvider.html&#34;&gt;JsonProvider&lt;/a&gt;
+&amp;rarr; Use FSharp.Data from Nuget&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Connecting to a database using
+&lt;a href=&#34;http://fsprojects.github.io/FSharp.Data.SqlClient/&#34;&gt;FSharp.Data.SqlClient&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;resources-for-railway-oriented-programming:b907d02c7024fd468e4e916e6de9753a&#34;&gt;Resources for Railway-Oriented Programming&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fsharpforfunandprofit.com/rop/&#34;&gt;https://fsharpforfunandprofit.com/rop/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fsharpforfunandprofit.com/posts/recipe-part2/&#34;&gt;https://fsharpforfunandprofit.com/posts/recipe-part2/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

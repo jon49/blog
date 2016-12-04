@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Time Card Alternatives</title>
+  <title>F# with Web API and Railway-Oriented Programming</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,24 +36,76 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
-<h1>Time Card Alternatives</h1>
+<h1>F# with Web API and Railway-Oriented Programming</h1>
 <article>
-  <p>In addiction to the Excel Time Card you can use these:</p>
+  
 
-<p>The time card is my pilot program to learn how to do the <a href="">personal finance add-in</a> better. I chose not to charge for the time card simply because there are already many time tracking things out there, like  <a href="http://slimtimer.com/">SlimTimer</a> (if I needed one for on the go I would probably use this one, nice and clean and easy to use), <a href="https://www.clicktime.com/">ClickTime</a>, <a href="http://rescuetime.com/">RescueTime</a> (this one is an interesting concept where it tracts your time for you), and <a href="https://www.timecard.com/">TimeCard.com</a>.</p>
+<p>I presented at the <a href="http://oct2016.desertcodecamp.com/session/1224">2016 Desert Code
+Camp</a>. The topic was <em>WebAPI
+with F#</em>. I also did a video series to go along with the talk. The talk and
+video series basically goes over how to use F# in a functional manner by
+building out all the pieces from scratch.</p>
 
-<p>Eventually I would like to make it so you can import the data into the Excel time card, that way, when all you have is your phone you can still track your information.</p>
+<p>Here&rsquo;s the series, hope you enjoy it!</p>
+
+<p><a href="https://www.youtube.com/playlist?list=PLBrr7-AbuzAfeA4vVhHEDsaAPBep2SUVI">F# WebAPI From Start to
+Finish</a>.</p>
+
+<p>Some set up steps and notes that are important to the success of the project:</p>
+
+<p>Rather than using a custom Railway-Oriented code like in the videos you can use
+<a href="https://fsprojects.github.io/Chessie/railway.html">Chessie</a>.</p>
+
+<p><a href="http://jnyman.com/2016/11/27/validation_in_fsharp/">I&rsquo;ve updated my validation library.</a></p>
+
+<h2 id="setting-up-your-project:b907d02c7024fd468e4e916e6de9753a">Setting Up Your Project</h2>
+
+<ul>
+<li><a href="https://visualstudiogallery.msdn.microsoft.com/136b942e-9f2c-4c0b-8bac-86d774189cff">Install Visual F# Power Tools</a></li>
+<li>Create new C# WebAPI</li>
+<li>Create new F# Library</li>
+<li>Add reference to F# Library from C# project.</li>
+<li>Make sure works</li>
+<li>Add reference to System.Net.Http</li>
+<li>Add reference to System.Web.Http &rarr; Need to install Nuget package
+Microsoft.AspNet.WebApi.Core</li>
+<li><a href="http://blog.ploeh.dk/2015/03/19/posting-json-to-an-f-web-api/">Add configuration</a>
+&rarr;
+<code>GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();</code></li>
+<li><a href="https://github.com/eulerfx/JsonNet.FSharp">Add FSharp Converters</a></li>
+<li>Configuration
+
+<ul>
+<li><a href="http://fsharp.github.io/FSharp.Data/library/JsonProvider.html">JsonProvider</a>
+&rarr; Use FSharp.Data from Nuget</li>
+</ul></li>
+<li>Connecting to a database using
+<a href="http://fsprojects.github.io/FSharp.Data.SqlClient/">FSharp.Data.SqlClient</a></li>
+</ul>
+
+<h2 id="resources-for-railway-oriented-programming:b907d02c7024fd468e4e916e6de9753a">Resources for Railway-Oriented Programming</h2>
+
+<ul>
+<li><a href="https://fsharpforfunandprofit.com/rop/">https://fsharpforfunandprofit.com/rop/</a></li>
+<li><a href="https://fsharpforfunandprofit.com/posts/recipe-part2/">https://fsharpforfunandprofit.com/posts/recipe-part2/</a></li>
+</ul>
 
 </article>
 <p>
 
-    <span>Tue Jun 19, 2012</span>
+    <span>Sun Dec 4, 2016</span>
 
    | 
 
   
     tags:
-      <a href="/tags/excel-time-card">excel-time-card</a>
+      <a href="/tags/f">F#</a>
+    
+      <a href="/tags/railway-oriented-programming">railway-oriented programming</a>
+    
+      <a href="/tags/.net">.net</a>
+    
+      <a href="/tags/webapi">webapi</a>
     
   
 
@@ -66,16 +118,9 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 
 <div class="nav-posts">
   
-    <a class="next" href="http://jnyman.com/2012/06/18/generic_types/"> Generic Types</a>
+    <a class="next" href="http://jnyman.com/2016/11/27/validation_in_fsharp/"> Validation in F#</a>
   
 
-  
-    
-      
-      ✴
-      
-      <a class="previous" href="http://jnyman.com/2012/06/19/using_pivot_tables_as_a_staging_resource/"> Using Pivot Tables as a Staging Resource</a>
-    
   
 </div>
 
@@ -118,9 +163,9 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'jnyman-com';
-    var disqus_identifier = 'http:\/\/jnyman.com\/2012\/06\/19\/time_card_alternatives\/';
-    var disqus_title = 'Time Card Alternatives';
-    var disqus_url = 'http:\/\/jnyman.com\/2012\/06\/19\/time_card_alternatives\/';
+    var disqus_identifier = 'http:\/\/jnyman.com\/2016\/12\/04\/fsharp_with_webapi\/';
+    var disqus_title = 'F# with Web API and Railway-Oriented Programming';
+    var disqus_url = 'http:\/\/jnyman.com\/2016\/12\/04\/fsharp_with_webapi\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
