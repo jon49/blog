@@ -22,9 +22,10 @@ hugo:
 	hugo server -w
 
 stylus:
-	node ./node_modules/.bin/stylus -w -c src/stylus/ -o layouts/css/
+	node ./node_modules/stylus/bin/stylus -w -c src/stylus/ -o layouts/css/
 
-all: posts
+static:
+	cp -rf ./static/** ./public
 
 cleanPosts:
 	rm -rf content/post/*
@@ -35,4 +36,8 @@ cleanAll: cleanPosts
 deploy:
 	./deploy.sh
 
-.PHONY: all posts init cleanPosts hugo deploy cleanAll
+# stylus - can't figure out how to install nodejs in Bash On Ubuntu On Windows
+all: cleanAll init posts static
+
+
+.PHONY: all posts init cleanPosts hugo deploy cleanAll static
