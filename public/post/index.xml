@@ -6,8 +6,70 @@
     <description>Recent content in Posts on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Power of Static Typing</title>
+      <link>http://jnyman.com/2017/02/12/the_power_of_static_typing/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2017/02/12/the_power_of_static_typing/</guid>
+      <description>&lt;p&gt;From what I understand &lt;a href=&#34;http://www.cs.cmu.edu/~NatProg/papers/CHI2016-SIG-ProgLang-Usability.pdf&#34;&gt;static typing makes programmers more productive and
+gives implicit documentation to the code
+base&lt;/a&gt;
+- although explicit documentation is also very helpful.  It also seems to make
+the tools we use much more powerful.&lt;/p&gt;
+
+&lt;p&gt;One of the problems of static typing is that your code becomes more verbose.
+With programming languages like F# the compiler will implicitly type as much
+of your program as possible. Where it fails, you need to type it yourself.&lt;/p&gt;
+
+&lt;p&gt;Not only that but many times static languages will provide tools to do the
+typing for you. F# has &lt;a href=&#34;https://docs.microsoft.com/en-us/dotnet/articles/fsharp/tutorials/type-providers/&#34;&gt;Type
+Providers&lt;/a&gt;
+which will dynamically create types for your program on the fly, lessening the
+burdens of a statically typed system. One of my favorite libraries that does
+this is &lt;a href=&#34;http://fsprojects.github.io/FSharp.Data.SqlClient/&#34;&gt;&lt;code&gt;FSharp.Data.SqlClient&lt;/code&gt; - &lt;em&gt;Not your grandfather&amp;rsquo;s
+ORM&lt;/em&gt;&lt;/a&gt; which will
+statically type your calls to SQL Server letting you even type raw SQL in your
+code. Another useful one is the &lt;a href=&#34;http://fsharp.github.io/FSharp.Data/library/JsonProvider.html&#34;&gt;JSON Type
+Provider&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103&#34;&gt;SQL Server Data
+Tools&lt;/a&gt;.aspx)(SSDT)
+you can have static typing from your database all the way down to your client
+web app. You can literally keep everything in sync with each other from across
+your entire infrastructure. This seems really huge to me. Programming in any
+other way seems like programming in the past, by decades. Unfortunately, it
+seems like it takes ages for the programming community and business industry
+to get on board. It is understandable and mind boggling at the same time.&lt;/p&gt;
+
+&lt;p&gt;So, SSDT, can give you static typing across databases, it seems to work best
+when they live on the same server when you track the databases in the same
+SSDT solution. But you can also have this static typing across different
+servers in different SSDT solutions by referencing the &lt;code&gt;dacpac&lt;/code&gt; of the
+different databases you are connecting to. It also makes testing much simpler
+with the help of &lt;a href=&#34;http://tsqlt.org/&#34;&gt;&lt;code&gt;tSQLt&lt;/code&gt;&lt;/a&gt; testing framework.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve never used &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt; before but it looks like
+it is a wonderful way to write your back end and front end code. I&amp;rsquo;m not sure
+if other .NET frameworks can give you the same static typing that WebSharper
+can, but &lt;a href=&#34;http://websharper.com/blog-entry/5204/distributed-web-applications-in-f-with-websharper&#34;&gt;WebSharper can generate your end points for you in distributed
+applications, letting them be private or public end
+points&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, with all this incredible technology that can make us so much more
+productive why do we not embrace this technology and stop doing the computer&amp;rsquo;s
+work for it? I&amp;rsquo;m sure there are many reasons, including psychology and
+business maintainability. Which I won&amp;rsquo;t enumerate some here, which I
+think could possibly be reasons. Let&amp;rsquo;s start embracing this technology and
+start slowly introducing them where we can in are work places. It might take
+another ten or twenty years to be able to really start letting the computer do
+its work rather than us doing its work, but the time to start planting the
+seeds is now.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Authentication and Authorization in ASP.NET Core</title>
@@ -1233,112 +1295,6 @@ moolah. You can follow my new blog over at
  If anyone is interested in the products I’ve made let me know how you
 like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
 me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Prototypes &amp; Compositions with Objects</title>
-      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
-      <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
-      <description>&lt;p&gt;I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that &lt;a href=&#34;http://lodash.com/&#34;&gt;lo-dash&lt;/a&gt; and other libraries have done a good job bridging those worlds.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s say you have an object &lt;code&gt;O&lt;/code&gt; such that&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function O(a, b){
-  this.a = a
-  this.b = b
-}
-
-var o = function(a, b){
-  return new O(a, b)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now, you want to &lt;code&gt;extend&lt;/code&gt; the object but you also want the option to use the object in a more fuctional way with &lt;code&gt;compose&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s start with a simple &lt;code&gt;display&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var display = function(thisArg){
-  var o_ = thisArg || this
-  console.log(o_)
-  return o_
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then a method to change a property.*&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var change = function(property){
-  return function(value, thisArg){
-  	var o_ = _.cloneDeep(thisArg || this)
-    o_[property] = value
-    return o_
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we can set property to:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var changeA = change(&#39;a&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then we can add &lt;code&gt;changeA&lt;/code&gt; to the &lt;code&gt;O&lt;/code&gt; object and use it.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;O.prototype.changeA = changeA
-var o_ = o(1, 2)
-o_.changeA(3).display()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or we can use a functional approach.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var o_ = o(1, 2)
-_.compose(display, _.curry(changeA)(3))(o_)
-//OR
-_.compose(display, _.partialRight(changeA, o_))(3)
-//OR
-_.compose(display, changeA)(3, o_)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I think I like the functional approach for the more abstract functions and the OO approach as your code becomes more specific. The functional evangelists say the functional style is better because it leads to more reusable code. Which I would agree with, since you are not tying your code up with an object you can then easily extend your model to various other objects, without the use of &lt;code&gt;inheritance&lt;/code&gt; and other OO monsters. I think I will use a hybrid approach with &lt;code&gt;bilby.js&lt;/code&gt; library which uses polymorphism.&lt;/p&gt;
-
-&lt;p&gt;By the way, what I just did with &lt;code&gt;change&lt;/code&gt; is similar to &lt;a href=&#34;https://github.com/fantasyland/fantasy-lenses&#34;&gt;&lt;code&gt;lenses&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;* An alternative to this would be using a partial function, which would make the original function more flexible.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var change = function(property, value, thisArg){
-  	var o_ = _.cloneDeep(thisArg || this)
-    o_[property] = value
-    return o_
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we can set property to:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var changeA = _.partial(change, &#39;a&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or using combinators (not strict).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var set = function(property, value){
-  this[property] = value
-  return this
-}
-
-var change = function(f, value, thisArg){
-  	var o_ = _.cloneDeep(thisArg || this)
-    o_ = f.apply(o_, [value])
-    return o_
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now we can set property to:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var changeA = _.partial(change
-              , _.partial(set, &#39;a&#39;))
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
