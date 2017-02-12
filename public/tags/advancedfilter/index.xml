@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advancedfilter on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/advancedfilter/</link>
+    <link>http://localhost:1313/tags/advancedfilter/</link>
     <description>Recent content in Advancedfilter on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 22 Oct 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/advancedfilter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/advancedfilter/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Scribble Filter (For Excel) Overview Part 3</title>
-      <link>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</link>
+      <link>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_3/</link>
       <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/</guid>
+      <guid>http://localhost:1313/2012/10/22/scribble_filter_for_excel_overview_part_3/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel,
@@ -43,10 +43,10 @@ making it easy to work with and adding new capabilities.&lt;/p&gt;
     
     <item>
       <title>Scribble Filter Overview Part 1</title>
-      <link>http://jnyman.com/2012/10/15/scribble_filter_overview/</link>
+      <link>http://localhost:1313/2012/10/15/scribble_filter_overview/</link>
       <pubDate>Mon, 15 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/10/15/scribble_filter_overview/</guid>
+      <guid>http://localhost:1313/2012/10/15/scribble_filter_overview/</guid>
       <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
 
 &lt;p&gt;The scribble filter is a wrapper for the Advanced Filter in Excel,
@@ -74,10 +74,10 @@ you want something ORed first, otherwise it will be ANDed first.&lt;/li&gt;
     
     <item>
       <title>AdvancedFilter: Parsing the Search String</title>
-      <link>http://jnyman.com/2012/08/06/advancedfilter_parsing/</link>
+      <link>http://localhost:1313/2012/08/06/advancedfilter_parsing/</link>
       <pubDate>Mon, 06 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/08/06/advancedfilter_parsing/</guid>
+      <guid>http://localhost:1313/2012/08/06/advancedfilter_parsing/</guid>
       <description>&lt;p&gt;One of the most difficult parts of creating an advanced filter class is
 figuring out how to parse the search data and turn it into a 2D array,
 which Excel can understand. I figured my user interface will be a

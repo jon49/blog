@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Railway Oriented Programming on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/railway-oriented-programming/</link>
+    <link>http://localhost:1313/tags/railway-oriented-programming/</link>
     <description>Recent content in Railway Oriented Programming on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/railway-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/railway-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <link>http://localhost:1313/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>http://localhost:1313/2016/12/04/fsharp_with_webapi/</guid>
       <description>
 
 &lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code

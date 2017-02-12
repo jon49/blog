@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Settings on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/settings/</link>
+    <link>http://localhost:1313/tags/settings/</link>
     <description>Recent content in Settings on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Feb 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/settings/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/settings/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Creating a Settings Class in VBA</title>
-      <link>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</link>
+      <link>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</link>
       <pubDate>Wed, 29 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</guid>
+      <guid>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</guid>
       <description>&lt;p&gt;In .NET they have a nice settings class you can create using &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/system.configuration.applicationsettingsbase.aspx&#34;&gt;ApplicationSettingsBase base class&lt;/a&gt;. In VBA it takes a bit more work to get it working, but can be fairly elegant if done correctly.&lt;/p&gt;
 
 &lt;p&gt;Some criteria that is needed for a settings class in vba are:

@@ -28,7 +28,7 @@ code. Another useful one is the [JSON Type
 Provider](http://fsharp.github.io/FSharp.Data/library/JsonProvider.html).
 
 With F#, [WebSharper](http://websharper.com/), and [SQL Server Data
-Tools](https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103).aspx)(SSDT)
+Tools](https://msdn.microsoft.com/en-us/library/hh272686%28v=vs.103%29.aspx)(SSDT)
 you can have static typing from your database all the way down to your client
 web app. You can literally keep everything in sync with each other from across
 your entire infrastructure. This seems really huge to me. Programming in any

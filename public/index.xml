@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hamsters Byte</title>
-    <link>http://jnyman.com/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Power of Static Typing</title>
-      <link>http://jnyman.com/2017/02/12/the_power_of_static_typing/</link>
+      <link>http://localhost:1313/2017/02/12/the_power_of_static_typing/</link>
       <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2017/02/12/the_power_of_static_typing/</guid>
+      <guid>http://localhost:1313/2017/02/12/the_power_of_static_typing/</guid>
       <description>&lt;p&gt;From what I understand &lt;a href=&#34;http://www.cs.cmu.edu/~NatProg/papers/CHI2016-SIG-ProgLang-Usability.pdf&#34;&gt;static typing makes programmers more productive and
 gives implicit documentation to the code
 base&lt;/a&gt;
@@ -36,8 +36,8 @@ statically type your calls to SQL Server letting you even type raw SQL in your
 code. Another useful one is the &lt;a href=&#34;http://fsharp.github.io/FSharp.Data/library/JsonProvider.html&#34;&gt;JSON Type
 Provider&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103&#34;&gt;SQL Server Data
-Tools&lt;/a&gt;.aspx)(SSDT)
+&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686%28v=vs.103%29.aspx&#34;&gt;SQL Server Data
+Tools&lt;/a&gt;(SSDT)
 you can have static typing from your database all the way down to your client
 web app. You can literally keep everything in sync with each other from across
 your entire infrastructure. This seems really huge to me. Programming in any
@@ -73,10 +73,10 @@ seeds is now.&lt;/p&gt;
     
     <item>
       <title>Authentication and Authorization in ASP.NET Core</title>
-      <link>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</link>
+      <link>http://localhost:1313/2017/01/29/authentication_in_asp_net_core/</link>
       <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</guid>
+      <guid>http://localhost:1313/2017/01/29/authentication_in_asp_net_core/</guid>
       <description>&lt;p&gt;One thing that really got me frustrated in WebAPI 2.0 was creating custom
 authentication. Eventually I found a &lt;a href=&#34;https://weblog.west-wind.com/posts/2013/Apr/18/A-WebAPI-Basic-Authentication-Authorization-Filter&#34;&gt;blog post by Rick
 Strahl&lt;/a&gt;
@@ -107,10 +107,10 @@ first parameter be a simple &lt;code&gt;string&lt;/code&gt;.&lt;/p&gt;
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <link>http://localhost:1313/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>http://localhost:1313/2016/12/04/fsharp_with_webapi/</guid>
       <description>
 
 &lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code
@@ -167,10 +167,10 @@ Microsoft.AspNet.WebApi.Core&lt;/li&gt;
     
     <item>
       <title>Validation in F#</title>
-      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
+      <link>http://localhost:1313/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
+      <guid>http://localhost:1313/2016/11/27/validation_in_fsharp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2&#34;&gt;The full code for this article is up on GitHub.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I like to the keep things as simple as possible and, ideally, reusable. At my
@@ -393,10 +393,10 @@ jon
     
     <item>
       <title>Swagger is too Restrictive</title>
-      <link>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</link>
+      <link>http://localhost:1313/2016/07/10/swagger_is_too_restrictive/</link>
       <pubDate>Sun, 10 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</guid>
+      <guid>http://localhost:1313/2016/07/10/swagger_is_too_restrictive/</guid>
       <description>&lt;p&gt;Swagger has a definite idea of what makes a good URL. But if you want to do
 anything outside of that good luck. I think, that even though it seems like a
 good idea to push people towards a standard it doesn&amp;rsquo;t allow the user to really
@@ -438,10 +438,10 @@ the issue on Github&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>JavaScript-Style Promises in F#</title>
-      <link>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</link>
+      <link>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</link>
       <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</guid>
+      <guid>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</guid>
       <description>&lt;p&gt;Working in enterprise level back end software often times I need to get
 information from many different sources. When you have enough of these sources
 the time it takes to get all the information can really add up. That&amp;rsquo;s when F#
@@ -546,10 +546,10 @@ adding it to mine.&lt;/p&gt;
     
     <item>
       <title>Using NPM as a Build Tool</title>
-      <link>http://jnyman.com/2016/06/21/npm_as_build_tool/</link>
+      <link>http://localhost:1313/2016/06/21/npm_as_build_tool/</link>
       <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
+      <guid>http://localhost:1313/2016/06/21/npm_as_build_tool/</guid>
       <description>&lt;p&gt;I really like simplicity. The tools I use, I like them to make my life easy,
 not hard. They need to work out of the box. No huge configuration settings,
 just make it easy so I can get to work.&lt;/p&gt;
@@ -663,10 +663,10 @@ directly, so it would be something like this: &lt;code&gt;node
     
     <item>
       <title>On-the-Fly Lambda Expressions in JavaScript</title>
-      <link>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</link>
+      <link>http://localhost:1313/2016/06/13/lambda_expressions_in_javascript/</link>
       <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</guid>
+      <guid>http://localhost:1313/2016/06/13/lambda_expressions_in_javascript/</guid>
       <description>&lt;p&gt;Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a couple libraries that did this.&lt;/p&gt;
@@ -690,10 +690,10 @@ directly, so it would be something like this: &lt;code&gt;node
     
     <item>
       <title>Building a Convention Based Routes in Node.js</title>
-      <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
+      <link>http://localhost:1313/2016/06/07/building_convention_based_routes_in_nodejs/</link>
       <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</guid>
+      <guid>http://localhost:1313/2016/06/07/building_convention_based_routes_in_nodejs/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Convention_over_configuration&#34;&gt;Convention over
 configuration&lt;/a&gt;
@@ -926,10 +926,10 @@ swaggerRoutes({
     
     <item>
       <title>CSS Media Object</title>
-      <link>http://jnyman.com/2014/12/30/css_media_object/</link>
+      <link>http://localhost:1313/2014/12/30/css_media_object/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/12/30/css_media_object/</guid>
+      <guid>http://localhost:1313/2014/12/30/css_media_object/</guid>
       <description>&lt;p&gt;I just finished attending the RockIt Bootcamp (12 week program). It&amp;rsquo;s a program that teaches the LAMP full stack development (Linux, Apache, mySQL, PHP). In the next little while I will be going over some of the things which I learned.&lt;/p&gt;
 
 &lt;p&gt;The &lt;em&gt;css media object&lt;/em&gt; was first coined by &lt;a href=&#34;http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/&#34;&gt;Nicole Sullivan&lt;/a&gt; in 2010. It is still one of the most basic constructs to learn and understand in created good CSS content.&lt;/p&gt;
@@ -986,10 +986,10 @@ swaggerRoutes({
     
     <item>
       <title>Angular.js vs React.js vs Mithril.js</title>
-      <link>http://jnyman.com/2014/10/03/angular_vs_react_mithril/</link>
+      <link>http://localhost:1313/2014/10/03/angular_vs_react_mithril/</link>
       <pubDate>Fri, 03 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/10/03/angular_vs_react_mithril/</guid>
+      <guid>http://localhost:1313/2014/10/03/angular_vs_react_mithril/</guid>
       <description>&lt;p&gt;Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! &lt;a href=&#34;https://www.youtube.com/watch?v=IVvHPPcl2TM&#34;&gt;https://www.youtube.com/watch?v=IVvHPPcl2TM&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://youtu.be/nYkdrAPrdcw?t=40m30s&#34;&gt;http://youtu.be/nYkdrAPrdcw?t=40m30s&lt;/a&gt;
@@ -1050,10 +1050,10 @@ having everyone relearn the nomenclature.&lt;/p&gt;
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -1152,10 +1152,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>Match Expression for JavaScript?</title>
-      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
+      <link>http://localhost:1313/2014/06/20/match_expression_javascript/</link>
       <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
+      <guid>http://localhost:1313/2014/06/20/match_expression_javascript/</guid>
       <description>&lt;p&gt;Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of &lt;code&gt;if&lt;/code&gt; statements. &lt;code&gt;if&lt;/code&gt; was awfully cluttered. I had looked at &lt;a href=&#34;http://bilby.brianmckenna.org/examples/validation.htm&#34;&gt;bilby.js examples&lt;/a&gt; and hadn&amp;rsquo;t realized that you can do multiple &lt;code&gt;ternary expressions&lt;/code&gt; in a row.&lt;/p&gt;
 
 &lt;p&gt;So, instead of,&lt;/p&gt;
@@ -1259,10 +1259,10 @@ return value
     
     <item>
       <title>A Distributed &amp; Robust Feedly</title>
-      <link>http://jnyman.com/2014/06/12/distributed_robust_feedly/</link>
+      <link>http://localhost:1313/2014/06/12/distributed_robust_feedly/</link>
       <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/12/distributed_robust_feedly/</guid>
+      <guid>http://localhost:1313/2014/06/12/distributed_robust_feedly/</guid>
       <description>&lt;p&gt;In light of the recent attack on &lt;a href=&#34;http://feedly.com/&#34;&gt;Feedly.com&lt;/a&gt; I thought it might be interesting to see other ways we could propogate data accross the Interent without being succeptible to attacks, or, at least less accessible.&lt;/p&gt;
 
 &lt;p&gt;With the approach outlined below we need to use an actual app instead of being able to use a browser (there might be a way to use a browser also, not sure how it would work though).&lt;/p&gt;
@@ -1273,7 +1273,7 @@ return value
 
 &lt;p&gt;It will be nice when the internet will catch up with the distributed model of doing things.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://jnyman.com/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://jnyman.com/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/images/FeedlyApp.png&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/small/FeedlyApp.png&#34; alt=&#34;A Simple Outline of How to Set Up a Distributed Feedly&#34; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A Simple Outline of How to Set Up a Distributed Feedly&lt;/p&gt;
@@ -1282,10 +1282,10 @@ return value
     
     <item>
       <title>JavaScript</title>
-      <link>http://jnyman.com/2014/06/07/javascript/</link>
+      <link>http://localhost:1313/2014/06/07/javascript/</link>
       <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2014/06/07/javascript/</guid>
+      <guid>http://localhost:1313/2014/06/07/javascript/</guid>
       <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
 functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am

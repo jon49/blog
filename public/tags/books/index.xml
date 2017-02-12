@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Books on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/books/</link>
+    <link>http://localhost:1313/tags/books/</link>
     <description>Recent content in Books on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 16 Jul 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/books/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Algorithm Resources</title>
-      <link>http://jnyman.com/2012/07/16/algorithm_resources/</link>
+      <link>http://localhost:1313/2012/07/16/algorithm_resources/</link>
       <pubDate>Mon, 16 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/07/16/algorithm_resources/</guid>
+      <guid>http://localhost:1313/2012/07/16/algorithm_resources/</guid>
       <description>&lt;p&gt;&lt;h3&gt;Introduction&lt;/h3&gt;
 I was reading through Code Complete a classic coding book &lt;a href=&#34;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;amp;qid=1342466735&amp;amp;sr=8-1&amp;amp;keywords=code+complete&#34;&gt;&lt;em&gt;that is widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade&lt;/em&gt;&lt;/a&gt;. And he mentioned algorithm books. What, there exists algorithm books? You mean I don&amp;rsquo;t need to come up with this code all by myself? Combined with the internet to figure out what exactly these algorithms are called, they could be a huge help.
 &lt;h3&gt;Resources&lt;/h3&gt;

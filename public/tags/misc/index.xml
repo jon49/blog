@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Misc on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/misc/</link>
+    <link>http://localhost:1313/tags/misc/</link>
     <description>Recent content in Misc on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 04 Jan 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/misc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Welcome</title>
-      <link>http://jnyman.com/2012/01/04/0welcome/</link>
+      <link>http://localhost:1313/2012/01/04/0welcome/</link>
       <pubDate>Wed, 04 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/01/04/0welcome/</guid>
+      <guid>http://localhost:1313/2012/01/04/0welcome/</guid>
       <description>&lt;p&gt;I decided that using Drupal was more work than I wanted to put into my website, so here&amp;rsquo;s to WordPress! Hopefully I won&amp;rsquo;t regret it.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s my previous entry for this post:&lt;/p&gt;

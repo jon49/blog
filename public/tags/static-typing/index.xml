@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Static Typing on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/static-typing/</link>
+    <link>http://localhost:1313/tags/static-typing/</link>
     <description>Recent content in Static Typing on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/static-typing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/static-typing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Power of Static Typing</title>
-      <link>http://jnyman.com/2017/02/12/the_power_of_static_typing/</link>
+      <link>http://localhost:1313/2017/02/12/the_power_of_static_typing/</link>
       <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2017/02/12/the_power_of_static_typing/</guid>
+      <guid>http://localhost:1313/2017/02/12/the_power_of_static_typing/</guid>
       <description>&lt;p&gt;From what I understand &lt;a href=&#34;http://www.cs.cmu.edu/~NatProg/papers/CHI2016-SIG-ProgLang-Usability.pdf&#34;&gt;static typing makes programmers more productive and
 gives implicit documentation to the code
 base&lt;/a&gt;
@@ -36,8 +36,8 @@ statically type your calls to SQL Server letting you even type raw SQL in your
 code. Another useful one is the &lt;a href=&#34;http://fsharp.github.io/FSharp.Data/library/JsonProvider.html&#34;&gt;JSON Type
 Provider&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103&#34;&gt;SQL Server Data
-Tools&lt;/a&gt;.aspx)(SSDT)
+&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686%28v=vs.103%29.aspx&#34;&gt;SQL Server Data
+Tools&lt;/a&gt;(SSDT)
 you can have static typing from your database all the way down to your client
 web app. You can literally keep everything in sync with each other from across
 your entire infrastructure. This seems really huge to me. Programming in any

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>F# on Hamsters Byte</title>
-    <link>http://jnyman.com/tags/f/</link>
+    <link>http://localhost:1313/tags/f/</link>
     <description>Recent content in F# on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/f" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/f" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Power of Static Typing</title>
-      <link>http://jnyman.com/2017/02/12/the_power_of_static_typing/</link>
+      <link>http://localhost:1313/2017/02/12/the_power_of_static_typing/</link>
       <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2017/02/12/the_power_of_static_typing/</guid>
+      <guid>http://localhost:1313/2017/02/12/the_power_of_static_typing/</guid>
       <description>&lt;p&gt;From what I understand &lt;a href=&#34;http://www.cs.cmu.edu/~NatProg/papers/CHI2016-SIG-ProgLang-Usability.pdf&#34;&gt;static typing makes programmers more productive and
 gives implicit documentation to the code
 base&lt;/a&gt;
@@ -36,8 +36,8 @@ statically type your calls to SQL Server letting you even type raw SQL in your
 code. Another useful one is the &lt;a href=&#34;http://fsharp.github.io/FSharp.Data/library/JsonProvider.html&#34;&gt;JSON Type
 Provider&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103&#34;&gt;SQL Server Data
-Tools&lt;/a&gt;.aspx)(SSDT)
+&lt;p&gt;With F#, &lt;a href=&#34;http://websharper.com/&#34;&gt;WebSharper&lt;/a&gt;, and &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/hh272686%28v=vs.103%29.aspx&#34;&gt;SQL Server Data
+Tools&lt;/a&gt;(SSDT)
 you can have static typing from your database all the way down to your client
 web app. You can literally keep everything in sync with each other from across
 your entire infrastructure. This seems really huge to me. Programming in any
@@ -73,10 +73,10 @@ seeds is now.&lt;/p&gt;
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <link>http://localhost:1313/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>http://localhost:1313/2016/12/04/fsharp_with_webapi/</guid>
       <description>
 
 &lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code
@@ -133,10 +133,10 @@ Microsoft.AspNet.WebApi.Core&lt;/li&gt;
     
     <item>
       <title>Validation in F#</title>
-      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
+      <link>http://localhost:1313/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
+      <guid>http://localhost:1313/2016/11/27/validation_in_fsharp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2&#34;&gt;The full code for this article is up on GitHub.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I like to the keep things as simple as possible and, ideally, reusable. At my
@@ -359,10 +359,10 @@ jon
     
     <item>
       <title>JavaScript-Style Promises in F#</title>
-      <link>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</link>
+      <link>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</link>
       <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</guid>
+      <guid>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</guid>
       <description>&lt;p&gt;Working in enterprise level back end software often times I need to get
 information from many different sources. When you have enough of these sources
 the time it takes to get all the information can really add up. That&amp;rsquo;s when F#
