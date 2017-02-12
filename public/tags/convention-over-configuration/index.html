@@ -44,7 +44,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
   <ul class="posts">
     
     <li>
-      <a href="http://localhost:1313/2016/06/07/building_convention_based_routes_in_nodejs/">Building a Convention Based Routes in Node.js</a>
+      <a href="http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/">Building a Convention Based Routes in Node.js</a>
 
       <p class="footnote">
       submitted <span>Tue Jun 7, 2016</span>
@@ -54,7 +54,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
       
 
       
-      tags:[ <a href="http://localhost:1313/tags/node.js">node.js</a> <a href="http://localhost:1313/tags/convention-over-configuration">convention over configuration</a> ]
+      tags:[ <a href="http://jnyman.com/tags/node.js">node.js</a> <a href="http://jnyman.com/tags/convention-over-configuration">convention over configuration</a> ]
       
 
       
@@ -97,9 +97,6 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
   </p>
 </footer>
 
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>
 

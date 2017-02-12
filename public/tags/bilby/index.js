@@ -44,7 +44,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
   <ul class="posts">
     
     <li>
-      <a href="http://localhost:1313/2014/07/01/bilbyjs_lenses/">bilby.js &amp; lenses</a>
+      <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/">bilby.js &amp; lenses</a>
 
       <p class="footnote">
       submitted <span>Tue Jul 1, 2014</span>
@@ -54,7 +54,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
       
 
       
-      tags:[ <a href="http://localhost:1313/tags/bilby.js">bilby.js</a> <a href="http://localhost:1313/tags/immutability">immutability</a> <a href="http://localhost:1313/tags/javascript">javascript</a> <a href="http://localhost:1313/tags/functional-programming">functional programming</a> ]
+      tags:[ <a href="http://jnyman.com/tags/bilby.js">bilby.js</a> <a href="http://jnyman.com/tags/immutability">immutability</a> <a href="http://jnyman.com/tags/javascript">javascript</a> <a href="http://jnyman.com/tags/functional-programming">functional programming</a> ]
       
 
       
@@ -71,7 +71,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
   <ul class="posts">
     
     <li>
-      <a href="http://localhost:1313/2014/05/13/bilby_functional_programming/">bilby.js &amp; functional programming</a>
+      <a href="http://jnyman.com/2014/05/13/bilby_functional_programming/">bilby.js &amp; functional programming</a>
 
       <p class="footnote">
       submitted <span>Tue May 13, 2014</span>
@@ -81,7 +81,7 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
       
 
       
-      tags:[ <a href="http://localhost:1313/tags/bilby.js">bilby.js</a> <a href="http://localhost:1313/tags/functional-programming">functional programming</a> ]
+      tags:[ <a href="http://jnyman.com/tags/bilby.js">bilby.js</a> <a href="http://jnyman.com/tags/functional-programming">functional programming</a> ]
       
 
       
@@ -124,9 +124,6 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
   </p>
 </footer>
 
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>
 

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xml Comments on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/xml-comments/</link>
+    <link>http://jnyman.com/tags/xml-comments/</link>
     <description>Recent content in Xml Comments on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Aug 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/xml-comments/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/xml-comments/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>XML Comments</title>
-      <link>http://localhost:1313/2012/08/27/xml_comments/</link>
+      <link>http://jnyman.com/2012/08/27/xml_comments/</link>
       <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/08/27/xml_comments/</guid>
+      <guid>http://jnyman.com/2012/08/27/xml_comments/</guid>
       <description>&lt;p&gt;Comment headers above procedures can be convenient when you want to know
 what a function does and what the parameters are for – especially if
 they weren’t named with enough description. Luckily Visual Studio

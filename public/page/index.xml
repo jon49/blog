@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Hamsters Byte</title>
-    <link>http://localhost:1313/page/</link>
+    <link>http://jnyman.com/page/</link>
     <description>Recent content in Pages on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>http://jnyman.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
+      <guid>http://jnyman.com/about/</guid>
       <description>
 
 &lt;h3 id=&#34;personal:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Personal&lt;/h3&gt;

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design Patterns on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/design-patterns/</link>
+    <link>http://jnyman.com/tags/design-patterns/</link>
     <description>Recent content in Design Patterns on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Match Expression for JavaScript?</title>
-      <link>http://localhost:1313/2014/06/20/match_expression_javascript/</link>
+      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
       <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/20/match_expression_javascript/</guid>
+      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
       <description>&lt;p&gt;Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of &lt;code&gt;if&lt;/code&gt; statements. &lt;code&gt;if&lt;/code&gt; was awfully cluttered. I had looked at &lt;a href=&#34;http://bilby.brianmckenna.org/examples/validation.htm&#34;&gt;bilby.js examples&lt;/a&gt; and hadn&amp;rsquo;t realized that you can do multiple &lt;code&gt;ternary expressions&lt;/code&gt; in a row.&lt;/p&gt;
 
 &lt;p&gt;So, instead of,&lt;/p&gt;
@@ -118,10 +118,10 @@ return value
     
     <item>
       <title>Prototypes &amp; Compositions with Objects</title>
-      <link>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</link>
+      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</guid>
+      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
       <description>&lt;p&gt;I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that &lt;a href=&#34;http://lodash.com/&#34;&gt;lo-dash&lt;/a&gt; and other libraries have done a good job bridging those worlds.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s say you have an object &lt;code&gt;O&lt;/code&gt; such that&lt;/p&gt;
@@ -224,10 +224,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Notes on Monads, Monoids, and Make Believe</title>
-      <link>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
+      <link>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
       <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
+      <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
       <description>
 
 &lt;h2 id=&#34;with-brian-lonsdorf:0ca8684476f81d878f3c655714614cce&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;

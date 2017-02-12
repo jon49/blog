@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Functional Programming on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/functional-programming/</link>
+    <link>http://jnyman.com/tags/functional-programming/</link>
     <description>Recent content in Functional Programming on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -113,10 +113,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>Match Expression for JavaScript?</title>
-      <link>http://localhost:1313/2014/06/20/match_expression_javascript/</link>
+      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
       <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/20/match_expression_javascript/</guid>
+      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
       <description>&lt;p&gt;Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of &lt;code&gt;if&lt;/code&gt; statements. &lt;code&gt;if&lt;/code&gt; was awfully cluttered. I had looked at &lt;a href=&#34;http://bilby.brianmckenna.org/examples/validation.htm&#34;&gt;bilby.js examples&lt;/a&gt; and hadn&amp;rsquo;t realized that you can do multiple &lt;code&gt;ternary expressions&lt;/code&gt; in a row.&lt;/p&gt;
 
 &lt;p&gt;So, instead of,&lt;/p&gt;
@@ -220,10 +220,10 @@ return value
     
     <item>
       <title>Prototypes &amp; Compositions with Objects</title>
-      <link>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</link>
+      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
       <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/04/prototypes_composition_with_objects/</guid>
+      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
       <description>&lt;p&gt;I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that &lt;a href=&#34;http://lodash.com/&#34;&gt;lo-dash&lt;/a&gt; and other libraries have done a good job bridging those worlds.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s say you have an object &lt;code&gt;O&lt;/code&gt; such that&lt;/p&gt;
@@ -326,10 +326,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Functional Immutability in JavaScript</title>
-      <link>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</link>
+      <link>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</link>
       <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/29/functional_immutability_in_javascript/</guid>
+      <guid>http://jnyman.com/2014/05/29/functional_immutability_in_javascript/</guid>
       <description>&lt;p&gt;This is taken from Michael Fogus&amp;rsquo; book &lt;em&gt;Functional JavaScript&lt;/em&gt; in the chapter &lt;em&gt;Purity, Immutability, and Policies for Change&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Immutability is impossible to achieve in JavaScript without using &lt;code&gt;Object.freeze&lt;/code&gt; but it only performs makes the object immutable shallowing, you have to roll your own &lt;code&gt;deepFreeze&lt;/code&gt; if you would like to make the object truly immutable.&lt;/p&gt;
@@ -358,10 +358,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Functional or Object Oriented JavaScript?</title>
-      <link>http://localhost:1313/2014/05/29/functional_or_oo_javascript/</link>
+      <link>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</link>
       <pubDate>Thu, 29 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/29/functional_or_oo_javascript/</guid>
+      <guid>http://jnyman.com/2014/05/29/functional_or_oo_javascript/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;When people are first exposed to JavaScript and its minimal set of tools (functions, objects, prototypes, and arrays), many are underwhelmed. Therefore, in order to “modify” JavaScript to conform to their idea of what it takes to model software solutions, they very often seek out or re-create class-based systems using the primordial ooze.&lt;/p&gt;
 
@@ -386,10 +386,10 @@ var change = function(f, value, thisArg){
     
     <item>
       <title>Notes on Monads, Monoids, and Make Believe</title>
-      <link>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
+      <link>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
       <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
+      <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
       <description>
 
 &lt;h2 id=&#34;with-brian-lonsdorf:0ca8684476f81d878f3c655714614cce&#34;&gt;with Brian Lonsdorf&lt;/h2&gt;
@@ -448,10 +448,10 @@ fmap(validNumber, social)
     
     <item>
       <title>Notes On Functional Programming</title>
-      <link>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</link>
+      <link>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/13/functional_programming_for_non_mathematicians/</guid>
+      <guid>http://jnyman.com/2014/05/13/functional_programming_for_non_mathematicians/</guid>
       <description>
 
 &lt;h2 id=&#34;patterns-for-the-non-mathematician-with-brian-lonsdorf:84395a4544571503aa2619881045cc3a&#34;&gt;Patterns for the Non-Mathematician with Brian Lonsdorf&lt;/h2&gt;
@@ -566,10 +566,10 @@ log(result)
     
     <item>
       <title>bilby.js &amp; functional programming</title>
-      <link>http://localhost:1313/2014/05/13/bilby_functional_programming/</link>
+      <link>http://jnyman.com/2014/05/13/bilby_functional_programming/</link>
       <pubDate>Tue, 13 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/05/13/bilby_functional_programming/</guid>
+      <guid>http://jnyman.com/2014/05/13/bilby_functional_programming/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been learning functional programming for quite some time and like the programming paradigm. But, it can be difficult sometimes. Some libraries like lodash.js can be easy to start learning, but others like bilby.js require that you understand more of the functional approach. So, here are some videos that have helped me understand bilby.js better.&lt;/p&gt;
 
 &lt;hr /&gt;

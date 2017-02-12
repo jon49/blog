@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authentication on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/authentication/</link>
+    <link>http://jnyman.com/tags/authentication/</link>
     <description>Recent content in Authentication on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Authentication and Authorization in ASP.NET Core</title>
-      <link>http://localhost:1313/2017/01/29/authentication_in_asp_net_core/</link>
+      <link>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</link>
       <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2017/01/29/authentication_in_asp_net_core/</guid>
+      <guid>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</guid>
       <description>&lt;p&gt;One thing that really got me frustrated in WebAPI 2.0 was creating custom
 authentication. Eventually I found a &lt;a href=&#34;https://weblog.west-wind.com/posts/2013/Apr/18/A-WebAPI-Basic-Authentication-Authorization-Filter&#34;&gt;blog post by Rick
 Strahl&lt;/a&gt;

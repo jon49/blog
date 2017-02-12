@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rest on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/rest/</link>
+    <link>http://jnyman.com/tags/rest/</link>
     <description>Recent content in Rest on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Jul 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/rest/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Swagger is too Restrictive</title>
-      <link>http://localhost:1313/2016/07/10/swagger_is_too_restrictive/</link>
+      <link>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</link>
       <pubDate>Sun, 10 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/07/10/swagger_is_too_restrictive/</guid>
+      <guid>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</guid>
       <description>&lt;p&gt;Swagger has a definite idea of what makes a good URL. But if you want to do
 anything outside of that good luck. I think, that even though it seems like a
 good idea to push people towards a standard it doesn&amp;rsquo;t allow the user to really

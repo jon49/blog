@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yaml on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/yaml/</link>
+    <link>http://jnyman.com/tags/yaml/</link>
     <description>Recent content in Yaml on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jun 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using NPM as a Build Tool</title>
-      <link>http://localhost:1313/2016/06/21/npm_as_build_tool/</link>
+      <link>http://jnyman.com/2016/06/21/npm_as_build_tool/</link>
       <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/06/21/npm_as_build_tool/</guid>
+      <guid>http://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
       <description>&lt;p&gt;I really like simplicity. The tools I use, I like them to make my life easy,
 not hard. They need to work out of the box. No huge configuration settings,
 just make it easy so I can get to work.&lt;/p&gt;

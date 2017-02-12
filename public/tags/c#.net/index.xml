@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C#.Net on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/c/</link>
+    <link>http://jnyman.com/tags/c/</link>
     <description>Recent content in C#.Net on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Feb 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/c" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/c" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Excel Extensions</title>
-      <link>http://localhost:1313/2013/02/25/excel_extensions/</link>
+      <link>http://jnyman.com/2013/02/25/excel_extensions/</link>
       <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/25/excel_extensions/</guid>
+      <guid>http://jnyman.com/2013/02/25/excel_extensions/</guid>
       <description>&lt;p&gt;Excel extensions extend the range object to use
 &lt;a href=&#34;http://www.spreadsheetbudget.com/2013/02/25/linqto2darray/&#34;&gt;LinqTo2dArray&lt;/a&gt;
 (see also &lt;a href=&#34;http://linqto2darray.codeplex.com/&#34;&gt;Codeplex&lt;/a&gt;). It also
@@ -358,10 +358,10 @@ GetUpperBound(1) + 1);
     
     <item>
       <title>LinqTo2dArray</title>
-      <link>http://localhost:1313/2013/02/25/linqto2darray/</link>
+      <link>http://jnyman.com/2013/02/25/linqto2darray/</link>
       <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/25/linqto2darray/</guid>
+      <guid>http://jnyman.com/2013/02/25/linqto2darray/</guid>
       <description>&lt;p&gt;LinqTo2dArray written in C# (&lt;a href=&#34;http://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0(v=vs.100&#34;&gt;to allow iteration over the
 rows&lt;/a&gt;.aspx)).
 Also found on &lt;a href=&#34;http://linqto2darray.codeplex.com/&#34;&gt;CodePlex&lt;/a&gt;.&lt;/p&gt;

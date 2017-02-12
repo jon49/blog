@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>.Net on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/index.net/</link>
+    <link>http://jnyman.com/tags/index.net/</link>
     <description>Recent content in .Net on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/.net/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://localhost:1313/2016/12/04/fsharp_with_webapi/</link>
+      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
       <description>
 
 &lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code
@@ -71,10 +71,10 @@ Microsoft.AspNet.WebApi.Core&lt;/li&gt;
     
     <item>
       <title>Validation in F#</title>
-      <link>http://localhost:1313/2016/11/27/validation_in_fsharp/</link>
+      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/11/27/validation_in_fsharp/</guid>
+      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2&#34;&gt;The full code for this article is up on GitHub.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I like to the keep things as simple as possible and, ideally, reusable. At my
@@ -297,10 +297,10 @@ jon
     
     <item>
       <title>.NET and Modeless Forms</title>
-      <link>http://localhost:1313/2012/01/23/dot_net_and_modeless_forms_in_excel/</link>
+      <link>http://jnyman.com/2012/01/23/dot_net_and_modeless_forms_in_excel/</link>
       <pubDate>Mon, 23 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/23/dot_net_and_modeless_forms_in_excel/</guid>
+      <guid>http://jnyman.com/2012/01/23/dot_net_and_modeless_forms_in_excel/</guid>
       <description>&lt;p&gt;When I was doing some programming in VB.NET (for the Time Stamp program), I tried putting a modeless form in Excel. It came up as a new window in the task bar but then wouldn&amp;rsquo;t actually show on the screen. When I did a modal form it would show on the screen but also in the task bar.&lt;/p&gt;
 
 &lt;p&gt;.NET let&amp;rsquo;s you choose the parent window of your form. &lt;a href=&#34;http://stackoverflow.com/a/4128283/632495&#34;&gt;I found some code on StackOverflow in C# that gives you the proper owner window in IWin32Window form.&lt;/a&gt;&lt;/p&gt;

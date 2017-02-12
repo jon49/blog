@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/javascript/</link>
+    <link>http://jnyman.com/tags/javascript/</link>
     <description>Recent content in Javascript on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jun 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using NPM as a Build Tool</title>
-      <link>http://localhost:1313/2016/06/21/npm_as_build_tool/</link>
+      <link>http://jnyman.com/2016/06/21/npm_as_build_tool/</link>
       <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/06/21/npm_as_build_tool/</guid>
+      <guid>http://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
       <description>&lt;p&gt;I really like simplicity. The tools I use, I like them to make my life easy,
 not hard. They need to work out of the box. No huge configuration settings,
 just make it easy so I can get to work.&lt;/p&gt;
@@ -128,10 +128,10 @@ directly, so it would be something like this: &lt;code&gt;node
     
     <item>
       <title>On-the-Fly Lambda Expressions in JavaScript</title>
-      <link>http://localhost:1313/2016/06/13/lambda_expressions_in_javascript/</link>
+      <link>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</link>
       <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/06/13/lambda_expressions_in_javascript/</guid>
+      <guid>http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/</guid>
       <description>&lt;p&gt;Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a couple libraries that did this.&lt;/p&gt;
@@ -155,10 +155,10 @@ directly, so it would be something like this: &lt;code&gt;node
     
     <item>
       <title>bilby.js &amp; lenses</title>
-      <link>http://localhost:1313/2014/07/01/bilbyjs_lenses/</link>
+      <link>http://jnyman.com/2014/07/01/bilbyjs_lenses/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/07/01/bilbyjs_lenses/</guid>
+      <guid>http://jnyman.com/2014/07/01/bilbyjs_lenses/</guid>
       <description>&lt;p&gt;In JavaScript nearly everything is &lt;a href=&#34;http://en.wikipedia.org/wiki/Mutable&#34;&gt;mutable&lt;/a&gt;. This can cause problems
 in your code when you think you have a new object or variable but
 instead you are operating on the referenced object. So, we create
@@ -257,10 +257,10 @@ of &lt;code&gt;andThen&lt;/code&gt; making it so you can switch the order of you
     
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/2014/06/07/javascript/</link>
+      <link>http://jnyman.com/2014/06/07/javascript/</link>
       <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/07/javascript/</guid>
+      <guid>http://jnyman.com/2014/06/07/javascript/</guid>
       <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
 functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am

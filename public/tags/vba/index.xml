@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vba on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/vba/</link>
+    <link>http://jnyman.com/tags/vba/</link>
     <description>Recent content in Vba on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jun 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/vba/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript</title>
-      <link>http://localhost:1313/2014/06/07/javascript/</link>
+      <link>http://jnyman.com/2014/06/07/javascript/</link>
       <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2014/06/07/javascript/</guid>
+      <guid>http://jnyman.com/2014/06/07/javascript/</guid>
       <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
 functional manner). I’ve also gone the way of Linux away from Windows. I
 love Excel and its power. But I see the writing on the wall and am
@@ -29,10 +29,10 @@ me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;
     
     <item>
       <title>Bit Torrent Sync &amp; Updating/Installing Programs</title>
-      <link>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
+      <link>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</link>
       <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
+      <guid>http://jnyman.com/2013/09/30/bit_torrent_sync_updatinginsstalling_programs/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://labs.bittorrent.com/experiments/sync.html&#34;&gt;Bit Torrent Sync&lt;/a&gt; (BT
 Sync) is great software which can be used for syncing files. I use it
 for backing up all my pictures/videos/music/files/mobile computers.
@@ -82,20 +82,20 @@ of&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>Zipping Files with VBA and USB Drives</title>
-      <link>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
+      <link>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
       <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
+      <guid>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
       <description>&lt;p&gt;I used &lt;a href=&#34;http://www.rondebruin.nl/win/s7/win001.htm&#34;&gt;Ron de Bruin&amp;rsquo;s file zipping (and sending) code with Excel&lt;/a&gt;. It works great with a few tweaks. Unfortunately when someone is using a USB drive with their workbook on it it fails to work. So warning: Make sure the users are using it on the main computer when trouble shooting!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>SUMIFS vs MATCH &amp; INDEX</title>
-      <link>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</link>
+      <link>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</link>
       <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/03/14/sumifs_vs_match_index/</guid>
+      <guid>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</guid>
       <description>&lt;p&gt;I have one Time Card template setup with SUMIFS (used for Excel 2007 and
 above templates) and one set up with MATCH/INDEX (used for my 2003 and
 below templates). I tested the calculation speeds for each in Excel 2013
@@ -156,10 +156,10 @@ huge issue.&lt;/p&gt;
     
     <item>
       <title>Max Write to Excel (2003) in Array</title>
-      <link>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</link>
+      <link>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</link>
       <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/01/01/max_write_to_excel_2003_in_array/</guid>
+      <guid>http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/</guid>
       <description>&lt;p&gt;I normally don’t deal with very long strings. But I’m working on a
 project that requires storing a text file in Excel that I can later
 access (it would be nice just to embed it but Excel doesn’t like viruses
@@ -176,10 +176,10 @@ and you’ll get an error.&lt;/p&gt;
     
     <item>
       <title>List of Excel Functions - Code To Use List</title>
-      <link>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
+      <link>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
       <pubDate>Wed, 05 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
+      <guid>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
       <description>&lt;p&gt;I saw a few people were downloading &lt;a href=&#34;2012/08/27/list-of-excel-functions/&#34;&gt;my list of Excel functions that I created&lt;/a&gt;. I thought it might be useful show the code that I use to get that data to a manageable format. Although the code is written in VB.NET it should be easily converted to VBA.&lt;/p&gt;
 
 &lt;p&gt;[wpdm_file id=3]&lt;/p&gt;
@@ -259,10 +259,10 @@ End Function
     
     <item>
       <title>Sheet Exists</title>
-      <link>http://localhost:1313/2012/09/13/sheet_exists/</link>
+      <link>http://jnyman.com/2012/09/13/sheet_exists/</link>
       <pubDate>Thu, 13 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/09/13/sheet_exists/</guid>
+      <guid>http://jnyman.com/2012/09/13/sheet_exists/</guid>
       <description>&lt;p&gt;I was looking at &lt;a href=&#34;http://www.siddharthrout.com&#34;&gt;Siddharth Rout&amp;rsquo;s new blog&lt;/a&gt; (&lt;a href=&#34;http://www.siddharthrout.com/2012/09/10/addingdeleting-sheets-to-the-excel-file/&#34;&gt;Adding/Deleting Sheets to the Excel File&lt;/a&gt;) and realized that I haven&amp;rsquo;t posted my version of sheet exists. Mine probably does too much per &lt;a href=&#34;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;qid=1347565033&amp;sr=8-1&amp;keywords=code+complete&#34;&gt;Code Complete&lt;/a&gt; standards, but it is nice not to have to think of multiple.&lt;/p&gt;
 
 &lt;p&gt;If I were to &lt;a href=&#34;http://en.wikipedia.org/wiki/Refactor&#34;&gt;refactor&lt;/a&gt; this code I would take out the code for the charts and probably just make it work only for checking if the sheet exists and adding a new sheet if it doesn&amp;rsquo;t. I would create a separate function for deleting sheets. But once you have lot&amp;rsquo;s of code written it is difficult to refactor all your code just to change one function (and I use this function quite a bit).&lt;/p&gt;
@@ -369,10 +369,10 @@ End Function
     
     <item>
       <title>Creating a Settings Class in VBA</title>
-      <link>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</link>
+      <link>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</link>
       <pubDate>Wed, 29 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/02/29/creating_a_settings_class_in_vba/</guid>
+      <guid>http://jnyman.com/2012/02/29/creating_a_settings_class_in_vba/</guid>
       <description>&lt;p&gt;In .NET they have a nice settings class you can create using &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/system.configuration.applicationsettingsbase.aspx&#34;&gt;ApplicationSettingsBase base class&lt;/a&gt;. In VBA it takes a bit more work to get it working, but can be fairly elegant if done correctly.&lt;/p&gt;
 
 &lt;p&gt;Some criteria that is needed for a settings class in vba are:
@@ -422,10 +422,10 @@ End Property
     
     <item>
       <title>AdvancedFilter Class Part 2</title>
-      <link>http://localhost:1313/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
+      <link>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
       <pubDate>Wed, 15 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
+      <guid>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
       <description>&lt;p&gt;The first thing we’ll want to do is determine what macro options we would like in the class.&lt;/p&gt;
 
 &lt;p&gt;The options I currently have are:&lt;/p&gt;
@@ -550,10 +550,10 @@ End Sub
     
     <item>
       <title>Wrapping a Class Around the AdvancedFilter Method</title>
-      <link>http://localhost:1313/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
+      <link>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
       <pubDate>Fri, 10 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
+      <guid>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.cpearson.com/excel/classes.aspx&#34;&gt;Classes&lt;/a&gt; are a tool in &lt;a href=&#34;http://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;object-oriented programming&lt;/a&gt; that make programming much simpler. One class that I have developed in VBA is a class that makes using the &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa221800(v=office.11).aspx&#34;&gt;AdvancedFilter method&lt;/a&gt; extremely easy and useful. In fact, I like it so much that I stopped using the regular &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa195730(v=office.11).aspx&#34;&gt;find method&lt;/a&gt;. In the coming weeks I will demonstrate how this was done.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt; This is how the AdvancedFilter method works&lt;/strong&gt;:
@@ -625,10 +625,10 @@ End Sub
     
     <item>
       <title>Range Address from Number to Letter</title>
-      <link>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</link>
+      <link>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</link>
       <pubDate>Fri, 20 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/20/range_address_from_number_to_letter/</guid>
+      <guid>http://jnyman.com/2012/01/20/range_address_from_number_to_letter/</guid>
       <description>&lt;p&gt;Sometimes, before I realize it (and, I’m sure, others too) I do a bunch of work, that turns out that I didn’t need to do before. The RangeAddress function that I created is a perfect example of this. This function goes from a column number to a letter and returns the whole string range address. I started off &lt;a href=&#34;http://www.excelforum.com/excel-programming/638861-vb-convert-column-letter-to-number.html&#34;&gt;with someones else’s code&lt;/a&gt;. I then made it work for me. Their code only worked for Excel 2003 and below. The code below will work for All Excel versions. But there is a better way! The better way is in the &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/12/get-range-from-row-and-column-numbers/&#34;&gt;RRange function&lt;/a&gt; I posted about before. Below this code I’ll show you the basic gist on how to go about it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;RangeAddress
@@ -741,10 +741,10 @@ Range Address: $AI$1:$AL$1
     
     <item>
       <title>Find Last Cell</title>
-      <link>http://localhost:1313/2012/01/13/find_last_cell/</link>
+      <link>http://jnyman.com/2012/01/13/find_last_cell/</link>
       <pubDate>Fri, 13 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/13/find_last_cell/</guid>
+      <guid>http://jnyman.com/2012/01/13/find_last_cell/</guid>
       <description>&lt;p&gt;Finding the last cell is a common thing people look for when they are coding in VBA. I made a function that does this automatically for me when I am looking for the last cell. In conjunction with the &lt;a href=&#34;2012/01/12/get-range-from-row-and-column-numbers/&#34;&gt;RRange function&lt;/a&gt; this simplifies the programming life for VBA significantly.&lt;/p&gt;
 
 &lt;p&gt;Heres some example code on how to use the function FindEnd.&lt;/p&gt;
@@ -853,10 +853,10 @@ End Function
     
     <item>
       <title>Get Range from Row &amp; Column Numbers</title>
-      <link>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</link>
+      <link>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</link>
       <pubDate>Thu, 12 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/12/get_range_from_row_and_column_numbers/</guid>
+      <guid>http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/</guid>
       <description>&lt;p&gt;Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below I’ve simplified it considerably by using the Cells method.&lt;/p&gt;
 
 &lt;p&gt;In the function below I use a &lt;a href=&#34;http://www.spreadsheetbudget.com/2012/01/13/find-last-cell/&#34;&gt;function called FindEnd&lt;/a&gt;.&lt;/p&gt;
@@ -917,10 +917,10 @@ End Function
     
     <item>
       <title>Import Data from Excel to VBA</title>
-      <link>http://localhost:1313/2012/01/04/import_data_from_excel_to_vba/</link>
+      <link>http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/</link>
       <pubDate>Wed, 04 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/04/import_data_from_excel_to_vba/</guid>
+      <guid>http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always wanted a function that can get me data from excel in a format that will always be the same. Sometimes I get the data and I expect a 2D variant array but instead get a string or double value. So I created a function to make it easy for myself, getting the same format that I expect.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;&#39;ImportExcelData

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Add In on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/add-in/</link>
+    <link>http://jnyman.com/tags/add-in/</link>
     <description>Recent content in Add In on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Jan 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/add-in/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/add-in/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Distributing Add-ins via Installer</title>
-      <link>http://localhost:1313/2012/01/27/distributing_add_ins_via_installer/</link>
+      <link>http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/</link>
       <pubDate>Fri, 27 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/27/distributing_add_ins_via_installer/</guid>
+      <guid>http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/</guid>
       <description>&lt;p&gt;Recently I needed to create an installer for my add-ins using &lt;a href=&#34;http://www.jrsoftware.org/isinfo.php&#34;&gt;Inno Setup installer&lt;/a&gt;. Inno Setup is a free ware professional installer. It lets you use &lt;a href=&#34;http://en.wikipedia.org/wiki/Pascal_(programming_language&#34;&gt;Pascal&lt;/a&gt;) to create special code to help you install the add ins.&lt;/p&gt;
 
 &lt;p&gt;Luckily, over at &lt;a href=&#34;http://dutchgemini.wordpress.com/2012/01/04/install-and-uninstall-an-excel-add-in-with-innosetup&#34;&gt;Dutch Gemini’s website&lt;/a&gt; he has helped with plenty of the code to get there. Very well done, I might add.&lt;/p&gt;

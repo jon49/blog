@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Promises on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/promises/</link>
+    <link>http://jnyman.com/tags/promises/</link>
     <description>Recent content in Promises on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jun 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/promises/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/promises/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>JavaScript-Style Promises in F#</title>
-      <link>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</link>
+      <link>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</link>
       <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/06/26/js_style_promises_in_fsharp/</guid>
+      <guid>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</guid>
       <description>&lt;p&gt;Working in enterprise level back end software often times I need to get
 information from many different sources. When you have enough of these sources
 the time it takes to get all the information can really add up. That&amp;rsquo;s when F#

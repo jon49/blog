@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fail on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/fail/</link>
+    <link>http://jnyman.com/tags/fail/</link>
     <description>Recent content in Fail on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Aug 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/fail/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/fail/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Zipping Files with VBA and USB Drives</title>
-      <link>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
+      <link>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</link>
       <pubDate>Mon, 19 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
+      <guid>http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/</guid>
       <description>&lt;p&gt;I used &lt;a href=&#34;http://www.rondebruin.nl/win/s7/win001.htm&#34;&gt;Ron de Bruin&amp;rsquo;s file zipping (and sending) code with Excel&lt;/a&gt;. It works great with a few tweaks. Unfortunately when someone is using a USB drive with their workbook on it it fails to work. So warning: Make sure the users are using it on the main computer when trouble shooting!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Attempted to Read or Write Protected Memory</title>
-      <link>http://localhost:1313/2013/02/12/attempted_to_read_or_write_protected_memory/</link>
+      <link>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2013/02/12/attempted_to_read_or_write_protected_memory/</guid>
+      <guid>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been working on switching over to a &amp;ldquo;new&amp;rdquo; machine (more on that in a new post). In the process my time card program stopped working with the following error:&lt;/p&gt;
 
 &lt;blockquote&gt;System.AccessViolationException was unhandled
@@ -41,10 +41,10 @@ This is often an indication that other memory is corrupt.&lt;/blockquote&gt;
     
     <item>
       <title>The Problems Of Copy/Pasting Code</title>
-      <link>http://localhost:1313/2012/03/14/the_problems_of_copy_pasting_code/</link>
+      <link>http://jnyman.com/2012/03/14/the_problems_of_copy_pasting_code/</link>
       <pubDate>Wed, 14 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/03/14/the_problems_of_copy_pasting_code/</guid>
+      <guid>http://jnyman.com/2012/03/14/the_problems_of_copy_pasting_code/</guid>
       <description>&lt;p&gt;Copying and pasting is great for coding, but sometimes it can be pretty silly if you make a mistake in the code. Here’s a triple copy/paste fail (the values should be set to true):&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-vbscript&#34;&gt;Public Sub SheetActivate_Dashboard(ByVal sh As Object)

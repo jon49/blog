@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Webapi on Hamsters Byte</title>
-    <link>http://localhost:1313/tags/webapi/</link>
+    <link>http://jnyman.com/tags/webapi/</link>
     <description>Recent content in Webapi on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/webapi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://jnyman.com/tags/webapi/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://localhost:1313/2016/12/04/fsharp_with_webapi/</link>
+      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
       <description>
 
 &lt;p&gt;I presented at the &lt;a href=&#34;http://oct2016.desertcodecamp.com/session/1224&#34;&gt;2016 Desert Code
@@ -71,10 +71,10 @@ Microsoft.AspNet.WebApi.Core&lt;/li&gt;
     
     <item>
       <title>Validation in F#</title>
-      <link>http://localhost:1313/2016/11/27/validation_in_fsharp/</link>
+      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/11/27/validation_in_fsharp/</guid>
+      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2&#34;&gt;The full code for this article is up on GitHub.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I like to the keep things as simple as possible and, ideally, reusable. At my
