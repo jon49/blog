@@ -6,8 +6,69 @@
     <description>Recent content in Posts on Hamsters Byte</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://jnyman.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>An Introduction to Functional Programming in JavaScript</title>
+      <link>http://jnyman.com/2017/06/01/functional_js_talk/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2017/06/01/functional_js_talk/</guid>
+      <description>
+
+&lt;p&gt;This is the talk I gave at the &lt;a href=&#34;https://www.meetup.com/Phoenix-JavaScript/events/240001605/&#34;&gt;JavaScript meetup in
+Phoenix&lt;/a&gt;. One the
+othe largest programming meetups in the valley.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1NQWmeYUGwjgCqlThwjpBWcYBbETTsx9rcFsQfu1H_Ao/edit?usp=sharing&#34;&gt;Here are the slides to the
+talk.&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe
+src=&#34;https://docs.google.com/presentation/d/1NQWmeYUGwjgCqlThwjpBWcYBbETTsx9rcFsQfu1H_Ao/embed?start=false&amp;loop=false&amp;delayms=3000&#34;
+frameborder=&#34;0&#34; width=&#34;480&#34; height=&#34;299&#34; allowfullscreen=&#34;true&#34;
+mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Here&amp;rsquo;s some books that can help you get ramped up into the functional
+programming paradigm &lt;em&gt;Introducing functional programming with Underscore.js&lt;/em&gt; by
+Michael Fogus. And for a more in depth look into functional patterns &lt;a href=&#34;https://github.com/MostlyAdequate/mostly-adequate-guide&#34;&gt;&lt;em&gt;Professor
+Frisby’s Mostly Adequate Guide to Functional
+Programming&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some additional resources of people that have come to embrace the functional
+programming concepts:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/John_Carmack&#34;&gt;John Carmack&lt;/a&gt; &lt;a href=&#34;https://youtu.be/Uooh0Y9fC_M?t=1h17m40s&#34;&gt;on why and how
+functional programming can help with game
+development.&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://youtu.be/FV0DXNB94NE&#34;&gt;Richard Feldman&lt;/a&gt; found writing in Elm made
+refactoring easier, improved productivity, and code quality.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Paul_Graham_(computer_programmer&#34;&gt;Paul Graham&lt;/a&gt;)
+&lt;a href=&#34;http://www.paulgraham.com/avg.html&#34;&gt;attributes his company’s success on using LISP for faster iterations and
+quickly creating new features.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.quora.com/What-is-unique-about-WhatsApps-engineering-culture-that-let-it-scale-with-a-small-team&#34;&gt;WhatsApp scaled to millions with a very small
+team.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;talk-description:395c5be51542cb0d9ac05524cf1833f1&#34;&gt;Talk Description&lt;/h3&gt;
+
+&lt;p&gt;Functional programming is a programming-language paradigm that helps programmers
+write better code that is easier to understand. As computers have become faster
+many people are looking back at the advantages of functional programming and
+incorporating the ideas into their products. Many JavaScript libraries and
+frameworks have also been incorporating functional programming concepts; such as
+Lodash, Ramda, React, and many more. Come and learn what is functional
+programming; learn the history of functional programming in JavaScript; learn
+the pros and cons of functional programming; and learn some core concepts of
+functional programming that can improve the quality of your software.&lt;/p&gt;
+
+&lt;p&gt;Jon Nyman is full stack web developer who is passionate about the functional
+paradigm of programming. He programmed in Node.js for about 8 months and now
+spends most of his time writing C#, F#, and T-SQL.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Power of Static Typing</title>
@@ -1277,24 +1338,6 @@ return value
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;A Simple Outline of How to Set Up a Distributed Feedly&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>http://jnyman.com/2014/06/07/javascript/</link>
-      <pubDate>Sat, 07 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://jnyman.com/2014/06/07/javascript/</guid>
-      <description>&lt;p&gt;I’ve jumped ship from Excel programming over to JavaScript (in a
-functional manner). I’ve also gone the way of Linux away from Windows. I
-love Excel and its power. But I see the writing on the wall and am
-moving to where I can hopefully get some work and starting making some
-moolah. You can follow my new blog over at
-&lt;a href=&#34;http://thisisafiller.ghoster.io/&#34;&gt;http://thisisafiller.ghoster.io/&lt;/a&gt;.\
- If anyone is interested in the products I’ve made let me know how you
-like them and &lt;a href=&#34;http://nymanjon@gmail.com&#34;&gt;send me an e-mail&lt;/a&gt;. Or tweet
-me &lt;a href=&#34;https://twitter.com/NymanJon&#34;&gt;@NymanJon&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

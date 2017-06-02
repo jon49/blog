@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Power of Static Typing</title>
+  <title>An Introduction to Functional Programming in JavaScript</title>
   <meta name="description" content="">
   <meta name="author" content="Jon Nyman">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,74 +36,73 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 </header>
 
 
-<h1>The Power of Static Typing</h1>
+<h1>An Introduction to Functional Programming in JavaScript</h1>
 <article>
-  <p>From what I understand <a href="http://www.cs.cmu.edu/~NatProg/papers/CHI2016-SIG-ProgLang-Usability.pdf">static typing makes programmers more productive and
-gives implicit documentation to the code
-base</a>
-- although explicit documentation is also very helpful.  It also seems to make
-the tools we use much more powerful.</p>
+  
 
-<p>One of the problems of static typing is that your code becomes more verbose.
-With programming languages like F# the compiler will implicitly type as much
-of your program as possible. Where it fails, you need to type it yourself.</p>
+<p>This is the talk I gave at the <a href="https://www.meetup.com/Phoenix-JavaScript/events/240001605/">JavaScript meetup in
+Phoenix</a>. One the
+othe largest programming meetups in the valley.</p>
 
-<p>Not only that but many times static languages will provide tools to do the
-typing for you. F# has <a href="https://docs.microsoft.com/en-us/dotnet/articles/fsharp/tutorials/type-providers/">Type
-Providers</a>
-which will dynamically create types for your program on the fly, lessening the
-burdens of a statically typed system. One of my favorite libraries that does
-this is <a href="http://fsprojects.github.io/FSharp.Data.SqlClient/"><code>FSharp.Data.SqlClient</code> - <em>Not your grandfather&rsquo;s
-ORM</em></a> which will
-statically type your calls to SQL Server letting you even type raw SQL in your
-code. Another useful one is the <a href="http://fsharp.github.io/FSharp.Data/library/JsonProvider.html">JSON Type
-Provider</a>.</p>
+<p><a href="https://docs.google.com/presentation/d/1NQWmeYUGwjgCqlThwjpBWcYBbETTsx9rcFsQfu1H_Ao/edit?usp=sharing">Here are the slides to the
+talk.</a></p>
 
-<p>With F#, <a href="http://websharper.com/">WebSharper</a>, and <a href="https://msdn.microsoft.com/en-us/library/hh272686%28v=vs.103%29.aspx">SQL Server Data
-Tools</a>(SSDT)
-you can have static typing from your database all the way down to your client
-web app. You can literally keep everything in sync with each other from across
-your entire infrastructure. This seems really huge to me. Programming in any
-other way seems like programming in the past, by decades. Unfortunately, it
-seems like it takes ages for the programming community and business industry
-to get on board. It is understandable and mind boggling at the same time.</p>
+<iframe
+src="https://docs.google.com/presentation/d/1NQWmeYUGwjgCqlThwjpBWcYBbETTsx9rcFsQfu1H_Ao/embed?start=false&loop=false&delayms=3000"
+frameborder="0" width="480" height="299" allowfullscreen="true"
+mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-<p>So, SSDT, can give you static typing across databases, it seems to work best
-when they live on the same server when you track the databases in the same
-SSDT solution. But you can also have this static typing across different
-servers in different SSDT solutions by referencing the <code>dacpac</code> of the
-different databases you are connecting to. It also makes testing much simpler
-with the help of <a href="http://tsqlt.org/"><code>tSQLt</code></a> testing framework.</p>
+<p>Here&rsquo;s some books that can help you get ramped up into the functional
+programming paradigm <em>Introducing functional programming with Underscore.js</em> by
+Michael Fogus. And for a more in depth look into functional patterns <a href="https://github.com/MostlyAdequate/mostly-adequate-guide"><em>Professor
+Frisby’s Mostly Adequate Guide to Functional
+Programming</em></a>.</p>
 
-<p>I&rsquo;ve never used <a href="http://websharper.com/">WebSharper</a> before but it looks like
-it is a wonderful way to write your back end and front end code. I&rsquo;m not sure
-if other .NET frameworks can give you the same static typing that WebSharper
-can, but <a href="http://websharper.com/blog-entry/5204/distributed-web-applications-in-f-with-websharper">WebSharper can generate your end points for you in distributed
-applications, letting them be private or public end
-points</a>.</p>
+<p>Some additional resources of people that have come to embrace the functional
+programming concepts:</p>
 
-<p>So, with all this incredible technology that can make us so much more
-productive why do we not embrace this technology and stop doing the computer&rsquo;s
-work for it? I&rsquo;m sure there are many reasons, including psychology and
-business maintainability. Which I won&rsquo;t enumerate some here, which I
-think could possibly be reasons. Let&rsquo;s start embracing this technology and
-start slowly introducing them where we can in are work places. It might take
-another ten or twenty years to be able to really start letting the computer do
-its work rather than us doing its work, but the time to start planting the
-seeds is now.</p>
+<p><a href="https://en.wikipedia.org/wiki/John_Carmack">John Carmack</a> <a href="https://youtu.be/Uooh0Y9fC_M?t=1h17m40s">on why and how
+functional programming can help with game
+development.</a>.</p>
+
+<p><a href="https://youtu.be/FV0DXNB94NE">Richard Feldman</a> found writing in Elm made
+refactoring easier, improved productivity, and code quality.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Paul_Graham_(computer_programmer">Paul Graham</a>)
+<a href="http://www.paulgraham.com/avg.html">attributes his company’s success on using LISP for faster iterations and
+quickly creating new features.</a></p>
+
+<p><a href="https://www.quora.com/What-is-unique-about-WhatsApps-engineering-culture-that-let-it-scale-with-a-small-team">WhatsApp scaled to millions with a very small
+team.</a></p>
+
+<h3 id="talk-description:395c5be51542cb0d9ac05524cf1833f1">Talk Description</h3>
+
+<p>Functional programming is a programming-language paradigm that helps programmers
+write better code that is easier to understand. As computers have become faster
+many people are looking back at the advantages of functional programming and
+incorporating the ideas into their products. Many JavaScript libraries and
+frameworks have also been incorporating functional programming concepts; such as
+Lodash, Ramda, React, and many more. Come and learn what is functional
+programming; learn the history of functional programming in JavaScript; learn
+the pros and cons of functional programming; and learn some core concepts of
+functional programming that can improve the quality of your software.</p>
+
+<p>Jon Nyman is full stack web developer who is passionate about the functional
+paradigm of programming. He programmed in Node.js for about 8 months and now
+spends most of his time writing C#, F#, and T-SQL.</p>
 
 </article>
 <p>
 
-    <span>Sun Feb 12, 2017</span>
+    <span>Thu Jun 1, 2017</span>
 
    | 
 
   
     tags:
-      <a href="/tags/static-typing">Static Typing</a>
+      <a href="/tags/functional-programming">Functional Programming</a>
     
-      <a href="/tags/f">F#</a>
+      <a href="/tags/presentation">Presentation</a>
     
   
 
@@ -116,16 +115,9 @@ seeds is now.</p>
 
 <div class="nav-posts">
   
-    <a class="next" href="http://jnyman.com/2017/01/29/authentication_in_asp_net_core/"> Authentication and Authorization in ASP.NET Core</a>
+    <a class="next" href="http://jnyman.com/2017/02/12/the_power_of_static_typing/"> The Power of Static Typing</a>
   
 
-  
-    
-      
-      ✴
-      
-      <a class="previous" href="http://jnyman.com/2017/06/01/functional_js_talk/"> An Introduction to Functional Programming in JavaScript</a>
-    
   
 </div>
 
@@ -168,9 +160,9 @@ seeds is now.</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'jnyman-com';
-    var disqus_identifier = 'http:\/\/jnyman.com\/2017\/02\/12\/the_power_of_static_typing\/';
-    var disqus_title = 'The Power of Static Typing';
-    var disqus_url = 'http:\/\/jnyman.com\/2017\/02\/12\/the_power_of_static_typing\/';
+    var disqus_identifier = 'http:\/\/jnyman.com\/2017\/06\/01\/functional_js_talk\/';
+    var disqus_title = 'An Introduction to Functional Programming in JavaScript';
+    var disqus_url = 'http:\/\/jnyman.com\/2017\/06\/01\/functional_js_talk\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
