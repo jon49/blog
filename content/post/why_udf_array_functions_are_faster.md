@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-03-29
 title: Why UDF Array Functions are Faster
 tags:

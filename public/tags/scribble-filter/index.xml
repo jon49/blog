@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scribble Filter on Hamsters Byte</title>
+    <title>Scribble Filter on JNyman.com</title>
     <link>http://jnyman.com/tags/scribble-filter/</link>
-    <description>Recent content in Scribble Filter on Hamsters Byte</description>
+    <description>Recent content in Scribble Filter on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Nov 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/scribble-filter/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://jnyman.com/tags/scribble-filter/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Scribble Filter (For Excel)</title>
@@ -15,25 +17,10 @@
       <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</guid>
-      <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
-
-&lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
-&lt;ul&gt;
-&lt;li&gt;Use both {AVERAGE} function and Excel AVERAGE function &lt;a href=&#34;http://www.youtube.com/watch?feature=player_detailpage&amp;v=jIpIWbKHawk#t=4s&#34;&gt;@00:04&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Click on Excel function with cursor to goto Excel&amp;rsquo;s function web page &lt;a href=&#34;http://www.youtube.com/watch?feature=player_detailpage&amp;v=jIpIWbKHawk#t=78s&#34;&gt;@01:18&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Using ranges as a formula. &lt;a href=&#34;http://www.youtube.com/watch?feature=player_detailpage&amp;v=jIpIWbKHawk#t=93s&#34;&gt;@01:33&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-
-&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;http://www.youtube.com/embed/jIpIWbKHawk&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.me/P26YjB-7Z&#34;&gt;Scribble Filter Home&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/P26YjB-82&#34;&gt;Scribble Filter Help&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.me/p26YjB-85&#34;&gt;Overview Part 1&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8o&#34;&gt;Overview Part 2&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8s&#34;&gt;Overview Part 3&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8Y&#34;&gt;Overview Part 4&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Points discussed in video:
+The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.  Use both {AVERAGE} function and Excel AVERAGE function @00:04 Click on Excel function with cursor to goto Excel&amp;rsquo;s function web page @01:18 Using ranges as a formula. @01:33 
+ Scribble Filter Home Scribble Filter Help
+Overview Part 1 Overview Part 2 Overview Part 3 Overview Part 4</description>
     </item>
     
     <item>
@@ -42,20 +29,9 @@
       <pubDate>Wed, 31 Oct 2012 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2012/10/31/scribble_filter_installation_opening/</guid>
-      <description>&lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.&lt;/p&gt;
-
-&lt;p&gt;Points discussed in video:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Installing &lt;a href=&#34;http://www.youtube.com/watch?feature=player_detailpage&amp;v=tzP4RLMuGV4#t=6s&#34;&gt;@00:06&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Open Scribble Filter Dialog &lt;a href=&#34;http://www.youtube.com/watch?feature=player_detailpage&amp;v=tzP4RLMuGV4#t=30s&#34;&gt;@00:30&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;http://www.youtube.com/embed/tzP4RLMuGV4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.me/P26YjB-7Z&#34;&gt;Scribble Filter Home&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/P26YjB-82&#34;&gt;Scribble Filter Help&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
+Points discussed in video:
+ Installing @00:06 Open Scribble Filter Dialog @00:30   Scribble Filter Home Scribble Filter Help</description>
     </item>
     
     <item>
@@ -64,28 +40,10 @@
       <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</guid>
-      <description>&lt;p&gt;Points discussed in video:&lt;/p&gt;
-
-&lt;p&gt;The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Filter in place &lt;a href=&#34;http://www.youtube.com/watch?v=vB1xfKitdJQ&amp;feature=player_detailpage#t=8s&#34;&gt;@00:08&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Copy filtered data to different worksheet &lt;a href=&#34;http://www.youtube.com/watch?v=vB1xfKitdJQ&amp;feature=player_detailpage#t=32s&#34;&gt;@00:32&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Chaining filters &lt;a href=&#34;http://www.youtube.com/watch?v=vB1xfKitdJQ&amp;feature=player_detailpage#t=57s&#34;&gt;@00:57&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Special Report (Sum column by unique values in different column) &lt;a href=&#34;http://www.youtube.com/watch?v=vB1xfKitdJQ&amp;feature=player_detailpage#t=71s&#34;&gt;@1:11&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Overwriting previous reports &lt;a href=&#34;http://www.youtube.com/watch?v=vB1xfKitdJQ&amp;feature=player_detailpage#t=97s&#34;&gt;@01:37&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe width=&#34;420&#34; height=&#34;315&#34; src=&#34;http://www.youtube.com/embed/vB1xfKitdJQ&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.me/P26YjB-7Z&#34;&gt;Scribble Filter Home&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/P26YjB-82&#34;&gt;Scribble Filter Help&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.me/p26YjB-85&#34;&gt;Overview Part 1&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8o&#34;&gt;Overview Part 2&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8s&#34;&gt;Overview Part 3&lt;/a&gt;
-&lt;a href=&#34;http://wp.me/p26YjB-8Y&#34;&gt;Overview Part 4&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Points discussed in video:
+The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
+ Filter in place @00:08 Copy filtered data to different worksheet @00:32 Chaining filters @00:57 Special Report (Sum column by unique values in different column) @1:11 Overwriting previous reports @01:37   Scribble Filter Home Scribble Filter Help
+Overview Part 1 Overview Part 2 Overview Part 3 Overview Part 4</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-04-11
 title: "Linq: An Introduction"
 tags:
@@ -11,7 +11,7 @@ Another thing that I like about programming in VB.NET beyond <a href="2012/04/05
 
 What's so great about this? Well, it does slow the program down, but it speeds up the the programming process, puts the information in a form that is more descriptive (although that is no excuse not to thoroughly comment your code), and makes programming easier.
 
-So, for the updating program for the time card I am working on, I put the updating version control document in an XML document.  The structure of the document is at the bottom of this post. To query this document using LINQ I have the following code:
+So, for the updating program for the time card I am working on, I put the updating version control document in an XML document. Â The structure of the document is at the bottom of this post. To query this document using LINQ I have the following code:
 
 ``` vbscript
 'Get version number string from specified item ID.

@@ -1,183 +1,366 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
   <title>Javascript</title>
-  <meta name="description" content="">
-  <meta name="author" content="Jon Nyman">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
-body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{margin:0 auto;width:100%}a{color:#86555c;}a:visited{color:#36465d}nav,.archive,.footer-menu,.nav-posts{text-align:center;font-size:16px;line-height:24px;}nav ul,.archive ul,.footer-menu ul,.nav-posts ul{padding:0}nav li,.archive li,.footer-menu li,.nav-posts li{list-style-type:none}nav a,.archive a,.footer-menu a,.nav-posts a{text-decoration:none;color:#36465d;padding:15px}nav a:hover,.archive a:hover,.footer-menu a:hover,.nav-posts a:hover{color:#c2dfff;background-color:#83a4d2}.posts a{padding-top:3px;padding-bottom:3px;display:block}.nav-posts{margin-top:15px;font-weight:bold;}.nav-posts .next::before{content:'«'}.nav-posts .previous::after{content:' »'}.nav-posts a{text-decoration:none}nav li,.footer-menu li{display:inline-block}h1{border-bottom:solid #36465d 1px;padding:10px;font-size:32px}footer{font-size:12px;text-align:center}@media screen and (min-width:801px){body > *{width:800px}}header{text-align:center}header *{color:#86555c}.header-logo{display:inline-block}.header-logo > *{font-size:32px;position:relative;float:left}.hider{overflow:hidden}#t-com{animation-name:slideInRight;animation-iteration-count:1;animation-duration:3s;animation-fill-mode:forwards}#t-on,#t-space{left:0;animation-name:slideOutLeft;animation-iteration-count:1;animation-duration:5s;animation-delay:1.5s;animation-fill-mode:forwards}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.hljs-name,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#86555c}.hljs-number,.hljs-preprocessor,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#987f5a}.ruby .hljs-class .hljs-title,.css .hljs-rule .hljs-attribute{color:#a49a59}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#7d9726}.hljs-title,.css .hljs-hexcolor{color:#5b9d48}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#83a4d2}.hljs-keyword,.javascript .hljs-function{color:#5f9182}.diff .hljs-deletion,.diff .hljs-addition{color:#22221b;display:inline-block;width:100%}.diff .hljs-deletion{background-color:#ba6236}.diff .hljs-addition{background-color:#7d9726}.diff .hljs-change{color:#36a166}.hljs{display:block;overflow-x:auto;background:#36465d;color:#c2dfff;padding:.5em;-webkit-text-size-adjust:none}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}@-moz-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-webkit-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-o-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-moz-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-webkit-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-o-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}</style>
-</head>
-<body>
+  <meta property="og:title" content="Javascript" />
+  <meta name="twitter:title" content="Javascript" />
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/tags/javascript/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
 
-<nav>
-  <ul>
-    <li>
-      <a href="/">Archive</a>
-    </li>
-    <li>
-      <a href="/about/">About</a>
-    </li>
-  </ul>
-</nav>
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/tags/javascript/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
 
-<header>
-  <a href="/" class="header-logo">
-      <div id="t-j">J</div>
-      <div class="hider">
-          <div id="t-on">on</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
       </div>
-      <div id="t-space">&nbsp;</div>
-      <div id="t-nyman">Nyman</div>
-      <div class="hider">
-          <div id="t-com">.com</div>
-      </div>
-  </a>
-</header>
-
-
-
-
-
-<main class="archive">
-  <h1>Using NPM as a Build Tool</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2016/06/21/npm_as_build_tool/">Using NPM as a Build Tool</a>
-
-      <p class="footnote">
-      submitted <span>Tue Jun 21, 2016</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/npm">npm</a> <a href="http://jnyman.com/tags/build-tool">build tool</a> <a href="http://jnyman.com/tags/javascript">javascript</a> <a href="http://jnyman.com/tags/yaml">yaml</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>On-the-Fly Lambda Expressions in JavaScript</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/">On-the-Fly Lambda Expressions in JavaScript</a>
-
-      <p class="footnote">
-      submitted <span>Mon Jun 13, 2016</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/javascript">JavaScript</a> <a href="http://jnyman.com/tags/history">History</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>bilby.js &amp; lenses</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/">bilby.js &amp; lenses</a>
-
-      <p class="footnote">
-      submitted <span>Tue Jul 1, 2014</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/bilby.js">bilby.js</a> <a href="http://jnyman.com/tags/immutability">immutability</a> <a href="http://jnyman.com/tags/javascript">javascript</a> <a href="http://jnyman.com/tags/functional-programming">functional programming</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>JavaScript</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2014/06/07/javascript/">JavaScript</a>
-
-      <p class="footnote">
-      submitted <span>Sat Jun 7, 2014</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/javascript">javascript</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-  </ul>
-
-</main>
-
-<div class="footer-menu">
-  <ul>
-
-    <li>
-      <a class=" fa fa-rss fa-2x" href="/index.xml" title="RSS Feed"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-github fa-2x" href="https://github.com/jon49/" title="Personal Github Account"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-twitter fa-2x" href="https://twitter.com/NymanJon" title="Personal Twitter Account"></a>
-    </li>
-
-  </ul>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
 
-<footer>
-  <p>
-  © 2016 Jon Nyman
-    <br>
-    nymanjon@gmail.com
-    <br>
-    Hamsters Byte
-  </p>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>#Javascript</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2016/06/21/npm_as_build_tool/">
+                <h2 class="post-title">Using NPM as a Build Tool</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on June 21, 2016
+              </p>
+              <div class="post-entry">
+                
+                  I really like simplicity. The tools I use, I like them to make my life easy, not hard. They need to work out of the box. No huge configuration settings, just make it easy so I can get to work.
+Well, along come grunt, gulp, and now even more tools since I first started writing this that I won&rsquo;t mention. Two build tools for JavaScript. Wonderful, we need tools to help us build our files.
+                  <a href="http://jnyman.com/2016/06/21/npm_as_build_tool/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/npm">npm</a>&nbsp;
+                  
+                    #<a href="/tags/build-tool">build tool</a>&nbsp;
+                  
+                    #<a href="/tags/javascript">javascript</a>&nbsp;
+                  
+                    #<a href="/tags/yaml">yaml</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/">
+                <h2 class="post-title">On-the-Fly Lambda Expressions in JavaScript</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on June 13, 2016
+              </p>
+              <div class="post-entry">
+                
+                  Before many of the JavaScript compilers became real popular and if you wanted to write in straight JavaScript you could create functions on the fly. This was really nice for doing lambda functions.
+Here&rsquo;s a couple libraries that did this.
+https://github.com/fschaefer/Lambda.js https://github.com/dfellis/lambda-js
+Here&rsquo;s how it basically worked:
+var f = function(func){ var funcArray = func.split('-&gt;') return (funcArray.length === 1) ? new Function('x', 'return (' + funcArray[0].trim() + ')') : new Function(funcArray[0].
+                  <a href="http://jnyman.com/2016/06/13/lambda_expressions_in_javascript/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/javascript">JavaScript</a>&nbsp;
+                  
+                    #<a href="/tags/history">History</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/">
+                <h2 class="post-title">bilby.js &amp; lenses</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on July 1, 2014
+              </p>
+              <div class="post-entry">
+                
+                  In JavaScript nearly everything is mutable. This can cause problems in your code when you think you have a new object or variable but instead you are operating on the referenced object. So, we create patterns to alleviate this problem. Or we use libraries like underscore.js or lodash.js which incorporate the functional concepts. Unfortunately they don&rsquo;t always use immutable objects either.
+Bilby.js solves the mutability problem by using lenses. Using the lenses pattern one can access and change one&rsquo;s objects in a safe and immutable manner.
+                  <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/bilby.js">bilby.js</a>&nbsp;
+                  
+                    #<a href="/tags/immutability">immutability</a>&nbsp;
+                  
+                    #<a href="/tags/javascript">javascript</a>&nbsp;
+                  
+                    #<a href="/tags/functional-programming">functional programming</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2014/06/07/javascript/">
+                <h2 class="post-title">JavaScript</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on June 7, 2014
+              </p>
+              <div class="post-entry">
+                
+                  Iâ€™ve jumped ship from Excel programming over to JavaScript (in a functional manner). Iâ€™ve also gone the way of Linux away from Windows. I love Excel and its power. But I see the writing on the wall and am moving to where I can hopefully get some work and starting making some moolah. You can follow my new blog over at http://thisisafiller.ghoster.io/.
+If anyone is interested in the products Iâ€™ve made let me know how you like them and send me an e-mail.
+                  <a href="http://jnyman.com/2014/06/07/javascript/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                    #<a href="/tags/javascript">javascript</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
 </html>
 

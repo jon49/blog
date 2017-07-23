@@ -1,44 +1,187 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Get Range from Row &amp; Column Numbers</title>
-  <meta name="description" content="">
-  <meta name="author" content="Jon Nyman">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
-body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{margin:0 auto;width:100%}a{color:#86555c;}a:visited{color:#36465d}nav,.archive,.footer-menu,.nav-posts{text-align:center;font-size:16px;line-height:24px;}nav ul,.archive ul,.footer-menu ul,.nav-posts ul{padding:0}nav li,.archive li,.footer-menu li,.nav-posts li{list-style-type:none}nav a,.archive a,.footer-menu a,.nav-posts a{text-decoration:none;color:#36465d;padding:15px}nav a:hover,.archive a:hover,.footer-menu a:hover,.nav-posts a:hover{color:#c2dfff;background-color:#83a4d2}.posts a{padding-top:3px;padding-bottom:3px;display:block}.nav-posts{margin-top:15px;font-weight:bold;}.nav-posts .next::before{content:'«'}.nav-posts .previous::after{content:' »'}.nav-posts a{text-decoration:none}nav li,.footer-menu li{display:inline-block}h1{border-bottom:solid #36465d 1px;padding:10px;font-size:32px}footer{font-size:12px;text-align:center}@media screen and (min-width:801px){body > *{width:800px}}header{text-align:center}header *{color:#86555c}.header-logo{display:inline-block}.header-logo > *{font-size:32px;position:relative;float:left}.hider{overflow:hidden}#t-com{animation-name:slideInRight;animation-iteration-count:1;animation-duration:3s;animation-fill-mode:forwards}#t-on,#t-space{left:0;animation-name:slideOutLeft;animation-iteration-count:1;animation-duration:5s;animation-delay:1.5s;animation-fill-mode:forwards}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.hljs-name,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#86555c}.hljs-number,.hljs-preprocessor,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#987f5a}.ruby .hljs-class .hljs-title,.css .hljs-rule .hljs-attribute{color:#a49a59}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#7d9726}.hljs-title,.css .hljs-hexcolor{color:#5b9d48}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#83a4d2}.hljs-keyword,.javascript .hljs-function{color:#5f9182}.diff .hljs-deletion,.diff .hljs-addition{color:#22221b;display:inline-block;width:100%}.diff .hljs-deletion{background-color:#ba6236}.diff .hljs-addition{background-color:#7d9726}.diff .hljs-change{color:#36a166}.hljs{display:block;overflow-x:auto;background:#36465d;color:#c2dfff;padding:.5em;-webkit-text-size-adjust:none}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}@-moz-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-webkit-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-o-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-moz-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-webkit-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-o-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}</style>
-</head>
-<body>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<nav>
-  <ul>
-    <li>
-      <a href="/">Archive</a>
-    </li>
-    <li>
-      <a href="/about/">About</a>
-    </li>
-  </ul>
+  <title>Get Range from Row &amp; Column Numbers</title>
+  <meta property="og:title" content="Get Range from Row &amp; Column Numbers" />
+  <meta name="twitter:title" content="Get Range from Row &amp; Column Numbers" />
+  <meta name="description" content="Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below Iâ€™ve simplified it considerably by using the Cells method.
+In the function below I use a function called FindEnd.
+&#39;RRAnge &#39; -------------------------------------------------------------- &#39;Comments: This Function returns the desired range. &#39; &#39;Arguments: lRow First cell row number. &#39; lCol First cell column number.">
+  <meta property="og:description" content="Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below Iâ€™ve simplified it considerably by using the Cells method.
+In the function below I use a function called FindEnd.
+&#39;RRAnge &#39; -------------------------------------------------------------- &#39;Comments: This Function returns the desired range. &#39; &#39;Arguments: lRow First cell row number. &#39; lCol First cell column number.">
+  <meta name="twitter:description" content="Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below Iâ€™ve simplified it …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
 </nav>
 
-<header>
-  <a href="/" class="header-logo">
-      <div id="t-j">J</div>
-      <div class="hider">
-          <div id="t-on">on</div>
-      </div>
-      <div id="t-space">&nbsp;</div>
-      <div id="t-nyman">Nyman</div>
-      <div class="hider">
-          <div id="t-com">.com</div>
-      </div>
-  </a>
-</header>
 
 
-<h1>Get Range from Row &amp; Column Numbers</h1>
-<article>
-  <p>Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below I’ve simplified it considerably by using the Cells method.</p>
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Get Range from Row &amp; Column Numbers</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on January 12, 2012
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below Iâ€™ve simplified it considerably by using the Cells method.</p>
 
 <p>In the function below I use a <a href="http://www.spreadsheetbudget.com/2012/01/13/find-last-cell/">function called FindEnd</a>.</p>
 
@@ -58,10 +201,10 @@ body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{mar
 '
 Public Function RRAnge(ByVal lRow As Long, ByVal lCol As Long, Optional ByVal lRowEnd As Long = 0 _
     , Optional ByVal lColEnd As Long = 0, Optional ByVal wks As Worksheet = Nothing) As Range
-'Determine if worksheet exist, if it doesn’t then set to current location.
+'Determine if worksheet exist, if it doesnâ€™t then set to current location.
     If wks Is Nothing Then Set wks = ActiveWorkbook.ActiveSheet
 
-    'Determine if the last row was set, if it isn’t then get last row number in wks
+    'Determine if the last row was set, if it isnâ€™t then get last row number in wks
     If lRowEnd &lt; 1 Then
         If lRowEnd Then
         'If lRowEnd is negative then get the last row in column number lRowEnd
@@ -72,7 +215,7 @@ Public Function RRAnge(ByVal lRow As Long, ByVal lCol As Long, Optional ByVal lR
         End If
     End If
 
-    'Determine if the last column was set, if it isn’t then get last column number in wks
+    'Determine if the last column was set, if it isnâ€™t then get last column number in wks
     If lColEnd &lt; 1 Then
         If lColEnd Then
             'If lColEnd is negative then get the last column in row number lColEnd
@@ -94,93 +237,93 @@ Public Function RRAnge(ByVal lRow As Long, ByVal lCol As Long, Optional ByVal lR
 End Function
 </code></pre>
 
-</article>
-<p>
+      </article>
 
-    <span>Thu Jan 12, 2012</span>
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2012/01/04/coming_soon/" data-toggle="tooltip" data-placement="top" title="Coming Soon...">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://jnyman.com/2012/01/13/find_last_cell/" data-toggle="tooltip" data-placement="top" title="Find Last Cell">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
 
-   | 
-
-  
-    tags:
-      <a href="/tags/excel">excel</a>
-    
-      <a href="/tags/range">range</a>
-    
-      <a href="/tags/vba">vba</a>
-    
-  
-
-  
-
-  
-
-</p>
-
-
-<div class="nav-posts">
-  
-    <a class="next" href="http://jnyman.com/2012/01/04/0welcome/"> Welcome</a>
-  
-
-  
-    
       
-      ✴
-      
-      <a class="previous" href="http://jnyman.com/2012/01/13/find_last_cell/"> Find Last Cell</a>
-    
-  
+
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
 
-<div class="footer-menu">
-  <ul>
-
-    <li>
-      <a class=" fa fa-rss fa-2x" href="/index.xml" title="RSS Feed"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-github fa-2x" href="https://github.com/jon49/" title="Personal Github Account"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-twitter fa-2x" href="https://twitter.com/NymanJon" title="Personal Twitter Account"></a>
-    </li>
-
-  </ul>
-</div>
-
-<footer>
-  <p>
-  © 2016 Jon Nyman
-    <br>
-    nymanjon@gmail.com
-    <br>
-    Hamsters Byte
-  </p>
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
 </html>
 
-
-<script src="/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'jnyman-com';
-    var disqus_identifier = 'http:\/\/jnyman.com\/2012\/01\/12\/get_range_from_row_and_column_numbers\/';
-    var disqus_title = 'Get Range from Row \x26 Column Numbers';
-    var disqus_url = 'http:\/\/jnyman.com\/2012\/01\/12\/get_range_from_row_and_column_numbers\/';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

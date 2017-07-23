@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Validation on Hamsters Byte</title>
+    <title>Validation on JNyman.com</title>
     <link>http://jnyman.com/tags/validation/</link>
-    <description>Recent content in Validation on Hamsters Byte</description>
+    <description>Recent content in Validation on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Nov 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/validation/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://jnyman.com/tags/validation/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Validation in F#</title>
@@ -15,224 +17,8 @@
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://gist.github.com/jon49/c2835a9c85b43036323547dc3706ebd2&#34;&gt;The full code for this article is up on GitHub.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I like to the keep things as simple as possible and, ideally, reusable. At my
-previous employment I came up with a method of validation, but I was never
-entirely happy with the results. Some of the code repeated itself, and it was
-difficult to extend to arrays and array comparison. So, I went back to the
-drawing board building on top of the ideas that I created with the first
-validation library I created.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s how the original API looked:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;validate &amp;quot;Name&amp;quot; a.Name [nonEmptyString]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, you needed to add the name of your property, the property, and a list of
-validators you would like to validate. The list of validators would return a
-&lt;code&gt;Choice&amp;lt;string, &#39;a&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The new validation has a pretty straight forward API that is used throughout.
-You can validate against an &lt;code&gt;Object&lt;/code&gt;, &lt;code&gt;Array&lt;/code&gt;, &lt;code&gt;Primitive&lt;/code&gt;, or &lt;code&gt;Raw&lt;/code&gt; value.&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;Object&lt;/code&gt; validation validates against each property in a &lt;code&gt;Record&lt;/code&gt;. If one
-fails then it will continue to validate the other properties also. But if
-there are multiple validators on a single property the first failure will
-return but not the others. &lt;code&gt;Object&lt;/code&gt; has the following signature:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;| Object of
-    value : Expr&amp;lt;&#39;a&amp;gt; *
-    required : bool *
-    proof : (&#39;a -&amp;gt; (string list option) list)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Where &lt;code&gt;value&lt;/code&gt; is the quotation value of the property you are testing.
-&lt;code&gt;required&lt;/code&gt; tests if the property is &lt;code&gt;null&lt;/code&gt; or not if you mark it as true,
-otherwise it doesn&amp;rsquo;t care if it is &lt;code&gt;null&lt;/code&gt; or not. &lt;code&gt;proof&lt;/code&gt; is the list of
-provided validators. A single validator has the signature
-&lt;code&gt;a -&amp;gt; string option&lt;/code&gt;. If the property is valid the validator returns &lt;code&gt;None&lt;/code&gt;
-otherwise it returns &lt;code&gt;Some&lt;/code&gt; with a message describing why it didn&amp;rsquo;t pass
-validation.&lt;/p&gt;
-
-&lt;p&gt;I like this way of validating since it keeps things simple. The validators are
-reusable functions which return a simple &lt;code&gt;string option&lt;/code&gt;. The validators are
-composable functions that can be put in a list. The discriminated union
-validation object is also composable.&lt;/p&gt;
-
-&lt;p&gt;Some things that I don&amp;rsquo;t like about validating this way. There is no compile
-time check to determine if you validated each field in an object. For that
-matter there is no runtime test for that either. It would be nice to have a
-least a runtime way to tell if all properties were tested, or, even better, a
-compile time way. But this works for now.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s an example of using all the validators in with an object.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;type Person =
-    {
-    Name : Name
-    BirthDate : DateTime
-    Favorites : string[]
-    FavoriteNumbers : int[]
-    }
-    static member Proof a =
-                [
-                prove &amp;lt;| Primitive (&amp;lt;@ a.BirthDate @&amp;gt;, true, [])
-                prove &amp;lt;| Object (&amp;lt;@ a.Name @&amp;gt;, true, Name.Proof)
-                prove &amp;lt;|
-                    Array (
-                        &amp;lt;@ a.Favorites @&amp;gt;,
-                        true,
-                        [arrayMinLength 1],
-                        (fun favorite -&amp;gt; Primitive (&amp;lt;@ favorite @&amp;gt;, true, [stringMax 5]) ))
-                prove &amp;lt;|
-                    Array (
-                        &amp;lt;@ a.FavoriteNumbers @&amp;gt;,
-                        true,
-                        [arrayMinLength 1],
-                        fun favorite -&amp;gt; Primitive (&amp;lt;@ favorite @&amp;gt;, true, [greaterThan 2])
-                    )
-                prove &amp;lt;|
-                    Raw (
-                        (a.Favorites, a.FavoriteNumbers),
-                        &amp;quot;Person.Favorites, Person.FavoriteNumbers&amp;quot;,
-                        [
-                        fun (a, b) -&amp;gt;
-                            match a, b with
-                            | null, null | null, _ | _, null -&amp;gt; Some &amp;quot;Arrays must not be null.&amp;quot;
-                            | _ -&amp;gt; None
-                        fun (a, b) -&amp;gt;
-                            if a.Length = b.Length then
-                                None
-                            else
-                                Some &amp;lt;| sprintf &amp;quot;Arrays must have same length but Person.Favorites has %i and Person.FavoriteNumbers has %i&amp;quot; a.Length b.Length
-                        ]
-                    )
-                ]
-    static member Validate a =
-        prove &amp;lt;| Object (&amp;lt;@ a @&amp;gt;, true, Person.Proof)
-
-let jon = {
-    Name = { First = &amp;quot;Jon&amp;quot;; Last = &amp;quot;Nyman1&amp;quot; }
-    BirthDate = new DateTime(1947, 9, 9)
-    Favorites = [| &amp;quot;Reading&amp;quot;; &amp;quot;Red&amp;quot;;  &amp;quot;Writing&amp;quot; |]
-    FavoriteNumbers = [| 1 |]
-    }
-
-jon
-|&amp;gt; validate Person.Validate
-// |&amp;gt; ....
-
-// OR
-jon
-|&amp;gt; validate (fun a -&amp;gt; prove &amp;lt;| Object (&amp;lt;@ a @&amp;gt;, true, Person.Proof))
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;where &lt;code&gt;prove&lt;/code&gt; is&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;let rec prove validation =
-    match validation with
-    | Primitive (v, required, fs) -&amp;gt;
-        match required, getValue v with
-        | true, None -&amp;gt; Some [sprintf &amp;quot;The value `%s` is required but was found to be `null`.&amp;quot; v.Type.Name]
-        | false, None -&amp;gt; None
-        | _, Some value -&amp;gt;
-            fs
-            |&amp;gt; List.fold (fun acc f -&amp;gt;
-                match acc with
-                | None -&amp;gt; f value
-                | Some _ -&amp;gt; acc
-                ) None
-            |&amp;gt; Option.map (fun x -&amp;gt; [printParameterWith &amp;quot; - &amp;quot; v + x] )
-    | Object (v, required, f) -&amp;gt;
-        match required, getValue v with
-        | true, None -&amp;gt; Some [sprintf &amp;quot;The object `%s` is required but was found to be `null`.&amp;quot; (getOrElse &amp;quot;Unknown Parameter&amp;quot; &amp;lt;| getParameterName v)]
-        | false, None -&amp;gt; None
-        | _, Some x -&amp;gt;
-            f x
-            |&amp;gt; List.fold (
-                fun acc option -&amp;gt;
-                match option, acc with
-                | Some newError, Some error -&amp;gt; Some (List.append error newError)
-                | Some newError, None -&amp;gt; Some newError
-                | None, Some error -&amp;gt; Some error
-                | None, None -&amp;gt; None
-                ) None
-    | Array (vs, required, proof, proveItems) -&amp;gt; 
-        match required, getValue vs with
-        | true, None -&amp;gt; Some [sprintf &amp;quot;%s: %s&amp;quot; (getOrElse &amp;quot;Unknown Parameter&amp;quot; &amp;lt;| getParameterName vs) &amp;quot;This array is required.&amp;quot;]
-        | false, None -&amp;gt; None
-        | _, Some xs -&amp;gt;
-            let validSelf =
-                proof
-                |&amp;gt; List.fold (fun acc f -&amp;gt;
-                    match acc with
-                    | None -&amp;gt; f xs
-                    | Some _ -&amp;gt; acc
-                ) None
-            match validSelf, obj.Equals(vs, null) with
-            | Some error, _ -&amp;gt; 
-                Some [(printParameterWith &amp;quot;: &amp;quot; vs) + error]
-            | _, true -&amp;gt;
-                None
-            | None, false -&amp;gt;
-                xs
-                |&amp;gt; Array.fold (fun (i, acc) x -&amp;gt;
-                    let i = i + 1
-                    match (prove (proveItems x) ), acc with
-                    | Some newError, Some error -&amp;gt; 
-                        (i, Some &amp;lt;| List.append error [prettyIndex i newError])
-                    | Some newError, None -&amp;gt; (i, Some [prettyIndex i newError])
-                    | None, Some error -&amp;gt; (i, Some error)
-                    | None, None -&amp;gt; (i, None)
-                ) (-1, None)
-                |&amp;gt; snd
-                |&amp;gt; Option.map (fun xs -&amp;gt; (printParameterWith &amp;quot;:&amp;quot; vs)::xs)
-    | Raw (a, msg, fs) -&amp;gt;
-        fs
-        |&amp;gt; List.fold (fun acc f -&amp;gt;
-            match acc with
-            | None -&amp;gt; f a
-            | Some _ -&amp;gt; acc
-            ) None
-        |&amp;gt; Option.map (fun x -&amp;gt; [msg+&amp;quot; - &amp;quot;+x] )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And &lt;code&gt;validate&lt;/code&gt; is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;let validate f a =
-    match f a with
-    | Some xs -&amp;gt; Choice1Of2 &amp;lt;| String.concat &amp;quot;\n&amp;quot; xs
-    | None -&amp;gt; Choice2Of2 a
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And &lt;code&gt;Validate&lt;/code&gt; is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;type Validate&amp;lt;&#39;a&amp;gt; =
-    | Object of
-        value : Expr&amp;lt;&#39;a&amp;gt; *
-        required : bool *
-        proof : (&#39;a -&amp;gt; (string list option) list)
-    | Array of
-        value : Expr&amp;lt;&#39;a[]&amp;gt; *
-        required : bool *
-        proof : (&#39;a[] -&amp;gt; string Option) list *
-        proveItems : (&#39;a -&amp;gt; Validate&amp;lt;&#39;a&amp;gt;)
-    | Primitive of
-        value : Expr&amp;lt;&#39;a&amp;gt; *
-        required : bool *
-        proof : (&#39;a -&amp;gt; string Option) list
-    | Raw of
-        value : &#39;a *
-        message : string *
-        proof : (&#39;a -&amp;gt; string Option) list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Other F# validation libraries (that I know of).&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://fsharpforfunandprofit.com/posts/recipe-part2/&#34;&gt;http://fsharpforfunandprofit.com/posts/recipe-part2/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>The full code for this article is up on GitHub.
+I like to the keep things as simple as possible and, ideally, reusable. At my previous employment I came up with a method of validation, but I was never entirely happy with the results. Some of the code repeated itself, and it was difficult to extend to arrays and array comparison. So, I went back to the drawing board building on top of the ideas that I created with the first validation library I created.</description>
     </item>
     
   </channel>

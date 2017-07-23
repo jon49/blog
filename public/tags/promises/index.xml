@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Promises on Hamsters Byte</title>
+    <title>Promises on JNyman.com</title>
     <link>http://jnyman.com/tags/promises/</link>
-    <description>Recent content in Promises on Hamsters Byte</description>
+    <description>Recent content in Promises on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jun 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/promises/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://jnyman.com/tags/promises/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>JavaScript-Style Promises in F#</title>
@@ -15,106 +17,9 @@
       <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2016/06/26/js_style_promises_in_fsharp/</guid>
-      <description>&lt;p&gt;Working in enterprise level back end software often times I need to get
-information from many different sources. When you have enough of these sources
-the time it takes to get all the information can really add up. That&amp;rsquo;s when F#
-&lt;code&gt;async&lt;/code&gt; work flow really comes in handy. Except, there is a gotcha.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s say we have two sources we need to fetch data from:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;let myData () = async {
-    let! a = myData1 ()
-    let! b = myData2 ()
-    let resultA = a
-    let resultB = b
-    // ... do stuff
-    // return result
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So, when you look at that it looks like it should fetch the two data sources at
-the same time. Well, it doesn&amp;rsquo;t. It does it one at a time, serially. It just
-doesn&amp;rsquo;t block the thread while it is doing the fetching for each asynchronous
-call.&lt;/p&gt;
-
-&lt;p&gt;This is what you need to do to do it in parallel:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;let myData () = async {
-    let! a = Async.StartChild &amp;lt;| myData1 ()
-    let! b = Async.StartChild &amp;lt;| myData2 ()
-    let! resultA = a
-    let! resultB = b
-    // ... do stuff
-    // return result
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now it is doing it at the same time! To me this feels a bit unintuitive. Enter
-JavaScript-style promises. Promise objects point to data and don&amp;rsquo;t execute
-until you are ready to execute them as an &lt;code&gt;async&lt;/code&gt; function does in F#.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;let myData () =
-    Q
-    .all([myData1(), myData2()]) // Call two promises at the same time.
-    .spread((resultA, resultB) =&amp;gt; {/* Do stuff here. */})
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Could we do something like that in F#? We can mimic the process in F# by having
-multiple functions depending on how many asynchronous processes you would like
-to run at a time.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s say you would like to have two asynchronous functions run at once.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;module Async =
-    let Spread2 a b =
-        async {
-            let! a = Async.StartChild a
-            let! b = Async.StartChild b
-            let! result1 = a
-            let! result2 = b
-            return result1, result2
-        }
-        |&amp;gt; Async.RunSynchronously
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Which would flow like so:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;let myData () =
-    Async.Spread2 (myData1 ()) (myData2 ())
-    |&amp;gt; fun (resultA, resultB) -&amp;gt; // Do stuff here.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Pretty close to what the JavaScript promise looked like. In my opinion this
-work flow is much more intuitive and cleaner. It has a nicer flow than the
-&lt;code&gt;async&lt;/code&gt; computation-style programming by not having to deal with the boiler
-plate code. I could see having a few parallel functions all the way up to perhaps
-&lt;code&gt;Async.Spread6&lt;/code&gt;. It would be very rare for me to ever need to call anything with
-more external calls. Usually, I&amp;rsquo;m only calling two or three web services with the
-rare five or six.&lt;/p&gt;
-
-&lt;p&gt;A variation on the function above would be to add mapping functions to your parallel
-function. I&amp;rsquo;m not sure if that would be useful in practice, but if it is I&amp;rsquo;ll be
-adding it to mine.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;module Async =
-    let Spread2With (a, f1) (b, f2) =
-        async {
-            let! a = Async.StartChild a
-            let! b = Async.StartChild b
-            let! result1 = a
-            let! result2 = b
-            return (f1 result1), (f2 result2)
-        }
-        |&amp;gt; Async.RunSynchronously
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I also debate whether it is smart to add the &lt;code&gt;Async.RunSynchronously&lt;/code&gt; at the end. If I didn&amp;rsquo;t have it I could use &lt;code&gt;Spread2&lt;/code&gt; to create &lt;code&gt;Spread4&lt;/code&gt; etc. If I ever needed more than six it might be worth it. But for now I haven&amp;rsquo;t run into that problem since I started using this pattern.&lt;/p&gt;
-
-&lt;p&gt;Inspiration for this post:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658&#34;&gt;http://fsharpforfunandprofit.com/posts/recipe-part2/#comment-1508742658&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;http://stackoverflow.com/a/15829290/632495&#34;&gt;http://stackoverflow.com/a/15829290/632495&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>Working in enterprise level back end software often times I need to get information from many different sources. When you have enough of these sources the time it takes to get all the information can really add up. That&amp;rsquo;s when F# async work flow really comes in handy. Except, there is a gotcha.
+Let&amp;rsquo;s say we have two sources we need to fetch data from:
+let myData () = async { let!</description>
     </item>
     
   </channel>

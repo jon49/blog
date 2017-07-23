@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-01-20
 title: Range Address from Number to Letter
 tags:
@@ -7,7 +7,7 @@ tags:
     - vba
 ---
 
-Sometimes, before I realize it (and, I’m sure, others too) I do a bunch of work, that turns out that I didn’t need to do before. The RangeAddress function that I created is a perfect example of this. This function goes from a column number to a letter and returns the whole string range address. I started off [with someones else’s code](http://www.excelforum.com/excel-programming/638861-vb-convert-column-letter-to-number.html). I then made it work for me. Their code only worked for Excel 2003 and below. The code below will work for All Excel versions. But there is a better way! The better way is in the [RRange function](http://www.spreadsheetbudget.com/2012/01/12/get-range-from-row-and-column-numbers/) I posted about before. Below this code I’ll show you the basic gist on how to go about it.
+Sometimes, before I realize it (and, Iâ€™m sure, others too) I do a bunch of work, that turns out that I didnâ€™t need to do before. The RangeAddress function that I created is a perfect example of this. This function goes from a column number to a letter and returns the whole string range address. I started off [with someones elseâ€™s code](http://www.excelforum.com/excel-programming/638861-vb-convert-column-letter-to-number.html). I then made it work for me. Their code only worked for Excel 2003 and below. The code below will work for All Excel versions. But there is a better way! The better way is in the [RRange function](http://www.spreadsheetbudget.com/2012/01/12/get-range-from-row-and-column-numbers/) I posted about before. Below this code Iâ€™ll show you the basic gist on how to go about it.
 
 ``` vbscript
 'RangeAddress
@@ -40,10 +40,10 @@ Public Function RangeAddress(ByRef lRow As Long, ByRef lColumn As Long, _
         If lColumnNumber < 27 Then
             sColumnLetter = Chr(lColumnNumber + 64)
         ElseIf lColumnNumber < 703 Then
-            sColumnLetter = Chr((lColumnNumber – 1) \ 26 + 64) & Chr(((lColumnNumber – 1) Mod 26) + 65)
+            sColumnLetter = Chr((lColumnNumber â€“ 1) \ 26 + 64) & Chr(((lColumnNumber â€“ 1) Mod 26) + 65)
         Else
-            sColumnLetter = Chr((lColumnNumber – 27) \ 676 + 64) & Chr(((lColumnNumber – 27) Mod 676) \ 26 + 65) & _
-                Chr(((lColumnNumber – 1) Mod 26) + 65)
+            sColumnLetter = Chr((lColumnNumber â€“ 27) \ 676 + 64) & Chr(((lColumnNumber â€“ 27) Mod 676) \ 26 + 65) & _
+                Chr(((lColumnNumber â€“ 1) Mod 26) + 65)
         End If
         If i = 1 Then
             sColumn2 = sColumnLetter
@@ -59,7 +59,7 @@ Public Function RangeAddress(ByRef lRow As Long, ByRef lColumn As Long, _
     ElseIf LenB(sAddress) > 0 Then
         If CountStringOccurance(sAddress, ":") = 1 Then
             i = InStr(1, sAddress, ":")
-            sAddress = Right$(sAddress, Len(sAddress) – i + 1)
+            sAddress = Right$(sAddress, Len(sAddress) â€“ i + 1)
             RangeAddress = "$" & sColumn & "$" & lRow & sAddress
         Else
             RangeAddress = "$" & sColumn & "$" & lRow
@@ -98,7 +98,7 @@ Sub Example()
     'Note: it is important to work with the a worksheet,
     ' since if the active sheet is a chart then the Cells function would throw an error.
     sLetter = wks.Cells(1, iColumn).Address(False, False)
-    sLetter = Left$(sLetter, Len(sLetter) – 1)
+    sLetter = Left$(sLetter, Len(sLetter) â€“ 1)
 
     'Bypass even bothering to get the letter in the first place
     With wks

@@ -1,4 +1,4 @@
----
+﻿---
 date: 2016-06-07
 title: Building a Convention Based Routes in Node.js
 tags:
@@ -50,22 +50,22 @@ The file structure is like so:
 
 ```
 root
-  ┕ controllers
-    ┝ people
-    │ ┝ get-{id}.js
-    │ ┕ get-{id}-animals.js
-    ┕ animals
-      ┝ get-{id}.js
-      ┕ delete-{id}.js
+  â”• controllers
+    â” people
+    â”‚ â” get-{id}.js
+    â”‚ â”• get-{id}-animals.js
+    â”• animals
+      â” get-{id}.js
+      â”• delete-{id}.js
 ```
 
 These directories/files would correspond to the routes:
 
 ```
-/api/people/{id} → Method: GET
-/api/people/{id} → Method: GET
-/api/animals/{id} → Method: GET
-/api/animals/{id} → Method: DELETE
+/api/people/{id} â†’ Method: GET
+/api/people/{id} â†’ Method: GET
+/api/animals/{id} â†’ Method: GET
+/api/animals/{id} â†’ Method: DELETE
 ```
 
 As you can see you could set up whatever combination you would like. I like

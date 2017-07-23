@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-12-03
 title: Excel Queries
 tags: 
@@ -9,8 +9,8 @@ tags:
 ---
 
 I came across some nice libraries to use while programming to query
-Excel. Right now I’m am using the standard COM interface for my
-projects, which is fine for small ranges (which is true for most users –
+Excel. Right now Iâ€™m am using the standard COM interface for my
+projects, which is fine for small ranges (which is true for most users â€“
 I would assume). But for large ranges I would need something more
 powerful.
 
@@ -22,8 +22,8 @@ the actual queries. This is great if you are using Excel 2007 or newer,
 but for 2003 and older you run into the problem of [memory leaks when
 you query an open Excel
 document](http://support.microsoft.com/kb/319998) (which is what I
-usually do, I haven’t needed to get data from a closed document before)
-– [see also](http://www.ozgrid.com/forum/showthread.php?t=37398).
+usually do, I havenâ€™t needed to get data from a closed document before)
+â€“ [see also](http://www.ozgrid.com/forum/showthread.php?t=37398).
 
 Another problem I have found with this project is that if you need to
 interact with an Excel 64-bit install [you will need to download extra
@@ -46,11 +46,11 @@ is that it is capable with working with older versions of excel.
 
 LinqToExcel2D
 
-This is a project I’m thinking about starting. I’ve done some work on it
+This is a project Iâ€™m thinking about starting. Iâ€™ve done some work on it
 already. I would just need to clean it up and make it work as nice as
 LinqToExcel. It would be slower than both projects mentioned above, but,
 when you are working on small datasets it would come in handy.
 
-I’ve read one of the best ways to learn how to code and improve your
-skills is by reading other people’s code. This would be a great
+Iâ€™ve read one of the best ways to learn how to code and improve your
+skills is by reading other peopleâ€™s code. This would be a great
 opportunity for me to do just that!

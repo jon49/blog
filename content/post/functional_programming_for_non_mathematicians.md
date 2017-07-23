@@ -1,4 +1,4 @@
----
+﻿---
 date: 2014-05-13
 title: Notes On Functional Programming
 subtitle: Patterns for the Non-Mathematician with Brian Lonsdorf

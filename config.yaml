@@ -1,9 +1,11 @@
 ---
 languageCode: en-us
 baseurl: http://jnyman.com/
-title: Hamsters Byte
+title: JNyman.com
+#    Hamsters Byte
 description: A blog on programming.
-theme: nofancy
+# theme: nofancy
+theme: beautifulhugo
 
 author:
   name: Jon Nyman
@@ -16,4 +18,15 @@ permalinks:
   page: /:filename/
 
 disqusShortname: "jnyman-com"
+menu:
+    main:
+        - name: Blog
+          url: ""
+          weight: 1
+        - name: About
+          url: about/
+          weight: 2
+        - name: Tags
+          url: tags/
+          weight: 3
 ---

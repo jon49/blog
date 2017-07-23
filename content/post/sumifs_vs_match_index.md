@@ -1,4 +1,4 @@
----
+﻿---
 date: 2013-03-14
 title: SUMIFS vs MATCH & INDEX
 tags: 
@@ -13,7 +13,7 @@ above templates) and one set up with MATCH/INDEX (used for my 2003 and
 below templates). I tested the calculation speeds for each in Excel 2013
 (preview) on Windows 8.
 
-Here’s the VBA test code:
+Hereâ€™s the VBA test code:
 
 ```VBScript
 Sub test()
@@ -35,7 +35,7 @@ Sub test()
 End Sub
 ```
 
-And here’s the results (seconds):
+And hereâ€™s the results (seconds):
 
   --------------------------------------------------------------------------
   Iterations
@@ -56,5 +56,5 @@ templates for now, even though I could go to one. The reasons?
     easily.
 
 I will post the 2003 template for anyone that wishes faster calculation
-times, but it is pretty fast now, so I don’t know if that would be a
+times, but it is pretty fast now, so I donâ€™t know if that would be a
 huge issue.

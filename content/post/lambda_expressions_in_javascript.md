@@ -1,4 +1,4 @@
----
+﻿---
 date: 2016-06-13
 title: On-the-Fly Lambda Expressions in JavaScript
 tags:

@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-03-28
 title: Calculation Efficiency
 subTitle: Array Formulas

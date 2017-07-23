@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-04-14
 title: Lambda Expressions
 subTitle: An Introduction
@@ -14,10 +14,10 @@ Lambda expressions simplify your code by allowing you to call internal functions
 
 Let's take the <a href="http://www.spreadsheetbudget.com/2012/04/05/extensions-in-vb-net/">extension examples</a> I used before, but simplify it with lambda expressions. Before I had to create multiple private functions to accommodate different comparison types (e.g., String, Double, Object, etc). But with lambda expressions I can create local functions that take care of this, which lessons the amount of code and makes the code cleaner.
 
-So let’s dive into some code. First I needed to create a delegate function which accepts multiple types of input and returns an integer.
+So letâ€™s dive into some code. First I needed to create a delegate function which accepts multiple types of input and returns an integer.
 
     Delegate Function MoreLessOrEqual(Of T)(ByVal element As T) As Integer
-I then created a pointer function which determines which internal function I should use depending on what type of data is received. Notice the lambda expressions written as `Function(a As Object)….`
+I then created a pointer function which determines which internal function I should use depending on what type of data is received. Notice the lambda expressions written as `Function(a As Object)â€¦.`
 
 ``` vbscript
 <Extension()>
@@ -92,7 +92,7 @@ Private Function FindIndex2DSortedLambda(ByVal oaArray As Object(,), ByVal IsEqu
 End Function
 ```
 
-Note that I could make the private function the a public extension. By doing that I could then easily create more elaborate searches, e.g., I could search for the index of a string with the first three letters equal to “ABC” like below.
+Note that I could make the private function the a public extension. By doing that I could then easily create more elaborate searches, e.g., I could search for the index of a string with the first three letters equal to â€œABCâ€ like below.
 
 ``` vbscript
 Dim sWhat As String = oWhat.ToString.Substring(0, 3)

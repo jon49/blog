@@ -1,4 +1,4 @@
----
+﻿---
 date: 2014-05-29
 title: Functional Immutability in JavaScript
 tags: 

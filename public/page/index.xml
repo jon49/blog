@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pages on Hamsters Byte</title>
+    <title>Pages on JNyman.com</title>
     <link>http://jnyman.com/page/</link>
-    <description>Recent content in Pages on Hamsters Byte</description>
+    <description>Recent content in Pages on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://jnyman.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://jnyman.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>About</title>
@@ -14,50 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/about/</guid>
-      <description>
-
-&lt;h3 id=&#34;personal:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Personal&lt;/h3&gt;
-
-&lt;p&gt;Father of four who enjoys, backpacking, reading, and programming.&lt;/p&gt;
-
-&lt;h3 id=&#34;work-in-a-nutshell:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Work in a Nutshell&lt;/h3&gt;
-
-&lt;p&gt;I enjoy functional programming and am currently doing mostly F# with ASP.NET
-WebAPI (RESTful API), with SQL Server and also some ASP.NET MVC and front end
-programming (JavaScript/HTML/CSS).&lt;/p&gt;
-
-&lt;p&gt;I was doing node.js with MongoDB but found F# to a great language to work with
-in a .NET shop. So I ported it back to .NET platform.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://docs.google.com/document/d/14KSYBndNxDSWHhrwrGgmeahqaUvo4MVDWgKsKqp6mWc/edit?usp=sharing&#34;&gt;See my full
-resume.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;my-programming-story:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;My Programming Story&lt;/h3&gt;
-
-&lt;p&gt;I dabbled with programming as a kid and took a class in grade school. Took a
-couple classes in college. But didn&amp;rsquo;t really fully get into programming until I
-had an engineering position where I would automate part of my job in Excel VBA.
-After leaving that company I embarked on my own creating Excel add-ins. I
-started with just VBA but soon worked my way into the .NET world with ExcelDNA
-using VB.NET, C#, and finally F#.&lt;/p&gt;
-
-&lt;p&gt;I had one part time consulting position where I created a heat map in Excel
-with VBA. As far as I know they are still working with it today. It should have
-been built in JavaScript, but it was pretty amazing seeing the power of Excel
-and how well it worked.&lt;/p&gt;
-
-&lt;p&gt;When it was time for a full time position I started learning
-JavaScript/HTML/CSS. After a while I joined a programming boot camp where I
-learned full stack programming with PHP. I found a position where I am
-currently at doing Node.js and MongoDB along with .NET and SQL Server with some
-front end programming. After using Node.js for about nine months I decided to
-move it back .NET.&lt;/p&gt;
-
-&lt;p&gt;Now I&amp;rsquo;m working with WebAPI mostly in F# and I do C# ASP.NET MVC along with
-some front end programming.&lt;/p&gt;
-
-&lt;p&gt;¡It&amp;rsquo;s about the code, chè!&lt;/p&gt;
-</description>
+      <description>Personal Father of four who enjoys, backpacking, reading, and programming.
+Work in a Nutshell I enjoy functional programming and am currently doing mostly F# with ASP.NET WebAPI (RESTful API), with SQL Server and also some ASP.NET MVC and front end programming (JavaScript/HTML/CSS).
+I was doing node.js with MongoDB but found F# to a great language to work with in a .NET shop. So I ported it back to .NET platform.</description>
     </item>
     
   </channel>

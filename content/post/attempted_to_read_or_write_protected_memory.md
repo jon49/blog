@@ -1,4 +1,4 @@
----
+﻿---
 date: 2013-02-12
 title: Attempted to Read or Write Protected Memory
 tags: 

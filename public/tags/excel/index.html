@@ -1,804 +1,598 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
   <title>Excel</title>
-  <meta name="description" content="">
-  <meta name="author" content="Jon Nyman">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css");
-body{background-color:#c2dfff;font-family:sans-serif;color:#36465d;}body > *{margin:0 auto;width:100%}a{color:#86555c;}a:visited{color:#36465d}nav,.archive,.footer-menu,.nav-posts{text-align:center;font-size:16px;line-height:24px;}nav ul,.archive ul,.footer-menu ul,.nav-posts ul{padding:0}nav li,.archive li,.footer-menu li,.nav-posts li{list-style-type:none}nav a,.archive a,.footer-menu a,.nav-posts a{text-decoration:none;color:#36465d;padding:15px}nav a:hover,.archive a:hover,.footer-menu a:hover,.nav-posts a:hover{color:#c2dfff;background-color:#83a4d2}.posts a{padding-top:3px;padding-bottom:3px;display:block}.nav-posts{margin-top:15px;font-weight:bold;}.nav-posts .next::before{content:'«'}.nav-posts .previous::after{content:' »'}.nav-posts a{text-decoration:none}nav li,.footer-menu li{display:inline-block}h1{border-bottom:solid #36465d 1px;padding:10px;font-size:32px}footer{font-size:12px;text-align:center}@media screen and (min-width:801px){body > *{width:800px}}header{text-align:center}header *{color:#86555c}.header-logo{display:inline-block}.header-logo > *{font-size:32px;position:relative;float:left}.hider{overflow:hidden}#t-com{animation-name:slideInRight;animation-iteration-count:1;animation-duration:3s;animation-fill-mode:forwards}#t-on,#t-space{left:0;animation-name:slideOutLeft;animation-iteration-count:1;animation-duration:5s;animation-delay:1.5s;animation-fill-mode:forwards}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.hljs-name,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#86555c}.hljs-number,.hljs-preprocessor,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#987f5a}.ruby .hljs-class .hljs-title,.css .hljs-rule .hljs-attribute{color:#a49a59}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#7d9726}.hljs-title,.css .hljs-hexcolor{color:#5b9d48}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#83a4d2}.hljs-keyword,.javascript .hljs-function{color:#5f9182}.diff .hljs-deletion,.diff .hljs-addition{color:#22221b;display:inline-block;width:100%}.diff .hljs-deletion{background-color:#ba6236}.diff .hljs-addition{background-color:#7d9726}.diff .hljs-change{color:#36a166}.hljs{display:block;overflow-x:auto;background:#36465d;color:#c2dfff;padding:.5em;-webkit-text-size-adjust:none}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}@-moz-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-webkit-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-o-keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@keyframes slideInRight{0%{transform:translateX(100%)}100%{transform:translateX(0)}}@-moz-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-webkit-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@-o-keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}@keyframes slideOutLeft{0%{margin-left:0}100%{margin-left:-268px}}</style>
-</head>
-<body>
+  <meta property="og:title" content="Excel" />
+  <meta name="twitter:title" content="Excel" />
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/tags/excel/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
 
-<nav>
-  <ul>
-    <li>
-      <a href="/">Archive</a>
-    </li>
-    <li>
-      <a href="/about/">About</a>
-    </li>
-  </ul>
-</nav>
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/tags/excel/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
 
-<header>
-  <a href="/" class="header-logo">
-      <div id="t-j">J</div>
-      <div class="hider">
-          <div id="t-on">on</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
       </div>
-      <div id="t-space">&nbsp;</div>
-      <div id="t-nyman">Nyman</div>
-      <div class="hider">
-          <div id="t-com">.com</div>
-      </div>
-  </a>
-</header>
-
-
-
-
-
-<main class="archive">
-  <h1>JavaScript</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2014/06/07/javascript/">JavaScript</a>
-
-      <p class="footnote">
-      submitted <span>Sat Jun 7, 2014</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/javascript">javascript</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Zipping Files with VBA and USB Drives</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/">Zipping Files with VBA and USB Drives</a>
-
-      <p class="footnote">
-      submitted <span>Mon Aug 19, 2013</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/fail">fail</a> <a href="http://jnyman.com/tags/error">error</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>SUMIFS vs MATCH &amp; INDEX</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2013/03/14/sumifs_vs_match_index/">SUMIFS vs MATCH &amp; INDEX</a>
-
-      <p class="footnote">
-      submitted <span>Thu Mar 14, 2013</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/excel-functions">excel functions</a> <a href="http://jnyman.com/tags/time-card">time card</a> <a href="http://jnyman.com/tags/vba">vba</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Excel Extensions</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2013/02/25/excel_extensions/">Excel Extensions</a>
-
-      <p class="footnote">
-      submitted <span>Mon Feb 25, 2013</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/c#.net">c#.net</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>LinqTo2dArray</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2013/02/25/linqto2darray/">LinqTo2dArray</a>
-
-      <p class="footnote">
-      submitted <span>Mon Feb 25, 2013</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/c#.net">c#.net</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Max Write to Excel (2003) in Array</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/">Max Write to Excel (2003) in Array</a>
-
-      <p class="footnote">
-      submitted <span>Tue Jan 1, 2013</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/vba">vba</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>AdvancedFilter Wrapper Engine</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/">AdvancedFilter Wrapper Engine</a>
-
-      <p class="footnote">
-      submitted <span>Tue Dec 18, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/advanced-filter">advanced-filter</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/wrapper-engine">wrapper-engine</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>List of Excel Functions - Code To Use List</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/">List of Excel Functions - Code To Use List</a>
-
-      <p class="footnote">
-      submitted <span>Wed Dec 5, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/code">code</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/excel-functions">excel-functions</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Scribble Filter (For Excel)</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/">Scribble Filter (For Excel)</a>
-
-      <p class="footnote">
-      submitted <span>Thu Nov 1, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/scribble-filter">scribble-filter</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Scribble Filter: Installation &amp; Opening</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/10/31/scribble_filter_installation_opening/">Scribble Filter: Installation &amp; Opening</a>
-
-      <p class="footnote">
-      submitted <span>Wed Oct 31, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/scribble-filter">scribble-filter</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/products">products</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Scribble Filter (For Excel)</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/">Scribble Filter (For Excel)</a>
-
-      <p class="footnote">
-      submitted <span>Mon Oct 22, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/scribble-filter">scribble-filter</a> <a href="http://jnyman.com/tags/products">products</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Scribble Filter (For Excel) Overview Part 3</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_3/">Scribble Filter (For Excel) Overview Part 3</a>
-
-      <p class="footnote">
-      submitted <span>Mon Oct 22, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/advancedfilter">advancedfilter</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Scribble Filter Overview Part 1</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/10/15/scribble_filter_overview/">Scribble Filter Overview Part 1</a>
-
-      <p class="footnote">
-      submitted <span>Mon Oct 15, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/advancedfilter">advancedfilter</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Sheet Exists</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/09/13/sheet_exists/">Sheet Exists</a>
-
-      <p class="footnote">
-      submitted <span>Thu Sep 13, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/code">code</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>List of Excel Functions</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/08/27/list_of_excel_functions/">List of Excel Functions</a>
-
-      <p class="footnote">
-      submitted <span>Mon Aug 27, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/excel-functions">excel-functions</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Using Pivot Tables as a Staging Resource</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/06/19/using_pivot_tables_as_a_staging_resource/">Using Pivot Tables as a Staging Resource</a>
-
-      <p class="footnote">
-      submitted <span>Tue Jun 19, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/pivot-tables">pivot-tables</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Why UDF Array Functions are Faster</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/03/29/why_udf_array_functions_are_faster/">Why UDF Array Functions are Faster</a>
-
-      <p class="footnote">
-      submitted <span>Thu Mar 29, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/array-functions">array-functions</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Calculation Efficiency</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/03/28/calculation_effeciency_array_formulas/">Calculation Efficiency</a>
-
-      <p class="footnote">
-      submitted <span>Wed Mar 28, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/formulas">formulas</a> <a href="http://jnyman.com/tags/array-formulas">array-formulas</a> <a href="http://jnyman.com/tags/efficiency">efficiency</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Updates</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/03/23/updates/">Updates</a>
-
-      <p class="footnote">
-      submitted <span>Fri Mar 23, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/advanced-filter">advanced-filter</a> <a href="http://jnyman.com/tags/excel">excel</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>AdvancedFilter Class Part 2</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/">AdvancedFilter Class Part 2</a>
-
-      <p class="footnote">
-      submitted <span>Wed Feb 15, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/code">code</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/advanced-filter">advanced-filter</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Wrapping a Class Around the AdvancedFilter Method</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/">Wrapping a Class Around the AdvancedFilter Method</a>
-
-      <p class="footnote">
-      submitted <span>Fri Feb 10, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/code">code</a> <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/advanced-filter">advanced-filter</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Distributing Add-ins via Installer</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/">Distributing Add-ins via Installer</a>
-
-      <p class="footnote">
-      submitted <span>Fri Jan 27, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/installer">installer</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/add-in">add-in</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>.NET and Modeless Forms</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/23/dot_net_and_modeless_forms_in_excel/">.NET and Modeless Forms</a>
-
-      <p class="footnote">
-      submitted <span>Mon Jan 23, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/modeless-forms">modeless-forms</a> <a href="http://jnyman.com/tags/.net">.net</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Range Address from Number to Letter</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/20/range_address_from_number_to_letter/">Range Address from Number to Letter</a>
-
-      <p class="footnote">
-      submitted <span>Fri Jan 20, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/range">range</a> <a href="http://jnyman.com/tags/vba">vba</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Find Last Cell</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/13/find_last_cell/">Find Last Cell</a>
-
-      <p class="footnote">
-      submitted <span>Fri Jan 13, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/code">code</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Get Range from Row &amp; Column Numbers</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/12/get_range_from_row_and_column_numbers/">Get Range from Row &amp; Column Numbers</a>
-
-      <p class="footnote">
-      submitted <span>Thu Jan 12, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/range">range</a> <a href="http://jnyman.com/tags/vba">vba</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-
-<main class="archive">
-  <h1>Import Data from Excel to VBA</h1>
-  <ul class="posts">
-    
-    <li>
-      <a href="http://jnyman.com/2012/01/04/import_data_from_excel_to_vba/">Import Data from Excel to VBA</a>
-
-      <p class="footnote">
-      submitted <span>Wed Jan 4, 2012</span>
-
-      
-      to
-      
-
-      
-      tags:[ <a href="http://jnyman.com/tags/vba">vba</a> <a href="http://jnyman.com/tags/excel">excel</a> <a href="http://jnyman.com/tags/code">code</a> ]
-      
-
-      
-
-      
-
-      </p>
-    </li>
-    
-    
-  </ul>
-
-</main>
-
-<div class="footer-menu">
-  <ul>
-
-    <li>
-      <a class=" fa fa-rss fa-2x" href="/index.xml" title="RSS Feed"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-github fa-2x" href="https://github.com/jon49/" title="Personal Github Account"></a>
-    </li>
-
-    <li>
-      <a class=" fa fa-twitter fa-2x" href="https://twitter.com/NymanJon" title="Personal Twitter Account"></a>
-    </li>
-
-  </ul>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
 </div>
 
-<footer>
-  <p>
-  © 2016 Jon Nyman
-    <br>
-    nymanjon@gmail.com
-    <br>
-    Hamsters Byte
-  </p>
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  <header class="header-section ">
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              <h1>#Excel</h1>
+              <hr class="small">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="posts-list">
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2014/06/07/javascript/">
+                <h2 class="post-title">JavaScript</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on June 7, 2014
+              </p>
+              <div class="post-entry">
+                
+                  Iâ€™ve jumped ship from Excel programming over to JavaScript (in a functional manner). Iâ€™ve also gone the way of Linux away from Windows. I love Excel and its power. But I see the writing on the wall and am moving to where I can hopefully get some work and starting making some moolah. You can follow my new blog over at http://thisisafiller.ghoster.io/.
+If anyone is interested in the products Iâ€™ve made let me know how you like them and send me an e-mail.
+                  <a href="http://jnyman.com/2014/06/07/javascript/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                    #<a href="/tags/javascript">javascript</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2013/08/19/zipping_files_with_vba_and_usb_drives/">
+                <h2 class="post-title">Zipping Files with VBA and USB Drives</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on August 19, 2013
+              </p>
+              <div class="post-entry">
+                
+                  <p>I used <a href="http://www.rondebruin.nl/win/s7/win001.htm">Ron de Bruin&rsquo;s file zipping (and sending) code with Excel</a>. It works great with a few tweaks. Unfortunately when someone is using a USB drive with their workbook on it it fails to work. So warning: Make sure the users are using it on the main computer when trouble shooting!</p>
+
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                    #<a href="/tags/fail">fail</a>&nbsp;
+                  
+                    #<a href="/tags/error">error</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2013/03/14/sumifs_vs_match_index/">
+                <h2 class="post-title">SUMIFS vs MATCH &amp; INDEX</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on March 14, 2013
+              </p>
+              <div class="post-entry">
+                
+                  I have one Time Card template setup with SUMIFS (used for Excel 2007 and above templates) and one set up with MATCH/INDEX (used for my 2003 and below templates). I tested the calculation speeds for each in Excel 2013 (preview) on Windows 8.
+Hereâ€™s the VBA test code:
+Sub test() Dim dTimer As Double Dim iLoops As Integer, iTotalIterations As Integer Dim wksStage As Worksheet Set wksStage = ThisWorkbook.Worksheets(&quot;Staging Area&quot;) iTotalIterations = 1 dTimer = Timer() For iLoops = 0 To iTotalIterations wksStage.
+                  <a href="http://jnyman.com/2013/03/14/sumifs_vs_match_index/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/excel-functions">excel functions</a>&nbsp;
+                  
+                    #<a href="/tags/time-card">time card</a>&nbsp;
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2013/02/25/excel_extensions/">
+                <h2 class="post-title">Excel Extensions</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on February 25, 2013
+              </p>
+              <div class="post-entry">
+                
+                  Excel extensions extend the range object to use LinqTo2dArray (see also Codeplex). It also includes other extensions.
+ RowsCount: Count total rows in all areas. Parse: Parse congruent range into an object by row-object arrays.  This doesnâ€™t necessarily need to be congruent, in the future I may make it so it skips to different areas in the range.  ToArray: Copies the elements of the 2D object array row wise to a new array of the specified element type and length.
+                  <a href="http://jnyman.com/2013/02/25/excel_extensions/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/c#.net">c#.net</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2013/02/25/linqto2darray/">
+                <h2 class="post-title">LinqTo2dArray</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on February 25, 2013
+              </p>
+              <div class="post-entry">
+                
+                  LinqTo2dArray written in C# (to allow iteration over the rows). Also found on CodePlex.
+ Parse will take a 2D Array (not necessarily zero based) and load it into a class. Parse 2D object array into a class row wise. Compose will create 2D object array from enumerable type. Copies the elements of the 2D object array row wise to a new array of the specified element type and length.  using System; using System.
+                  <a href="http://jnyman.com/2013/02/25/linqto2darray/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/c#.net">c#.net</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/">
+                <h2 class="post-title">Max Write to Excel (2003) in Array</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on January 1, 2013
+              </p>
+              <div class="post-entry">
+                
+                  I normally donâ€™t deal with very long strings. But Iâ€™m working on a project that requires storing a text file in Excel that I can later access (it would be nice just to embed it but Excel doesnâ€™t like viruses â€“ which makes me have to just store it in a worksheet).
+So what is the max string length in an array write to an Excel range?
+911
+Seems kind of random but that is the number.
+                  <a href="http://jnyman.com/2013/01/01/max_write_to_excel_2003_in_array/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/">
+                <h2 class="post-title">AdvancedFilter Wrapper Engine</h2>
+    
+                
+                  <h3 class="post-subtitle">
+                    for VBA Enthusiasts
+                  </h3>
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on December 18, 2012
+              </p>
+              <div class="post-entry">
+                
+                  A while back ago I promised to produce my engine for the advancedfilter wrapper. Well, at the prodding of Hugo I finally put it together. I took the code from my VB.NET project and converted it to VBA. Man, that reminds of why I love .NET so much! If you ever get a chance to learn .NET of VBA definitely take the opportunity. At first it is difficult but then it gets to the point where you don&rsquo;t want to go back.
+                  <a href="http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/advanced-filter">advanced-filter</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/wrapper-engine">wrapper-engine</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/">
+                <h2 class="post-title">List of Excel Functions - Code To Use List</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on December 5, 2012
+              </p>
+              <div class="post-entry">
+                
+                  I saw a few people were downloading my list of Excel functions that I created. I thought it might be useful show the code that I use to get that data to a manageable format. Although the code is written in VB.NET it should be easily converted to VBA.
+[wpdm_file id=3]
+I use a simple structure (type in VBA) for the data.
+Private Structure ExcelFunctionInfo Dim Name As String Dim Category As String Dim ExcelVersion As Integer Dim Description As String Dim Syntax As String Dim URL As String End Structure  I then just loop through the data in the string that was gotten from the text file.
+                  <a href="http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/" class="post-read-more">[Read More]</a>
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/code">code</a>&nbsp;
+                  
+                    #<a href="/tags/vba">vba</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/excel-functions">excel-functions</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/">
+                <h2 class="post-title">Scribble Filter (For Excel)</h2>
+    
+                
+                  <h3 class="post-subtitle">
+                    Overview Part 4
+                  </h3>
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on November 1, 2012
+              </p>
+              <div class="post-entry">
+                
+                  <p>Points discussed in video:</p>
+
+<p>The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
+<ul>
+<li>Use both {AVERAGE} function and Excel AVERAGE function <a href="http://www.youtube.com/watch?feature=player_detailpage&v=jIpIWbKHawk#t=4s">@00:04</a></li>
+<li>Click on Excel function with cursor to goto Excel&rsquo;s function web page <a href="http://www.youtube.com/watch?feature=player_detailpage&v=jIpIWbKHawk#t=78s">@01:18</a></li>
+<li>Using ranges as a formula. <a href="http://www.youtube.com/watch?feature=player_detailpage&v=jIpIWbKHawk#t=93s">@01:33</a></li>
+</ul></p>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/jIpIWbKHawk" frameborder="0" allowfullscreen></iframe>
+
+<p><a href="http://wp.me/P26YjB-7Z">Scribble Filter Home</a>
+<a href="http://wp.me/P26YjB-82">Scribble Filter Help</a></p>
+
+<p><a href="http://wp.me/p26YjB-85">Overview Part 1</a>
+<a href="http://wp.me/p26YjB-8o">Overview Part 2</a>
+<a href="http://wp.me/p26YjB-8s">Overview Part 3</a>
+<a href="http://wp.me/p26YjB-8Y">Overview Part 4</a></p>
+
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/scribble-filter">scribble-filter</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+            <article class="post-preview">
+              <a href="http://jnyman.com/2012/10/31/scribble_filter_installation_opening/">
+                <h2 class="post-title">Scribble Filter: Installation &amp; Opening</h2>
+    
+                
+              </a>
+    
+              <p class="post-meta">
+                Posted on October 31, 2012
+              </p>
+              <div class="post-entry">
+                
+                  <p>The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.</p>
+
+<p>Points discussed in video:</p>
+
+<ul>
+<li>Installing <a href="http://www.youtube.com/watch?feature=player_detailpage&v=tzP4RLMuGV4#t=6s">@00:06</a></li>
+<li>Open Scribble Filter Dialog <a href="http://www.youtube.com/watch?feature=player_detailpage&v=tzP4RLMuGV4#t=30s">@00:30</a></li>
+</ul>
+
+<iframe width="420" height="315" src="http://www.youtube.com/embed/tzP4RLMuGV4" frameborder="0" allowfullscreen></iframe>
+
+<p><a href="http://wp.me/P26YjB-7Z">Scribble Filter Home</a>
+<a href="http://wp.me/P26YjB-82">Scribble Filter Help</a></p>
+
+                
+              </div>
+    
+              
+                <span class="post-meta">
+                  
+                    #<a href="/tags/scribble-filter">scribble-filter</a>&nbsp;
+                  
+                    #<a href="/tags/excel">excel</a>&nbsp;
+                  
+                    #<a href="/tags/products">products</a>&nbsp;
+                  
+                </span>
+              
+    
+            </article>
+          
+        </div>
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/tags/excel/page/2">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
 </html>
 

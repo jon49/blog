@@ -1,4 +1,4 @@
----
+﻿---
 date: 2014-05-15
 title: Notes on Monads, Monoids, and Make Believe
 subtitle: with Brian Lonsdorf

@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-02-10
 title: Wrapping a Class Around the AdvancedFilter Method
 tags:
@@ -11,9 +11,9 @@ tags:
 
 <a href="http://www.cpearson.com/excel/classes.aspx">Classes</a> are a tool in <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a> that make programming much simpler. One class that I have developed in VBA is a class that makes using the <a href="http://msdn.microsoft.com/en-us/library/aa221800(v=office.11).aspx">AdvancedFilter method</a> extremely easy and useful. In fact, I like it so much that I stopped using the regular <a href="http://msdn.microsoft.com/en-us/library/aa195730(v=office.11).aspx">find method</a>. In the coming weeks I will demonstrate how this was done.
 
-<strong> This is how the AdvancedFilter method works</strong>:
+<strong>Â This is how the AdvancedFilter method works</strong>:
 <ol>
-	<li>  Use a predefined range to filter.</li>
+	<li>Â  Use a predefined range to filter.</li>
 	<li>Create a range that has the filter criteria.</li>
 	<li>Have a range for copying the results (or filter in place).</li>
 	<li>Filter for unique values only.</li>
@@ -26,7 +26,7 @@ tags:
 </ol>
 <strong>Advantages of the AdvancedFilter method</strong>:
 <ol>
-	<li> Can use familiar Excel formulas in search terms.</li>
+	<li>Â Can use familiar Excel formulas in search terms.</li>
 	<li>Great for searching database structured data in Excel.</li>
 	<li>The copy method is pretty fast if you are planning on copying the data.</li>
 </ol>

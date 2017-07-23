@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-08-27
 title: XML Comments
 tags:
@@ -7,16 +7,16 @@ tags:
 ---
 
 Comment headers above procedures can be convenient when you want to know
-what a function does and what the parameters are for – especially if
-they weren’t named with enough description. Luckily Visual Studio
+what a function does and what the parameters are for â€“ especially if
+they werenâ€™t named with enough description. Luckily Visual Studio
 provides a way to do these comments easily and it gives you intellisense
 for your own functions! They are called [XML
 comments](http://msdn.microsoft.com/en-us/magazine/dd722812.aspx). All
-you need to do is put in three comment markers (‘) and then it will fill
+you need to do is put in three comment markers (â€˜) and then it will fill
 in everything for you (if you already have the procedure/parameters
 filled in).
 
-Here’s an example:
+Hereâ€™s an example:
 
 ```vbscript
 ''' <summary>

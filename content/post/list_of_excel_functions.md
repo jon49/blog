@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-08-27
 title: List of Excel Functions
 tags: 

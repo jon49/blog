@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rest on Hamsters Byte</title>
+    <title>Rest on JNyman.com</title>
     <link>http://jnyman.com/tags/rest/</link>
-    <description>Recent content in Rest on Hamsters Byte</description>
+    <description>Recent content in Rest on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Jul 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://jnyman.com/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://jnyman.com/tags/rest/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Swagger is too Restrictive</title>
@@ -15,43 +17,8 @@
       <pubDate>Sun, 10 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>http://jnyman.com/2016/07/10/swagger_is_too_restrictive/</guid>
-      <description>&lt;p&gt;Swagger has a definite idea of what makes a good URL. But if you want to do
-anything outside of that good luck. I think, that even though it seems like a
-good idea to push people towards a standard it doesn&amp;rsquo;t allow the user to really
-create RESTful APIs which suit their own needs.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s say that you have a reports resource. Sometimes you would like to get the
-JSON data of the report. Sometimes you would like a partial static HTML page of
-the report. Well, with RESTful APIs you could have something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;GET /api/reports/{id}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will get the data which you wanted. Now, what about the report? You could:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;GET reports/{id}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;But that seems like it would get you a full page, not a partial page. What if
-you did this instead?&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;GET /api/reports/{id}
-Content-Type text/html
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The mapping of resources should be use all the available HTTP standards.
-Swagger doesn&amp;rsquo;t allow for this. This is unfortunate.  The routes could have
-been mapped something like this instead:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;paths:
-  - url: /api/reports/{id}
-    headers:
-      - Content-Type: text/html
-        response: ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It appears that the standard might become more flexible in the future.  &lt;a href=&#34;https://github.com/OAI/OpenAPI-Specification/issues/146&#34;&gt;See
-the issue on Github&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>Swagger has a definite idea of what makes a good URL. But if you want to do anything outside of that good luck. I think, that even though it seems like a good idea to push people towards a standard it doesn&amp;rsquo;t allow the user to really create RESTful APIs which suit their own needs.
+Let&amp;rsquo;s say that you have a reports resource. Sometimes you would like to get the JSON data of the report.</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-03-23
 title: Updates
 tags:
@@ -22,6 +22,6 @@ Items that I have left before release:
 	<li>Change items directly on chart. (This item will only be partially complete for the beta version.</li>
 </ol>
 
-<strong> New Series</strong>
+<strong>Â New Series</strong>
 
 I'll be starting a new series on a dll I developed for the time card that makes it easier to work with Excel, Excel DNA, and .NET.

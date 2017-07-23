@@ -1,4 +1,4 @@
----
+﻿---
 date: 2012-02-29
 title: Creating a Settings Class in VBA
 tags:
@@ -17,7 +17,7 @@ Some criteria that is needed for a settings class in vba are:
 </ul>
 To make it well formed I used an <a href="http://www.cpearson.com/excel/Enums.aspx">enumeration variable type</a> to create each setting. I think string constants could accomplish the same thing.
 
-To have a fast look up I use the <a href="http://support.microsoft.com/kb/187234">dictionary object</a>  which<a href="http://www.dotnetperls.com/dictionary-vbnet"> can look up values much faster than</a> the <a href="http://support.microsoft.com/kb/198465">collection object</a>.
+To have a fast look up I use the <a href="http://support.microsoft.com/kb/187234">dictionary object</a> Â which<a href="http://www.dotnetperls.com/dictionary-vbnet"> can look up values much faster than</a> the <a href="http://support.microsoft.com/kb/198465">collection object</a>.
 
 Doing default settings is interesting. It took me some time to figure out how to do that. But all that is needed is an optional boolean value for the Get and Let procedures.
 
