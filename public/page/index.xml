@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on JNyman.com</title>
+    <link>http://jnyman.com/page/</link>
+    <description>Recent content in Pages on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="http://jnyman.com/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://jnyman.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/about/</guid>
+      <description>Personal Father of four who enjoys, backpacking, reading, and programming.
+Work in a Nutshell I enjoy functional programming and am currently doing mostly F# with ASP.NET WebAPI (RESTful API), with SQL Server and also some ASP.NET MVC and front end programming (JavaScript/HTML/CSS).
+I was doing node.js with MongoDB but found F# to a great language to work with in a .NET shop. So I ported it back to .NET platform.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Desert Code Camp on JNyman.com</title>
+    <link>http://jnyman.com/tags/desert-code-camp/</link>
+    <description>Recent content in Desert Code Camp on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/desert-code-camp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Desert Code Camp 2017</title>
+      <link>http://jnyman.com/2017/10/15/desert_code_camp_2017/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2017/10/15/desert_code_camp_2017/</guid>
+      <description>Desert Code Camp 2017 was yesterday. I was slated to give four presentations yesterday. I ended up giving three.
+Three of them were on F#. I did Introduction to F# in the morning and had two more ready to go in the evening. But by that time everyone in the morning had already gone home, I&amp;rsquo;m guessing, and so the evening attendees probably would have enjoyed hearing Introduction to F# again!</description>
+    </item>
+    
+  </channel>
+</rss>

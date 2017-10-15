@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Wrapping a Class Around the AdvancedFilter Method</title>
+  <meta property="og:title" content="Wrapping a Class Around the AdvancedFilter Method" />
+  <meta name="twitter:title" content="Wrapping a Class Around the AdvancedFilter Method" />
+  <meta name="description" content="Classes are a tool in object-oriented programming that make programming much simpler. One class that I have developed in VBA is a class that makes using the AdvancedFilter method extremely easy and useful. In fact, I like it so much that I stopped using the regular find method. In the coming weeks I will demonstrate how this was done.
+ This is how the AdvancedFilter method works:   Use a predefined range to filter.">
+  <meta property="og:description" content="Classes are a tool in object-oriented programming that make programming much simpler. One class that I have developed in VBA is a class that makes using the AdvancedFilter method extremely easy and useful. In fact, I like it so much that I stopped using the regular find method. In the coming weeks I will demonstrate how this was done.
+ This is how the AdvancedFilter method works:   Use a predefined range to filter.">
+  <meta name="twitter:description" content="Classes are a tool in object-oriented programming that make programming much simpler. One class that I have developed in VBA is a class that makes using the AdvancedFilter method extremely easy and …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Wrapping a Class Around the AdvancedFilter Method</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on February 10, 2012
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p><a href="http://www.cpearson.com/excel/classes.aspx">Classes</a> are a tool in <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a> that make programming much simpler. One class that I have developed in VBA is a class that makes using the <a href="http://msdn.microsoft.com/en-us/library/aa221800(v=office.11).aspx">AdvancedFilter method</a> extremely easy and useful. In fact, I like it so much that I stopped using the regular <a href="http://msdn.microsoft.com/en-us/library/aa195730(v=office.11).aspx">find method</a>. In the coming weeks I will demonstrate how this was done.</p>
+
+<p><strong> This is how the AdvancedFilter method works</strong>:
+<ol>
+    <li>  Use a predefined range to filter.</li>
+    <li>Create a range that has the filter criteria.</li>
+    <li>Have a range for copying the results (or filter in place).</li>
+    <li>Filter for unique values only.</li>
+</ol>
+<strong>Drawbacks of the AdvancedFilter method</strong>:
+<ol>
+    <li>Mixed data in predefined range can give odd/incorrect results.</li>
+    <li>Is slow compared to a database search or even a manual looped search.</li>
+    <li>Need a special range to perform search.</li>
+</ol>
+<strong>Advantages of the AdvancedFilter method</strong>:
+<ol>
+    <li> Can use familiar Excel formulas in search terms.</li>
+    <li>Great for searching database structured data in Excel.</li>
+    <li>The copy method is pretty fast if you are planning on copying the data.</li>
+</ol>
+<strong>This is how the class will work</strong> (Of course, you could use a function to wrap this code to make it even simpler for simple searches - which I have done):</p>
+
+<pre><code class="language-vbscript">Sub AdvancedFilterClassExample()
+    
+    Dim iIndex As Integer
+    Dim rResult As Range
+    Dim clsSearch As Search
+
+    'clsSearch.ColumnUnique = 1
+    'clsSearch.CopyUniqueTo = Range(&quot;A101&quot;)
+
+    clsSearch.IncludeHeaderInResults = True
+    clsSearch.RangeToFilter = Range(&quot;A1:Y100&quot;)
+    clsSearch.FilterLocation = Range(&quot;Z1&quot;)
+    iIndex = clsSearch.Add(&quot;George&quot;)
+    clsSearch(iIndex).Header = &quot;First Name&quot;
+    clsSearch(iIndex).match_type = BasicSearch
+    clsSearch(iIndex).Header_Operator = AndOperator
+
+    iIndex = clsSearch.Add(&quot;*&quot;)
+    clsSearch(iIndex).Header = &quot;Last Name&quot;
+    clsSearch(iIndex).match_type = WildCardOnly
+    clsSearch(iIndex).Header_Operator = OrOperator
+
+    Debug.Print clsSearch.Count
+
+    Set rResult = clsSearch.Filter
+
+End Sub
+</code></pre>
+
+<p><strong>Match Types</strong>:</p>
+
+<pre><code class="language-vbscript">    MatchType.BasicSearch
+    MatchType.MatchCase
+    MatchType.MatchCase_MatchEntireCellContents
+    MatchType.MatchEntireCellContents
+    MatchType.WildCardOnly
+</code></pre>
+
+<p><strong>Header Types</strong>:</p>
+
+<pre><code class="language-vbscript">    HeaderOperator.AndOperator
+    HeaderOperator.OrOperator&lt;/pre&gt;
+</code></pre>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/" data-toggle="tooltip" data-placement="top" title="Distributing Add-ins via Installer">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/" data-toggle="tooltip" data-placement="top" title="AdvancedFilter Class Part 2">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+

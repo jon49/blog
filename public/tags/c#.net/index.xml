@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C#.Net on JNyman.com</title>
+    <link>http://jnyman.com/tags/c#.net/</link>
+    <description>Recent content in C#.Net on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Feb 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/c#.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Excel Extensions</title>
+      <link>http://jnyman.com/2013/02/25/excel_extensions/</link>
+      <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2013/02/25/excel_extensions/</guid>
+      <description>Excel extensions extend the range object to use LinqTo2dArray (see also Codeplex). It also includes other extensions.
+ RowsCount: Count total rows in all areas. Parse: Parse congruent range into an object by row-object arrays.  This doesn’t necessarily need to be congruent, in the future I may make it so it skips to different areas in the range.  ToArray: Copies the elements of the 2D object array row wise to a new array of the specified element type and length.</description>
+    </item>
+    
+    <item>
+      <title>LinqTo2dArray</title>
+      <link>http://jnyman.com/2013/02/25/linqto2darray/</link>
+      <pubDate>Mon, 25 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2013/02/25/linqto2darray/</guid>
+      <description>LinqTo2dArray written in C# (to allow iteration over the rows). Also found on CodePlex.
+ Parse will take a 2D Array (not necessarily zero based) and load it into a class. Parse 2D object array into a class row wise. Compose will create 2D object array from enumerable type. Copies the elements of the 2D object array row wise to a new array of the specified element type and length.  using System; using System.</description>
+    </item>
+    
+  </channel>
+</rss>

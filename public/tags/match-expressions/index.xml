@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Match Expressions on JNyman.com</title>
+    <link>http://jnyman.com/tags/match-expressions/</link>
+    <description>Recent content in Match Expressions on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/match-expressions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Match Expression for JavaScript?</title>
+      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
+      <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
+      <description>Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of if statements. if was awfully cluttered. I had looked at bilby.js examples and hadn&amp;rsquo;t realized that you can do multiple ternary expressions in a row.
+So, instead of,
+if (0){ return 0 } else if (1){ if (2) { return 1 } else if (3) { return 2 } else { return 3 } } else { return 4 }  You can do,</description>
+    </item>
+    
+  </channel>
+</rss>

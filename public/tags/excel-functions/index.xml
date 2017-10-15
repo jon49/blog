@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Excel Functions on JNyman.com</title>
+    <link>http://jnyman.com/tags/excel-functions/</link>
+    <description>Recent content in Excel Functions on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Mar 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/excel-functions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SUMIFS vs MATCH &amp; INDEX</title>
+      <link>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</link>
+      <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2013/03/14/sumifs_vs_match_index/</guid>
+      <description>I have one Time Card template setup with SUMIFS (used for Excel 2007 and above templates) and one set up with MATCH/INDEX (used for my 2003 and below templates). I tested the calculation speeds for each in Excel 2013 (preview) on Windows 8.
+Here’s the VBA test code:
+Sub test() Dim dTimer As Double Dim iLoops As Integer, iTotalIterations As Integer Dim wksStage As Worksheet Set wksStage = ThisWorkbook.Worksheets(&amp;quot;Staging Area&amp;quot;) iTotalIterations = 1 dTimer = Timer() For iLoops = 0 To iTotalIterations wksStage.</description>
+    </item>
+    
+    <item>
+      <title>List of Excel Functions - Code To Use List</title>
+      <link>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</link>
+      <pubDate>Wed, 05 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2012/12/05/list_of_excel_functions_code_to_use_list/</guid>
+      <description>I saw a few people were downloading my list of Excel functions that I created. I thought it might be useful show the code that I use to get that data to a manageable format. Although the code is written in VB.NET it should be easily converted to VBA.
+[wpdm_file id=3]
+I use a simple structure (type in VBA) for the data.
+Private Structure ExcelFunctionInfo Dim Name As String Dim Category As String Dim ExcelVersion As Integer Dim Description As String Dim Syntax As String Dim URL As String End Structure  I then just loop through the data in the string that was gotten from the text file.</description>
+    </item>
+    
+    <item>
+      <title>List of Excel Functions</title>
+      <link>http://jnyman.com/2012/08/27/list_of_excel_functions/</link>
+      <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2012/08/27/list_of_excel_functions/</guid>
+      <description>For the advanced filter I need a list of Excel functions. There are lists, unfortunately I needed the list with the function parameters (syntax). I also wanted it by date. I have lists of just the functions for Excel 2003, 2007, and 2010 without the syntax. So I did some screen scraping of Microsoft&amp;rsquo;s list of Excel functions where I was able to get the function name, category, description, syntax, and website URL for that function.</description>
+    </item>
+    
+  </channel>
+</rss>

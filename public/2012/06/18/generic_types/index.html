@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Generic Types</title>
+  <meta property="og:title" content="Generic Types" />
+  <meta name="twitter:title" content="Generic Types" />
+  <meta name="description" content="Last time we went over Overloading function in .NET. Today we&rsquo;ll take a look at generics. I had been wondering how to do this for some time, seeing that I could do it with Microsoft&rsquo;s built in code. I have to say, it is pretty nice and really makes coding much easier and cleaner.
+A generic type is a single programming element that adapts to perform the same functionality for a variety of data types.">
+  <meta property="og:description" content="Last time we went over Overloading function in .NET. Today we&rsquo;ll take a look at generics. I had been wondering how to do this for some time, seeing that I could do it with Microsoft&rsquo;s built in code. I have to say, it is pretty nice and really makes coding much easier and cleaner.
+A generic type is a single programming element that adapts to perform the same functionality for a variety of data types.">
+  <meta name="twitter:description" content="Last time we went over Overloading function in .NET. Today we&rsquo;ll take a look at generics. I had been wondering how to do this for some time, seeing that I could do it with Microsoft&rsquo;s …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2012/06/18/generic_types/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2012/06/18/generic_types/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Generic Types</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on June 18, 2012
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Last time we went over <a href="2012/06/07/overloading-in-vb-net/">Overloading</a> function in .NET. Today we&rsquo;ll take a look at <a href="http://msdn.microsoft.com/en-us/library/w256ka79.aspx">generics</a>. I had been wondering how to do this for some time, seeing that I could do it with Microsoft&rsquo;s built in code. I have to say, it is pretty nice and really makes coding much easier and cleaner.</p>
+
+<blockquote>A generic type is a single programming element that adapts to perform the same functionality for a variety of data types. When you define a generic class or procedure, you do not have to define a separate version for each data type for which you might want to perform that functionality.</blockquote>
+
+<p>So take a look at this code where I parse data from Excel and put it into a class. I put it into any class I want to.</p>
+
+<pre><code class="language-vbscript">'Loop through items and send to action, e.g., put into a class, using function.
+&lt;Extension()&gt;
+Public Function Parse(Of TSource)(ByRef oArray(,) As Object, ByVal conversion As Func(Of Object(), TSource), ByVal iRowStart As Integer _
+                                    , ByVal iRowEnd As Integer, ByVal iColStart As Integer _
+                                    , ByVal iColEnd As Integer) As TSource()
+    Try
+        Dim tArray(iRowEnd - iRowStart) As TSource
+        Dim o1Array(iColEnd - iColStart) As Object
+
+        For i As Integer = iRowStart To iRowEnd
+            For j As Integer = iColStart To iColEnd
+                o1Array(j - iColStart) = oArray(i, j)
+            Next
+            tArray(i) = conversion(o1Array)
+        Next
+
+        Return tArray
+
+    Catch ex As System.IndexOutOfRangeException
+        Throw New System.IndexOutOfRangeException
+    End Try
+
+End Function&lt;/pre&gt;
+</code></pre>
+
+<p>And here&rsquo;s how I would call it. Here I get the date range in the time card and put that information in my class that organizes the time card date information. The enumeration <i>CSettings.BUTimeCardHeadings</i> tells me where the heading is located in Excel so I don&rsquo;t have to remember the actual column. When I grab the data, Excel-DNA puts it in zero-based two dimensional array, hence the minus 1.</p>
+
+<pre><code class="language-vbscript">Dim oaDates = moaJobs.FindAllSorted(mdteDate.ToOADate(), CSettings.BUTimeCardHeadings.tcDate - 1)
+    AddCItems(oaDates _
+                  .Parse(Of CItem)(Function(o) _
+                  New CItem( _
+                      CastOrDefault(Of Double)(o(CSettings.BUTimeCardHeadings.tcHours - 1), 0.0#) _
+                      , CastOrDefault(Of Double)(o(CSettings.BUTimeCardHeadings.tcClockIn - 1), 0.0#) _
+                      , If(Not IsNothing(o(CSettings.BUTimeCardHeadings.tcJob - 1)) Or TypeOf o(CSettings.BUTimeCardHeadings.tcJob - 1) Is ExcelError _
+                           , o(CSettings.BUTimeCardHeadings.tcJob - 1).ToString, vbNullString))))&lt;/pre&gt;
+</code></pre>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2012/06/07/overloading_in_vb_net/" data-toggle="tooltip" data-placement="top" title="Overloading in VB.NET">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://jnyman.com/2012/06/19/using_pivot_tables_as_a_staging_resource/" data-toggle="tooltip" data-placement="top" title="Using Pivot Tables as a Staging Resource">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+

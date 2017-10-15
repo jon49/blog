@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node.Js on JNyman.com</title>
+    <link>http://jnyman.com/tags/node.js/</link>
+    <description>Recent content in Node.Js on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Building a Convention Based Routes in Node.js</title>
+      <link>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</link>
+      <pubDate>Tue, 07 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2016/06/07/building_convention_based_routes_in_nodejs/</guid>
+      <description>Convention over configuration (also known as coding by convention) is a software design paradigm which seeks to decrease the number of decisions that developers need to make, gaining simplicity, and not necessarily losing flexibility.
+ It seems in programming, if we haven&amp;rsquo;t learned the basic practices of others, we&amp;rsquo;ll end of repeating those practices; discovering them on our own. This isn&amp;rsquo;t necessarily a bad thing. It can be a good way to learn.</description>
+    </item>
+    
+  </channel>
+</rss>
