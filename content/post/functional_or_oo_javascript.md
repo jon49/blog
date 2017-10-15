@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-05-29
 title: Functional or Object Oriented JavaScript?
 tags:
@@ -7,7 +7,7 @@ tags:
    - fun
 ---
 
-> When people are first exposed to JavaScript and its minimal set of tools (functions, objects, prototypes, and arrays), many are underwhelmed. Therefore, in order to â€œmodifyâ€ JavaScript to conform to their idea of what it takes to model software solutions, they very often seek out or re-create class-based systems using the primordial ooze.
+> When people are first exposed to JavaScript and its minimal set of tools (functions, objects, prototypes, and arrays), many are underwhelmed. Therefore, in order to “modify” JavaScript to conform to their idea of what it takes to model software solutions, they very often seek out or re-create class-based systems using the primordial ooze.
 
 > \- Michael Fogus *Functional Programming*
 

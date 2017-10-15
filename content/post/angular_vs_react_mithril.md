@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-10-03
 title: Angular.js vs React.js vs Mithril.js
 ---

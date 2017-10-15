@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-05-13
 title: bilby.js & functional programming
 tags: 

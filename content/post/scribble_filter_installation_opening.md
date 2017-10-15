@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-10-31
 title: "Scribble Filter: Installation & Opening"
 tags:

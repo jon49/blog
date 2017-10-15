@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-07-16
 title: Algorithm Resources
 tags: 
@@ -9,7 +9,7 @@ tags:
 ---
 
 <h3>Introduction</h3>
-I was reading through Code Complete a classic coding book <a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;qid=1342466735&amp;sr=8-1&amp;keywords=code+complete"><em>that is widely considered one of the best practical guides to programming, Steve McConnellâ€™s original CODE COMPLETE has been helping developers write better software for more than a decade</em></a>. And he mentioned algorithm books. What, there exists algorithm books? You mean I don't need to come up with this code all by myself? Combined with the internet to figure out what exactly these algorithms are called, they could be a huge help.
+I was reading through Code Complete a classic coding book <a href="http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=sr_1_1?ie=UTF8&amp;qid=1342466735&amp;sr=8-1&amp;keywords=code+complete"><em>that is widely considered one of the best practical guides to programming, Steve McConnell’s original CODE COMPLETE has been helping developers write better software for more than a decade</em></a>. And he mentioned algorithm books. What, there exists algorithm books? You mean I don't need to come up with this code all by myself? Combined with the internet to figure out what exactly these algorithms are called, they could be a huge help.
 <h3>Resources</h3>
 So here is a list of <a href="http://stackoverflow.com/questions/366418/resources-and-tutorials-to-get-started-on-algorithms">resources for algorithms is over at StackOverflow</a>. You can also <a href="http://www.freetechbooks.com/algorithms-and-data-structures-f11.html">find free books online</a>. <a href="http://en.wikipedia.org/wiki/List_of_algorithms">Wikipedia even has a list of algorithms</a>. <a href="http://en.wikibooks.org/wiki/Algorithms">And wikibooks has a well formed book on the subject</a>.
 <h3>Application</h3>

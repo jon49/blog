@@ -35,6 +35,10 @@ code directly in procedures.
         - Especially useful when you have multiple applications using the same
           database.
     - [Hot swapping your code.](https://en.wikipedia.org/wiki/Hot_swapping)
+    - SQL Server allows you to get insights into what routines are related to
+      one another and to tables.
+    - It's trivial to determine what routine may be using too many resources and
+      needs to be tuned for performance.
 
 - **Cons**
     - If you change the parameters or return structure of your stored procedures
@@ -88,4 +92,8 @@ company. Most applications don't become huge, at least the ones I've worked on.
 
 I'm sure there might be other pros and cons. Let me know what other ones you
 think of!
+
+### Update
+
+2017-10-15 - Added some more pros to developing database first.
 

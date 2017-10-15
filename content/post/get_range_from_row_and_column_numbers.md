@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-01-12
 title: Get Range from Row & Column Numbers
 tags:
@@ -7,7 +7,7 @@ tags:
     - vba
 ---
 
-Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below Iâ€™ve simplified it considerably by using the Cells method.
+Before I created a quite elaborate code to get the column letter from the column numbers. It turns out that it was much easier than I had thought before. So in the code below I’ve simplified it considerably by using the Cells method.
 
 In the function below I use a [function called FindEnd](http://www.spreadsheetbudget.com/2012/01/13/find-last-cell/).
 
@@ -28,10 +28,10 @@ In the function below I use a [function called FindEnd](http://www.spreadsheetbu
 '
 Public Function RRAnge(ByVal lRow As Long, ByVal lCol As Long, Optional ByVal lRowEnd As Long = 0 _
     , Optional ByVal lColEnd As Long = 0, Optional ByVal wks As Worksheet = Nothing) As Range
-'Determine if worksheet exist, if it doesnâ€™t then set to current location.
+'Determine if worksheet exist, if it doesn’t then set to current location.
     If wks Is Nothing Then Set wks = ActiveWorkbook.ActiveSheet
 
-    'Determine if the last row was set, if it isnâ€™t then get last row number in wks
+    'Determine if the last row was set, if it isn’t then get last row number in wks
     If lRowEnd < 1 Then
         If lRowEnd Then
         'If lRowEnd is negative then get the last row in column number lRowEnd
@@ -42,7 +42,7 @@ Public Function RRAnge(ByVal lRow As Long, ByVal lCol As Long, Optional ByVal lR
         End If
     End If
 
-    'Determine if the last column was set, if it isnâ€™t then get last column number in wks
+    'Determine if the last column was set, if it isn’t then get last column number in wks
     If lColEnd < 1 Then
         If lColEnd Then
             'If lColEnd is negative then get the last column in row number lColEnd

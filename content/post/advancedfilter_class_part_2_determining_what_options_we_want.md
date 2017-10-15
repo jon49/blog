@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-02-15
 title: AdvancedFilter Class Part 2
 subTitle: Determining What Options We Want
@@ -9,24 +9,24 @@ tags:
     - advanced-filter
 ---
 
-The first thing weâ€™ll want to do is determine what macro options we would like in the class.
+The first thing we’ll want to do is determine what macro options we would like in the class.
 
 The options I currently have are:
 
-1. Range to filter (optional â€“ can use current range instead).
-2. Filter location (optional â€“ if you are using an add-in then you can place in there, otherwise can put in temporary sheet).
+1. Range to filter (optional – can use current range instead).
+2. Filter location (optional – if you are using an add-in then you can place in there, otherwise can put in temporary sheet).
 3. Filter action (copy to new range or filter in place (default)).
 4. Get unique items from a column (will need to use different method than AdvancedFilter).
 5. Copy unique to range.
 6. Return  filtered data in variant array.
 7. Return  filtered  data as range.
 
-So letâ€™s get started. First weâ€™ll need the properties in the class, Iâ€™ll call â€œSearch.â€ Notice how Iâ€™ve left many of the properties as write only, since Iâ€™m not anticipating needing to retrieve that data later.
+So let’s get started. First we’ll need the properties in the class, I’ll call “Search.” Notice how I’ve left many of the properties as write only, since I’m not anticipating needing to retrieve that data later.
 
 ``` vbscript
-'â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+'—————————————————————
 'Class Property Procedures
-'â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+'—————————————————————
 Property Set RangeToFilter(ByVal rRangeToFilter As Range)
 
     Dim iOffset As Integer
@@ -34,7 +34,7 @@ Property Set RangeToFilter(ByVal rRangeToFilter As Range)
     Dim vHeaders As Variant
 
     Set mrOriginal = rRangeToFilter
-    iOffset = mrOriginal.Resize(1, 1).Column â€“ 1
+    iOffset = mrOriginal.Resize(1, 1).Column – 1
     'Get headers
     vHeaders = Application.Transpose(mrOriginal.Resize(1).Value2)
 
@@ -44,7 +44,7 @@ Property Set RangeToFilter(ByVal rRangeToFilter As Range)
     For i = LBound(vHeaders) To UBound(vHeaders)
         If LenB(vHeaders(i)) > 0 Then
 '            If Not mdicHeaders.Exists(CStr(vHeaders(i))) Then
-'                mdicHeaders.Add CStr(vHeaders(i)), Replace$(RangeAddress(2, i + iOffset), â€œ$â€, vbNullString)
+'                mdicHeaders.Add CStr(vHeaders(i)), Replace$(RangeAddress(2, i + iOffset), “$”, vbNullString)
 '            End If
         End If
     Next i
@@ -79,21 +79,21 @@ We also need our module level variables:
 Private mrOriginal As Range             'Range to be filtered.
 Private mrFound As Range                'Filtered Range.
 Private mrFilterLocation As Range       'Filter data location/Range.
-Private mxFilterAction As XlFilterAction    'Desired filter action â€“ default xlFilterInPlace.
+Private mxFilterAction As XlFilterAction    'Desired filter action – default xlFilterInPlace.
 Private miColumnUnique As Integer       'Get unique values of filtered data from single column.
 Private mrCopyTo As Range               'Place unique data in this location.
 Private mbIncludeHeader As Boolean      'Includes the header in the found range.
 ```
 
-Finally, weâ€™ll need to initialize and terminate some variables when creating and terminating a class:
+Finally, we’ll need to initialize and terminate some variables when creating and terminating a class:
 
 ``` vbscript
 'Class_Initialize
-' â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€“
+' ————————————————————–
 'Comments:  This procedure initializes the class.
 '
 'Date           Developer   History
-'â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€“
+'————————————————————–
 '10/21/2010     Jon Nyman   Initial Version
 '
 Private Sub Class_Initialize()
@@ -108,11 +108,11 @@ Private Sub Class_Initialize()
 End Sub
 
 'Class_Terminate
-' â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+' ——————————————————————————————————————
 'Comments:  This procedure closes down the class.
 '
 'Date       Developer   History
-' â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”
+' ——————————————————————————————————————
 '10/21/10   Jon Nyman   Initial Version
 '
 Private Sub Class_Terminate()
@@ -128,4 +128,4 @@ Private Sub Class_Terminate()
 End Sub
 ```
 
-Next time Iâ€™ll go over some of the commented out code, like the dictionary that Iâ€™ll use for my collection object.
+Next time I’ll go over some of the commented out code, like the dictionary that I’ll use for my collection object.

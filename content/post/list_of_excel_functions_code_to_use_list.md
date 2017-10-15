@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-12-05
 title: List of Excel Functions - Code To Use List
 tags:

@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2017-02-12
 title: The Power of Static Typing
 tags:

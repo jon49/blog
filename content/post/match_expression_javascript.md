@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-06-20
 title: Match Expression for JavaScript?
 tags:

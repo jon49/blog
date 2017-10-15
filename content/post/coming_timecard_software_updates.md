@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2013-03-13
 title: Coming TimeCard Software Updates
 tags: 

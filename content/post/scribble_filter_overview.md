@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-10-15
 title: Scribble Filter Overview Part 1
 tags: 

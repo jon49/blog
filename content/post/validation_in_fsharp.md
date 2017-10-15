@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2016-11-27
 title: Validation in F#
 tags:

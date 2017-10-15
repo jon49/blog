@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2013-02-25
 title: Excel Extensions
 tags: 
@@ -13,7 +13,7 @@ includes other extensions.
 
 -   RowsCount: Count total rows in all areas.
 -   Parse: Parse congruent range into an object by row-object arrays.
-    -   This doesnâ€™t necessarily need to be congruent, in the future I
+    -   This doesn’t necessarily need to be congruent, in the future I
         may make it so it skips to different areas in the range.
 -   ToArray: Copies the elements of the 2D object array row wise to a
     new array of the specified element type and length.

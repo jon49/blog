@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-06-19
 title: Using Pivot Tables as a Staging Resource
 tags:

@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2017-01-29
 title: Authentication and Authorization in ASP.NET Core
 tags:

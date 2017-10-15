@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2016-06-26
 title: JavaScript-Style Promises in F#
 tags:

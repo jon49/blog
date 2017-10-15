@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-03-02
 title: AdvancedFilter Class Part 3
 subTitle: Creating the Sub Class

@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-12-18
 title: AdvancedFilter Wrapper Engine
 subTitle: for VBA Enthusiasts

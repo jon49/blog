@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2017-06-01
 title: An Introduction to Functional Programming in JavaScript
 tags:
@@ -21,7 +21,7 @@ mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 Here's some books that can help you get ramped up into the functional
 programming paradigm *Introducing functional programming with Underscore.js* by
 Michael Fogus. And for a more in depth look into functional patterns [*Professor
-Frisbyâ€™s Mostly Adequate Guide to Functional
+Frisby’s Mostly Adequate Guide to Functional
 Programming*](https://github.com/MostlyAdequate/mostly-adequate-guide).
 
 Some additional resources of people that have come to embrace the functional
@@ -35,7 +35,7 @@ development.](https://youtu.be/Uooh0Y9fC_M?t=1h17m40s).
 refactoring easier, improved productivity, and code quality.
 
 [Paul Graham](https://en.wikipedia.org/wiki/Paul_Graham_(computer_programmer))
-[attributes his companyâ€™s success on using LISP for faster iterations and
+[attributes his company’s success on using LISP for faster iterations and
 quickly creating new features.](http://www.paulgraham.com/avg.html)
 
 [WhatsApp scaled to millions with a very small

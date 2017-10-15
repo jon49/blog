@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-06-18
 title: Generic Types
 tags:

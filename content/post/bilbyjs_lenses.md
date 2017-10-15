@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2014-07-01
 title: bilby.js & lenses
 tags:

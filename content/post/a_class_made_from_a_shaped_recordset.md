@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-05-11
 title: A Class Made from a Shaped Recordset
 tags:

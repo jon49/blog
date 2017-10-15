@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-04-05
 title: Extensions in VB.NET
 tags:
@@ -7,9 +7,9 @@ tags:
     - code
 ---
 
-Learning how to use VB.NET can be quite the leap from VBA, but once you start learning VB.NET and have much more control itâ€™s difficult to want to go back to VBA.
+Learning how to use VB.NET can be quite the leap from VBA, but once you start learning VB.NET and have much more control it’s difficult to want to go back to VBA.
 
-One of the things that I like about VB.NET is methods. Extensions allow you to extend data type methods. So, letâ€™s say you have a String data type (Strings in VB.NET are like a class in and of themselves) and you want it to have the method of appending â€œ]â€ at the end. So you would have an extension method like so:
+One of the things that I like about VB.NET is methods. Extensions allow you to extend data type methods. So, let’s say you have a String data type (Strings in VB.NET are like a class in and of themselves) and you want it to have the method of appending “]” at the end. So you would have an extension method like so:
 
 ``` vbscript
 <Extension()>
@@ -42,7 +42,7 @@ In order to create extionsions you need to import the library:
 Imports System.Runtime.CompilerServices
 ```
 
-So, how about a more practical example. Through Linq (which is like extensions but much more powerful) you have many more powerful things you can do, which will probably be the topic of a post in the future. But Linq doesnâ€™t do everything and you need a 1D array. So, in the example below I could have created a 1D array instead and then done it with Linq.
+So, how about a more practical example. Through Linq (which is like extensions but much more powerful) you have many more powerful things you can do, which will probably be the topic of a post in the future. But Linq doesn’t do everything and you need a 1D array. So, in the example below I could have created a 1D array instead and then done it with Linq.
 
 ``` vbscript
 <Extension()>

@@ -1,4 +1,4 @@
-﻿---
+---
 date: 2012-03-14
 title: The Problems Of Copy/Pasting Code
 tags:
@@ -6,7 +6,7 @@ tags:
     - code
 ---
 
-Copying and pasting is great for coding, but sometimes it can be pretty silly if you make a mistake in the code. Hereâ€™s a triple copy/paste fail (the values should be set to true):
+Copying and pasting is great for coding, but sometimes it can be pretty silly if you make a mistake in the code. Here’s a triple copy/paste fail (the values should be set to true):
 
 ``` vbscript
 Public Sub SheetActivate_Dashboard(ByVal sh As Object)

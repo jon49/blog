@@ -1,4 +1,5 @@
 ---
+date: 2012-04-16
 title: Hugelkultur Beds
 tags:
     - personal
