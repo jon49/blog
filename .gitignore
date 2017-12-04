@@ -1,2 +1,6 @@
 themes/
 node_modules/
+content/post/
+public/
+!public/404.html
+

@@ -23,6 +23,8 @@ code directly in procedures.
 
 - **Cons**
     - ORMs can create inefficient code
+        - E.g., code can compile but you don't know if it will be lazy since you
+          don't know if Entity Framework translated the query as expected.
     - Obfuscates SQL Code
     - Can make refactoring database difficult
         - Don't know what SQL statements are being used since they are created
@@ -93,7 +95,23 @@ company. Most applications don't become huge, at least the ones I've worked on.
 I'm sure there might be other pros and cons. Let me know what other ones you
 think of!
 
+### Addendum
+
+**Problems with DAO**
+
+- When using the DAO pattern it can be difficult to query the data in different
+  ways, you end up creating multiple methods like `listBy*`.
+    - You can get around this problem by using a lambda expression for the where
+      clause. But then it becomes difficult to test the method since all the
+      logic is spread around your entire application. You also don't know if the
+      where clause that is sent in actually works - not sure why that would be
+      the case.
+    - Another solution is by using the [Specification
+      Pattern](https://en.wikipedia.org/wiki/Specification_pattern)
+
 ### Update
 
-2017-10-15 - Added some more pros to developing database first.
+2017-10-15 - Added some more pros to developing database first.  
+2017-11-20 - From [Steve Smith's interview on .NET Rocks!](https://dotnetrocks.com/?show=1494)
+             Starts around 50 minutes 11 second mark.
 
