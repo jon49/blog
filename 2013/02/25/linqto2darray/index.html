@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>LinqTo2dArray</title>
+  <meta property="og:title" content="LinqTo2dArray" />
+  <meta name="twitter:title" content="LinqTo2dArray" />
+  <meta name="description" content="LinqTo2dArray written in C# (to allow iteration over the rows). Also found on CodePlex.
+ Parse will take a 2D Array (not necessarily zero based) and load it into a class. Parse 2D object array into a class row wise. Compose will create 2D object array from enumerable type. Copies the elements of the 2D object array row wise to a new array of the specified element type and length.  using System; using System.">
+  <meta property="og:description" content="LinqTo2dArray written in C# (to allow iteration over the rows). Also found on CodePlex.
+ Parse will take a 2D Array (not necessarily zero based) and load it into a class. Parse 2D object array into a class row wise. Compose will create 2D object array from enumerable type. Copies the elements of the 2D object array row wise to a new array of the specified element type and length.  using System; using System.">
+  <meta name="twitter:description" content="LinqTo2dArray written in C# (to allow iteration over the rows). Also found on CodePlex.
+ Parse will take a 2D Array (not necessarily zero based) and load it into a class. Parse 2D object array into a …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2013/02/25/linqto2darray/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2013/02/25/linqto2darray/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>LinqTo2dArray</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on February 25, 2013
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>LinqTo2dArray written in C# (<a href="http://msdn.microsoft.com/en-us/library/vstudio/9k7k7cf0(v=vs.100).aspx">to allow iteration over the
+rows</a>).
+Also found on <a href="http://linqto2darray.codeplex.com/">CodePlex</a>.</p>
+
+<ul>
+<li>Parse will take a 2D Array (not necessarily zero based) and load it
+into a class. Parse 2D object array into a class row wise.</li>
+<li>Compose will create 2D object array from enumerable type.</li>
+<li>Copies the elements of the 2D object array row wise to a new array
+of the specified element type and length.</li>
+</ul>
+
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace LinqTo2dArray
+{
+    public static class Array2dExtensions
+    {
+
+       /// &lt;summary&gt;
+       /// Parse 2D object array into a class row wise.
+       /// &lt;/summary&gt;
+        /// &lt;typeparam name=&quot;TSource&quot;&gt;New enumerable type.&lt;/typeparam&gt;
+        /// &lt;param name=&quot;array&quot;&gt;The two-dimensional Array to loop throug
+h.&lt;/param&gt;
+        /// &lt;param name=&quot;conversion&quot;&gt;Conversion function to TSource type
+.&lt;/param&gt;
+        /// &lt;param name=&quot;rowStart&quot;&gt;First row index to start.&lt;/param&gt;
+        /// &lt;param name=&quot;columnStart&quot;&gt;First column index to start.&lt;/para
+m&gt;
+        /// &lt;param name=&quot;rowCount&quot;&gt;Number of rows.&lt;/param&gt;
+        /// &lt;param name=&quot;columnCount&quot;&gt;Number of columns&lt;/param&gt;
+        /// &lt;example&gt;
+        ///  array.Parse(Of SaleOrder)(Function(o As Object()) New SaleO
+rder( _
+        ///                                     If(TypeOf o(0) Is Double
+, Date.FromOADate(o(0)), #1/1/1900#) _
+        ///                                     , If(Not TypeOf o(1) Is
+Integer, o(1).ToString, &quot;&quot;) _
+        ///                                     , If(Not TypeOf o(2) Is
+Integer, o(2).ToString, &quot;&quot;) _
+        ///                                     , If(Not TypeOf o(3) Is
+Integer, o(3).ToString, &quot;&quot;) _
+        ///                                     , If(IsNumeric(o(4)) And
+Also Not TypeOf o(4) Is Integer, CInt(o(4)), 0) _
+        ///                                     , If(IsNumeric(o(5)) And
+Also Not TypeOf o(5) Is Integer, o(5), 0) _
+        ///                                     , o(6) + rowOffset _
+        ///                                     ))
+        ///   Note: Last index returns row number.
+        /// &lt;/example&gt;
+        /// &lt;exception cref=&quot;IndexOutOfRangeException&quot;&gt;Parameters are ou
+t of range of 2D array object.&lt;/exception&gt;
+        /// &lt;returns&gt;Enumerable of TSource&lt;/returns&gt;
+        /// &lt;remarks&gt;Jon Nyman 130205&lt;/remarks&gt;
+        public static IEnumerable&lt;TSource&gt; Parse&lt;TSource&gt;(this object[,]
+ array, Func&lt;object[], TSource&gt; conversion
+            , int rowStart, int columnStart, int rowCount, int columnCou
+nt)
+        {
+
+            //Make sure values are within range of array.
+            if (rowStart &lt; 0 || columnStart &lt; 0 || rowStart &gt; array.GetU
+pperBound(0) || columnStart &gt; array.GetUpperBound(1) ||
+                rowCount &lt; 1 || rowCount + rowStart - 1 &gt; array.GetUpper
+Bound(0) || columnCount &lt; 1 || columnCount + columnStart - 1 &gt; array.Get
+UpperBound(1))
+                throw new System.IndexOutOfRangeException(&quot;Start or end
+values out of range (Parse)&quot;);
+
+            //Put 2D array values in a 1D array for conversion
+            for (int row = rowStart; row &lt; rowCount + rowStart; row++)
+            {
+                object[] array1d = new object[columnCount + 1];
+                for (int column = columnStart; column &lt; columnCount + co
+lumnStart; column++)
+                {
+                    array1d[column - columnStart] = array[row, column];
+                }
+                //Add row number to the end of the 1D array.
+                array1d[columnCount] = row;
+                yield return conversion(array1d);
+            }
+
+        } //End Parse
+
+        /// &lt;summary&gt;
+        /// Parse 2D object array into a class row wise.
+        /// &lt;/summary&gt;
+        /// &lt;typeparam name=&quot;TSource&quot;&gt;New enumerable type.&lt;/typeparam&gt;
+        /// &lt;param name=&quot;array&quot;&gt;The two-dimensional Array to loop throug
+h.&lt;/param&gt;
+        /// &lt;param name=&quot;conversion&quot;&gt;Conversion function to TSource type
+.&lt;/param&gt;
+        /// &lt;example&gt;
+        ///  array.Parse(Of SaleOrder)(Function(o As Object()) New SaleO
+rder( _
+        ///                                     If(TypeOf o(0) Is Double
+, Date.FromOADate(o(0)), #1/1/1900#) _
+        ///                                     , If(Not TypeOf o(1) Is
+Integer, o(1).ToString, &quot;&quot;) _
+        ///                                     , If(Not TypeOf o(2) Is
+Integer, o(2).ToString, &quot;&quot;) _
+        ///                                     , If(Not TypeOf o(3) Is
+Integer, o(3).ToString, &quot;&quot;) _
+        ///                                     , If(IsNumeric(o(4)) And
+Also Not TypeOf o(4) Is Integer, CInt(o(4)), 0) _
+        ///                                     , If(IsNumeric(o(5)) And
+Also Not TypeOf o(5) Is Integer, o(5), 0) _
+        ///                                     , o(6) + rowOffset _
+        ///                                     ))
+        ///   Note: Last index returns row number.
+        /// &lt;/example&gt;
+        /// &lt;exception cref=&quot;IndexOutOfRangeException&quot;&gt;Parameters are ou
+t of range of 2D array object.&lt;/exception&gt;
+        /// &lt;returns&gt;Enumerable of TSource&lt;/returns&gt;
+        /// &lt;remarks&gt;Jon Nyman 130205&lt;/remarks&gt;
+        public static IEnumerable&lt;TSource&gt; Parse&lt;TSource&gt;(this object[,]
+ array, Func&lt;object[], TSource&gt; conversion)
+        {
+
+            int rowStart=array.GetLowerBound(0);
+            int colStart=array.GetLowerBound(1);
+            int rowCount=array.GetUpperBound(0)-rowStart+1;
+            int colCount=array.GetUpperBound(1)-colStart+1;
+
+            return array.Parse&lt;TSource&gt;(conversion, rowStart, colStart,
+rowCount, colCount);
+
+        }
+
+         /// &lt;summary&gt;
+        /// Copies the elements of the 2D object array row wise to a new
+ array of the specified element type and length.
+        /// &lt;/summary&gt;
+        /// &lt;typeparam name=&quot;T&quot;&gt;New array type.&lt;/typeparam&gt;
+        /// &lt;param name=&quot;array&quot;&gt;The two-dimensional object array.&lt;/param
+&gt;
+        /// &lt;param name=&quot;conversion&quot;&gt;Casting function of new type.&lt;/para
+m&gt;
+        /// &lt;param name=&quot;rowStart&quot;&gt;First row index to start.&lt;/param&gt;
+        /// &lt;param name=&quot;columnStart&quot;&gt;First column index to start.&lt;/para
+m&gt;
+        /// &lt;param name=&quot;rowCount&quot;&gt;Number of rows.&lt;/param&gt;
+        /// &lt;param name=&quot;columnCount&quot;&gt;Number of columns&lt;/param&gt;
+        /// &lt;returns&gt;One-dimensional array of type TSource&lt;/returns&gt;
+        /// &lt;remarks&gt; Jon Nyman 20130205
+        /// Source http://msmvps.com/blogs/jon_skeet/archive/2011/01/02/
+reimplementing-linq-to-objects-part-24-toarray.aspx &lt;/remarks&gt;
+        public static T[] ToArray&lt;T&gt;(this object[,] array, Func&lt;object,
+T&gt; conversion
+                                                , int rowStart, int colu
+mnStart, int rowCount, int columnCount)
+        {
+            //Make sure values are within range of array.
+            if (rowStart &lt; 0 || columnStart &lt; 0 || rowStart &gt; array.GetU
+pperBound(0) || columnStart &gt; array.GetUpperBound(1) ||
+                rowCount &lt; 1 || rowCount + rowStart - 1 &gt; array.GetUpper
+Bound(0) || columnCount &lt; 1 || columnCount + columnStart - 1 &gt; array.Get
+UpperBound(1))
+                throw new System.IndexOutOfRangeException(&quot;Start or end
+values out of range (ToArray)&quot;);
+
+            //Put 2D array values in a 1D array
+            T[] array1d = new T[rowCount * columnCount];
+            int currentRow = -1;
+            for (int row = rowStart; row &lt; rowCount + rowStart; row++)
+            {
+                for (int column = columnStart; column &lt; columnCount + co
+lumnStart; column++)
+                {
+                    currentRow += 1;
+                    array1d[currentRow] = conversion(array[row, column])
+;
+                }
+            }
+
+            return array1d;
+
+        } //End ToArray
+
+        /// &lt;summary&gt;
+        /// Copies the elements of the 2D object array row wise to a new
+ array of the specified element type and length.
+        /// &lt;/summary&gt;
+        /// &lt;typeparam name=&quot;T&quot;&gt;New array type.&lt;/typeparam&gt;
+        /// &lt;param name=&quot;array&quot;&gt;The two-dimensional object array.&lt;/param
+&gt;
+        /// &lt;param name=&quot;conversion&quot;&gt;Casting function of new type.&lt;/para
+m&gt;
+        /// &lt;returns&gt;One-dimensional array of type TSource&lt;/returns&gt;
+        /// &lt;remarks&gt; Jon Nyman 20130205
+        /// Source http://msmvps.com/blogs/jon_skeet/archive/2011/01/02/
+reimplementing-linq-to-objects-part-24-toarray.aspx &lt;/remarks&gt;
+        public static T[] ToArray&lt;T&gt;(this object[,] array, Func&lt;object,
+T&gt; conversion)
+        {
+            int rowStart=array.GetLowerBound(0);
+            int colStart=array.GetLowerBound(1);
+            int rowCount=array.GetUpperBound(0)-rowStart+1;
+            int colCount=array.GetUpperBound(1)-colStart+1;
+
+            return array.ToArray&lt;T&gt;(conversion, rowStart, colStart, rowC
+ount, colCount);
+
+        } //End ToArray
+
+        /// &lt;summary&gt;
+        /// Create 2D object array from enumerable type.
+        /// &lt;/summary&gt;
+        /// &lt;typeparam name=&quot;TSource&quot;&gt;Enumerable type to convert.&lt;/typep
+aram&gt;
+        /// &lt;param name=&quot;enumerator&quot;&gt;Enumerable to convert.&lt;/param&gt;
+        /// &lt;param name=&quot;conversion&quot;&gt;Logic to convert to object array.&lt;/
+param&gt;
+        /// &lt;param name=&quot;startIndex&quot;&gt;First index to start.&lt;/param&gt;
+        /// &lt;param name=&quot;count&quot;&gt;Number to convert.&lt;/param&gt;
+        /// &lt;param name=&quot;columnCount&quot;&gt;Number of columns to create.&lt;/para
+m&gt;
+        /// &lt;example&gt;If clsItems.Count &gt; 0 Then
+        ///           oaTimes = clsItems.Compose(Function(cls) _
+        ///                {CType(clsItems.DateUsed.ToOADate, Object) _
+        ///                 , cls.Name _
+        ///                 , cls.ItemHoursForDay _
+        ///                 , cls.ClockInTime}, 4)
+        ///End If&lt;/example&gt;
+        /// &lt;returns&gt;2D Object Array&lt;/returns&gt;
+        /// &lt;remarks&gt;Jon Nyman 121109&lt;/remarks&gt;
+        public static object[,] Compose&lt;TSource&gt;(this IEnumerable&lt;TSourc
+e&gt; enumerator, Func&lt;TSource, object[]&gt; conversion
+
+,  int columnCount)
+        {
+            try
+            {
+                int count = enumerator.Count();
+                int row = -1;
+                object[,] array2d = new object[count, columnCount];
+
+                foreach (TSource item in enumerator)
+                {
+                    row += 1;
+                    object[] array = new object[columnCount];
+                    array = conversion(item);
+                    for (int j = 0; j &lt;= columnCount - 1; j++)
+                    {
+                        array2d[row, j] = array[j];
+                    }
+                }
+
+                return array2d;
+
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                throw new System.IndexOutOfRangeException(&quot;Incorrect num
+ber of columns. Compose.&quot;);
+            }
+
+        } //End Compose
+
+    }
+}
+</code></pre>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/" data-toggle="tooltip" data-placement="top" title="Attempted to Read or Write Protected Memory">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://jnyman.com/2013/02/25/excel_extensions/" data-toggle="tooltip" data-placement="top" title="Excel Extensions">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+

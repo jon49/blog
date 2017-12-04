@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Patterns on JNyman.com</title>
+    <link>http://jnyman.com/tags/design-patterns/</link>
+    <description>Recent content in Design Patterns on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Match Expression for JavaScript?</title>
+      <link>http://jnyman.com/2014/06/20/match_expression_javascript/</link>
+      <pubDate>Fri, 20 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/06/20/match_expression_javascript/</guid>
+      <description>Sometimes (or rather most of the time) it would be nice to have more concise code in JavaScript. I was working with a function that needed quite a bit of if statements. if was awfully cluttered. I had looked at bilby.js examples and hadn&amp;rsquo;t realized that you can do multiple ternary expressions in a row.
+So, instead of,
+if (0){ return 0 } else if (1){ if (2) { return 1 } else if (3) { return 2 } else { return 3 } } else { return 4 }  You can do,</description>
+    </item>
+    
+    <item>
+      <title>Prototypes &amp; Compositions with Objects</title>
+      <link>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</link>
+      <pubDate>Wed, 04 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/06/04/prototypes_composition_with_objects/</guid>
+      <description>I was trying to figure out the best way to have functions be both compatible with an object oriented paradigm and a functional oriented paradigm when working on objects. My implementations are probably naive, but instructive nevertheless. It seems that lo-dash and other libraries have done a good job bridging those worlds.
+Let&amp;rsquo;s say you have an object O such that
+function O(a, b){ this.a = a this.b = b } var o = function(a, b){ return new O(a, b) }  Now, you want to extend the object but you also want the option to use the object in a more fuctional way with compose.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Monads, Monoids, and Make Believe</title>
+      <link>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</link>
+      <pubDate>Thu, 15 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/05/15/monads_monoids_and_make_believe_brian_lonsdorf/</guid>
+      <description>with Brian Lonsdorf Working with Objects the better way var SSN = Constructor(function(number, current_user){ this.number = number this.user = current_user }) SSN.prototype = { fmap: function(f){ if(this.user.is_admin) return SSN(f(this.number), this.user) } } social.fmap(replace(&#39;-&#39;, &#39;&#39;)) //=&amp;gt; SSN(&#39;123456789&#39;, user) social.fmap(function(number){return number.reverse()}) //=&amp;gt; SSN(&#39;1234-56-789&#39;, user)  the functor way Note: Functor function defined.
+var AdminAccess = Constructor(function(val, current_user){ this.val = val this.user = current_user }) Functor(AdminAccess, { fmap: function(f){ if(this.user.is_admin) return AdminAccess(f(this.val), this.</description>
+    </item>
+    
+  </channel>
+</rss>

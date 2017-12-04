@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Misc on JNyman.com</title>
+    <link>http://jnyman.com/tags/misc/</link>
+    <description>Recent content in Misc on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome</title>
+      <link>http://jnyman.com/2012/01/04/0welcome/</link>
+      <pubDate>Wed, 04 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2012/01/04/0welcome/</guid>
+      <description>I decided that using Drupal was more work than I wanted to put into my website, so here&amp;rsquo;s to WordPress! Hopefully I won&amp;rsquo;t regret it.
+Here&amp;rsquo;s my previous entry for this post:
+Welcome to SpreadsheetBudget.com. This is my blog that will demonstrate ideas and learning material as I create a budget spreadsheet using Excel. Once I finish creating the software, or at least get closer, I will begin to publish how to articles on how to use the software.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Add In on JNyman.com</title>
+    <link>http://jnyman.com/tags/add-in/</link>
+    <description>Recent content in Add In on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/add-in/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Distributing Add-ins via Installer</title>
+      <link>http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/</link>
+      <pubDate>Fri, 27 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2012/01/27/distributing_add_ins_via_installer/</guid>
+      <description>Recently I needed to create an installer for my add-ins using Inno Setup installer. Inno Setup is a free ware professional installer. It lets you use Pascal to create special code to help you install the add ins.
+Luckily, over at Dutch Gemini’s website he has helped with plenty of the code to get there. Very well done, I might add.
+It looks like he uses a single add-in file for Excel 2003 and below and Excel 2007 and above (for ribbon purposes).</description>
+    </item>
+    
+  </channel>
+</rss>

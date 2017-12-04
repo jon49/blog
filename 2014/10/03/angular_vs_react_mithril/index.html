@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Angular.js vs React.js vs Mithril.js</title>
+  <meta property="og:title" content="Angular.js vs React.js vs Mithril.js" />
+  <meta name="twitter:title" content="Angular.js vs React.js vs Mithril.js" />
+  <meta name="description" content="Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! https://www.youtube.com/watch?v=IVvHPPcl2TM
+http://youtu.be/nYkdrAPrdcw?t=40m30s &gt; [Starts at 40 minute 30 seconds. Person asks question then Jing Chen &gt; laughs at question, she must know how much Pete doesn&rsquo;t like Angular.] &gt; So, the question was comparing and contrasting&hellip;React plus Flux and &gt; Angular. &hellip;[T]hey do solve some of the same &gt; problems but they go at it in very different ways.">
+  <meta property="og:description" content="Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! https://www.youtube.com/watch?v=IVvHPPcl2TM
+http://youtu.be/nYkdrAPrdcw?t=40m30s &gt; [Starts at 40 minute 30 seconds. Person asks question then Jing Chen &gt; laughs at question, she must know how much Pete doesn&rsquo;t like Angular.] &gt; So, the question was comparing and contrasting&hellip;React plus Flux and &gt; Angular. &hellip;[T]hey do solve some of the same &gt; problems but they go at it in very different ways.">
+  <meta name="twitter:description" content="Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! https://www.youtube.com/watch?v=IVvHPPcl2TM
+http://youtu.be/nYkdrAPrdcw?t=40m30s &gt; [Starts at …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2014/10/03/angular_vs_react_mithril/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2014/10/03/angular_vs_react_mithril/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Angular.js vs React.js vs Mithril.js</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on October 3, 2014
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Apparently Facebook has a bunch of functional-style programmers, not writing in ClosureScript though! <a href="https://www.youtube.com/watch?v=IVvHPPcl2TM">https://www.youtube.com/watch?v=IVvHPPcl2TM</a></p>
+
+<p><a href="http://youtu.be/nYkdrAPrdcw?t=40m30s">http://youtu.be/nYkdrAPrdcw?t=40m30s</a>
+&gt; [Starts at 40 minute 30 seconds. Person asks question then Jing Chen
+&gt; laughs at question, she must know how much Pete doesn&rsquo;t like Angular.]
+&gt; So, the question was comparing and contrasting&hellip;React plus Flux and
+&gt; Angular. &hellip;[T]hey do solve some of the same
+&gt; problems but they go at it in very different ways. So React is focused a
+&gt; lot on treating your code as a black box. So, there&rsquo;s no sort of
+&gt; observable abstraction inside of react you simply say, &ldquo;Hey, rerender
+&gt; the UI and you present a consistent view of what you want your UI to
+&gt; look like.&rdquo; With Angular you are basically passing data throughout these
+&gt; things called scopes which observe your data model and I think&hellip;
+&gt; that&rsquo;s a very leaky abstraction. It forces you to compose your
+&gt; application not in terms of functions and objects but in terms of
+&gt; directives and model-view-controller and their flavor of
+&gt; model-view-controller. So, while it does work for a certain class of
+&gt; applications as you scale up you start to miss the past 40 or 50 years
+&gt; of research and how to abstract a program. So if you&hellip;
+&gt; push that kind of data binding concern out to the edges of your
+&gt; system like React does I think it leads to faster iteration time.<br />
+&gt; &ndash; <em>Pete
+&gt; Hunt - Engineering Manager, Rethinking Web App Development at Facebook,
+&gt; Facebook</em></p>
+
+<p>Leo Horie (creator of Mithril on Flux/React)
+<a href="https://news.ycombinator.com/item?id=7720559">https://news.ycombinator.com/item?id=7720559</a></p>
+
+<blockquote>
+<p>I really like this architecture - it&rsquo;s clearly based on lessons learned
+from the same types of pains that I myself encountered w/ non-trivial
+jQuery, and the unidirectional data flow makes it a lot easier to reason
+about the code. It&rsquo;s very similar to what I&rsquo;m doing with my own micro
+mvc framework Mithril ( <a href="http://lhorie.github.io/mithril">http://lhorie.github.io/mithril</a> ).</p>
+
+<p>One thing that raise my eyebrows about this article though is how says
+that Flux eschews MVC, and then goes on to say that it has stores that
+are &ldquo;somewhat similar to a model&rdquo;, and &ldquo;the dispatcher exposes a method
+that allows a view to trigger a dispatch to the stores&rdquo;, which, as far
+as classic MVC goes, is the exact definition of a controller. What they
+call controller-view is, imho, just an implementation detail within the
+view layer: in classic MVC, views were responsible for subscribing to
+model observables, or, as the article puts it, it &ldquo;listens for events
+that are broadcast by the stores that it depends on&rdquo;.</p>
+
+<p>When talking about this architecture with the Mithril community, I find
+that referring back to the MVC pattern makes it even easier to reason
+about the flow of data: it&rsquo;s basically M -&gt; V -&gt; C -&gt; M &hellip;</p>
+
+<p>It&rsquo;s unfortunate that the general understanding of the MVC pattern
+became misunderstood over the course of many frameworks. The whole point
+of design patterns should be that we could just name them for people to
+&ldquo;get&rdquo; it, rather than having to reinvent new ways of naming things and
+having everyone relearn the nomenclature.</p>
+</blockquote>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2014/07/01/bilbyjs_lenses/" data-toggle="tooltip" data-placement="top" title="bilby.js &amp; lenses">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="http://jnyman.com/2014/12/30/css_media_object/" data-toggle="tooltip" data-placement="top" title="CSS Media Object">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on JNyman.com</title>
+    <link>http://jnyman.com/tags/css/</link>
+    <description>Recent content in Css on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS Media Object</title>
+      <link>http://jnyman.com/2014/12/30/css_media_object/</link>
+      <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2014/12/30/css_media_object/</guid>
+      <description>I just finished attending the RockIt Bootcamp (12 week program). It&amp;rsquo;s a program that teaches the LAMP full stack development (Linux, Apache, mySQL, PHP). In the next little while I will be going over some of the things which I learned.
+The css media object was first coined by Nicole Sullivan in 2010. It is still one of the most basic constructs to learn and understand in created good CSS content.</description>
+    </item>
+    
+  </channel>
+</rss>

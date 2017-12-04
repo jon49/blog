@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Array Functions on JNyman.com</title>
+    <link>http://jnyman.com/tags/array-functions/</link>
+    <description>Recent content in Array Functions on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Mar 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/array-functions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why UDF Array Functions are Faster</title>
+      <link>http://jnyman.com/2012/03/29/why_udf_array_functions_are_faster/</link>
+      <pubDate>Thu, 29 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2012/03/29/why_udf_array_functions_are_faster/</guid>
+      <description>Over at FastExcel the answer was given why UDF arrays go faster to the question I had on why UDF array formulas are faster than regular formulas. I had forgotten about this post that he had written.
+Here&amp;rsquo;s the answer that he gives. Check out his blog post to see more of the details of why this is. You can break down the time taken by a VBA UDF into these components:  Overhead time to call the UDF.</description>
+    </item>
+    
+  </channel>
+</rss>

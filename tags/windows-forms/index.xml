@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows Forms on JNyman.com</title>
+    <link>http://jnyman.com/tags/windows-forms/</link>
+    <description>Recent content in Windows Forms on JNyman.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jnyman.com/tags/windows-forms/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Attempted to Read or Write Protected Memory</title>
+      <link>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://jnyman.com/2013/02/12/attempted_to_read_or_write_protected_memory/</guid>
+      <description>I&amp;rsquo;ve been working on switching over to a &amp;ldquo;new&amp;rdquo; machine (more on that in a new post). In the process my time card program stopped working with the following error:
+System.AccessViolationException was unhandled Message: Attempted to read or write protected memory. This is often an indication that other memory is corrupt. Unfortunately this error doesn&amp;rsquo;t show up until well after it occurs. So you need to make some educated guesses as to where it is coming from.</description>
+    </item>
+    
+  </channel>
+</rss>

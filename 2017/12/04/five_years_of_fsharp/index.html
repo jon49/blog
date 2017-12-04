@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Over 5 Years of F#</title>
+  <meta property="og:title" content="Over 5 Years of F#" />
+  <meta name="twitter:title" content="Over 5 Years of F#" />
+  <meta name="description" content="Originally when I was planning on doing a post for the F# Advent Calendar I was thinking I would do one on a tool I&rsquo;m building for C# in F# that mimicks some of the functionality of the fantastic library FSharp.Data.SqlClient. But then I was thinking, &ldquo;I&rsquo;ve been messing around with F# for a while and have done some production work with it; why not share some of the experiences that I have had with F#?">
+  <meta property="og:description" content="Originally when I was planning on doing a post for the F# Advent Calendar I was thinking I would do one on a tool I&rsquo;m building for C# in F# that mimicks some of the functionality of the fantastic library FSharp.Data.SqlClient. But then I was thinking, &ldquo;I&rsquo;ve been messing around with F# for a while and have done some production work with it; why not share some of the experiences that I have had with F#?">
+  <meta name="twitter:description" content="Originally when I was planning on doing a post for the F# Advent Calendar I was thinking I would do one on a tool I&rsquo;m building for C# in F# that mimicks some of the functionality of the …">
+  <meta name="author" content="Jon Nyman"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@NymanJon" />
+  <meta name="twitter:creator" content="@NymanJon" />
+  <meta property="og:url" content="http://jnyman.com/2017/12/04/five_years_of_fsharp/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="JNyman.com" />
+
+  <meta name="generator" content="Hugo 0.25.1" />
+  <link rel="canonical" href="http://jnyman.com/2017/12/04/five_years_of_fsharp/" />
+  <link rel="alternate" href="http://jnyman.com/index.xml" type="application/rss+xml" title="JNyman.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://jnyman.com/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jnyman.com/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jnyman.com/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jnyman.com/">JNyman.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags/">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Over 5 Years of F#</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on December 4, 2017
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Originally when I was planning on doing a post for the <a href="https://sergeytihon.com/2017/10/22/f-advent-calendar-in-english-2017/">F# Advent
+Calendar</a>
+I was thinking I would do one on a <a href="https://github.com/jon49/SQLToDapper">tool I&rsquo;m building for C# in
+F#</a> that mimicks some of the functionality
+of the fantastic library
+<a href="http://fsprojects.github.io/FSharp.Data.SqlClient/"><code>FSharp.Data.SqlClient</code></a>.
+But then I was thinking, &ldquo;I&rsquo;ve been messing around with F# for a while and have
+done some production work with it; why not share some of the experiences that I
+have had with F#?&rdquo;</p>
+
+<h3 id="getting-started-with-programming-and-f">Getting started with programming and F#</h3>
+
+<p>I originally started my professional career as an electrical engineer. But then
+I got a job where I was bored and started automating some of the work I was
+doing with Excel.</p>
+
+<p>After leaving that company I started up my own gig writing add-ons for Excel. I
+believe the first thing that drew my attention to F# was a library called <a href="https://excel-dna.net/">Excel
+DNA</a>. So, I started to learn F# after having picked up
+VB.NET and C#.</p>
+
+<p>I wrote a <a href="https://gist.github.com/jon49/0940bcba98c4dce8da7a89cc66dd52a4">little script in
+F#</a> to find the
+earliest dated file in my old repos. Unfortunately, I had moved and copied the
+files since that time, so the original creation date was not the same. The
+earliest last modified date comes out to be August 27, 2013 for my Excel Time
+Card application. But looking at the <a href="http://jnyman.com/2012/05/16/excel_time_card_completed/">actual release of that product puts it
+back to May 16, 2012</a>.
+So, it looks like I&rsquo;ve been using F# for at least five and a half years.</p>
+
+<h3 id="getting-a-full-time-job">Getting a full time job</h3>
+
+<p>Apparently I had started getting into Excel too late. When I needed to get a
+full time job there weren&rsquo;t as many Excel jobs out there for building add-ons.
+Many of the people that freelanced Excel were starting to look elsewhere for
+work.  So, I started learning JavaScript and did a programming boot camp to
+learn web development.</p>
+
+<h3 id="developing-with-f">Developing with F#</h3>
+
+<p>My first full time job out of the gate was with Node.js. I took the job because
+they promised I could do F# also :-). It was a .NET company but the team I
+joined was small and off to itself. After programming in Node.js for a while I
+realized I was making similar abstractions as ASP.NET&rsquo;s WebAPI. So, after my
+team lead left the company, I switched it over to F# (with a C# project wrapping
+the F# code, just in case the F# didn&rsquo;t work out).</p>
+
+<p>I learned how to do <a href="http://fsharpforfunandprofit.com/posts/recipe-part2/">&ldquo;railway-oriented
+programming&rdquo;</a> from Scott
+Wlaschin&rsquo;s great blog posts. It was great.</p>
+
+<h3 id="moving-on">Moving on</h3>
+
+<p>I helped hire a junior developer, but, unfortunately, I was only there for a few
+more weeks before I was hired by another company. As much as I enjoyed working at
+that first company, the opportunity to work 100% remote was too great to pass up.</p>
+
+<p>A few months later, I asked the junior dev how it was going with the F# code. He said that he loved
+it and it was so much nicer to work with and to read than C#. Unfortunately, since
+he was only one of a couple that used F# at the company and the only one that
+was doing full-on F# development, it made it more difficult to fix problems since
+he couldn&rsquo;t really ask for help. Then the company started moving toward
+continuous integration, and for some reason the F# code was not working in the test
+environment. On top of that, I had used <code>FSharp.Data.SqlClient</code> but did not have
+a local SQL Server application running, so as the application continued to grow
+the application became slower and slower. Ultimately, the application was moved to C#.</p>
+
+<h3 id="f-at-the-remote-company">F# at the remote company</h3>
+
+<p>The next company I started working at also said I could do work with F#
+but only for a limited amount of projects. So, I would explicitly ask if
+it was OK to write a project in F#. It was a very small company of about 10
+people, so I knew that leaving legacy F# code could potentially be a problem
+since there aren&rsquo;t a whole lot of F# programmers in my neck of the woods.</p>
+
+<p>I spent most of my time writing T-SQL. But any temporary tools I needed to
+create during the migration process (Access to SQL Server) I would do in F#. F#
+is a fantastic tool for this purpose. I also wrote testing code with F#.</p>
+
+<p>Unfortunately, the industry was moving in a new direction, and the product I was
+working on wasn&rsquo;t as important as it had been for the company and was no longer
+given priority. I was let go.  Much of my temporary code has now turned into
+permanent code.</p>
+
+<h3 id="evangelizing-f">Evangelizing F#</h3>
+
+<p><a href="http://desertcodecamp.com/conference/notfound">Desert Code Camp 2017</a> is
+the <a href="http://jnyman.com/2017/10/15/desert_code_camp_2017/">second year</a> that I&rsquo;ve
+presented at that conference. The first year I presented on my <a href="http://jnyman.com/2016/12/04/fsharp_with_webapi/">experiences
+doing F# with WebAPI</a>. The
+second year I took a step back and did just an <a href="http://jnyman.com/2017/10/15/desert_code_camp_2017/">introduction on F# and some
+practical scripting with
+F#</a> that you can use in
+your work even if you can&rsquo;t do F# all the time.</p>
+
+<h3 id="life-lessons-learned-with-f">Life lessons learned with F#</h3>
+
+<p>Here are some lessons that I&rsquo;ve learned from the last five years that I&rsquo;ve
+programmed with F#.</p>
+
+<ol>
+<li>F# is fun.</li>
+<li>C# is an amazing language with amazing tooling. <a href="http://ericsink.com/entries/fsharp_chasm.html">That&rsquo;s why it is much more
+difficult to get people to use F# instead of
+C#,</a> <a href="https://thomasbandt.com/the-problem-with-fsharp-evangelism">unlike other languages
+like Objective-C and
+Java.</a></li>
+<li>F# is an amazing language and the tooling is getting much better with VS
+2017.</li>
+<li>Even if you can&rsquo;t use F# as your main language <a href="https://fsharpforfunandprofit.com/posts/low-risk-ways-to-use-fsharp-at-work/">there are still things you
+can do to use F# in your daily
+work</a>,
+like creating scripts for automating repetitive tasks.</li>
+<li>I need to be careful when and how I introduce F# to the team. Although I&rsquo;m
+really stoked about F# and think it is a great language to use, if the whole
+team isn&rsquo;t on board, it is a better idea to introduce it slowly in a way that
+won&rsquo;t negatively impact the team.</li>
+<li>Maybe your team will never embrace it. But learning a different paradigm can
+help you become a better programmer and bring good insights back to C# or
+whatever other language you are using. This is what the industry is seeing as
+they introduce more and more functional concepts back into the
+object-oriented world.</li>
+<li>There are some <a href="https://fsharpforfunandprofit.com/posts/why-use-fsharp-intro/">places where F# really
+shines</a>. If my
+development team ever hits some of those hurdles I can always point out some
+of the great benefits of F# for those circumstances. You need to <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/units-of-measure">work with
+units</a>
+that are statically typed - F#! You need the <a href="https://fsharpforfunandprofit.com/posts/designing-with-types-making-illegal-states-unrepresentable/">business logic to not allow
+illegal
+states</a>
+- F#! You need <a href="http://fpbridge.co.uk/why-fsharp.html#design">concise syntax and an expressive
+language</a> - F#!  You need
+<a href="https://docs.microsoft.com/en-us/dotnet/fsharp/tutorials/type-providers/">on-the-fly type
+checking</a>
+for external data - F#! <a href="http://fpbridge.co.uk/why-fsharp.html">You see my
+point</a> :-)</li>
+</ol>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://jnyman.com/2017/10/15/desert_code_camp_2017/" data-toggle="tooltip" data-placement="top" title="Desert Code Camp 2017">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/jon49" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/NymanJon" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/eenyman" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Jon Nyman
+          &nbsp;&bull;&nbsp;
+          2017
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://jnyman.com/">JNyman.com</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.25.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://jnyman.com/js/main.js"></script>
+<script src="http://jnyman.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+
