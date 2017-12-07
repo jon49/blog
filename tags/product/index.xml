@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Product on JNyman.com</title>
-    <link>http://jnyman.com/tags/product/</link>
+    <link>https://jnyman.com/tags/product/</link>
     <description>Recent content in Product on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Oct 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/product/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/product/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Spreadsheet Budget Launched</title>
-      <link>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
+      <link>https://jnyman.com/2013/10/28/spreadsheet_budget_launched/</link>
       <pubDate>Mon, 28 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
+      <guid>https://jnyman.com/2013/10/28/spreadsheet_budget_launched/</guid>
       <description>This first version is pretty basic - yet powerful. It will import your financial data from KMyMoney (I&amp;rsquo;ll add more financial programs later). Soon I will add report templates so you can easily view your finances - how you like it. It comes with an auto updater (wyUpdate) so you can stay up to date with the latest version with small packages.
 Let me know what financial program you use so I can add it to the list for future compatibility.</description>
     </item>

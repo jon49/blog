@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Webapi on JNyman.com</title>
-    <link>http://jnyman.com/tags/webapi/</link>
+    <link>https://jnyman.com/tags/webapi/</link>
     <description>Recent content in Webapi on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/webapi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/webapi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <link>https://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>https://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
       <description>I presented at the 2016 Desert Code Camp. The topic was WebAPI with F#. I also did a video series to go along with the talk. The talk and video series basically goes over how to use F# in a functional manner by building out all the pieces from scratch.
 Here&amp;rsquo;s the series, hope you enjoy it!
 F# WebAPI From Start to Finish.
@@ -25,10 +25,10 @@ Some set up steps and notes that are important to the success of the project:</d
     
     <item>
       <title>Validation in F#</title>
-      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
+      <link>https://jnyman.com/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
+      <guid>https://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
       <description>The full code for this article is up on GitHub.
 I like to the keep things as simple as possible and, ideally, reusable. At my previous employment I came up with a method of validation, but I was never entirely happy with the results. Some of the code repeated itself, and it was difficult to extend to arrays and array comparison. So, I went back to the drawing board building on top of the ideas that I created with the first validation library I created.</description>
     </item>

@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advanced Filter on JNyman.com</title>
-    <link>http://jnyman.com/tags/advanced-filter/</link>
+    <link>https://jnyman.com/tags/advanced-filter/</link>
     <description>Recent content in Advanced Filter on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 18 Dec 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/advanced-filter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/advanced-filter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AdvancedFilter Wrapper Engine</title>
-      <link>http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</link>
+      <link>https://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</link>
       <pubDate>Tue, 18 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</guid>
+      <guid>https://jnyman.com/2012/12/18/advancedfilter_wrapper_engine_for_vba_enthusiasts/</guid>
       <description>A while back ago I promised to produce my engine for the advancedfilter wrapper. Well, at the prodding of Hugo I finally put it together. I took the code from my VB.NET project and converted it to VBA. Man, that reminds of why I love .NET so much! If you ever get a chance to learn .NET of VBA definitely take the opportunity. At first it is difficult but then it gets to the point where you don&amp;rsquo;t want to go back.</description>
     </item>
     
     <item>
       <title>Updates</title>
-      <link>http://jnyman.com/2012/03/23/updates/</link>
+      <link>https://jnyman.com/2012/03/23/updates/</link>
       <pubDate>Fri, 23 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/03/23/updates/</guid>
+      <guid>https://jnyman.com/2012/03/23/updates/</guid>
       <description>AdvancedFilter Class
 Just so everyone knows. I&amp;rsquo;m going to postpone the AdvancedFilter series until I start working on it in .NET, that way I&amp;rsquo;ll remember more about what I was doing before. I&amp;rsquo;ll start working on that when I finish up the Time Card application and the Chart Manipulator.
 Time Card
@@ -34,20 +34,20 @@ I probably won&amp;rsquo;t be finishing up the beta version of the time card unt
     
     <item>
       <title>AdvancedFilter Class Part 3</title>
-      <link>http://jnyman.com/2012/03/02/advancedfilter_class_part_3_creating_the_sub_class/</link>
+      <link>https://jnyman.com/2012/03/02/advancedfilter_class_part_3_creating_the_sub_class/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/03/02/advancedfilter_class_part_3_creating_the_sub_class/</guid>
+      <guid>https://jnyman.com/2012/03/02/advancedfilter_class_part_3_creating_the_sub_class/</guid>
       <description>In order to get the nice drop down menu we&amp;rsquo;ll need a second class I&amp;rsquo;ll call &amp;ldquo;SearchTerms.&amp;rdquo; This class is also necessary to store each individual search term entered into the class. Included in this class will be:  Search Term Header Header Operator Match Type 
 &#39; SearchTerms &#39; Description: This class contains the search information. &#39; &#39; Authors: Jon Nyman, www.spreadsheetbudget.com &#39; &#39; Change Overview &#39; Date Comment &#39; -------------------------------------------------------------- &#39; 03/02/2012 Initial version &#39; Option Explicit &#39;--------------------------------------------------------------- &#39;Class Variable Declarations &#39;--------------------------------------------------------------- Private msSearchTerm As String Private msHeader As String Private meHeaderOperator As HeaderOperator Private meMatchType As MatchType &#39;--------------------------------------------------------------- &#39;Class Property Procedures &#39;--------------------------------------------------------------- Property Get SearchTerm() As String SearchTerm = msSearchTerm End Property Property Let SearchTerm(ByVal sItem As String) msSearchTerm = sItem End Property Property Get Header() As String Header = msHeader End Property Property Let Header(ByVal sHeader As String) msHeader = sHeader End Property Property Get Header_Operator() As HeaderOperator Header_Operator = meHeaderOperator End Property Property Let Header_Operator(ByVal eHeaderOperator As HeaderOperator) meHeaderOperator = eHeaderOperator End Property Property Get Match_Type() As MatchType Match_Type = meMatchType End Property Property Let Match_Type(ByVal eMatchType As MatchType) meMatchType = eMatchType End Property  </description>
     </item>
     
     <item>
       <title>AdvancedFilter Class Part 2</title>
-      <link>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
+      <link>https://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</link>
       <pubDate>Wed, 15 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
+      <guid>https://jnyman.com/2012/02/15/advancedfilter_class_part_2_determining_what_options_we_want/</guid>
       <description>The first thing we’ll want to do is determine what macro options we would like in the class.
 The options I currently have are:
  Range to filter (optional – can use current range instead). Filter location (optional – if you are using an add-in then you can place in there, otherwise can put in temporary sheet). Filter action (copy to new range or filter in place (default)). Get unique items from a column (will need to use different method than AdvancedFilter).</description>
@@ -55,10 +55,10 @@ The options I currently have are:
     
     <item>
       <title>Wrapping a Class Around the AdvancedFilter Method</title>
-      <link>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
+      <link>https://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</link>
       <pubDate>Fri, 10 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
+      <guid>https://jnyman.com/2012/02/10/wrapping_a_class_around_the_advancedfilter_method/</guid>
       <description>Classes are a tool in object-oriented programming that make programming much simpler. One class that I have developed in VBA is a class that makes using the AdvancedFilter method extremely easy and useful. In fact, I like it so much that I stopped using the regular find method. In the coming weeks I will demonstrate how this was done.
  This is how the AdvancedFilter method works:   Use a predefined range to filter.</description>
     </item>

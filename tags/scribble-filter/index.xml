@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scribble Filter on JNyman.com</title>
-    <link>http://jnyman.com/tags/scribble-filter/</link>
+    <link>https://jnyman.com/tags/scribble-filter/</link>
     <description>Recent content in Scribble Filter on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Nov 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/scribble-filter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/scribble-filter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Scribble Filter (For Excel)</title>
-      <link>http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</link>
+      <link>https://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</link>
       <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</guid>
+      <guid>https://jnyman.com/2012/11/01/scribble_filter_for_excel_overview_part_4/</guid>
       <description>Points discussed in video:
 The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.  Use both {AVERAGE} function and Excel AVERAGE function @00:04 Click on Excel function with cursor to goto Excel&amp;rsquo;s function web page @01:18 Using ranges as a formula. @01:33 
  Scribble Filter Home Scribble Filter Help
@@ -25,10 +25,10 @@ Overview Part 1 Overview Part 2 Overview Part 3 Overview Part 4</description>
     
     <item>
       <title>Scribble Filter: Installation &amp; Opening</title>
-      <link>http://jnyman.com/2012/10/31/scribble_filter_installation_opening/</link>
+      <link>https://jnyman.com/2012/10/31/scribble_filter_installation_opening/</link>
       <pubDate>Wed, 31 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/10/31/scribble_filter_installation_opening/</guid>
+      <guid>https://jnyman.com/2012/10/31/scribble_filter_installation_opening/</guid>
       <description>The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
 Points discussed in video:
  Installing @00:06 Open Scribble Filter Dialog @00:30   Scribble Filter Home Scribble Filter Help</description>
@@ -36,10 +36,10 @@ Points discussed in video:
     
     <item>
       <title>Scribble Filter (For Excel)</title>
-      <link>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</link>
+      <link>https://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</link>
       <pubDate>Mon, 22 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</guid>
+      <guid>https://jnyman.com/2012/10/22/scribble_filter_for_excel_overview_part_2/</guid>
       <description>Points discussed in video:
 The scribble filter is a text wrapper for the Advanced Filter in Excel, making it easy to work with and adding new capabilities.
  Filter in place @00:08 Copy filtered data to different worksheet @00:32 Chaining filters @00:57 Special Report (Sum column by unique values in different column) @1:11 Overwriting previous reports @01:37   Scribble Filter Home Scribble Filter Help

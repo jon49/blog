@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cool Code on JNyman.com</title>
-    <link>http://jnyman.com/tags/cool-code/</link>
+    <link>https://jnyman.com/tags/cool-code/</link>
     <description>Recent content in Cool Code on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Dec 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/cool-code/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/cool-code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Excel Queries</title>
-      <link>http://jnyman.com/2012/12/03/excel_queries/</link>
+      <link>https://jnyman.com/2012/12/03/excel_queries/</link>
       <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/12/03/excel_queries/</guid>
+      <guid>https://jnyman.com/2012/12/03/excel_queries/</guid>
       <description>I came across some nice libraries to use while programming to query Excel. Right now I’m am using the standard COM interface for my projects, which is fine for small ranges (which is true for most users – I would assume). But for large ranges I would need something more powerful.
 LinqToExcel
 LinqToExcel appears to be a great project for using a Linq interface to query Excel (but not write to Excel).</description>

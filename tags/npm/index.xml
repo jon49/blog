@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Npm on JNyman.com</title>
-    <link>http://jnyman.com/tags/npm/</link>
+    <link>https://jnyman.com/tags/npm/</link>
     <description>Recent content in Npm on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jun 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/npm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/npm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using NPM as a Build Tool</title>
-      <link>http://jnyman.com/2016/06/21/npm_as_build_tool/</link>
+      <link>https://jnyman.com/2016/06/21/npm_as_build_tool/</link>
       <pubDate>Tue, 21 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
+      <guid>https://jnyman.com/2016/06/21/npm_as_build_tool/</guid>
       <description>I really like simplicity. The tools I use, I like them to make my life easy, not hard. They need to work out of the box. No huge configuration settings, just make it easy so I can get to work.
 Well, along come grunt, gulp, and now even more tools since I first started writing this that I won&amp;rsquo;t mention. Two build tools for JavaScript. Wonderful, we need tools to help us build our files.</description>
     </item>

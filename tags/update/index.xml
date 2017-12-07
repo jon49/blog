@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Update on JNyman.com</title>
-    <link>http://jnyman.com/tags/update/</link>
+    <link>https://jnyman.com/tags/update/</link>
     <description>Recent content in Update on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Mar 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/update/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/update/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Coming TimeCard Software Updates</title>
-      <link>http://jnyman.com/2013/03/13/coming_timecard_software_updates/</link>
+      <link>https://jnyman.com/2013/03/13/coming_timecard_software_updates/</link>
       <pubDate>Wed, 13 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2013/03/13/coming_timecard_software_updates/</guid>
+      <guid>https://jnyman.com/2013/03/13/coming_timecard_software_updates/</guid>
       <description>Just a quick update. I should be putting out the new Excel Time Card by the end of this week or early next week. This will be a big update. Including the following:
  Dashboard redesign (and Staging Area)  easily change jobs on chart easily change settings on dashboard filter jobs on chart, e.g., you have TimeCard and TimeCard:Marketing, you can just put TimeCard* to include both on the same screen  The template is now included in the program, so no need to download it  I&#39;m testing out a new updater so you can have secure and smaller packaged updates.</description>
     </item>
     
     <item>
       <title>Excel Time Card Completed</title>
-      <link>http://jnyman.com/2012/05/16/excel_time_card_completed/</link>
+      <link>https://jnyman.com/2012/05/16/excel_time_card_completed/</link>
       <pubDate>Wed, 16 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/05/16/excel_time_card_completed/</guid>
+      <guid>https://jnyman.com/2012/05/16/excel_time_card_completed/</guid>
       <description>The Excel time card I have been working on is completed. Feel free to have a look and tell me what you think! I still need to add more documentation, which I will role out in the future let me know if you have any questions or found any bugs!
 Got to the download page to get it!
 A screen cast that shows some features of the time card stamp.</description>

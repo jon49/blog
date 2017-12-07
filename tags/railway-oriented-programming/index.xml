@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Railway Oriented Programming on JNyman.com</title>
-    <link>http://jnyman.com/tags/railway-oriented-programming/</link>
+    <link>https://jnyman.com/tags/railway-oriented-programming/</link>
     <description>Recent content in Railway Oriented Programming on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/railway-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/railway-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>F# with Web API and Railway-Oriented Programming</title>
-      <link>http://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
+      <link>https://jnyman.com/2016/12/04/fsharp_with_webapi/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
+      <guid>https://jnyman.com/2016/12/04/fsharp_with_webapi/</guid>
       <description>I presented at the 2016 Desert Code Camp. The topic was WebAPI with F#. I also did a video series to go along with the talk. The talk and video series basically goes over how to use F# in a functional manner by building out all the pieces from scratch.
 Here&amp;rsquo;s the series, hope you enjoy it!
 F# WebAPI From Start to Finish.

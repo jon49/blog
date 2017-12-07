@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shaped Recordset on JNyman.com</title>
-    <link>http://jnyman.com/tags/shaped-recordset/</link>
+    <link>https://jnyman.com/tags/shaped-recordset/</link>
     <description>Recent content in Shaped Recordset on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 May 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/shaped-recordset/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/shaped-recordset/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Class Made from a Shaped Recordset</title>
-      <link>http://jnyman.com/2012/05/11/a_class_made_from_a_shaped_recordset/</link>
+      <link>https://jnyman.com/2012/05/11/a_class_made_from_a_shaped_recordset/</link>
       <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/05/11/a_class_made_from_a_shaped_recordset/</guid>
+      <guid>https://jnyman.com/2012/05/11/a_class_made_from_a_shaped_recordset/</guid>
       <description>Here&amp;rsquo;s some fun code that I worked on a while back. This disconnected record set is what you call a shaped record set, created on the fly. It is a pretty complex class all wrapped in one nice little bundle. Unfortunately it goes terribly slow. Creating a class with the dictionary object in the Scripting Runtime Object Library should be the fastest, if you&amp;rsquo;re looking for speed.
 Pretty crazy looking code, but pretty elegant once you get used to looking at code like that, unfortunately it&amp;rsquo;s not very using for creating classes on the fly, or even instead of regular classes (It would make making classes a synch!</description>
     </item>

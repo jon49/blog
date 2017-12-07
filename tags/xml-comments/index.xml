@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xml Comments on JNyman.com</title>
-    <link>http://jnyman.com/tags/xml-comments/</link>
+    <link>https://jnyman.com/tags/xml-comments/</link>
     <description>Recent content in Xml Comments on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Aug 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/xml-comments/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/xml-comments/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>XML Comments</title>
-      <link>http://jnyman.com/2012/08/27/xml_comments/</link>
+      <link>https://jnyman.com/2012/08/27/xml_comments/</link>
       <pubDate>Mon, 27 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/08/27/xml_comments/</guid>
+      <guid>https://jnyman.com/2012/08/27/xml_comments/</guid>
       <description>Comment headers above procedures can be convenient when you want to know what a function does and what the parameters are for – especially if they weren’t named with enough description. Luckily Visual Studio provides a way to do these comments easily and it gives you intellisense for your own functions! They are called XML comments. All you need to do is put in three comment markers (‘) and then it will fill in everything for you (if you already have the procedure/parameters filled in).</description>
     </item>
     

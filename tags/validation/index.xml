@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Validation on JNyman.com</title>
-    <link>http://jnyman.com/tags/validation/</link>
+    <link>https://jnyman.com/tags/validation/</link>
     <description>Recent content in Validation on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Nov 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/validation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/validation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Validation in F#</title>
-      <link>http://jnyman.com/2016/11/27/validation_in_fsharp/</link>
+      <link>https://jnyman.com/2016/11/27/validation_in_fsharp/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
+      <guid>https://jnyman.com/2016/11/27/validation_in_fsharp/</guid>
       <description>The full code for this article is up on GitHub.
 I like to the keep things as simple as possible and, ideally, reusable. At my previous employment I came up with a method of validation, but I was never entirely happy with the results. Some of the code repeated itself, and it was difficult to extend to arrays and array comparison. So, I went back to the drawing board building on top of the ideas that I created with the first validation library I created.</description>
     </item>

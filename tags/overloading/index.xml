@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Overloading on JNyman.com</title>
-    <link>http://jnyman.com/tags/overloading/</link>
+    <link>https://jnyman.com/tags/overloading/</link>
     <description>Recent content in Overloading on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Jun 2012 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/overloading/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Overloading in VB.NET</title>
-      <link>http://jnyman.com/2012/06/07/overloading_in_vb_net/</link>
+      <link>https://jnyman.com/2012/06/07/overloading_in_vb_net/</link>
       <pubDate>Thu, 07 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2012/06/07/overloading_in_vb_net/</guid>
+      <guid>https://jnyman.com/2012/06/07/overloading_in_vb_net/</guid>
       <description>In previous posts I showed how you can use Extensions and Lambda Expressions to make some pretty versatile functions in .NET. Today I&amp;rsquo;ll show a method that really helps for the readability and organization of your code.
 In the past we used optional parameters to make a function do multiple things. We even needed to make new functions that did pretty much the same thing in order to make it better organized.</description>
     </item>

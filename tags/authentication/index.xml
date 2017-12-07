@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authentication on JNyman.com</title>
-    <link>http://jnyman.com/tags/authentication/</link>
+    <link>https://jnyman.com/tags/authentication/</link>
     <description>Recent content in Authentication on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://jnyman.com/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jnyman.com/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Authentication and Authorization in ASP.NET Core</title>
-      <link>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</link>
+      <link>https://jnyman.com/2017/01/29/authentication_in_asp_net_core/</link>
       <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://jnyman.com/2017/01/29/authentication_in_asp_net_core/</guid>
+      <guid>https://jnyman.com/2017/01/29/authentication_in_asp_net_core/</guid>
       <description>One thing that really got me frustrated in WebAPI 2.0 was creating custom authentication. Eventually I found a blog post by Rick Strahl that showed how to roll your own authentication/authorization. I wanted to implement a login (Basic Authentication) with username/password that would return a token for later (Bearer Authorization) use. It was quite simple but really frustrating because there wasn&amp;rsquo;t a whole lot of documentation on the subject.
 Now I want to do something similar for ASP.</description>
     </item>
