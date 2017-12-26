@@ -6,10 +6,21 @@
     <description>Recent content in Sql Server on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jnyman.com/tags/sql-server/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Retrieving Multiple JSON Arrays into Single SQL Table</title>
+      <link>https://jnyman.com/2017/12/26/retrieving_multiple_json_arrays_into_sql_table/</link>
+      <pubDate>Tue, 26 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jnyman.com/2017/12/26/retrieving_multiple_json_arrays_into_sql_table/</guid>
+      <description>Now that SQL Server is working better with JSON it is becoming easier to just put plain JSON into columns. It&amp;rsquo;s nice to be able to query the JSON directly in the database. The other day I was wanted to get a list of values in arrays. Here&amp;rsquo;s how I did it.
+First let&amp;rsquo;s set up the table:
+DECLARE @JSON TABLE ( JsonID INT PRIMARY KEY IDENTITY(1, 1) , JsonData nvarchar(max) NOT NULL );  Some test data:</description>
+    </item>
     
     <item>
       <title>Desert Code Camp 2017</title>

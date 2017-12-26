@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Asp.Net Core on JNyman.com</title>
+    <title>Asp.net Core on JNyman.com</title>
     <link>https://jnyman.com/tags/asp.net-core/</link>
-    <description>Recent content in Asp.Net Core on JNyman.com</description>
+    <description>Recent content in Asp.net Core on JNyman.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
