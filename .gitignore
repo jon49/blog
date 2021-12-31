@@ -1,6 +1,4 @@
-themes/
 node_modules/
-content/post/
+publish/
 public/
-!public/404.html
 
