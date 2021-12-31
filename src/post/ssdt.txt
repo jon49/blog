@@ -1,8 +1,0 @@
----
-title: SQL Server Data Tools
-tags:
-  - SSDT
-  - SQL
-  - Visual Studio
----
-

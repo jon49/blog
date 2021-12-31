@@ -1,0 +1,10 @@
+<a href="{{ .Permalink }}" class=ignore>
+    <div>
+        <time datetime="{{ .PublishDate }}">{{ i18n "publishdate" . }}</time>
+        <h2 style="color: black;" >{{ .Title }}</h2>
+        <div></div>
+        <p>
+            {{ if isset .Params "summary" }}{{ .Params.Summary | markdownify }}{{ else }}{{ .Summary }}{{ end }}
+        </p>
+    </div>
+</a>

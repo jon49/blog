@@ -1,0 +1,18 @@
+
+{{ define "main" }}
+{{ .Content }}
+
+<div style="display: flex; justify-content: space-between;">
+    {{- if .NextPage }}
+    <a href="{{ .NextPage.RelPermalink }}">{{ .NextPage.Title }}</a>
+    {{- else }}
+    <span>&nbsp;</span>
+    {{- end }}
+    {{- if .PrevPage }}
+    <a href="{{ .PrevPage.RelPermalink }}">{{ .PrevPage.Title }}</a>
+    {{- else }}
+    <span>&nbsp;</span>
+    {{- end }}
+</div>
+
+{{ end }}
