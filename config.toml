@@ -1,3 +1,5 @@
 baseURL = 'https://jnyman.com/'
 languageCode = 'en-us'
 theme = "custom"
+[renderer]
+    unsafe = true
