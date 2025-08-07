@@ -3,7 +3,7 @@ url: /progressive-enhancement/
 date: 2022-10-23
 title: Progressive Enhancement
 tags:
-  - progressive enhancement
+  - progressive-enhancement
 ---
 
 The idea behind progressive enhancement is that you start with a web page which
