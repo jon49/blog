@@ -3,13 +3,13 @@
 {{ .Content }}
 
 <div style="display: flex; justify-content: space-between;">
-    {{- if .NextPage }}
-    <a href="{{ .NextPage.RelPermalink }}">{{ .NextPage.Title }}</a>
+    {{- if .Next }}
+    <a href="{{ .Next.RelPermalink }}">{{ .Next.Title }}</a>
     {{- else }}
     <span>&nbsp;</span>
     {{- end }}
-    {{- if .PrevPage }}
-    <a href="{{ .PrevPage.RelPermalink }}">{{ .PrevPage.Title }}</a>
+    {{- if .Prev }}
+    <a href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a>
     {{- else }}
     <span>&nbsp;</span>
     {{- end }}
