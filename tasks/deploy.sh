@@ -1,8 +1,10 @@
 #!/bin/bash
 
+rm -rf public
+
 echo "Building the site..."
 # hugo build
-hugo -s . -d ./public --minify
+hugo --source . --destination ./public --minify
 
 echo "Deploying to the server..."
 rsync -avz --delete public/ $1:$2
