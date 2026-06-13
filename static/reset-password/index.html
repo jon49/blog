@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Reset Password — Nyman Apps</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        max-width: 28rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.5;
+      }
+      h1 { font-size: 1.5rem; }
+      label { display: block; margin-top: 1rem; font-weight: 600; }
+      input { width: 100%; padding: 0.5rem; font-size: 1rem; box-sizing: border-box; }
+      button { margin-top: 1.25rem; padding: 0.6rem 1rem; font-size: 1rem; cursor: pointer; }
+      .msg { margin-top: 1rem; padding: 0.75rem; border-radius: 0.375rem; }
+      .msg.err { background: #fde8e8; color: #9b1c1c; }
+      .msg.ok { background: #e6f4ea; color: #137333; }
+      @media (prefers-color-scheme: dark) {
+        .msg.err { background: #3b1414; color: #f7b2b2; }
+        .msg.ok { background: #10301a; color: #a6e3bb; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reset Password</h1>
+    <main></main>
+
+    <script>
+      (() => {
+        const main = document.querySelector("main");
+        const url = new URL(location.href);
+        // TrailBase's reset email links here with the JWT as `password_reset_code`.
+        const code =
+          url.searchParams.get("password_reset_code") || url.searchParams.get("token");
+        if (!code) {
+          main.innerHTML =
+            `<p class="msg err">A reset token is required. Please use the link from your password-reset email.</p>`;
+          return;
+        }
+
+        main.innerHTML = `
+<form id="reset">
+  <input type="hidden" name="password_reset_code" value="${code}">
+  <label for="password">New Password</label>
+  <input type="password" name="password" id="password" required autocomplete="new-password" minlength="8">
+  <small>At least 8 characters.</small>
+  <label for="password_repeat">Confirm New Password</label>
+  <input type="password" name="password_repeat" id="password_repeat" required autocomplete="new-password" minlength="8">
+  <button type="submit">Reset Password</button>
+  <div id="result"></div>
+</form>`;
+
+        const form = document.getElementById("reset");
+        const result = document.getElementById("result");
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          result.innerHTML = "";
+          const data = new FormData(form);
+          if (data.get("password") !== data.get("password_repeat")) {
+            result.innerHTML = `<p class="msg err">Passwords do not match.</p>`;
+            return;
+          }
+          if ((data.get("password") || "").length < 8) {
+            result.innerHTML = `<p class="msg err">Password must be at least 8 characters.</p>`;
+            return;
+          }
+          try {
+            const res = await fetch("/api/auth/v1/reset_password/update", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: new URLSearchParams(data),
+            });
+            if (res.ok) {
+              form.innerHTML =
+                `<p class="msg ok">Your password has been reset. You can now log in at ` +
+                `<a href="https://soccer.jnyman.com/login">soccer</a> or ` +
+                `<a href="https://weight.jnyman.com/login">weight</a>.</p>`;
+              return;
+            }
+            // Surface TrailBase's actual reason (e.g. "Password too short") instead of
+            // guessing. Body may be plain text or JSON.
+            let serverMsg = "";
+            try {
+              const raw = (await res.text()).trim();
+              try {
+                const j = JSON.parse(raw);
+                serverMsg = (j.message || j.error || "").trim();
+              } catch {
+                serverMsg = raw;
+              }
+            } catch {}
+            const esc = (s) =>
+              s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
+            let msg;
+            if (res.status >= 500) {
+              msg = "The server is temporarily unavailable. Please try again in a moment.";
+            } else if (serverMsg) {
+              msg = esc(serverMsg);
+            } else {
+              msg = "We couldn't reset your password — the link may have expired. " +
+                "Request a new reset email and try again.";
+            }
+            result.innerHTML = `<p class="msg err">${msg}</p>`;
+          } catch (err) {
+            result.innerHTML = `<p class="msg err">Network error: ${err.message}</p>`;
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
