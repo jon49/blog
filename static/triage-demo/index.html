@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triage app tour</title>
+<meta name="description" content="A clickable, made-up copy of a local work-triage app and Claude Code session console, with an explanation of each screen.">
+<style>
+:root{
+  --bg:#f6f5f1;--panel:#ffffff;--sunk:#ebe9e3;--ink:#1a1a18;--muted:#45433e;--line:#d3d0c7;--link:#1a4a80;--focus:#1a4a80;
+  --red:#8a1c14;--red-bg:#fbe9e7;--amber:#6b3d00;--amber-bg:#fff1d6;--green:#1b5527;--green-bg:#e3f2e6;
+  --blue:#1a4a80;--blue-bg:#e6eef8;--violet:#5a2d8c;--violet-bg:#f1eaf9;--term:#16171a;--term-ink:#e8e6e1;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15161a;--panel:#1e1f24;--sunk:#26272d;--ink:#ecebe7;--muted:#c3c0b8;--line:#3b3c43;--link:#9cc3ef;--focus:#9cc3ef;
+  --red:#ffb4aa;--red-bg:#3a1d1a;--amber:#f5c77e;--amber-bg:#33270f;--green:#9fdcaa;--green-bg:#18301e;
+  --blue:#9cc3ef;--blue-bg:#1b2838;--violet:#d0b4f5;--violet-bg:#2b2238;--term:#0d0e10;--term-ink:#e8e6e1;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#15161a;--panel:#1e1f24;--sunk:#26272d;--ink:#ecebe7;--muted:#c3c0b8;--line:#3b3c43;--link:#9cc3ef;--focus:#9cc3ef;
+  --red:#ffb4aa;--red-bg:#3a1d1a;--amber:#f5c77e;--amber-bg:#33270f;--green:#9fdcaa;--green-bg:#18301e;
+  --blue:#9cc3ef;--blue-bg:#1b2838;--violet:#d0b4f5;--violet-bg:#2b2238;--term:#0d0e10;--term-ink:#e8e6e1;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:0.9375rem/1.5 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow:hidden}
+a{color:var(--link);text-underline-offset:2px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:3px}
+code{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:0.85em;background:var(--sunk);padding:0.05em 0.3em;border-radius:3px;overflow-wrap:anywhere}
+h1{font-size:1.35rem;margin:0 0 0.2rem}
+h2{font-size:1.08rem;margin:1.6rem 0 0.5rem;padding-bottom:0.25rem;border-bottom:2px solid var(--line)}
+h3{font-size:0.98rem;margin:0}
+p{margin:0.35rem 0}
+
+.shell{height:100vh;display:grid;grid-template-columns:minmax(0,1fr) 22rem}
+.app-col{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--line)}
+#app{flex:1;overflow:auto;padding:1rem 1.1rem 3rem;min-width:0}
+@media (max-width:979px){
+  .shell{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+  .app-col{border-right:0;border-bottom:2px solid var(--line)}
+  #panel{max-height:42vh}
+  #panel.closed{max-height:none}
+  #panel.closed .pbody{display:none}
+  #app{padding:0.8rem 0.75rem 2rem}
+}
+
+/* top bar */
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:0.35rem 0.9rem;padding:0.5rem 1rem;background:var(--panel);border-bottom:1px solid var(--line)}
+.brand{font-weight:700;display:flex;align-items:center;gap:0.4rem;margin-right:0.3rem}
+.brand svg{width:1.2rem;height:1.2rem}
+.nav{display:flex;gap:0.2rem}
+.nav a{padding:0.25rem 0.6rem;border-radius:6px;text-decoration:none;color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--sunk);font-weight:600}
+.badge{display:inline-block;min-width:1.2rem;padding:0 0.35rem;border-radius:0.6rem;background:var(--red-bg);color:var(--red);font-size:0.75rem;font-weight:700;text-align:center;margin-left:0.25rem}
+.spacer{flex:1}
+.chip{border:1px solid var(--line);background:var(--sunk);border-radius:1rem;padding:0.15rem 0.7rem;font-size:0.82rem;cursor:pointer}
+.chip.off{background:transparent}
+.iconbtn{border:1px solid var(--line);background:transparent;border-radius:6px;padding:0.15rem 0.55rem;cursor:pointer;font-size:0.82rem}
+
+/* triage page */
+.tabs{display:flex;flex-wrap:wrap;gap:0.3rem;margin:0 0 0.9rem}
+.tabs a{padding:0.3rem 0.75rem;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--ink);background:var(--panel)}
+.tabs a[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sub{color:var(--muted);margin:0 0 0.6rem;font-size:0.88rem}
+.intro{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0.6rem 0.8rem;margin:0.6rem 0}
+.wrap{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-size:0.86rem}
+th,td{text-align:left;vertical-align:top;padding:0.3rem 0.45rem;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
+td.id{white-space:nowrap}
+.wi{color:var(--link);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0.7rem 0.85rem;margin:0.7rem 0;scroll-margin-top:1rem}
+.card header{display:flex;flex-wrap:wrap;gap:0.4rem 0.6rem;align-items:center;margin-bottom:0.3rem}
+.card .why{color:var(--muted);margin:0.1rem 0 0.5rem;font-size:0.88rem}
+.copy{margin-left:auto;border:1px solid var(--line);background:var(--sunk);border-radius:6px;padding:0.1rem 0.55rem;font-size:0.78rem;cursor:pointer}
+.tag{display:inline-block;font-size:0.72rem;font-weight:700;padding:0.05rem 0.5rem;border-radius:0.7rem;white-space:nowrap}
+.t0{color:var(--red);background:var(--red-bg)}.tA{color:var(--violet);background:var(--violet-bg)}.tC{color:var(--blue);background:var(--blue-bg)}
+.st{display:inline-block;font-size:0.72rem;font-weight:600;padding:0.02rem 0.45rem;border-radius:0.6rem;white-space:nowrap}
+.st-QA{color:var(--blue);background:var(--blue-bg)}.st-InProgress{color:var(--green);background:var(--green-bg)}
+.st-Approved{color:var(--ink);background:var(--sunk)}.st-Blocked{color:var(--red);background:var(--red-bg)}
+.banner{background:var(--red-bg);color:var(--red);border-radius:6px;padding:0.35rem 0.6rem;font-weight:600;margin:0.2rem 0 0.5rem;font-size:0.86rem}
+.box{border-radius:8px;padding:0.6rem 0.8rem;margin:0.7rem 0;border:1px solid var(--line);background:var(--panel)}
+.box.red{border:2px solid var(--red);background:var(--red-bg)}
+.box.red h3{color:var(--red)}
+.qh{font-size:0.9rem;margin:0.8rem 0 0.3rem}
+.wait{color:var(--amber);background:var(--amber-bg);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.84rem;margin:0.3rem 0 0}
+details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0.5rem 0.8rem;margin:0.6rem 0}
+summary{cursor:pointer;font-weight:600}
+ul,ol{padding-left:1.2rem;margin:0.3rem 0}
+.hl{animation:hl 1.6s ease-out 1}
+@keyframes hl{0%{box-shadow:0 0 0 4px var(--focus)}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.hl{animation:none;outline:3px solid var(--focus)}}
+
+/* sessions */
+.notices{display:flex;flex-direction:column;gap:0.35rem;margin:0 0 0.8rem}
+.notice{display:flex;align-items:flex-start;gap:0.5rem;background:var(--amber-bg);color:var(--amber);border-radius:8px;padding:0.4rem 0.6rem;font-size:0.86rem}
+.notice button.open{flex:1;text-align:left;background:none;border:0;color:inherit;cursor:pointer;padding:0}
+.notice .x{background:none;border:0;color:inherit;cursor:pointer;font-size:1rem;line-height:1}
+.cols{display:grid;grid-template-columns:15.5rem minmax(0,1fr);gap:0.9rem;align-items:start}
+@media (max-width:720px){.cols{grid-template-columns:minmax(0,1fr)}}
+.slist h3{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted);margin:0.7rem 0 0.3rem}
+.slist h3:first-child{margin-top:0}
+.scard{display:block;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0.4rem 0.55rem;margin:0 0 0.35rem;cursor:pointer}
+.scard[aria-current="true"]{border:2px solid var(--focus)}
+.scard b{display:block;font-size:0.88rem}
+.scard span{display:block;font-size:0.78rem;color:var(--muted)}
+.scard .state{display:inline-block;font-size:0.7rem}
+.state{display:inline-block;font-size:0.7rem;font-weight:700;border-radius:0.6rem;padding:0 0.45rem;margin-left:0.3rem;vertical-align:1px}
+.s-permission,.s-question{color:var(--red);background:var(--red-bg)}
+.s-your_turn{color:var(--violet);background:var(--violet-bg)}
+.s-working,.s-background{color:var(--green);background:var(--green-bg)}
+.s-ended{color:var(--muted);background:var(--sunk)}
+.newbtn{display:block;width:100%;margin:0 0 0.6rem;padding:0.4rem;border:1px dashed var(--line);border-radius:8px;background:transparent;cursor:pointer;font-weight:600}
+.detail{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0.75rem 0.9rem;min-width:0}
+.facts{display:flex;flex-wrap:wrap;gap:0.2rem 0.9rem;font-size:0.82rem;color:var(--muted);margin:0.2rem 0 0.6rem}
+.brief{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15rem);gap:0.8rem;margin:0.4rem 0 0.7rem}
+@media (max-width:1100px){.brief{grid-template-columns:minmax(0,1fr)}}
+.brief svg{width:100%;height:auto;background:var(--sunk);border-radius:8px}
+.plan{list-style:none;padding:0;margin:0.4rem 0 0}
+.plan li{font-size:0.85rem;padding-left:1.3rem;position:relative;margin:0.15rem 0}
+.plan li::before{position:absolute;left:0;font-weight:700}
+.plan .done{color:var(--muted)}.plan .done::before{content:"✓";color:var(--green)}
+.plan .now{font-weight:600}.plan .now::before{content:"▶";color:var(--violet)}
+.plan .todo::before{content:"○";color:var(--muted)}
+.reply{border:1px solid var(--line);border-radius:8px;padding:0.6rem 0.75rem;background:var(--bg);margin:0.5rem 0}
+.reply .rh{display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center;font-size:0.8rem;color:var(--muted);margin-bottom:0.3rem}
+.reply .rh .spacer{flex:1}
+.reply table{margin:0.4rem 0}
+.term{background:var(--term);color:var(--term-ink);font:0.78rem/1.45 Consolas,"Cascadia Mono",Menlo,monospace;border-radius:6px;padding:0.6rem;white-space:pre-wrap;overflow-wrap:anywhere;margin:0.4rem 0 0}
+.typebox{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.6rem}
+.typebox textarea{flex:1 1 14rem;min-height:2.4rem;border:1px solid var(--line);border-radius:6px;padding:0.35rem 0.5rem;background:var(--bg)}
+.keys{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.4rem}
+.btn{border:1px solid var(--line);background:var(--sunk);border-radius:6px;padding:0.2rem 0.65rem;cursor:pointer;font-size:0.84rem}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+.overlay{border:2px solid var(--focus);border-radius:10px;background:var(--panel);padding:0.8rem 1rem;margin:0 0 0.9rem}
+.field{margin:0.5rem 0}
+.field label{display:block;font-size:0.8rem;font-weight:600;color:var(--muted);margin-bottom:0.15rem}
+.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:6px;padding:0.3rem 0.45rem;background:var(--bg)}
+.radios{display:flex;flex-wrap:wrap;gap:0.3rem 0.9rem;font-size:0.88rem}
+.settings{max-width:34rem}
+.settings .row{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0.7rem 0.85rem;margin:0.6rem 0}
+
+/* explanation panel */
+#panel{background:var(--panel);overflow:auto;min-height:0;display:flex;flex-direction:column}
+.phead{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.phead .k{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted)}
+.phead .spacer{flex:1}
+.toggle{display:none}
+@media (max-width:979px){.toggle{display:inline-block}}
+.pbody{padding:0.6rem 1rem 1.2rem}
+.pbody h2{border:0;margin:0.1rem 0 0.5rem;padding:0;font-size:1.12rem}
+.pbody h4{font-size:0.74rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);margin:0.8rem 0 0.15rem}
+.pbody p{font-size:0.9rem}
+.next{margin:1rem 0 0.4rem;padding:0.55rem 0.7rem;background:var(--sunk);border-radius:8px;font-size:0.9rem}
+.next a{font-weight:600}
+.pbody svg{width:100%;height:auto;margin:0.5rem 0}
+.stops{font-size:0.85rem;margin-top:0.8rem}
+.stops ol{padding-left:1.4rem}
+.stops a[aria-current="true"]{font-weight:700;color:var(--ink)}
+.seen{font-size:0.78rem;color:var(--muted);margin-top:0.4rem}
+
+#toast{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);max-width:min(30rem,calc(100vw - 2rem));background:var(--ink);color:var(--bg);padding:0.5rem 0.85rem;border-radius:8px;font-size:0.86rem;box-shadow:0 4px 16px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.show{opacity:1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="app-col">
+    <div class="top" id="top"></div>
+    <main id="app" tabindex="-1"></main>
+  </div>
+  <aside id="panel" aria-label="What you are looking at"></aside>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+const CONTRAST = {
+  text: ['--ink', '--muted', '--link'],
+  surfaces: ['--bg', '--panel', '--sunk'],
+  pairs: [['--red', '--red-bg'], ['--amber', '--amber-bg'], ['--green', '--green-bg'], ['--blue', '--blue-bg'],
+          ['--violet', '--violet-bg'], ['--ink', '--sunk'], ['--bg', '--ink'], ['--term-ink', '--term'], ['--muted', '--sunk']],
+};
+window.CONTRAST = CONTRAST;
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const wi = (id) => `<span class="wi">#${id}</span>`;
+const linkIds = (s) => s.replace(/#(\d{4})\b/g, (_, id) => wi(id));
+const PORT = 'http://localhost:8765';
+
+/* ---------------- invented data ---------------- */
+const DATA = {
+  projects: {
+    storefront: {
+      name: 'Storefront', sprint: 'Sprint 22 (Nov 10 → Nov 21, day 4)', synced: 'synced 2 minutes ago',
+      intro: 'The web shop. Priya owns the stories; Marco tests. Ship gift cards before the holiday sale on Nov 24.',
+      tiers: [
+        { tag: '0', cls: 't0', name: 'Priority 0: unblock (QA, reviews and answers that need you)', cards: [
+          { slug: 'qa-handoff', title: 'Your QA work: 2 items in QA', why: 'The last sweep closed two items. These two are still with you.', items: [
+            [4203, 'Order confirmation email shows the wrong delivery date', 'QA', 'With Marco: test guide, test order and 3 marked-up screenshots posted.'],
+            [4206, 'Search ignores accents (café / cafe)', 'QA', 'Every AC is carried by a named test. Waiting on your go to close it.'],
+          ] },
+        ] },
+        { tag: 'A', cls: 'tA', name: 'Priority A: Priya’s stories', cards: [
+          { slug: 'gift-cards', title: 'Gift cards and discount codes', why: 'All three touch <code>CheckoutTotals</code> and the same two tables, so one session carries the context. Do #4214 first: the other two build on its order of operations.', items: [
+            [4214, 'Gift cards can’t be combined with a discount code', 'In Progress', '<code>storefront~2</code> is on it. Unit tests green; E2E next.'],
+            [4215, 'Show the remaining gift-card balance at checkout', 'Approved', 'Small: one API field plus the summary line.'],
+            [4217, 'Refund a gift-card purchase to the card, not to cash', 'Blocked', 'Waiting on Priya (see below).'],
+          ] },
+          { slug: 'search', title: 'Search: speed and spelling', why: 'Both change the search service. #4222 needs the new index from #4221, so keep the order.', items: [
+            [4221, 'Suggest a spelling when a search finds nothing', 'In Progress', '<code>storefront</code> is running the tests.'],
+            [4222, 'Search results page loads in under 300 ms', 'Approved', 'Baseline measured last sprint: 640 ms on staging.'],
+          ] },
+        ] },
+        { tag: 'C', cls: 'tC', name: 'Priority C: everything else', cards: [
+          { slug: 'checkout-cleanup', title: 'Checkout code: dead code and test gaps', why: 'Safe to do any time; don’t start it while the gift-cards session is open, because it edits the same folder.', items: [
+            [4230, 'Remove the old CartSummary component', 'Approved', 'Imported nowhere since the redesign.'],
+            [4231, 'Add tests for the tax rounding rules', 'Approved', 'Three known edge cases are listed in the story.'],
+          ] },
+        ] },
+      ],
+      grabs: [[4240, 'Wishlist share link expires after 24 hours', 'Sprint 22'], [4241, 'Book covers are missing alt text', 'Backlog']],
+      waits: [
+        ['Priya', [[4217, 'Should a refunded gift card get a new code, or keep the old one?', 'since Nov 11']]],
+        ['Marco', [[4203, 'Needs a test account on staging with a saved address.', 'since Nov 12']]],
+      ],
+      others: [[4219, 'Rewrite the cart’s price formatting', 'In Progress', 'Sam'], [4225, 'Upgrade the payment provider’s SDK', 'Approved', 'Lee']],
+      sweep: { date: 'Nov 12', text: 'Two PRs merged and deployed in build 512; every stage passed. <b>Closed:</b> #4201 and #4205 (database only, every AC carried by a named test that failed before the fix). <b>To Marco with screenshots:</b> #4203. <b>Stays with you:</b> #4206 (needs your go). Every item got a comment.' },
+      rules: [
+        'Done: every AC is carried by evidence Claude can check itself, and no user can see the change.',
+        'To Marco: anything a user can see, with a step-by-step guide, named test data and marked-up screenshots.',
+        'Stays with you: a decision, a code change, or a measurement no tester can make.',
+        'Check tests by name, never by a total. Match the deployed commit, not the version string.',
+      ],
+    },
+    warehouse: {
+      name: 'Warehouse', sprint: 'Sprint 22 (Nov 10 → Nov 21, day 4)', synced: 'synced 2 minutes ago',
+      intro: 'The stock and shipping service behind the shop. Priya owns the stories; Lee owns the returns queue.',
+      tiers: [
+        { tag: 'A', cls: 'tA', name: 'Priority A: Priya’s stories', cards: [
+          { slug: 'stock-sync', title: 'Stock levels and reservations', blocked: true, why: 'Both change how stock is counted. Nothing can move until the two answers below come back.', items: [
+            [4245, 'Stock levels drift after a partial return', 'Blocked', 'Waiting on Lee: which service owns the returns queue?'],
+            [4246, 'Reserve stock when an order is paid, not when it ships', 'Blocked', 'Waiting on Priya: what happens to reserved stock on a failed payment?'],
+          ] },
+          { slug: 'low-stock-emails', title: 'Low-stock emails', why: '#4250 is a bug in the job that #4251 replaces, so fix it first and keep the fix small.', items: [
+            [4250, 'Low-stock email goes out twice', 'In Progress', '<code>warehouse</code> has a PR up. Your turn to read it.'],
+            [4251, 'Batch low-stock emails into one daily digest', 'Approved', 'Design agreed with Priya on Nov 10.'],
+          ] },
+        ] },
+      ],
+      grabs: [[4253, 'Shipping label PDF cuts off long street names', 'Sprint 22']],
+      waits: [
+        ['Lee', [[4245, 'Which service owns the returns queue?', 'since Nov 12']]],
+        ['Priya', [[4246, 'What happens to reserved stock when a payment fails?', 'since Nov 12']]],
+      ],
+      others: [[4252, 'Move the nightly stock report to the new scheduler', 'In Progress', 'Lee']],
+      sweep: { date: 'Nov 12', text: 'Nothing new in QA since the last sweep. #4244 closed (a log-only change, checked against the deployed build).' },
+      rules: ['Same as Storefront, plus: anything that touches stock counts goes to Marco even if no screen changed.'],
+    },
+    mobile: {
+      name: 'Mobile', sprint: 'Sprint 22 (Nov 10 → Nov 21, day 4)', synced: 'synced 2 minutes ago',
+      intro: 'The reading app. Priya owns the stories; Marco tests on two phones.',
+      orphans: [[4258, 'Dark mode: book covers lose their border', 'Approved', 'Assigned to you this morning']],
+      tiers: [
+        { tag: 'A', cls: 'tA', name: 'Priority A: Priya’s stories', cards: [
+          { slug: 'offline-list', title: 'Offline reading list', why: 'One storage change carries all three. <code>mobile</code> is brainstorming the storage choice with you now.', items: [
+            [4255, 'Keep the reading list when the phone is offline', 'In Progress', 'Question waiting for you in the session console.'],
+            [4256, 'Sync reading-list changes made offline', 'Approved', 'Depends on #4255’s storage choice.'],
+            [4257, 'Show which books are available offline', 'Approved', 'A badge on the cover; screenshots for Marco.'],
+          ] },
+        ] },
+      ],
+      grabs: [],
+      waits: [],
+      others: [[4259, 'Update the app icon for the holiday sale', 'In Progress', 'Sam']],
+      sweep: { date: 'Nov 11', text: 'Two items to Marco with screenshots from both phones. Nothing closed: every change was visible to users.' },
+      rules: ['Same as Storefront, plus: screenshots from both test phones for anything a user can see.'],
+    },
+  },
+  claims: [
+    ['desktop', 'storefront~2', 'E2E for #4214', '10:42', 'warehouse (E2E for #4250)'],
+    ['sql:local', 'warehouse', 'Integration tests for #4250', '10:31', '—'],
+    ['item:4214', 'storefront~2', 'Building it', '09:58', '—'],
+    ['item:4221', 'storefront', 'Building it', '09:20', '—'],
+    ['item:4250', 'warehouse', 'Building it', '09:05', '—'],
+  ],
+  messages: [
+    ['10:44', 'warehouse', 'storefront', 'I’m adding a column to the stock table in migration 0042. Rebase before you touch it.'],
+    ['10:12', 'storefront~2', 'storefront', 'I claimed #4214. #4215 is free if you want more work from the gift-cards card.'],
+    ['09:02', 'triage', 'all', 'Restarting the triage server in a few seconds. Retry a failed tool call once it’s back.'],
+  ],
+  sessions: {
+    'storefront~2': { project: 'Storefront', state: 'permission', label: 'needs permission', since: '2 min', item: 4214,
+      branch: 'you/4214-gift-card-discounts', last: 'Bash: npm run e2e -- checkout',
+      summary: 'Lets a gift card and a discount code be used on the same order: the discount applies first, then the gift card pays what’s left. Unit tests are green; running the checkout E2E tests now, with the desktop claimed.',
+      plan: [['done', 'Reproduce: a test that fails with both applied'], ['done', 'Apply the discount before the gift card in CheckoutTotals'], ['now', 'Run the checkout E2E tests (desktop claimed)'], ['todo', 'Open the PR, linked to #4214']],
+      pic: 'flow',
+      screen: '● Bash(npm run e2e -- checkout)\n\n  Do you want to proceed?\n  ❯ 1. Yes\n    2. Yes, and don’t ask again for npm run e2e\n    3. No, and tell Claude what to do differently',
+      replies: ['<p>The failing test now passes. The discount is applied before the gift card, so a $50 card on a $60 order with 10% off leaves <b>$4.00</b> to pay, not $0.</p>'] },
+    mobile: { project: 'Mobile', state: 'question', label: 'question', since: '6 min', item: 4255,
+      branch: 'you/4255-offline-reading-list', last: 'AskUserQuestion',
+      summary: 'Keeps the reading list on the phone so it works offline. Brainstorming: which storage to use before any code is written.',
+      plan: [['done', 'Read the three stories on the card'], ['now', 'Agree on the storage with you'], ['todo', 'Failing test: list survives a restart offline'], ['todo', 'Build it, then #4256 and #4257']],
+      pic: 'question',
+      screen: 'Which storage should the offline reading list use?\n\n❯ 1. SQLite on the device (recommended): handles #4256’s sync log too\n  2. The key-value store the app already uses: simpler, but no queries\n  3. Type something else',
+      replies: ['<p>Before I write anything: the offline list needs somewhere to live on the phone. Option 1 also gives #4256 a place for its sync log, so I’d pick it.</p>'] },
+    warehouse: { project: 'Warehouse', state: 'your_turn', label: 'your turn', since: '4 min', item: 4250,
+      branch: 'you/4250-low-stock-email-twice', last: 'create_pr',
+      summary: 'Stops the low-stock email from going out twice. Fixed, tested and PR 321 is up; waiting on you to read it.',
+      plan: [['done', 'Reproduce: two emails for one stock change'], ['done', 'Send from the stock-change hook only'], ['done', 'Full suite green'], ['done', 'PR 321, linked to #4250']],
+      pic: 'pr',
+      screen: '❯ ',
+      replies: [
+        '<p><b>#4250 is fixed, and PR 321 is up</b>, linked to #4250.</p><p>The email went out twice because both the nightly job and the stock-change hook sent it. The hook now sends it and the nightly job only logs.</p><div class="wrap"><table><thead><tr><th>Check</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td>New test <code>LowStock_SendsOneEmail</code></td><td>failed (2 emails)</td><td>passes</td></tr><tr><td>Full suite</td><td>—</td><td>418 / 418</td></tr></tbody></table></div><p>One thing for later: the digest in #4251 can reuse the hook. I added a note to the story instead of building it now.</p>',
+        '<p>I can reproduce it: one stock change produces two emails, 40 ms apart. Both senders read the same threshold. Writing the failing test next.</p>',
+        '<p>Starting #4250 from the low-stock-emails card. Claimed <code>item:4250</code> and <code>sql:local</code>.</p>'] },
+    storefront: { project: 'Storefront', state: 'working', label: 'working', since: '1 min', item: 4221,
+      branch: 'you/4221-spelling-suggestions', last: 'Bash: dotnet test --filter Search',
+      summary: 'Suggests a spelling when a search finds nothing (“tolkein” → “Tolkien”). Writing the suggestion index; tests running.',
+      plan: [['done', 'Failing test: no-result search returns a suggestion'], ['now', 'Build the suggestion index'], ['todo', 'Measure: still under 300 ms'], ['todo', 'Open the PR']],
+      pic: 'flow2', screen: '● Running 37 tests in Search.Tests…',
+      replies: ['<p>The failing test is in. Building the suggestion index from the catalogue’s titles and authors next.</p>'] },
+    triage: { project: 'Tools', state: 'background', label: 'working in background', since: '9 min', item: null,
+      branch: 'main', last: 'Bash (background): python3 -m unittest',
+      summary: 'Adds a date and time to each notice in the strip. The test suite is running in the background.',
+      plan: [['done', 'Show the time on each notice'], ['now', 'Full test suite'], ['todo', 'Commit']],
+      pic: 'flow3', screen: '● Background: python3 -m unittest (running)',
+      replies: ['<p>Done with the change; the full suite is running in the background. I’ll report when it finishes.</p>'] },
+    'mobile@3f9a21c0': { project: 'Mobile', state: 'ended', label: 'ended 08:15', since: '', item: 4254,
+      branch: 'you/4254-crash-on-empty-shelf', last: 'SessionEnd',
+      summary: 'Fixed a crash when the bookshelf is empty. PR merged yesterday; this session was the QA follow-up.',
+      plan: [['done', 'Failing test'], ['done', 'Fix'], ['done', 'PR merged']],
+      pic: 'pr', screen: '(ended)',
+      replies: ['<p>Marco confirmed the fix on both phones. #4254 is in QA with his notes.</p>'] },
+  },
+  groups: [['Needs you', ['storefront~2', 'mobile']], ['Stopped: your turn', ['warehouse']], ['Working', ['storefront', 'triage']], ['Ended today', ['mobile@3f9a21c0']]],
+  notices: [
+    { id: 'm1', kind: '@-mention', text: 'Priya on #4217: “A new code, yes. The old one should stop working.”', when: 'Nov 13 · 09:12', project: 'storefront', prompt: 'Read Priya’s comment on #4217 and tell me what it changes. Don’t reply to it.' },
+    { id: 'r1', kind: 'Review requested', text: 'PR 318 “Batch low-stock emails” by Lee', when: 'Nov 13 · 08:40', project: 'warehouse', prompt: 'Review PR 318 and tell me what you find. Don’t comment, vote or change it.' },
+  ],
+};
+
+/* ---------------- state ---------------- */
+const state = {
+  key: '', seen: new Set(), timer: { on: true, agent: 'storefront~2', started: Date.now() - 42 * 60000 },
+  dismissed: new Set(), replyIdx: {}, prefill: null, panelOpen: true, fontPct: 100,
+};
+let EMBEDDED = false;
+try { EMBEDDED = window.top !== window.self; } catch (e) { EMBEDDED = true; }
+
+/* ---------------- pictures ---------------- */
+const SVG_STYLE = '<style>.bx{fill:var(--panel);stroke:var(--muted);stroke-width:1.5}.tx{fill:var(--ink);font:13px "Segoe UI",system-ui,sans-serif}.ar{stroke:var(--muted);stroke-width:1.5;fill:none}.hi{fill:var(--violet-bg);stroke:var(--violet);stroke-width:2}.ht{fill:var(--violet);font:600 13px "Segoe UI",system-ui,sans-serif}</style>';
+function boxes(labels, hiIdx) {
+  const w = 300, h = 46 + labels.length * 54;
+  let s = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(labels.join(', then '))}">${SVG_STYLE}`;
+  labels.forEach((l, i) => {
+    const y = 16 + i * 54, hi = i === hiIdx;
+    s += `<rect class="${hi ? 'hi' : 'bx'}" x="40" y="${y}" width="220" height="36" rx="8"/><text class="${hi ? 'ht' : 'tx'}" x="150" y="${y + 23}" text-anchor="middle">${esc(l)}</text>`;
+    if (i < labels.length - 1) s += `<path class="ar" d="M150 ${y + 36} V ${y + 52}"/><path class="ar" d="M144 ${y + 46} L150 ${y + 53} L156 ${y + 46}"/>`;
+  });
+  return s + '</svg>';
+}
+const PICS = {
+  flow: () => boxes(['Cart total  $60.00', '− 10% discount  $54.00', '− gift card $50  $4.00', 'To pay  $4.00'], 2),
+  flow2: () => boxes(['Search “tolkein”', '0 results', 'Nearest title/author', 'Did you mean “Tolkien”?'], 2),
+  flow3: () => boxes(['Notice arrives', 'Stored with its time', 'Strip shows “09:12”'], 1),
+  question: () => boxes(['Reading list', 'Storage? (your call)', '#4256 sync log', '#4257 offline badge'], 1),
+  pr: () => boxes(['Failing test', 'Fix', 'Suite green', 'PR open, linked'], 3),
+};
+const ARCH = `<svg viewBox="0 0 320 250" role="img" aria-label="The tracker syncs into SQLite; one Python server reads it to serve the page and MCP tools; Claude sessions call the tools and report through hooks.">${SVG_STYLE}
+<rect class="bx" x="10" y="10" width="130" height="40" rx="8"/><text class="tx" x="75" y="35" text-anchor="middle">Tracker (REST)</text>
+<rect class="bx" x="10" y="100" width="130" height="40" rx="8"/><text class="tx" x="75" y="125" text-anchor="middle">SQLite file</text>
+<rect class="hi" x="180" y="100" width="130" height="40" rx="8"/><text class="ht" x="245" y="125" text-anchor="middle">Python server</text>
+<rect class="bx" x="180" y="10" width="130" height="40" rx="8"/><text class="tx" x="245" y="35" text-anchor="middle">This page</text>
+<rect class="bx" x="180" y="195" width="130" height="44" rx="8"/><text class="tx" x="245" y="215" text-anchor="middle">Claude sessions</text><text class="tx" x="245" y="231" text-anchor="middle">(4–7 at once)</text>
+<path class="ar" d="M75 50 V 98"/><path class="ar" d="M69 90 L75 98 L81 90"/><text class="tx" x="82" y="80">sync</text>
+<path class="ar" d="M142 120 H 178"/><path class="ar" d="M150 114 L142 120 L150 126"/>
+<path class="ar" d="M245 100 V 52"/><path class="ar" d="M239 60 L245 52 L251 60"/>
+<path class="ar" d="M235 142 V 193"/><path class="ar" d="M229 150 L235 142 L241 150"/><path class="ar" d="M229 185 L235 193 L241 185"/><text class="tx" x="120" y="172">MCP tools</text>
+<path class="ar" d="M265 193 V 142"/><path class="ar" d="M259 150 L265 142 L271 150"/><text class="tx" x="272" y="172">hooks</text>
+</svg>`;
+
+/* ---------------- views ---------------- */
+const CLOCK = '<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" style="vertical-align:-1px"><circle cx="8" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 6v3.5l2 1.3M6 1.5h4" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>';
+function timerLabel() {
+  const t = state.timer;
+  if (!t.on) return `${CLOCK} timer off`;
+  const mins = Math.floor((Date.now() - t.started) / 60000);
+  return `${CLOCK} ${esc(t.agent)} · ${Math.floor(mins / 60)}:${String(mins % 60).padStart(2, '0')}`;
+}
+function topBar() {
+  const view = SCREENS[state.key].view;
+  const needs = DATA.groups[0][1].filter((a) => DATA.sessions[a].state === 'permission' || DATA.sessions[a].state === 'question').length;
+  const t = state.timer;
+  const cur = (v) => (view === v ? ' aria-current="page"' : '');
+  const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  return `<span class="brand"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="4" fill="var(--ink)"/><path d="M5 7h10M5 10h7M5 13h9" stroke="var(--bg)" stroke-width="2"/></svg>Triage</span>
+  <nav class="nav" aria-label="Pages"><a href="#triage/storefront"${cur('triage')}>Triage</a><a href="#sessions"${cur('sessions')}>Sessions${needs ? `<span class="badge" aria-label="${needs} need you">${needs}</span>` : ''}</a><a href="#settings"${cur('settings')}>Settings</a></nav>
+  <span class="spacer"></span>
+  <button class="chip${t.on ? '' : ' off'}" id="timer" data-act="timer" title="Your time on a session. Click to ${t.on ? 'stop' : 'start'}.">${timerLabel()}</button>
+  <button class="iconbtn" data-act="theme" aria-label="Switch to ${dark ? 'light' : 'dark'} theme">${dark ? '☀ Light' : '☾ Dark'}</button>`;
+}
+
+function stateChip(s) { return `<span class="st st-${s.replace(/\s/g, '')}">${s}</span>`; }
+function itemRows(items) {
+  return items.map(([id, title, st, note]) => `<tr><td class="id">${wi(id)}</td><td>${esc(title)}</td><td>${stateChip(st)}</td><td>${linkIds(note)}</td></tr>`).join('');
+}
+function triagePage(pk) {
+  const tabs = ['storefront', 'warehouse', 'mobile'].map((k) => `<a href="#triage/${k}"${k === pk ? ' aria-current="page"' : ''}>${DATA.projects[k].name}</a>`).join('')
+    + `<a href="#coordination"${pk === 'coordination' ? ' aria-current="page"' : ''}>Coordination</a>`;
+  if (pk === 'coordination') return `<nav class="tabs" aria-label="Projects">${tabs}</nav>${coordination()}`;
+  const p = DATA.projects[pk];
+  let n = 0;
+  const glance = p.tiers.flatMap((t) => t.cards.map((c) => `<tr><td>${++n}</td><td><span class="tag ${t.cls}">${t.tag}</span></td><td><a href="#triage/${pk}/${c.slug}">${esc(c.title)}</a></td><td>${c.items.map((i) => wi(i[0])).join(' ')}</td></tr>`)).join('');
+  n = 0;
+  const tiers = p.tiers.map((t) => `<h2>${esc(t.name)}</h2>` + t.cards.map((c) => `
+    <section class="card" id="c-${c.slug}">
+      <header><span class="tag ${t.cls}">${t.tag} · ${++n}</span><h3>${esc(c.title)}</h3>
+      <button class="copy" data-copy="Start ${PORT}/#${pk}/${c.slug}" title="Copy a start line for a new Claude session">copy start line</button></header>
+      ${c.blocked ? '<div class="banner">BLOCKED: every item here is waiting on someone. Pick another session.</div>' : ''}
+      <p class="why">${linkIds(c.why)}</p>
+      <div class="wrap"><table><thead><tr><th>ID</th><th>Title</th><th>State</th><th>Notes</th></tr></thead><tbody>${itemRows(c.items)}</tbody></table></div>
+    </section>`).join('')).join('');
+  const orphans = p.orphans ? `<div class="box red" id="orphans"><h3>Not on a session card yet</h3><p>Every open item of yours belongs on exactly one card.</p><div class="wrap"><table><tbody>${itemRows(p.orphans)}</tbody></table></div></div>` : '';
+  const grabs = p.grabs.length ? `<div class="wrap"><table><thead><tr><th>ID</th><th>Title</th><th>Where</th></tr></thead><tbody>${p.grabs.map(([id, t, w]) => `<tr><td class="id">${wi(id)}</td><td>${esc(t)}</td><td>${w}</td></tr>`).join('')}</tbody></table></div>` : '<p class="sub">Nothing right now.</p>';
+  const waits = p.waits.map(([who, rows]) => `<h3 class="qh">Waiting on ${who}</h3>${rows.map(([id, q, since]) => `<p class="wait">${wi(id)} ${esc(q)} <span>(${since})</span></p>`).join('')}`).join('');
+  const others = `<h3 class="qh">Other people’s Approved and In Progress items</h3><div class="wrap"><table><tbody>${p.others.map(([id, t, st, who]) => `<tr><td class="id">${wi(id)}</td><td>${esc(t)}</td><td>${stateChip(st)}</td><td>${who}</td></tr>`).join('')}</tbody></table></div>`;
+  return `<nav class="tabs" aria-label="Projects">${tabs}</nav>
+  <h1>${p.name}: your open work</h1>
+  <p class="sub">${p.sprint} · ${p.synced} · <button class="btn" data-toast="In the real app this pulls the latest work items, comments and builds from the tracker into the database.">Sync</button></p>
+  <div class="intro">${esc(p.intro)}</div>
+  ${orphans}
+  <h2 id="glance">Priority order at a glance</h2>
+  <div class="wrap"><table><thead><tr><th>#</th><th>Pri</th><th>Session</th><th>Items</th></tr></thead><tbody>${glance}</tbody></table></div>
+  ${tiers}
+  <section id="grabs"><h2>Up for grabs: Approved, nobody assigned</h2>${grabs}
+  <h2>With others</h2>${waits}${others}</section>
+  <section id="sweep"><h2>Latest QA sweep (${p.sweep.date})</h2><div class="box">${linkIds(p.sweep.text)}</div>
+  <h2>Standing brief</h2><details open><summary>Sweep rules for ${p.name}</summary><ul>${p.rules.map((r) => `<li>${esc(r)}</li>`).join('')}</ul></details></section>`;
+}
+function coordination() {
+  const who = Object.entries(DATA.sessions).filter(([, s]) => s.state !== 'ended').map(([a, s]) => `<tr><td><code>${esc(a)}</code></td><td>${s.project}</td><td>${s.item ? wi(s.item) : '—'}</td><td>${esc(s.last)}</td></tr>`).join('');
+  return `<h1>Coordination</h1><p class="sub">Every Claude session, in every checkout and project, through one server.</p>
+  <h2>Claims</h2><div class="wrap"><table><thead><tr><th>Resource</th><th>Held by</th><th>Purpose</th><th>Since</th><th>Queue</th></tr></thead><tbody>${DATA.claims.map((c) => `<tr><td><code>${c[0]}</code></td><td><code>${c[1]}</code></td><td>${linkIds(esc(c[2]))}</td><td>${c[3]}</td><td>${linkIds(esc(c[4]))}</td></tr>`).join('')}</tbody></table></div>
+  <h2>Messages</h2><div class="wrap"><table><thead><tr><th>Time</th><th>From</th><th>To</th><th>Message</th></tr></thead><tbody>${DATA.messages.map((m) => `<tr><td>${m[0]}</td><td><code>${m[1]}</code></td><td><code>${m[2]}</code></td><td>${esc(m[3])}</td></tr>`).join('')}</tbody></table></div>
+  <h2>Who</h2><div class="wrap"><table><thead><tr><th>Agent</th><th>Project</th><th>Item</th><th>Last action</th></tr></thead><tbody>${who}</tbody></table></div>`;
+}
+
+function sessionsPage(agent, overlay) {
+  const notices = DATA.notices.filter((n) => !state.dismissed.has(n.id)).map((n) => `<div class="notice"><button class="open" data-notice="${n.id}"><b>${n.kind}</b> · ${linkIds(esc(n.text))} <span>· ${n.when}</span></button><button class="x" data-dismiss="${n.id}" aria-label="Dismiss">×</button></div>`).join('');
+  const list = DATA.groups.filter(([, agents]) => agents.length).map(([g, agents]) => `<h3>${g}</h3>` + agents.map((a) => {
+    const s = DATA.sessions[a];
+    return `<button class="scard" data-session="${esc(a)}"${a === agent ? ' aria-current="true"' : ''}><b>${esc(a)}<span class="state s-${s.state}">${s.label}</span></b><span>${s.project}${s.item ? ' · #' + s.item : ''}${s.since ? ' · ' + s.since : ''}</span><span>${esc(s.last)}</span></button>`;
+  }).join('')).join('');
+  return `<div class="notices" id="notices" aria-label="Notices from the tracker">${notices || '<p class="sub">No notices.</p>'}</div>
+  ${overlay ? newSession() : ''}
+  <div class="cols"><div class="slist" id="slist"><button class="newbtn" data-go="sessions/new">+ New session</button>${list}</div>${detail(agent)}</div>`;
+}
+function detail(agent) {
+  const s = DATA.sessions[agent];
+  const i = state.replyIdx[agent] || 0;
+  const open = s.state === 'permission' || s.state === 'question';
+  const ended = s.state === 'ended';
+  return `<section class="detail" id="detail" aria-label="Session ${esc(agent)}">
+    <h3><code>${esc(agent)}</code> <span class="state s-${s.state}">${s.label}</span></h3>
+    <div class="facts"><span>${s.project}</span>${s.item ? `<span>${wi(s.item)}</span>` : ''}<span>branch <code>${esc(s.branch)}</code></span><span>last: ${esc(s.last)}</span></div>
+    <div class="brief"><div><p>${linkIds(esc(s.summary))}</p><ul class="plan">${s.plan.map(([st, step]) => `<li class="${st}">${linkIds(esc(step))}</li>`).join('')}</ul></div><div>${PICS[s.pic]()}</div></div>
+    <div class="reply" id="reply"><div class="rh"><b>${i === 0 ? 'Last reply' : 'Earlier reply'}</b><span>${i + 1} of ${s.replies.length}</span><span class="spacer"></span>
+      <button class="btn" data-reply="1" ${i >= s.replies.length - 1 ? 'disabled' : ''}>◀ Older</button><button class="btn" data-reply="-1" ${i === 0 ? 'disabled' : ''}>Newer ▶</button>
+      <button class="btn" data-toast="In the real app this opens the reply in a large reader window.">Expand</button></div>${linkIds(s.replies[i])}</div>
+    <details ${open ? 'open' : ''}><summary>Screen</summary><div class="term">${esc(s.screen)}</div></details>
+    ${ended ? `<p><button class="btn primary" data-toast="In the real app this runs claude --resume with this session’s id in a new tmux session.">Resume</button></p>` : `
+    <div class="typebox"><textarea aria-label="Type to the session" placeholder="Type to ${esc(agent)}…"></textarea><button class="btn primary" data-act="type">Type</button><button class="btn" data-act="message">Message</button></div>
+    <div class="keys" aria-label="Keys">${['1', '2', '3', 'Enter', 'Esc'].map((k) => `<button class="btn" data-key="${k}">${k}</button>`).join('')}<span class="spacer"></span><button class="btn" data-toast="In the real app this types /exit, then closes the tmux session. Only End ever closes a session.">End</button></div>`}
+  </section>`;
+}
+function newSession() {
+  const pre = state.prefill || {};
+  const cards = Object.values(DATA.projects).flatMap((p) => p.tiers.flatMap((t) => t.cards.map((c) => `<option>${p.name}: ${esc(c.title)}</option>`))).join('');
+  return `<section class="overlay" id="newsession" aria-label="New session"><h3>New session</h3>
+    <div class="field"><label for="ns-co">Checkout</label><select id="ns-co">${['storefront', 'storefront-2', 'warehouse', 'mobile'].map((c) => `<option ${pre.project === c ? 'selected' : ''}>C:\\code\\${c}</option>`).join('')}</select></div>
+    <div class="field"><label>Start with</label><div class="radios">${['A card', 'A work item', 'A prompt', 'A command'].map((r, i) => `<label><input type="radio" name="ns-kind" ${(pre.prompt ? i === 2 : i === 0) ? 'checked' : ''}> ${r}</label>`).join('')}</div></div>
+    <div class="field"><label for="ns-card">Card</label><select id="ns-card">${cards}</select></div>
+    <div class="field"><label for="ns-cmd">Command</label><select id="ns-cmd"><option>/qa-sweep storefront</option><option>/pr-review</option><option>/timesheet</option></select></div>
+    <div class="field"><label for="ns-prompt">Prompt</label><textarea id="ns-prompt" rows="2">${esc(pre.prompt || '')}</textarea></div>
+    <p><button class="btn primary" data-toast="In the real app this starts claude in a tmux session in that checkout, with the start line or prompt as its first message.">Start</button> <button class="btn" data-go="sessions">Cancel</button></p></section>`;
+}
+function settingsPage() {
+  const th = document.documentElement.dataset.theme || 'system';
+  return `<div class="settings"><h1>Settings</h1><p class="sub">Kept in the browser. Here, only for this visit.</p>
+  <div class="row"><label for="fs"><b>Text size</b>: <span id="fsv">${state.fontPct}%</span></label><br><input id="fs" type="range" min="80" max="200" step="10" value="${state.fontPct}" style="width:100%"></div>
+  <div class="row"><label><input type="checkbox" id="notify"> <b>Notify me</b></label><p class="sub">A browser notification when a session needs you, or a mention or review request arrives.</p></div>
+  <div class="row"><b>Theme</b><div class="radios">${['system', 'light', 'dark'].map((t) => `<label><input type="radio" name="theme" value="${t}" ${th === t ? 'checked' : ''}> ${t[0].toUpperCase() + t.slice(1)}</label>`).join('')}</div></div></div>`;
+}
+
+/* ---------------- screens and their explanations ---------------- */
+const tri = (pk, focus) => ({ view: 'triage', render: () => triagePage(pk), focus });
+const ses = (agent, focus, overlay) => ({ view: 'sessions', render: () => sessionsPage(agent, overlay), focus });
+const P = (title, day, built, next, nextLabel, extra = '') => ({ title, day, built, next, nextLabel, extra });
+
+const SCREENS = {
+  '': { ...tri('storefront'), panel: P('A tour of my triage app',
+    'This is a clickable copy of the app I use to run my day: what to work on next, what my Claude sessions need from me, and who’s waiting on whom. Every project, person and work item here is made up, and nothing does real work.',
+    'One SQLite file and one Python process (standard library only). The process serves this page, and it also serves MCP tools that every Claude Code session calls. Claude built all of it in about a week.',
+    'triage/storefront', 'Start with a project’s page', ARCH) },
+  'triage/storefront': { ...tri('storefront', '#glance'), panel: P('One page for every project',
+    'Each tab is one project. It shows only my open work, grouped into session cards and ordered by priority. This used to be six HTML files that Claude rewrote by hand and that drifted apart. Clicking a tab re-reads the database, so the page is never stale.',
+    'The page is rendered from the database on every request, and no file is written. A <code>sync</code> tool pulls work items from the tracker’s REST API into tables. Claude never edits the page. It calls tools like <code>set_session</code> and <code>place_item</code>, and each call is one transaction, so parallel sessions can’t overwrite each other.',
+    'triage/storefront/gift-cards', 'Look at one session card') },
+  'triage/storefront/gift-cards': { ...tri('storefront', '#c-gift-cards'), panel: P('A card is a whole prompt',
+    'A card groups items that touch the same code, so the context from the first item helps with the next. <b>copy start line</b> gives me the only prompt a new session needs: <code>Start http://localhost:8765/#storefront/gift-cards</code>. Try the button.',
+    'The session calls <code>get_session</code> with the slug and gets the card’s items, their order and the notes. Slugs are topics, never numbers. A <code>check</code> tool lists rule breaks, such as an open item that isn’t on any card, and Claude isn’t done until it reports ok.',
+    'triage/storefront/grabs', 'See who I’m waiting on') },
+  'triage/storefront/grabs': { ...tri('storefront', '#grabs'), panel: P('What I could pick up, and who I’m waiting on',
+    '<b>Up for grabs</b> lists Approved items nobody has taken, so I never run out of work. <b>With others</b> names each person I’m waiting on and the exact question, so a stand-up is just reading it out.',
+    'Nobody maintains these lists. They’re rules applied as the page renders. When Claude is waiting on someone, it sets the item to Blocked, @-mentions the person in a comment and records a wait with <code>add_wait</code>. <code>resolve_wait</code> clears it when they answer.',
+    'triage/storefront/sweep', 'The QA sweep') },
+  'triage/storefront/sweep': { ...tri('storefront', '#sweep'), panel: P('A QA sweep is one command',
+    'After a deploy I type <code>/qa-sweep storefront</code>. Claude checks everything that shipped, closes what it can prove, and hands the rest to Marco with a test guide and screenshots. Only the latest sweep is kept here. The history goes in work-item comments.',
+    'A skill holds the procedure, and each project’s <code>sweep_rules</code> hold what differs. The <code>sweep</code> tool syncs once and returns the worklist from the local cache (comments, history, PRs, builds), so Claude doesn’t have to make hundreds of command-line calls to read it.',
+    'triage/warehouse', 'Another project: Warehouse') },
+  'triage/warehouse': { ...tri('warehouse', '#c-stock-sync'), panel: P('The page enforces my rules',
+    'Every item on this card is Blocked, so the card gets a banner telling me to pick another session. I don’t have to remember that the rule exists.',
+    'Rules I used to repeat in prompts now live in code. The write tools refuse things too: a bug filed without “why missed”, a PR title with the item number in it, an update to an item someone else changed since Claude read it. A rule in code holds every time. A rule in a prompt holds most of the time.',
+    'triage/mobile', 'Mobile: nothing falls through') },
+  'triage/mobile': { ...tri('mobile', '#orphans'), panel: P('Nothing falls through the cracks',
+    'The red box lists my open items that aren’t on any card yet. Every open item has to be on exactly one card, so new work shows up the moment it’s assigned to me.',
+    'After every sync, <code>check</code> compares the tracker’s items with the cards and returns what’s missing. Claude places each item and runs <code>check</code> again until it reports ok. Sync, check, fix: that loop is the whole “update the triage” procedure.',
+    'coordination', 'Coordination between sessions') },
+  coordination: { ...tri('coordination'), panel: P('Sessions take turns',
+    'I run four to seven Claude sessions at once. Only one can drive the desktop for E2E tests, and two must never build the same item. In October this was a shared text file, and once two sessions shared a database for eight hours. Now they queue.',
+    '<code>claim</code> and <code>release</code> give an exclusive lock with a first-come queue. A claim lapses if it isn’t renewed, so a crashed session can’t hold it forever. A wrapper, <code>run --claim desktop -- &lt;command&gt;</code>, waits its turn, renews while the command runs and releases when it ends. <code>send_message</code> lets sessions talk.',
+    'sessions', 'The session console') },
+  sessions: { ...ses('storefront~2', '#slist'), panel: P('Every session, sorted by what it needs',
+    'I no longer hunt through terminal tabs. Sessions waiting on a permission or a question come first, then the ones whose turn has ended, then the ones still working. The browser tab’s title counts the ones that need me.',
+    'Claude Code hooks (SessionStart, Stop, PermissionRequest, Notification and a few more) post each session’s state, last action and branch to the server. The hook also gives each session a unique name, so a second session in the same checkout is <code>storefront~2</code>.',
+    'sessions/storefront~2', 'Open the session that needs me') },
+  'sessions/storefront~2': { ...ses('storefront~2', '#detail'), panel: P('Answer a session without its terminal',
+    'This session wants permission to run the E2E tests. Press <b>1</b> below to say yes. Its brief (a summary, a plan and a picture) tells me what it’s building, so I can switch between five sessions without rereading their scrollback.',
+    'Sessions call <code>set_brief</code> with a summary, a plan and an SVG they draw. Sessions started from the console run in tmux, so the server can type into them and show their screen. A session started in a terminal gets messages through its hook on its next step.',
+    'sessions/mobile', 'A session with a question') },
+  'sessions/mobile': { ...ses('mobile', '#detail'), panel: P('A question, answered from here',
+    'This session is brainstorming and asks which storage the offline list should use. I answer with a key. Most of my replies are this short: “1”, “2”, “go”.',
+    'A question fires a hook, so the session shows as <b>question</b>, sorts to the top and its screen opens by itself. The key buttons are limited to a safe set (1, 2, 3, Enter, Esc, arrows), so a mis-click can’t type a command.',
+    'sessions/warehouse', 'A session whose turn ended') },
+  'sessions/warehouse': { ...ses('warehouse', '#reply'), panel: P('Read the last reply where I already look',
+    'When a session finishes, its last reply is here at a readable width, with the ones before it a click away (try ◀ Older). I answer in the box and move on to the next card.',
+    'The Stop hook keeps each session’s last ten replies. The page renders their markdown (tables, code, links) as DOM elements, never as raw HTML, because the text came from a model.',
+    'sessions/storefront', 'A session that’s still working') },
+  'sessions/storefront': { ...ses('storefront', '#detail'), panel: P('Working sessions stay out of the way',
+    'Working sessions sort below everything that needs me. The last-action line shows what each one is doing, if I’m curious.',
+    'A PostToolUse hook reports each tool call. Clicking a card also moves my timer to that session. Watch the chip in the top bar.',
+    'sessions/triage', 'A session busy in the background') },
+  'sessions/triage': { ...ses('triage', '#detail'), panel: P('Busy in the background',
+    'This session’s turn ended, but a test run is still going in the background. It isn’t waiting on me, so it sorts with the working ones instead of telling me it’s my turn.',
+    'The hook reads Claude Code’s own status file for the session to tell a background shell from a finished turn. It came from a one-line question of mine: “The status says: your turn. But, it is still working, right?”',
+    'sessions/mobile@3f9a21c0', 'An ended session') },
+  'sessions/mobile@3f9a21c0': { ...ses('mobile@3f9a21c0', '#detail'), panel: P('Ended sessions can come back',
+    'Sessions that ended today stay listed with their brief. <b>Resume</b> picks one up where it stopped. If WSL shuts down or the machine restarts, they come back on their own.',
+    'A background thread notices when a session’s tmux session disappears and starts <code>claude --resume &lt;id&gt;</code> in a new one, under the same name. A session that takes over a name keeps the old one as <code>name@id</code>, so two sessions never share one.',
+    'sessions/new', 'Start a new session') },
+  'sessions/new': { ...ses('storefront~2', '#newsession', true), panel: P('Start work in two clicks',
+    'Pick a checkout, then a card, a work item, a free prompt, or a command such as <code>/qa-sweep</code>, <code>/pr-review</code> or <code>/timesheet</code>. The session starts in the right folder with the right first prompt.',
+    'The server starts <code>claude</code> inside tmux on its own socket, in that checkout, and passes the start line as the first prompt. An environment variable links the new session to its launch, so it shows up in this list as soon as its hook checks in.',
+    'sessions/notices', 'Mentions and review requests') },
+  'sessions/notices': { ...ses('storefront~2', '#notices'), panel: P('Mentions without email',
+    'When someone @-mentions me or asks for my review, it shows up here, not in an inbox I don’t read. Clicking it opens <b>New session</b> with a prompt filled in. A review session reads and reports. It doesn’t post anything until I say so.',
+    'A background thread asks the tracker every 15 minutes for mentions and review requests and stores them as notices. × dismisses one for good. A failed check, usually an expired login, shows up in the strip too.',
+    'sessions/timer', 'Time tracking') },
+  'sessions/timer': { ...ses('storefront~2', '#timer'), panel: P('Time tracking I don’t think about',
+    'Clicking a session card starts my timer on it, and the chip at the top shows where my time is going. It pauses after 10 idle minutes. At the end of the day, <code>/timesheet</code> scales my time per work item to the hours I worked and posts them to the tracker.',
+    'Hook events give Claude’s time per session, and the timer gives mine. Each session records which work items it touched (its branch, claims and PRs). A small script turns that into minutes per item, and the timesheet skill asks me before it posts anything.',
+    'settings', 'Settings') },
+  settings: { view: 'settings', render: settingsPage, focus: null, panel: P('Small things that matter',
+    'Text size, browser notifications and light or dark. Every colour meets WCAG AAA (7:1 contrast) in both themes, because I read this page all day. Try the text-size slider.',
+    'That was a one-line ask: “make sure it is AAA standard for contrast.” Claude also added a test that checks every colour pair, so it stays true when colours change.',
+    '', 'Back to the start') },
+};
+const ORDER = Object.keys(SCREENS);
+
+function panelHtml(key) {
+  const p = SCREENS[key].panel;
+  const stopN = ORDER.indexOf(key) + 1;
+  const stops = ORDER.map((k) => `<li><a href="#${k}"${k === key ? ' aria-current="true"' : ''}>${SCREENS[k].panel.title}</a>${state.seen.has(k) && k !== key ? ' ✓' : ''}</li>`).join('');
+  return `<div class="phead"><span class="k">Stop ${stopN} of ${ORDER.length}</span><span class="spacer"></span>
+    ${EMBEDDED ? `<a href="${location.pathname}#${key}" target="_blank" rel="noopener">Full screen ↗</a>` : ''}
+    <button class="iconbtn toggle" data-act="panel" aria-expanded="${state.panelOpen}">${state.panelOpen ? 'Hide' : 'Explain'}</button></div>
+    <div class="pbody"><h2 tabindex="-1">${p.title}</h2>
+    <h4>In my day</h4><p>${p.day}</p>
+    <h4>How it’s built</h4><p>${p.built}</p>${p.extra}
+    <p class="next">Try next: <a href="#${p.next}">${p.nextLabel} →</a></p>
+    <details class="stops"><summary>All stops</summary><ol>${stops}</ol></details>
+    <p class="seen">${state.seen.size} of ${ORDER.length} seen</p></div>`;
+}
+
+/* ---------------- router ---------------- */
+function go(key, fromClick) {
+  key = String(key || '').replace(/^#/, '');
+  try { key = decodeURIComponent(key); } catch (e) { /* keep as is */ }
+  if (!Object.prototype.hasOwnProperty.call(SCREENS, key)) key = '';
+  if (key !== 'sessions/new') state.prefill = null;
+  state.key = key;
+  state.seen.add(key);
+  render();
+  if (fromClick) {
+    const url = key ? '#' + key : location.pathname;
+    if (EMBEDDED) history.replaceState(null, '', url);
+    else if (location.hash.replace(/^#/, '') !== key) history.pushState(null, '', url);
+  }
+}
+function focusSelector(el) {
+  if (!el || el === document.body || !el.matches) return null;
+  if (el.id) return '#' + CSS.escape(el.id);
+  for (const k of ['act', 'reply', 'key', 'session', 'notice', 'dismiss', 'go', 'copy']) {
+    if (el.dataset[k] !== undefined) return `[data-${k}="${CSS.escape(el.dataset[k])}"]`;
+  }
+  if (el.name) return `[name="${CSS.escape(el.name)}"][value="${CSS.escape(el.value)}"]`;
+  const href = el.getAttribute('href');
+  if (href) return `a[href="${CSS.escape(href)}"]`;
+  return '';
+}
+// Every render replaces the DOM with innerHTML, so the focused control is gone afterwards.
+// Put focus back on its replacement, or on the panel heading, or keyboard users lose their place.
+function restoreFocus(sel) {
+  if (sel === null) return;
+  let el = sel && document.querySelector(sel);
+  if (el && el.disabled) el = el.parentElement.querySelector('[data-reply]:not([disabled])');
+  if (el) el.focus({ preventScroll: true });
+  if (!el || document.activeElement !== el) document.querySelector('#panel h2').focus({ preventScroll: true });
+}
+function render(keepScroll) {
+  const s = SCREENS[state.key];
+  const app = document.getElementById('app');
+  const y = app.scrollTop;
+  const focused = focusSelector(document.activeElement);
+  document.getElementById('top').innerHTML = topBar();
+  app.innerHTML = s.render();
+  const panel = document.getElementById('panel');
+  panel.innerHTML = panelHtml(state.key);
+  panel.classList.toggle('closed', !state.panelOpen);
+  panel.scrollTop = 0;
+  const needs = DATA.groups[0][1].filter((a) => ['permission', 'question'].includes(DATA.sessions[a].state)).length;
+  document.title = (needs ? `(${needs}) ` : '') + 'Triage app tour';
+  if (keepScroll) { app.scrollTop = y; restoreFocus(focused); return; }
+  app.scrollTop = 0;
+  const target = s.focus && document.querySelector(s.focus);
+  if (target) {
+    const top = target.getBoundingClientRect().top - app.getBoundingClientRect().top + app.scrollTop - 12;
+    app.scrollTop = Math.max(0, top);
+    target.classList.add('hl');
+  }
+  restoreFocus(focused);
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3800);
+}
+
+function setTheme(t) {
+  if (t === 'system') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = t;
+  render(true);
+}
+
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (a) { e.preventDefault(); go(a.getAttribute('href'), true); return; }
+  const el = e.target.closest('button, [data-go]');
+  if (!el) return;
+  const d = el.dataset;
+  if (d.go !== undefined) { state.prefill = null; go(d.go, true); return; }
+  if (d.toast) { toast(d.toast); return; }
+  if (d.copy) {
+    const done = () => toast('Copied: ' + d.copy);
+    (navigator.clipboard ? navigator.clipboard.writeText(d.copy) : Promise.reject()).then(done, () => toast('Your browser blocked copying. The line is: ' + d.copy));
+    return;
+  }
+  if (d.session) {
+    const agent = d.session;
+    const t = state.timer;
+    if (DATA.sessions[agent].state !== 'ended' && !(t.on && t.agent === agent)) state.timer = { on: true, agent, started: Date.now() };
+    go('sessions/' + agent, true);
+    return;
+  }
+  if (d.reply) {
+    const agent = document.querySelector('.scard[aria-current="true"]').dataset.session;
+    const n = DATA.sessions[agent].replies.length;
+    state.replyIdx[agent] = Math.min(n - 1, Math.max(0, (state.replyIdx[agent] || 0) + Number(d.reply)));
+    render(true);
+    return;
+  }
+  if (d.key) {
+    const agent = document.querySelector('.scard[aria-current="true"]').dataset.session;
+    const s = DATA.sessions[agent];
+    if ((s.state === 'permission' || s.state === 'question') && ['1', '2', 'Enter'].includes(d.key)) {
+      s.state = 'working'; s.label = 'working'; s.since = 'now';
+      s.last = agent !== 'mobile' ? 'Bash: npm run e2e -- checkout (allowed)'
+        : d.key === '2' ? 'Answered: the key-value store' : 'Answered: SQLite';
+      s.screen = '● Working…';
+      DATA.groups.forEach((g) => { g[1] = g[1].filter((x) => x !== agent); });
+      DATA.groups[2][1].unshift(agent);
+      render(true);
+      toast(`Sent ${d.key}. In the real app the key goes to the session’s terminal, and it starts working again.`);
+    } else toast(`In the real app this sends the key ${d.key} to the session’s terminal.`);
+    return;
+  }
+  if (d.notice) {
+    const n = DATA.notices.find((x) => x.id === d.notice);
+    go('sessions/new', true);
+    state.prefill = { project: n.project, prompt: n.prompt };
+    render();
+    return;
+  }
+  if (d.dismiss) { state.dismissed.add(d.dismiss); render(true); toast('Dismissed for good.'); return; }
+  switch (d.act) {
+    case 'timer':
+      state.timer.on = !state.timer.on;
+      if (state.timer.on) state.timer.started = Date.now();
+      render(true);
+      toast(state.timer.on ? 'Timer started.' : 'Timer stopped. Clicking a session card starts it again.');
+      break;
+    case 'theme': {
+      const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(dark ? 'light' : 'dark');
+      break;
+    }
+    case 'panel': state.panelOpen = !state.panelOpen; render(true); break;
+    case 'type': {
+      const box = document.querySelector('.typebox textarea');
+      toast(box.value.trim() ? `In the real app “${box.value.trim().slice(0, 60)}” is pasted into the session’s terminal, then Enter.` : 'Type something first.');
+      box.value = '';
+      break;
+    }
+    case 'message': toast('In the real app this sends a triage message. The session gets it on its next step, or is woken if it’s idle.'); break;
+  }
+});
+document.addEventListener('input', (e) => {
+  if (e.target.id === 'fs') {
+    state.fontPct = Number(e.target.value);
+    document.documentElement.style.fontSize = state.fontPct + '%';
+    document.getElementById('fsv').textContent = state.fontPct + '%';
+  }
+});
+document.addEventListener('change', (e) => {
+  if (e.target.name === 'theme') setTheme(e.target.value);
+  if (e.target.id === 'notify') toast(e.target.checked ? 'In the real app this asks the browser for permission to show notifications.' : 'Notifications off.');
+});
+window.addEventListener('hashchange', () => go(location.hash));
+window.addEventListener('popstate', () => go(location.hash));
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => render(true));
+setInterval(() => { const b = document.getElementById('timer'); if (b && state.timer.on) b.innerHTML = timerLabel(); }, 30000);
+go(location.hash);
+</script>
+</body>
+</html>
