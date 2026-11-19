@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terminal console tour</title>
+<meta name="description" content="A made-up, keyboard-driven copy of a terminal client for Claude Code sessions, with an explanation of each screen.">
+<style>
+:root{
+  --bg:#f6f5f1;--panel:#ffffff;--sunk:#ebe9e3;--ink:#1a1a18;--muted:#45433e;--line:#d3d0c7;--link:#1a4a80;--focus:#1a4a80;
+  --t-bg:#fbfaf7;--t-sel:#e6e3da;--t-ink:#1a1a18;--t-dim:#46443f;--t-red:#8a1c14;--t-yellow:#6b3d00;--t-green:#174a22;
+  --t-blue:#1a3f80;--t-cyan:#0a4a56;--t-violet:#5a2d8c;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15161a;--panel:#1e1f24;--sunk:#26272d;--ink:#ecebe7;--muted:#c3c0b8;--line:#3b3c43;--link:#9cc3ef;--focus:#9cc3ef;
+  --t-bg:#0d0e10;--t-sel:#2a2c33;--t-ink:#e8e6e1;--t-dim:#c4c1b9;--t-red:#ffb4aa;--t-yellow:#f5c77e;--t-green:#9fdcaa;
+  --t-blue:#a9c8f5;--t-cyan:#8fd9e6;--t-violet:#d0b4f5;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#15161a;--panel:#1e1f24;--sunk:#26272d;--ink:#ecebe7;--muted:#c3c0b8;--line:#3b3c43;--link:#9cc3ef;--focus:#9cc3ef;
+  --t-bg:#0d0e10;--t-sel:#2a2c33;--t-ink:#e8e6e1;--t-dim:#c4c1b9;--t-red:#ffb4aa;--t-yellow:#f5c77e;--t-green:#9fdcaa;
+  --t-blue:#a9c8f5;--t-cyan:#8fd9e6;--t-violet:#d0b4f5;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:0.9375rem/1.5 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow:hidden}
+a{color:var(--link);text-underline-offset:2px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:3px}
+code{font-family:Consolas,"Cascadia Mono",Menlo,monospace;font-size:0.85em;background:var(--sunk);padding:0.05em 0.3em;border-radius:3px;overflow-wrap:anywhere}
+p{margin:0.35rem 0}
+
+.shell{height:100vh;display:grid;grid-template-columns:minmax(0,1fr) 22rem}
+.app-col{display:flex;flex-direction:column;min-width:0;min-height:0;border-right:1px solid var(--line);padding:0.7rem 0.8rem 0.6rem;gap:0.45rem}
+@media (max-width:979px){
+  .shell{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+  .app-col{border-right:0;border-bottom:2px solid var(--line);padding:0.5rem}
+  #panel{max-height:42vh}
+  #panel.closed{max-height:none}
+  #panel.closed .pbody{display:none}
+}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:0.3rem 0.8rem;font-size:0.85rem;color:var(--muted)}
+.bar .spacer{flex:1}
+.kbd{font-weight:600;color:var(--ink)}
+.iconbtn{border:1px solid var(--line);background:transparent;border-radius:6px;padding:0.1rem 0.55rem;cursor:pointer;font-size:0.82rem}
+
+/* the terminal */
+.frame{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--t-bg)}
+.frame.bell{animation:bell 0.6s ease-out 1}
+@keyframes bell{0%{box-shadow:0 0 0 4px var(--t-red)}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){.frame.bell{animation:none;outline:3px solid var(--t-red)}}
+.tbar{display:flex;align-items:center;gap:0.4rem;padding:0.25rem 0.6rem;background:var(--sunk);border-bottom:1px solid var(--line);font-size:0.78rem;color:var(--muted)}
+.tbar i{width:0.65rem;height:0.65rem;border-radius:50%;border:1px solid var(--muted);display:inline-block}
+.tbar span{margin-left:0.4rem}
+#term{flex:1;min-height:0;overflow:hidden;background:var(--t-bg);color:var(--t-ink);font-family:Consolas,"Cascadia Mono","DejaVu Sans Mono",Menlo,monospace;font-size:14px;line-height:1.35;padding:0.35rem 0.4rem;cursor:default;outline:none}
+#term.narrow{overflow:auto}
+#term:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+#term .ln{white-space:pre;height:1.35em}
+#term .ln.click{cursor:pointer}
+#term .sel{background:var(--t-sel)}
+#term .g{display:inline-block;width:1ch;text-align:center;overflow:visible}
+#term .cur{background:var(--t-ink);color:var(--t-bg)}
+#term [data-key]{cursor:pointer}
+.c-key,.c-info{color:var(--t-cyan)}
+.c-accent{font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.c-alert{color:var(--t-red);font-weight:700}
+.c-flash{background:var(--t-red);color:var(--t-bg);font-weight:700}
+.c-warn{color:var(--t-yellow);font-weight:700}
+.c-dim{color:var(--t-dim)}
+.c-error{background:var(--t-red);color:var(--t-bg);font-weight:700}
+.c-bold{font-weight:700}
+.c-ok{color:var(--t-green);font-weight:700}
+.c-idle{color:var(--t-blue);font-weight:700}
+.c-bg{color:var(--t-violet)}
+.c-timer{color:var(--t-violet);font-weight:700}
+.c-heading{font-weight:700}
+.c-tmux{background:var(--t-green);color:var(--t-bg)}
+.c-claude{color:var(--t-violet)}
+.c-plain{}
+
+.keys{display:flex;flex-wrap:wrap;gap:0.3rem}
+.keys button{border:1px solid var(--line);background:var(--panel);border-radius:6px;padding:0.15rem 0.55rem;cursor:pointer;font:0.82rem Consolas,"Cascadia Mono",Menlo,monospace;min-width:2.2rem}
+.keys button span{font:0.75rem "Segoe UI",system-ui,sans-serif;color:var(--muted);margin-left:0.3rem}
+
+/* explanation panel */
+#panel{background:var(--panel);overflow:auto;min-height:0;display:flex;flex-direction:column}
+.phead{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.phead .k{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted)}
+.phead .spacer{flex:1}
+.toggle{display:none}
+@media (max-width:979px){.toggle{display:inline-block}}
+.pbody{padding:0.6rem 1rem 1.2rem}
+.pbody h2{border:0;margin:0.1rem 0 0.5rem;padding:0;font-size:1.12rem}
+.pbody h4{font-size:0.74rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);margin:0.8rem 0 0.15rem}
+.pbody p{font-size:0.9rem}
+.next{margin:1rem 0 0.4rem;padding:0.55rem 0.7rem;background:var(--sunk);border-radius:8px;font-size:0.9rem}
+.next a{font-weight:600}
+.pbody svg{width:100%;height:auto;margin:0.5rem 0}
+.stops{font-size:0.85rem;margin-top:0.8rem;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0.4rem 0.7rem}
+.stops summary{cursor:pointer;font-weight:600}
+.stops ol{padding-left:1.4rem;margin:0.3rem 0}
+.stops a[aria-current="true"]{font-weight:700;color:var(--ink)}
+.seen{font-size:0.78rem;color:var(--muted);margin-top:0.4rem}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="app-col">
+    <div class="bar">
+      <span id="kbhint">Click the terminal, then use your keyboard, or the keys below it.</span>
+      <span class="spacer"></span>
+      <button class="iconbtn" id="theme" type="button">Dark</button>
+    </div>
+    <div class="frame" id="frame">
+      <div class="tbar" aria-hidden="true"><i></i><i></i><i></i><span id="ttitle">triage tui</span></div>
+      <div id="term" tabindex="0" role="application" aria-roledescription="mock terminal" aria-label="Mock terminal. Focus it and use the keyboard. The panel describes the current screen."></div>
+    </div>
+    <div class="keys" id="keys" aria-label="Keys"></div>
+  </div>
+  <aside id="panel" aria-label="What you are looking at"></aside>
+</div>
+<div id="live" class="sr" aria-live="polite"></div>
+<script>
+"use strict";
+// Text colours used on the terminal and the page; every pair must stay at 7:1 or better in both themes.
+const CONTRAST = {
+  text: ['--t-ink', '--t-dim', '--t-red', '--t-yellow', '--t-green', '--t-blue', '--t-cyan', '--t-violet'],
+  surfaces: ['--t-bg', '--t-sel'],
+  pairs: [['--t-bg', '--t-red'], ['--t-bg', '--t-green'], ['--t-bg', '--t-ink'],
+          ['--ink', '--bg'], ['--ink', '--panel'], ['--ink', '--sunk'], ['--muted', '--panel'], ['--muted', '--sunk'],
+          ['--muted', '--bg'], ['--link', '--panel'], ['--link', '--sunk']],
+};
+window.CONTRAST = CONTRAST;
+
+const T0 = Date.now();
+const ago = (s) => T0 - s * 1000;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* ---------------- made-up data ---------------- */
+const PROJECTS = [
+  { key: 'storefront', name: 'Storefront', sprint: 14, po: 'Priya', qa: 'Marco' },
+  { key: 'warehouse', name: 'Warehouse', sprint: 14, po: 'Priya', qa: 'Marco' },
+  { key: 'mobile', name: 'Mobile', sprint: 14, po: 'Priya', qa: 'Marco' },
+];
+const TRIAGE = {
+  storefront: {
+    tiers: [['NOW', [
+      { slug: 'gift-cards', name: 'Gift cards', next: 'Finish the balance check, then redemption at checkout', items: [
+        [4210, 'In Progress', 'You', 'Redeem a gift card at checkout'], [4212, 'In Progress', 'You', 'Show gift card balance on the account page'],
+        [4214, 'Approved', 'You', 'Gift card balance in the order email']] },
+      { slug: 'checkout-retry', name: 'Checkout retries', next: 'Waiting on Marco to retest on the slow network profile', items: [
+        [4205, 'QA', 'You', 'Show a retry banner when payment times out']] }]],
+      ['NEXT', [
+      { slug: 'search-facets', name: 'Search facets', next: 'Start with the price facet', items: [
+        [4220, 'Approved', 'You', 'Filter search results by price'], [4221, 'Approved', 'You', 'Filter search results by format']] }]]],
+    grabs: [[4226, 'Approved', 'nobody', 'Remember the last-used shipping address']],
+    others: [[4218, 'In Progress', 'Sam', 'Wishlist sharing links']],
+    waits: [['Marco', 'retest', '#4205 on the slow network profile'], ['Priya', 'question', 'should a zero gift card balance show at all?']],
+  },
+  warehouse: {
+    tiers: [['NOW', [
+      { slug: 'pick-lists', name: 'Pick lists', next: 'Group lines by aisle, then print preview', items: [
+        [4244, 'In Progress', 'You', 'Print pick lists grouped by aisle'], [4245, 'Approved', 'You', 'Print preview for pick lists']] },
+      { slug: 'stock-alerts', name: 'Stock alerts', next: 'Blocked until Lee ships the stock feed', items: [
+        [4248, 'Blocked', 'You', 'Alert when a title drops below its reorder level']] }]],
+      ['NEXT', [
+      { slug: 'returns', name: 'Returns desk', next: 'Scan a return label to open the order', items: [
+        [4250, 'Approved', 'You', 'Open the order from a scanned return label']] }]]],
+    grabs: [[4252, 'Approved', 'nobody', 'Show the bin number on the packing slip']],
+    others: [[4247, 'In Progress', 'Lee', 'Nightly stock feed from the distributor']],
+    waits: [['Lee', 'blocked', '#4248 needs the nightly stock feed (#4247)']],
+  },
+  mobile: {
+    tiers: [['NOW', [
+      { slug: 'offline-cart', name: 'Offline cart', next: 'Decide the merge rule, then write it', items: [
+        [4231, 'In Progress', 'You', 'Keep the cart in sync when the phone is offline'], [4233, 'Approved', 'You', 'Show an offline banner']] }]],
+      ['NEXT', [
+      { slug: 'wallet-pass', name: 'Wallet pass', next: 'Gift card art first', items: [
+        [4219, 'QA', 'You', 'Gift card art on the wallet pass'], [4236, 'Approved', 'You', 'Update the pass when the balance changes']] }]]],
+    grabs: [],
+    others: [[4238, 'Approved', 'Sam', 'Dark app icon']],
+    waits: [],
+  },
+};
+const ITEM_STYLE = { Approved: 'idle', 'In Progress': 'ok', QA: 'bg', Blocked: 'alert' };
+const STATE_STYLE = { permission: 'alert', question: 'alert', starting: 'warn', your_turn: 'info', idle: 'idle', working: 'ok', background: 'bg', ended: 'dim' };
+
+function seedSessions() {
+  return {
+    'storefront~2': { state: 'permission', since: ago(240), title: 'Gift card balance check', item: [4212, 'Show gift card balance on the account page'],
+      project: 'storefront', branch: 'you/4212-gift-card-balance', launch: 42, last: 'Bash: npm run e2e', kind: 'permission',
+      cmd: ['npm run e2e -- --grep "gift card balance"', 'Run the gift card E2E tests'],
+      lead: 'The balance shows now. I\'ll run the gift card E2E tests before I open the PR.',
+      brief: { summary: 'Adds the gift card balance to the account page, under Payment methods. The balance comes from the existing gift card service; no new API. I\'m on the E2E tests, then the PR.', plan: [['Read the account page and the gift card service', 'done'], ['Show the balance, with a unit test for formatting', 'done'], ['Run the gift card E2E tests', 'now'], ['Open the PR and link #4212', 'todo']], age: 600 },
+      replies: [['Balance is showing on the account page. Unit tests pass (12 new). I need permission to run the E2E suite next: it takes the desktop for about four minutes.', 300], ['Started on #4212. Plan is in my brief.', 2400]] },
+    mobile: { state: 'question', since: ago(60), title: 'Offline cart sync', item: [4231, 'Keep the cart in sync when the phone is offline'],
+      project: 'mobile', branch: 'you/4231-offline-cart', launch: 44, last: 'AskUserQuestion', kind: 'question',
+      brief: { summary: 'Keeps the cart on the phone while it is offline and syncs it when the connection is back. Needs a rule for when the cart also changed on another device.', plan: [['Store the cart locally', 'done'], ['Decide the merge rule with Jon', 'now'], ['Write the merge and its tests', 'todo'], ['Offline banner (#4233)', 'todo']], age: 900 },
+      replies: [['The local cart works. Before I write the sync I need a rule for conflicts. I\'ve asked you in the terminal.', 70]] },
+    storefront: { state: 'your_turn', since: ago(720), title: 'Gift card redemption', item: [4210, 'Redeem a gift card at checkout'],
+      project: 'storefront', branch: 'you/4210-gift-card-redeem', launch: 41, last: 'Edit: GiftCardService.cs', kind: 'prompt',
+      suggest: 'commit and open the PR',
+      lead: 'Redemption works end to end. A gift card now pays first at checkout, and the rest goes to the card on file.\n  Tests: 48 passed, 0 failed. I tried it in the running app with a $25 card on a $31.98 order.\n  Next: commit and open the PR?',
+      brief: { summary: 'Lets a shopper pay with a gift card at checkout. The card pays first; anything left goes to the card on file. Done and tried in the running app; waiting for Jon to say "open the PR".', plan: [['Apply the gift card before the card payment', 'done'], ['Handle a card worth more than the order', 'done'], ['Try it in the running app', 'done'], ['Commit and open the PR', 'now']], age: 800 },
+      replies: [['Redemption works end to end. A gift card now pays first at checkout, and the rest goes to the card on file. Tests: 48 passed. I tried it in the running app with a $25 card on a $31.98 order. Next: commit and open the PR?', 720], ['Found the bug in the split payment: the card on file was charged the full total. Fixed, with a test that fails without the fix.', 3600], ['Started on #4210 from the Gift cards card.', 9000]] },
+    warehouse: { state: 'working', since: ago(3), title: 'Pick list printing', item: [4244, 'Print pick lists grouped by aisle'],
+      project: 'warehouse', branch: 'you/4244-pick-list-aisles', launch: 43, last: 'Edit: PickList.cs', kind: 'working',
+      brief: { summary: 'Groups pick list lines by aisle so a picker walks the warehouse once. Changes the sort and adds aisle headings to the printout.', plan: [['Sort lines by aisle, then bin', 'done'], ['Aisle headings on the printout', 'now'], ['Print preview (#4245)', 'todo']], age: 400 },
+      replies: [['Sorted by aisle and bin. Working on the headings now.', 500]] },
+    'warehouse~2': { state: 'idle', since: ago(2700), title: 'Stock feed questions', item: null, project: 'warehouse', branch: 'main', launch: null, last: 'Read: StockFeed.md', kind: 'none',
+      brief: null, replies: [['Lee\'s feed spec says quantities come as text. I wrote three questions for Lee in the brief for #4248.', 2700]] },
+    'storefront@3f9a2c1e': { state: 'ended', since: ago(10800), title: 'Checkout retry banner', item: [4205, 'Show a retry banner when payment times out'], project: 'storefront', branch: 'you/4205-retry-banner', launch: 39, last: '', kind: 'none',
+      brief: { summary: 'Shows a retry banner when the payment provider times out. In QA with Marco.', plan: [['Banner and retry', 'done'], ['PR merged', 'done']], age: 11000 }, replies: [['PR merged. #4205 is in QA with Marco.', 10800]] },
+  };
+}
+const OLDER = {
+  'mobile@8b21d07a': { state: 'ended', since: ago(2 * 86400), title: 'Gift card art on the wallet pass', item: [4219, 'Gift card art on the wallet pass'], project: 'mobile', branch: 'you/4219-pass-art', launch: 31, last: '', kind: 'none', older: true, brief: null, replies: [] },
+  'storefront@c0ffee12': { state: 'ended', since: ago(5 * 86400), title: 'Gift card emails', item: [4201, 'Send the gift card by email'], project: 'storefront', branch: 'you/4201-gift-card-email', launch: 22, last: '', kind: 'none', older: true, brief: null, replies: [] },
+  'warehouse@5e5e1a90': { state: 'ended', since: ago(6 * 86400), title: 'Packing slip layout', item: [4240, 'New packing slip layout'], project: 'warehouse', branch: 'you/4240-packing-slip', launch: 18, last: '', kind: 'none', older: true, brief: null, replies: [] },
+};
+const NOTICES_SEED = [
+  { key: 'n1', kind: 'mention', project: 'storefront', ref: '#4212', who: 'Priya', since: ago(1500), title: 'Show gift card balance on the account page',
+    excerpt: '@you Can we hide the balance line when it is zero? Marco saw "$0.00" on accounts that have never had a gift card.',
+    prompt: 'Priya mentioned me on #4212 (Show gift card balance on the account page): "Can we hide the balance line when it is zero?" Read the comment and the item, and tell me what it means for the work. Don\'t reply.' },
+  { key: 'n2', kind: 'review', project: 'warehouse', ref: 'PR 1051', who: 'Lee', since: ago(7200), title: 'Nightly stock feed from the distributor',
+    excerpt: 'Lee asked you to review this pull request.',
+    prompt: 'Lee asked me to review PR 1051 (Nightly stock feed from the distributor). Read it and tell me what you find. Don\'t vote or comment.' },
+];
+const PRS = [
+  { id: 1043, repo: 'storefront', project: 'storefront', age: 2 * 86400, auto: true, votes: [1, 1, 0], comments: { waiting: 2, mine: [['Priya', 'Can we hide the balance when it is zero?'], ['Marco', 'The E2E for this is flaky on CI.']] },
+    target: 'main', source: 'you/4212-gift-card-balance', title: 'Show gift card balance on the account page' },
+  { id: 1049, repo: 'storefront', project: 'storefront', age: 86400, auto: true, votes: [2, 0, 0], comments: { waiting: 0, handled: 3 },
+    target: 'main', source: 'you/4210-gift-card-redeem', title: 'Redeem a gift card at checkout' },
+  { id: 1047, repo: 'mobile', project: 'mobile', age: 5 * 3600, draft: true, votes: [0, 0, 0], comments: null,
+    target: 'main', source: 'you/4231-offline-cart', title: 'Keep the cart in sync when the phone is offline' },
+];
+PRS.forEach((p) => { p.url = `https://git.example.com/bookshop/${p.repo}/pull/${p.id}`; });
+const COMMANDS = [{ name: 'qa-sweep', help: 'check what shipped and hand it to QA', args: true }, { name: 'pr-review', help: 'review the PRs waiting on me', args: true }, { name: 'timesheet', help: 'post today\'s hours', args: false }];
+
+/* ---------------- model ---------------- */
+const SCREENS_ORDER = ['sessions', 'notices', 'triage', 'coord', 'prs'];
+const LABELS = [['F1', 'Sessions'], ['F2', 'Notices'], ['F3', 'Triage'], ['F4', 'Coord'], ['F5', 'PRs']];
+let S, M;
+function reset() {
+  S = seedSessions();
+  M = { screen: 'sessions', prev: 'sessions', sel: 0, selKey: 'storefront~2', search: null, typing: false, ended: null, agent: null, scroll: 0,
+    confirm: null, status: '', statusUntil: 0, flashUntil: 0, attached: null, form: null, proj: 0, triSel: -1,
+    timer: { agent: 'storefront', start: ago(42 * 60), state: 'running' }, dismissed: new Set(), needSeen: null, nextLaunch: 45, flashed: false };
+}
+reset();
+
+const now = () => Date.now();
+function say(text, secs = 5) { M.status = text; M.statusUntil = now() + secs * 1000; announce(text); }
+function fmtAge(secs) {
+  const s = Math.max(0, Math.floor(secs));
+  for (const [u, n] of [['d', 86400], ['h', 3600], ['m', 60]]) if (s >= n) return Math.floor(s / n) + u;
+  return s + 's';
+}
+const ageOf = (s) => fmtAge((now() - s.since) / 1000);
+const pad = (s, n) => (s.length >= n ? s.slice(0, n) : s + ' '.repeat(n - s.length));
+const rpad = (s, n) => (s.length >= n ? s : ' '.repeat(n - s.length) + s);
+function label(s) {
+  if (s.item) return s.title ? `${s.title} · #${s.item[0]}` : `#${s.item[0]} ${s.item[1]}`;
+  return s.title || '';
+}
+const isEnded = (s) => s.state === 'ended';
+const needYou = () => Object.keys(S).filter((a) => ['permission', 'question'].includes(S[a].state));
+
+function groups() {
+  let all = Object.entries(S);
+  if (M.search !== null) {
+    const older = Object.entries(M.ended || {}).filter(([a]) => !S[a]);
+    all = all.concat(older).filter(([a, s]) => matches(a, s, M.search));
+  }
+  const g = { 'NEEDS YOU': [], STOPPED: [], WORKING: [], ENDED: [] };
+  for (const [a, s] of all) {
+    if (isEnded(s)) g.ENDED.push(a);
+    else if (['permission', 'question', 'starting'].includes(s.state)) g['NEEDS YOU'].push(a);
+    else if (['your_turn', 'idle'].includes(s.state)) g.STOPPED.push(a);
+    else g.WORKING.push(a);
+  }
+  const get = (a) => S[a] || M.ended[a];
+  g['NEEDS YOU'].sort((a, b) => get(a).since - get(b).since);
+  g.STOPPED.sort((a, b) => (get(a).state === 'idle') - (get(b).state === 'idle') || get(b).since - get(a).since);
+  g.ENDED.sort((a, b) => !!get(a).older - !!get(b).older || get(b).since - get(a).since);
+  return Object.entries(g).filter(([, v]) => v.length);
+}
+function matches(a, s, q) {
+  const hay = [a, label(s), s.item && s.item[1], s.project, s.branch].filter(Boolean).join(' ').toLowerCase();
+  return q.toLowerCase().split(/\s+/).filter(Boolean).every((w) => hay.includes(w));
+}
+const sessOf = (a) => S[a] || (M.ended || {})[a] || OLDER[a];
+const visible = () => groups().flatMap(([, v]) => v);
+const notices = () => NOTICES_SEED.filter((n) => !M.dismissed.has(n.key));
+function list() {
+  if (M.screen === 'sessions') return visible();
+  if (M.screen === 'notices') return notices().map((n) => n.key);
+  if (M.screen === 'prs') return PRS.map((p) => 'pr' + p.id);
+  return [];
+}
+function keepSel() {
+  const items = list();
+  const i = items.indexOf(M.selKey);
+  if (i >= 0) M.sel = i;
+  else if (items.length) { M.sel = Math.max(0, Math.min(M.sel, items.length - 1)); M.selKey = items[M.sel]; }
+}
+function select(i) {
+  const items = list();
+  M.sel = Math.max(0, Math.min(i, items.length - 1));
+  M.selKey = items.length ? items[M.sel] : null;
+}
+
+/* ---------------- keys ---------------- */
+const NAV = { h: 'Left', j: 'Down', k: 'Up', l: 'Right', g: 'Home', G: 'End' };
+function goScreen(screen) {
+  M.form = null;
+  if (screen !== M.screen) {
+    const switching = SCREENS_ORDER.includes(M.screen);
+    if (switching) M.prev = M.screen;
+    M.screen = screen;
+    if (switching && SCREENS_ORDER.includes(screen)) { M.sel = 0; M.selKey = null; M.search = null; M.typing = false; keepSel(); }
+    if (screen === 'triage' && M.triSel < 0) M.triSel = 0;
+  }
+}
+function key(k) {
+  if (M.attached) return attachedKey(k);
+  keepSel();
+  if (M.confirm) {
+    if (!['y', 'n', 'Esc'].includes(k)) return;
+    const c = M.confirm; M.confirm = null; M.statusUntil = 0;
+    if (k === 'y' && c[0] === 'end') endSession(c[1]);
+    return;
+  }
+  if (/^F[1-5]$/.test(k)) return goScreen(SCREENS_ORDER[+k[1] - 1]);
+  if (k === 'C-h' || k === 'C-l') {
+    const here = SCREENS_ORDER.includes(M.screen) ? M.screen : M.prev;
+    const i = (SCREENS_ORDER.indexOf(here) + (k === 'C-l' ? 1 : -1) + 5) % 5;
+    return goScreen(SCREENS_ORDER[i]);
+  }
+  if (M.screen === 'new') return formKey(k);
+  if (M.screen === 'sessions' && M.typing) return searchKey(k);
+  if (!(M.screen === 'new')) k = NAV[k] || k;
+  if (M.screen === 'brief' || M.screen === 'replies') return viewKey(k);
+  if (/^[1-5]$/.test(k)) return goScreen(SCREENS_ORDER[+k - 1]);
+  if (k === '?') { if (M.screen !== 'help') { M.prev = SCREENS_ORDER.includes(M.screen) ? M.screen : M.prev; M.screen = 'help'; } return; }
+  if (k === 'q') return say('In the real TUI, q quits. The demo stays open so you can keep looking.', 4);
+  if (k === 'r') { say('Refreshed', 2); return; }
+  if (M.screen === 'help') { if (k === 'Esc' || k === 'C-o') M.screen = M.prev; return; }
+  if (M.screen === 'triage') return triageKey(k);
+  if (['Up', 'Down', 'Home', 'End'].includes(k)) {
+    const last = Math.max(0, list().length - 1);
+    select({ Up: M.sel - 1, Down: M.sel + 1, Home: 0, End: last }[k]);
+    return;
+  }
+  if (M.screen === 'sessions' && k === '/') { M.statusUntil = 0; M.search = M.search || ''; M.typing = true; M.ended = Object.assign({}, OLDER); select(0); return; }
+  if (M.screen === 'sessions' && k === 'Esc' && M.search !== null) { M.search = null; select(0); return; }
+  if (k === 'n' && (M.screen === 'sessions' || M.screen === 'notices')) return openForm({});
+  const sel = list()[M.sel];
+  if (M.screen === 'sessions') {
+    if (k === 'T') { M.timer.state = 'stopped'; say('Timer stopped', 2); return; }
+    if (!sel) return;
+    const s = sessOf(sel);
+    if (k === 'Enter') return attach(sel);
+    if (k === 'i' || k === 'm') { M.agent = sel; M.prev = 'sessions'; M.screen = k === 'i' ? 'brief' : 'replies'; M.scroll = 0; return; }
+    if (k === 't') { if (isEnded(s)) return say(`${sel} has ended`, 3); M.timer = { agent: sel, start: now(), state: 'running' }; say(`Timing ${sel}`, 2); return; }
+    if (k === 'x') { if (isEnded(s)) return say(`${sel} has already ended`, 3); M.confirm = ['end', sel]; M.status = `End ${sel}? y/n`; M.statusUntil = now() + 3.6e6; announce(M.status); return; }
+    return;
+  }
+  if (M.screen === 'notices' && sel) {
+    const n = NOTICES_SEED.find((x) => x.key === sel);
+    if (k === 'Enter') return openForm({ project: n.project, prompt: n.prompt, notice: n.key });
+    if (k === 'd') { M.dismissed.add(n.key); say('Dismissed', 2); keepSel(); return; }
+    if (k === 'o') return say(`Demo: the real TUI opens the ${n.kind === 'review' ? 'PR' : 'item'} in the Windows browser.`, 4);
+  }
+  if (M.screen === 'prs' && sel) {
+    const p = PRS.find((x) => 'pr' + x.id === sel);
+    if (k === 'Enter') return openForm({ project: p.project, prompt: prPrompt(p), pr: p.id });
+    if (k === 'o') return say(`Demo: the real TUI opens ${p.url} in the browser.`, 4);
+    if (k === 'C') {
+      const urls = PRS.filter((x) => x.repo === p.repo).map((x) => x.url);
+      try { navigator.clipboard.writeText(urls.join('\n')).catch(() => {}); } catch (e) { /* clipboard blocked: the message still explains */ }
+      return say(`Copied ${urls.length} PR URL${urls.length === 1 ? '' : 's'} for ${p.repo}`, 4);
+    }
+    if (k === 'P') return say(`Demo: the real TUI opens ${p.repo}'s active PRs in the browser.`, 4);
+  }
+}
+function searchKey(k) {
+  if (k === 'Up' || k === 'Down') return select(M.sel + (k === 'Down' ? 1 : -1));
+  if (k === 'Enter') { M.typing = false; if (!M.search.trim()) M.search = null; }
+  else if (k === 'Esc' || (k === 'Backspace' && !M.search)) { M.search = null; M.typing = false; }
+  else if (k === 'Backspace') M.search = M.search.slice(0, -1);
+  else if (k.length === 1) M.search += k;
+  else return;
+  select(0);
+}
+function viewKey(k) {
+  if (['Esc', 'C-o', 'q', 'Left'].includes(k)) { M.screen = M.prev; return; }
+  if (k === 'i' || k === 'm') { M.screen = k === 'i' ? 'brief' : 'replies'; M.scroll = 0; return; }
+  if (k === 'Enter') return attach(M.agent);
+  if (k === 'b' && M.screen === 'brief') {
+    if (isEnded(sessOf(M.agent))) return say(`${M.agent} has ended: it can't write a new brief`, 4);
+    return say(`Asked ${M.agent} for a new brief; it shows here once the session writes it`, 5);
+  }
+  if (k === 'Home' || k === 'End') { M.scroll = (k === 'Home') !== (M.screen === 'replies') ? 0 : 1e6; return; }
+  const step = { Up: 1, Down: -1, PgUp: 10, PgDn: -10 }[k];
+  if (step) M.scroll = Math.max(0, M.scroll + (M.screen === 'replies' ? step : -step));
+}
+function endSession(a) {
+  const s = S[a]; if (!s) return;
+  s.state = 'ended'; s.since = now();
+  if (M.timer.agent === a) M.timer.state = 'stopped';
+  say(`Ended ${a}`, 3);
+}
+function prPrompt(p) {
+  return `Resolve the open review comments on PR ${p.url} (${p.title}), branch ${p.source}. Read its threads with the get_pr tool, work on that branch, and make the fixes the reviewers ask for. Show me the changes and your draft reply to each thread before you push or post anything.`;
+}
+
+/* ---------------- triage screen ---------------- */
+function triageRows() {
+  const p = PROJECTS[M.proj], d = TRIAGE[p.key], rows = [];
+  const item = (it, ind) => [[ind, 'plain'], [pad('#' + it[0], 7) + ' ', 'key'], [pad(it[1], 14) + ' ', ITEM_STYLE[it[1]] || 'plain'], [pad(it[2], 18) + ' ', it[2] === 'You' ? 'plain' : 'dim'], [it[3], 'plain']];
+  for (const [tier, cards] of d.tiers) {
+    rows.push([[[tier, 'heading']], null]);
+    for (const c of cards) {
+      rows.push([[['  ▸ ', 'key'], [c.name, 'bold']], { card: c.slug, name: c.name }]);
+      rows.push([[[`      next: ${c.next}`, 'dim']], null]);
+      for (const it of c.items) rows.push([item(it, '      '), { item: it }]);
+    }
+  }
+  for (const [t, f] of [['UP FOR GRABS', 'grabs'], ['WITH OTHERS', 'others']]) {
+    if (!d[f].length) continue;
+    rows.push([[[t, 'heading']], null]);
+    for (const it of d[f]) rows.push([item(it, '  '), { item: it }]);
+  }
+  if (d.waits.length) {
+    rows.push([[['WAITING ON OTHERS', 'heading']], null]);
+    for (const [who, kind, q] of d.waits) rows.push([[['  ', 'plain'], [who, 'warn'], [` (${kind}): ${q}`, 'plain']], null]);
+  }
+  return rows;
+}
+function triageKey(k) {
+  if (k === 'Left' || k === 'Right') { M.proj = (M.proj + (k === 'Right' ? 1 : 2)) % 3; M.triSel = 0; return; }
+  const rows = triageRows();
+  const picks = rows.map((r, i) => (r[1] ? i : -1)).filter((i) => i >= 0);
+  let cur = picks.reduce((b, p, j) => (Math.abs(p - M.triSel) < Math.abs(picks[b] - M.triSel) ? j : b), 0);
+  if (k === 'Up') M.triSel = picks[Math.max(0, cur - 1)];
+  else if (k === 'Down') M.triSel = picks[Math.min(picks.length - 1, cur + 1)];
+  else if (k === 'Home') M.triSel = picks[0];
+  else if (k === 'End') M.triSel = picks[picks.length - 1];
+  else if (k === 'Enter' || k === 'o') {
+    M.triSel = picks[cur];
+    const r = rows[M.triSel][1], proj = PROJECTS[M.proj].key;
+    if (k === 'Enter') openForm(r.card ? { project: proj, card: r.card, cardName: r.name } : { project: proj, item: r.item });
+    else if (r.item) say(`Demo: the real TUI opens #${r.item[0]} in the browser.`, 4);
+  }
+}
+
+/* ---------------- new session form ---------------- */
+function openForm(pre) {
+  M.form = { pre, project: pre.project || null, kind: null, value: '', sel: 0, step: 'project' };
+  if (M.form.project) projectChosen();
+  M.prev = SCREENS_ORDER.includes(M.screen) ? M.screen : M.prev;
+  M.screen = 'new';
+}
+function projectChosen() {
+  const f = M.form, pre = f.pre;
+  if (pre.item || pre.card) f.step = 'confirm';
+  else if (pre.prompt) { f.kind = 'prompt'; f.value = pre.prompt; f.step = 'text'; }
+  else f.step = 'what';
+}
+function formOptions() {
+  const f = M.form;
+  if (f.step === 'project') return PROJECTS.map((p) => [p.key, p.name]);
+  if (f.step === 'confirm') return [['go', f.pre.item ? `Start on #${f.pre.item[0]}` : `Start on the card ${f.pre.cardName}`]];
+  if (f.step === 'what') {
+    const cards = TRIAGE[f.project].tiers.flatMap(([, cs]) => cs);
+    return [['prompt', 'Prompt…'], ['item', 'Work item number…']]
+      .concat(cards.map((c) => [['card', c.slug, c.name], `Card: ${c.name}`]))
+      .concat(COMMANDS.map((c) => [['command', c.name, c.args], `Command: /${c.name}  ${c.help}`]));
+  }
+  return [];
+}
+function formKey(k) {
+  const f = M.form;
+  if (f.step === 'text') {
+    if (k === 'Esc') { if (f.pre.prompt) { M.form = null; M.screen = M.prev; } else { f.step = 'what'; f.sel = 0; } }
+    else if (k === 'Enter') launch();
+    else if (k === 'Backspace') f.value = f.value.slice(0, -1);
+    else if (k === 'M-Enter' || k === 'C-j') f.value += '\n';
+    else if (k.length === 1) f.value += k;
+    return;
+  }
+  k = NAV[k] || k;
+  const opts = formOptions();
+  if (k === 'Esc') {
+    const back = { project: null, what: 'project', confirm: null }[f.step];
+    if (back === null || (back === 'project' && f.pre.project)) { M.form = null; M.screen = M.prev; }
+    else { f.step = back; f.sel = 0; }
+  } else if (['Up', 'Down', 'Home', 'End'].includes(k)) {
+    const last = Math.max(0, opts.length - 1);
+    f.sel = { Up: Math.max(0, f.sel - 1), Down: Math.min(last, f.sel + 1), Home: 0, End: last }[k];
+  } else if (k === 'Enter' && opts.length) {
+    const v = opts[Math.min(f.sel, opts.length - 1)][0];
+    f.sel = 0;
+    if (f.step === 'project') { f.project = v; projectChosen(); }
+    else if (f.step === 'confirm') launch();
+    else if (v === 'prompt' || v === 'item') { f.kind = v; f.value = ''; f.step = 'text'; }
+    else if (v[0] === 'card') { f.pre = Object.assign({}, f.pre, { card: v[1], cardName: v[2] }); launch(); }
+    else { f.kind = v; f.value = ''; if (v[2]) f.step = 'text'; else launch(); }
+  }
+}
+function launch() {
+  const f = M.form, pre = f.pre;
+  let title = 'New session', item = null;
+  if (f.kind === 'item') {
+    const id = f.value.trim().replace(/^#/, '');
+    if (!/^\d+$/.test(id)) return say('Type a work item number', 3);
+    item = [+id, 'Work item #' + id]; title = null;
+  } else if (Array.isArray(f.kind)) title = '/' + f.kind[1] + (f.value ? ' ' + f.value : '');
+  else if (f.kind === 'prompt') title = pre.notice ? 'Hide a zero gift card balance?' : pre.pr ? `Review comments on PR ${pre.pr}` : f.value.split('\n')[0].slice(0, 40) || 'New session';
+  else if (pre.item) { item = [pre.item[0], pre.item[3]]; title = null; }
+  else if (pre.card) title = pre.cardName;
+  if (pre.notice) M.dismissed.add(pre.notice);
+  const lid = M.nextLaunch++, agent = 'L' + lid, proj = f.project;
+  const slug = (pre.card || (item ? String(item[0]) : (title || 'session').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 24)));
+  S[agent] = { state: 'starting', since: now(), title: null, item: null, project: proj, branch: '', launch: lid, last: '', kind: 'starting', brief: null, replies: [] };
+  M.form = null; M.screen = 'sessions'; M.search = null; M.typing = false; M.sel = 0; M.selKey = agent;
+  say(`Started ${agent}, making worktree C:\\code\\${proj}\\.claude\\worktrees\\${slug}`, 6);
+  setTimeout(() => {
+    const s = S[agent]; if (!s) return;
+    let name = proj, n = 1;
+    while (S[name] || name in OLDER) name = proj + '~' + (++n);
+    delete S[agent];
+    S[name] = Object.assign(s, { state: 'working', since: now(), title, item, branch: 'you/' + slug, last: 'Read: README.md', kind: 'working',
+      brief: { summary: 'Just started. The session writes its brief once it knows what it is building.', plan: [], age: 0 }, replies: [] });
+    if (M.selKey === agent) M.selKey = name;
+    if (M.attached && M.attached.agent === agent) Object.assign(M.attached, { agent: name, kind: 'working' });
+    render();
+  }, 4000);
+}
+
+/* ---------------- attaching ---------------- */
+function attach(a) {
+  const s = sessOf(a);
+  if (!s || isEnded(s)) return say(`${a} has ended: it has no terminal. Search finds it; resume it from the browser console.`, 5);
+  if (!s.launch) return say(`${a} was not started from the console: it has no terminal here. Use its own window.`, 5);
+  if (!/^L\d+$/.test(a)) M.timer = { agent: a, start: M.timer.agent === a && M.timer.state !== 'stopped' ? M.timer.start : now(), state: 'running' };
+  M.attached = { agent: a, phase: 'attaching', input: '', choice: 0, log: [], kind: s.kind, kind0: s.kind };
+  setTimeout(() => { if (M.attached && M.attached.phase === 'attaching') { M.attached.phase = 'in'; render(); } }, 700);
+}
+function detach() { M.attached = null; say('Back from the session. Everything is where you left it.', 2); }
+function attachedKey(k) {
+  const A = M.attached, s = S[A.agent];
+  if (k === 'C-o') return detach();
+  if (A.phase !== 'in' || !s) return;
+  if (A.kind === 'permission' || A.kind === 'question') {
+    const n = A.kind === 'permission' ? 3 : 4;
+    if (k === 'Up' || k === 'Down') { A.choice = (A.choice + (k === 'Down' ? 1 : n - 1)) % n; return; }
+    if (/^[1-9]$/.test(k) && +k <= n) { A.choice = +k - 1; k = 'Enter'; }
+    if (k === 'Esc') { A.choice = n - 1; k = A.kind === 'permission' ? 'Enter' : 'Esc'; }
+    if (k === 'Esc') { A.log.push(['  ⎿  Cancelled. What should Claude do instead?', 'dim']); A.kind = 'prompt'; s.kind = 'prompt'; s.state = 'your_turn'; s.since = now(); return; }
+    if (k !== 'Enter') return;
+    if (A.kind === 'permission') {
+      if (A.choice === 2) { A.log.push(['  ⎿  You said no. What should Claude do instead?', 'dim']); A.kind = 'prompt'; s.kind = 'prompt'; s.state = 'your_turn'; s.suggest = ''; }
+      else { A.log.push(['⏺ Bash(' + s.cmd[0] + ')', 'claude'], ['  ⎿  Running…', 'dim']); A.kind = 'working'; s.kind = 'working'; s.state = 'working'; s.last = 'Bash: ' + s.cmd[0].split(' --')[0]; s.doing = s.cmd[1]; }
+    } else {
+      const opt = QUESTION.opts[A.choice];
+      if (!opt) { A.kind = 'prompt'; s.kind = 'prompt'; s.state = 'your_turn'; A.log.push(['  ⎿  Type your answer below.', 'dim']); }
+      else { A.log.push(['⏺ User answered: ' + opt[0], 'claude'], ['  ⎿  ' + opt[1], 'dim']); A.kind = 'working'; s.kind = 'working'; s.state = 'working'; s.last = 'Edit: CartSync.swift'; s.doing = 'Writing the merge rule'; }
+    }
+    s.since = now();
+    return;
+  }
+  if (A.kind === 'working') {
+    if (k === 'Esc') { A.log.push(['  ⎿  Interrupted · What should Claude do instead?', 'alert']); A.kind = 'prompt'; s.kind = 'prompt'; s.state = 'your_turn'; s.since = now(); }
+    return;
+  }
+  if (A.kind === 'prompt') {
+    if (k === 'Tab' && !A.input && s.suggest) A.input = s.suggest;
+    else if (k === 'Backspace') A.input = A.input.slice(0, -1);
+    else if (k === 'Esc') A.input = '';
+    else if (k === 'Enter' && A.input.trim()) {
+      A.log.push(['> ' + A.input, 'bold'], ['⏺ (Claude would answer here. The demo stops at your prompt.)', 'claude']);
+      A.input = ''; s.suggest = ''; A.kind = 'working'; s.kind = 'working'; s.state = 'working'; s.since = now(); s.doing = 'Working on it';
+    } else if (k === 'M-Enter') A.input += '\n';
+    else if (k.length === 1) A.input += k;
+  }
+}
+const QUESTION = {
+  text: 'When the phone comes back online and the cart also changed on another device, what should happen?',
+  opts: [['Merge both carts', 'Keep every item from both; the larger quantity wins.'], ['Last change wins', 'Simpler, but a shopper can lose items.'],
+         ['Ask the shopper', 'Show both carts and let them pick.']],
+};
+const SPIN = ['✻', '✶', '✳', '✢', '·', '✢', '✳', '✶'];
+function claudeScreen(W, H) {
+  const A = M.attached, s = S[A.agent] || sessOf(A.agent), L = [];
+  const add = (segs) => L.push(Array.isArray(segs[0]) ? segs : [segs]);
+  if (A.phase === 'attaching') {
+    add(['', 'plain']);
+    add([`Attaching to L${s.launch}. To return to the triage TUI, press Ctrl-O.`, 'plain']);
+    return fill(L, W, H, A);
+  }
+  add([[' ✻ ', 'claude'], ['Claude Code', 'bold'], [`  ·  C:\\code\\${s.project}\\.claude\\worktrees\\${(s.branch || 'main').replace(/^you\//, '')}`, 'dim']]);
+  add(['', 'plain']);
+  if (A.agent.startsWith('L') || s.kind === 'starting') { add(['Starting Claude Code…', 'dim']); return fill(L, W, H, A); }
+  if (s.lead) for (const ln of ('⏺ ' + s.lead).split('\n')) add([ln, ln.startsWith('⏺') ? 'claude' : 'plain']);
+  else if (s.kind === 'working' && !A.log.length && A.agent === 'warehouse') { add([['⏺ ', 'claude'], ['Update(src/PickList.cs)', 'bold']]); add(['  ⎿  Updated src/PickList.cs with 14 additions and 3 removals', 'dim']); }
+  else if (s.kind === 'working' && !A.log.length) add(['⏺ Reading the code before I plan.', 'claude']);
+  if (A.agent === 'mobile') add(['⏺ Two devices can change the same cart while one is offline. I need a rule for which change wins.', 'claude']);
+  add(['', 'plain']);
+  for (const [t, c] of A.log) add([t, c]);
+  const box = (rows) => {
+    add(['╭' + '─'.repeat(W - 3) + '╮', 'dim']);
+    for (const r of rows) {
+      const segs = Array.isArray(r[0]) ? r : [r];
+      const len = segs.reduce((n, sg) => n + (Array.isArray(sg) ? sg[0].length : 1), 0);
+      add([['│ ', 'dim'], ...segs, [' '.repeat(Math.max(0, W - 5 - len)), 'plain'], [' │', 'dim']]);
+    }
+    add(['╰' + '─'.repeat(W - 3) + '╯', 'dim']);
+  };
+  if (A.kind === 'permission') {
+    const o = ['Yes', `Yes, and don't ask again for ${s.cmd[0].split(' --')[0]} commands in C:\\code\\${s.project}`, 'No, and tell Claude what to do differently (esc)'];
+    box([['Bash command', 'bold'], ['', 'plain'], ['  ' + s.cmd[0], 'plain'], ['  ' + s.cmd[1], 'dim'], ['', 'plain'], ['Do you want to proceed?', 'plain'],
+      ...o.map((t, i) => [[i === A.choice ? '❯ ' : '  ', 'claude'], [`${i + 1}. ${t}`, i === A.choice ? 'claude' : 'plain']])]);
+  } else if (A.kind === 'question') {
+    add([['☐ ', 'claude'], ['Offline cart', 'bold']]);
+    add(['', 'plain']);
+    add([QUESTION.text, 'bold']);
+    add(['', 'plain']);
+    QUESTION.opts.concat([['Type something.', '']]).forEach(([t, d], i) => {
+      add([[i === A.choice ? '❯ ' : '  ', 'claude'], [`${i + 1}. ${t}`, i === A.choice ? 'claude' : 'plain']]);
+      if (d) add([`     ${d}`, 'dim']);
+    });
+    add(['', 'plain']);
+    add(['Enter to select · ↑/↓ to navigate · Esc to cancel', 'dim']);
+  } else if (A.kind === 'working') {
+    const sp = SPIN[Math.floor(now() / 150) % SPIN.length];
+    add([[sp + ' ', 'warn'], [(s.doing || 'Grouping pick lines by aisle') + '… ', 'warn'], [`(${fmtAge((now() - s.since) / 1000 + (A.agent === 'warehouse' ? 72 : 0))} · esc to interrupt)`, 'dim']]);
+    add(['', 'plain']);
+    box([[['> ', 'dim'], ['', 'plain']]]);
+  } else {
+    const ins = A.input || '';
+    const parts = ins.split('\n');
+    box(parts.map((p, i) => {
+      const segs = [[i ? '  ' : '> ', 'bold'], [p, 'plain']];
+      if (i === parts.length - 1) segs.push({ cursor: true });
+      if (!ins && s.suggest) segs.push([s.suggest, 'dim']);
+      return segs;
+    }));
+    add([s.suggest && !ins ? '  Tab takes the suggestion · Enter sends · Ctrl-O back to the TUI' : '  Enter sends · Ctrl-O back to the TUI', 'dim']);
+  }
+  return fill(L, W, H, A);
+}
+function fill(L, W, H, A) {
+  const s = sessOf(A.agent);
+  const body = L.slice(-(H - 1));
+  while (body.length < H - 1) body.push([['', 'plain']]);
+  const left = ` [L${s.launch}] 0:claude* `, right = ' Ctrl-O: back to the TUI ';
+  body.push([[left + ' '.repeat(Math.max(0, W - left.length - right.length)) + right, 'tmux']]);
+  return body.map((segs) => ({ segs }));
+}
+
+/* ---------------- drawing ---------------- */
+function alerts(flash) {
+  const out = [], need = needYou().length, n = notices();
+  if (need) out.push([[`● ${need} need you`, flash ? 'flash' : 'alert'], 0]);
+  if (n.length) {
+    const m = n.filter((x) => x.kind === 'mention').length, r = n.length - m;
+    const parts = [m && `${m} mention${m > 1 ? 's' : ''}`, r && `${r} review${r > 1 ? 's' : ''}`].filter(Boolean);
+    out.push([[`✉  ${parts.join(' · ')}`, 'warn'], 1]);
+  }
+  const t = M.timer;
+  if (t.state !== 'stopped' && t.agent) {
+    const e = Math.floor((now() - t.start) / 1000);
+    out.push([[`⏱ ${t.agent} ${Math.floor(e / 3600)}:${String(Math.floor(e % 3600 / 60)).padStart(2, '0')}`, 'dim'], 2]);
+  }
+  return out;
+}
+const segLen = (segs) => segs.reduce((n, s) => n + (s[0] || '').length, 0);
+function topBar(W) {
+  const cur = SCREENS_ORDER.includes(M.screen) ? M.screen : M.prev;
+  const al = alerts(now() < M.flashUntil);
+  for (const short of [false, true]) {
+    for (const drop of [3, 2, 1]) {
+      const left = [];
+      LABELS.forEach(([k, name], i) => {
+        if (i) left.push([short ? ' ' : '  ', 'plain']);
+        left.push([short ? k : `${k} ${name}`, SCREENS_ORDER[i] === cur ? 'accent' : 'key', k]);
+      });
+      const right = [];
+      for (const [seg, rank] of al) if (rank < drop) { if (right.length) right.push(['  ', 'plain']); right.push(seg); }
+      const padN = W - segLen(left) - segLen(right);
+      if (padN >= 1 || !right.length) return left.concat(right.length ? [[' '.repeat(padN), 'plain']] : []).concat(right);
+    }
+  }
+  return al.filter(([, r]) => r === 0).map(([s]) => s).concat([[' ', 'plain'], ['F1 F2 F3 F4 F5', 'key']]);
+}
+const HINTS = {
+  sessions: '↓↑/j k g G select  / search  Enter attach  i brief  m replies  n new  t time this  T stop timer  x end  ? help  q quit',
+  notices: '↓↑/j k g G select  Enter start a session  d dismiss  o open in browser  n new session  ? help  q quit',
+  triage: '←→/h l project  ↓↑/j k select  Enter new session for it  o open item  r refresh  ? help  q quit',
+  coord: 'r refresh  ? help  q quit',
+  prs: '↓↑/j k g G select  Enter resolve its comments  o open in browser  C copy repo\'s PR URLs  P repo\'s PRs  r refresh  ? help  q quit',
+  help: 'Esc back  F1–F5 screens  q quit',
+  new: '↓↑/j k g G choose  Enter next  Esc back',
+  brief: 'Enter attach  b ask for a new brief  m replies  ↑↓/PgUp PgDn scroll  Esc back',
+  replies: 'Enter attach  i brief  ↑↓/PgUp PgDn scroll (newest at the bottom)  Esc back',
+};
+function line2() {
+  if (M.confirm || now() < M.statusUntil) return [[M.status, M.confirm ? 'warn' : 'accent']];
+  if (M.screen === 'sessions' && M.search !== null) {
+    const n = visible().length;
+    const hint = M.typing ? '  Enter keep  Esc clear' : '  / edit  Esc clear  ↓↑/j k select  Enter attach';
+    const segs = [['/' + M.search, 'accent']];
+    if (M.typing) segs.push({ cursor: true });
+    return segs.concat([[`  ${n} match${n === 1 ? '' : 'es'}`, 'dim'], [hint, 'dim']]);
+  }
+  return [[HINTS[M.screen] || '', 'dim']];
+}
+function wrap(text, w) {
+  const out = [];
+  for (const para of String(text).split('\n')) {
+    let ln = '';
+    for (const word of para.split(' ')) {
+      if (ln && (ln + ' ' + word).length > w) { out.push(ln); ln = word; } else ln = ln ? ln + ' ' + word : word;
+    }
+    out.push(ln);
+  }
+  return out;
+}
+function windowed(rows, sel, h) {
+  const top = Math.max(0, Math.min(sel - Math.floor(h / 2), rows.length - h));
+  return [top, rows.slice(top, top + h)];
+}
+function bodySessions(W, H) {
+  const rows = []; let selRow = 0, i = 0;
+  const t = M.timer, timed = t.state !== 'stopped' ? t.agent : null, paused = t.state === 'paused';
+  for (const [h, agents] of groups()) {
+    rows.push({ segs: [[h, 'accent']] });
+    for (const a of agents) {
+      const s = sessOf(a), st = s.state, base = st === 'ended' ? 'dim' : 'plain', on = a === timed;
+      if (i === M.sel) selRow = rows.length;
+      const act = s.last || '';
+      rows.push({ sel: i === M.sel, click: { list: i }, segs: [[on ? '⏱ ' : '  ', paused ? 'dim' : 'timer'],
+        [pad(a, 21) + ' ', on ? 'timer' : (['permission', 'question'].includes(st) ? 'bold' : base)], [pad(st, 11), STATE_STYLE[st] || 'plain'],
+        [` ${rpad(ageOf(s), 4)}  ${pad(label(s).slice(0, 48), 48)}  ${act}`, base]] });
+      i++;
+    }
+  }
+  if (!i) return [{ segs: [['', 'plain']] }, { segs: [[M.search !== null ? '  No sessions match.' : '  No sessions. n starts one.', 'dim']] }];
+  return windowed(rows, selRow, H)[1];
+}
+function bodyNotices(W, H) {
+  const ns = notices(), out = [];
+  if (!ns.length) out.push({ segs: [['', 'plain']] }, { segs: [['  No mentions or reviews waiting.', 'dim']] });
+  else {
+    ns.forEach((n, i) => out.push({ sel: i === M.sel, click: { list: i }, segs: [[`  ${pad(n.kind, 8)} ${pad(n.project, 12)} ${pad(n.ref, 9)} ${pad(n.who, 20)} ${rpad(fmtAge((now() - n.since) / 1000), 4)}  ${n.title}`, 'plain']] }));
+    out.push({ segs: [['', 'plain']] });
+    const sel = ns[Math.min(M.sel, ns.length - 1)];
+    for (const ln of wrap(sel.excerpt, W - 4)) out.push({ segs: [['  ' + ln, 'plain']] });
+  }
+  while (out.length < H - 1) out.push({ segs: [['', 'plain']] });
+  out.length = H - 1;
+  out.push({ segs: [['Checked 4m ago', 'dim']] });
+  return out;
+}
+function bodyTriage(W, H) {
+  const p = PROJECTS[M.proj], out = [];
+  const tabs = [];
+  PROJECTS.forEach((q, i) => { tabs.push([i === M.proj ? `[${q.name}]` : q.name, i === M.proj ? 'accent' : 'dim'], ['  ', 'plain']); });
+  out.push({ segs: tabs });
+  out.push({ segs: [[`Sprint ${p.sprint} · PO ${p.po} · QA ${p.qa}`, 'dim']] });
+  out.push({ segs: [['', 'plain']] });
+  const rows = triageRows();
+  if (M.triSel < 0 || !rows[M.triSel] || !rows[M.triSel][1]) M.triSel = rows.findIndex((r) => r[1]);
+  const [top, shown] = windowed(rows, M.triSel, H - 3);
+  shown.forEach(([segs, pick], k) => out.push({ sel: !!pick && top + k === M.triSel, click: pick ? { tri: top + k } : null, segs }));
+  return out;
+}
+function bodyCoord(W, H) {
+  const out = [{ segs: [['CLAIMS', 'accent']] }];
+  out.push({ segs: [['  ' + pad('desktop', 22) + ' ' + pad('storefront~2', 16) + ' E2E for #4212  queue: warehouse', 'plain']] });
+  out.push({ segs: [['  ' + pad('item:4212', 22) + ' ' + pad('storefront~2', 16) + ' building it', 'plain']] });
+  out.push({ segs: [['  ' + pad('item:4244', 22) + ' ' + pad('warehouse', 16) + ' building it', 'plain']] });
+  out.push({ segs: [['  ' + pad('item:4231', 22) + ' ' + pad('mobile', 16) + ' building it', 'plain']] });
+  out.push({ segs: [['', 'plain']] }, { segs: [['SESSIONS', 'accent']] });
+  for (const a of Object.keys(S)) {
+    const s = S[a]; if (isEnded(s)) continue;
+    out.push({ segs: [['  ' + pad(a, 18) + ' ' + pad(s.state, 11) + ' ' + pad(ageOf(s) + ' ago', 9) + ' ' + (label(s) || ''), 'plain']] });
+  }
+  out.push({ segs: [['', 'plain']] }, { segs: [['MESSAGES', 'accent']] });
+  for (const m of [['09:12', 'storefront~2', 'warehouse', 'I have the desktop for the gift card E2E run, about 4 minutes. You\'re next in the queue.'],
+    ['09:20', 'triage', 'all', 'Restarting the triage server. Retry any tool call that fails in the next few seconds.'],
+    ['09:31', 'mobile', 'user', 'Waiting on your answer about the cart merge rule.']]) {
+    out.push({ segs: [['  ' + m[0] + ' ', 'dim'], [m[1] + ' → ' + m[2] + ': ', 'bold'], [m[3], 'plain']] });
+  }
+  return out;
+}
+function bodyPrs(W, H) {
+  const rows = [];
+  PRS.forEach((p, i) => {
+    const sel = i === M.sel, click = { list: i };
+    const segs = [[`!${pad(String(p.id), 6)} ${pad(p.repo, 16)} ${rpad(fmtAge(p.age), 4)}  `, 'plain']];
+    if (p.draft) segs.push(['draft ', 'warn']);
+    if (p.auto) segs.push(['auto ', 'ok']);
+    [[p.votes[0], '✓', 'ok'], [p.votes[1], '…', 'warn'], [p.votes[2], '✗', 'alert']].forEach(([n, mk, st]) => { if (n) segs.push([mk + n + ' ', st]); });
+    if (!p.comments) segs.push(['comments not read', 'dim'], [' ', 'plain']);
+    else if (p.comments.waiting) segs.push([`${p.comments.waiting} to answer`, 'alert'], [' ', 'plain']);
+    else segs.push(['all answered', 'ok'], [' ', 'plain']);
+    segs.push([`→${p.target}  ${p.title}`, 'bold']);
+    rows.push({ sel, click, segs }, { sel, click, segs: [[' '.repeat(9) + p.url, 'info']] });
+    if (p.comments && p.comments.mine) {
+      const [who, txt] = p.comments.mine[0], more = p.comments.mine.length - 1;
+      rows.push({ sel, click, segs: [[' '.repeat(9) + `↳ ${who}: ${txt}` + (more ? `  (+${more} more)` : ''), 'warn']] });
+    }
+  });
+  while (rows.length < H - 1) rows.push({ segs: [['', 'plain']] });
+  rows.length = H - 1;
+  rows.push({ segs: [['read 40s ago · r refreshes', 'dim']] });
+  return rows;
+}
+function viewHead(a, s) {
+  const bits = [s.title, s.item ? `#${s.item[0]} ${s.item[1]}` : null, s.branch].filter(Boolean);
+  return { segs: [[a + ' · ', 'bold'], [s.state, STATE_STYLE[s.state] || 'plain'], ['  ' + bits.join(' · '), 'bold']] };
+}
+function bodyView(W, H) {
+  const a = M.agent, s = sessOf(a), lines = [];
+  if (M.screen === 'brief') {
+    const b = s.brief;
+    if (!b) lines.push(['This session has not written a brief yet.', 'dim']);
+    else {
+      for (const ln of wrap(b.summary, W - 4)) lines.push([ln, 'plain']);
+      if (b.plan.length) {
+        lines.push(['', 'plain'], ['PLAN', 'accent']);
+        const mk = { done: ['✓', 'ok'], now: ['▶', 'accent'], todo: ['·', 'dim'] };
+        for (const [step, st] of b.plan) lines.push([`${mk[st][0]} ${step}`, mk[st][1]]);
+      }
+      lines.push(['', 'plain'], [`Updated ${fmtAge(b.age)} ago`, 'dim']);
+    }
+  } else {
+    for (const [text, age] of (s.replies || []).slice().reverse()) {
+      lines.push([`— ${fmtAge(age)} ago`, 'accent']);
+      for (const ln of wrap(text, W - 4)) lines.push([ln, 'plain']);
+      lines.push(['', 'plain']);
+    }
+    if (!lines.length) lines.push(['No replies from this session yet.', 'dim']);
+  }
+  const h = H - 2;
+  M.scroll = Math.min(M.scroll, Math.max(0, lines.length - h));
+  const shown = M.screen === 'replies' ? lines.slice(Math.max(0, lines.length - M.scroll - h), lines.length - M.scroll) : lines.slice(M.scroll, M.scroll + h);
+  return [viewHead(a, s), { segs: [['', 'plain']] }].concat(shown.map(([t, c]) => ({ segs: [['  ' + t, c]] })));
+}
+const HELP = `Screens (everywhere)
+  F1 Sessions   F2 Notices   F3 Triage   F4 Coordination   F5 PRs      1–5 do the same outside a text box
+  Ctrl-L next page   Ctrl-H previous page
+  ? help   q quit   r refresh
+  h j k l move like ← ↓ ↑ → everywhere except a text box; g G jump to the top and the bottom
+
+Sessions
+  ↑↓ select   Enter attach to the session's terminal (Ctrl-O comes back here)
+  i its brief and plan   m its replies to you   n new session   t time this session   T stop the timer
+  x end a console session
+  / search: type words to keep only the sessions that have them all; live ones first, then ended ones
+  In i: b asks the session to refresh its brief
+  In i or m: Enter attach   i/m switch   ↑↓ PgUp PgDn scroll   g G top bottom   Esc back
+
+Notices
+  ↑↓ select   Enter start a session for it   d dismiss   o open in the browser
+
+Triage
+  ←→ project   ↑↓ select a card or item   Enter start a session for it   o open the item
+
+PRs (your open pull requests in every project)
+  ↑↓ select   Enter start a session that resolves its review comments (you edit the prompt first)
+  o open it   C copy the URLs of all your PRs in its repo   P open that repo's PRs
+  ✓ approved   … waiting for author   ✗ rejected   auto: auto-complete is set
+
+Server not running?
+  start it, then press r`;
+function bodyHelp() {
+  return HELP.split('\n').map((ln) => ({ segs: [['  ' + ln, ln && !ln.startsWith(' ') ? 'accent' : 'plain']] }));
+}
+function bodyForm(W, H) {
+  const f = M.form, out = [{ segs: [['', 'plain']] }];
+  const where = f.project ? `${f.project}, starting in C:\\code\\${f.project}` : '';
+  const titles = { project: 'New session: pick a project', what: `New session in ${where}: what should it do?`, confirm: `New session in ${where}`,
+    text: ({ prompt: 'Prompt (Enter starts the session, Ctrl-J adds a line)', item: 'Work item number' }[f.kind] || 'Arguments') + (where ? `  ·  ${where}` : '') };
+  out.push({ segs: [['  ' + titles[f.step], 'bold']] }, { segs: [['', 'plain']] });
+  if (f.step === 'text') {
+    const lines = [];
+    for (const para of f.value.split('\n')) lines.push(...(wrap(para, W - 4)));
+    lines.slice(-(H - 4)).forEach((ln, i, arr) => out.push({ segs: [['  ' + ln, 'plain']].concat(i === arr.length - 1 ? [{ cursor: true }] : []) }));
+    return out;
+  }
+  formOptions().forEach(([, lab], i) => out.push({ sel: i === f.sel, click: { form: i }, segs: [['    ' + lab, 'plain']] }));
+  return out;
+}
+
+/* ---------------- rendering ---------------- */
+let COLS = 100, ROWS = 26;
+window.termSize = () => [COLS, ROWS];
+function measure() {
+  const term = document.getElementById('term');
+  const probe = document.createElement('div');
+  probe.className = 'ln';
+  probe.textContent = 'M'.repeat(100);
+  probe.style.cssText = 'position:absolute;visibility:hidden;width:auto';
+  term.style.fontSize = '14px';
+  term.appendChild(probe);
+  const cs = getComputedStyle(term);
+  const padH = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight), padV = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+  const availW = term.clientWidth - padH - 2, availH = term.clientHeight - padV - 2;
+  let cw = probe.getBoundingClientRect().width / 100;
+  if (availW / cw < 80) {
+    term.style.fontSize = Math.max(10, Math.floor(14 * availW / (80 * cw))) + 'px';
+    cw = probe.getBoundingClientRect().width / 100;
+  }
+  const lh = probe.getBoundingClientRect().height;
+  probe.remove();
+  COLS = Math.max(80, Math.floor(availW / cw));
+  ROWS = Math.max(20, Math.floor(availH / lh));
+  term.classList.toggle('narrow', availW / cw < 80 || availH / lh < 20);
+}
+const WIDE = /[\u2190-\u24ff\u25a0-\u27bf\u2b00-\u2bff]/g;
+function segHtml(text, cls) {
+  return `<span class="c-${cls}">${esc(text).replace(WIDE, (c) => `<span class="g">${c}</span>`)}</span>`;
+}
+function lineHtml(ln, idx) {
+  let n = 0, html = '';
+  for (const seg of ln.segs) {
+    if (seg.cursor) { html += '<span class="cur"> </span>'; n++; continue; }
+    let [text, cls, k] = seg;
+    if (!text) continue;
+    if (n >= COLS) break;
+    text = text.slice(0, COLS - n);
+    n += text.length;
+    html += k ? `<span data-key="${k}">${segHtml(text, cls)}</span>` : segHtml(text, cls);
+  }
+  if (n < COLS) html += ' '.repeat(COLS - n);
+  const cls = 'ln' + (ln.sel ? ' sel' : '') + (ln.click ? ' click' : '');
+  return `<div class="${cls}" data-i="${idx}">${html}</div>`;
+}
+let LINES = [];
+function frameLines() {
+  if (M.attached) return claudeScreen(COLS, ROWS);
+  const top = [{ segs: topBar(COLS) }, { segs: line2() }, { segs: [['─'.repeat(COLS), 'dim']] }];
+  if (M.screen === 'sessions' || M.screen === 'notices' || M.screen === 'prs') keepSel();
+  const H = ROWS - 3;
+  const body = ({ sessions: bodySessions, notices: bodyNotices, triage: bodyTriage, coord: bodyCoord, prs: bodyPrs, brief: bodyView, replies: bodyView, help: bodyHelp, new: bodyForm }[M.screen])(COLS, H);
+  const lines = top.concat(body.slice(0, H));
+  while (lines.length < ROWS) lines.push({ segs: [['', 'plain']] });
+  return lines;
+}
+function render() {
+  checkNeed();
+  LINES = frameLines();
+  const term = document.getElementById('term');
+  const html = LINES.map(lineHtml).join('');
+  if (term._sig !== html) { term.innerHTML = html; term._sig = html; }
+  document.getElementById('ttitle').textContent = M.attached ? `tmux attach -t L${sessOf(M.attached.agent).launch}` : 'python3 triage.py tui';
+  syncContext();
+  renderKeys();
+  const need = needYou().length;
+  document.title = (need ? `(${need}) ` : '') + 'Terminal console tour';
+}
+function checkNeed() {
+  const need = new Set(needYou());
+  if (M.needSeen) {
+    for (const a of need) if (!M.needSeen.has(a)) { M.flashUntil = now() + 3000; bell(); break; }
+  }
+  M.needSeen = need;
+}
+function bell() {
+  const f = document.getElementById('frame');
+  f.classList.remove('bell'); void f.offsetWidth; f.classList.add('bell');
+  announce('A session needs you');
+}
+function announce(t) { document.getElementById('live').textContent = t; }
+
+/* ---------------- on-screen keys ---------------- */
+function keySet() {
+  if (M.attached) {
+    const k = M.attached.kind;
+    if (k === 'permission') return [['1', 'yes'], ['2'], ['3', 'no'], ['Up', '↑'], ['Down', '↓'], ['Enter'], ['C-o', 'back to the TUI']];
+    if (k === 'question') return [['1'], ['2'], ['3'], ['Up', '↑'], ['Down', '↓'], ['Enter'], ['Esc'], ['C-o', 'back to the TUI']];
+    if (k === 'working') return [['Esc', 'interrupt'], ['C-o', 'back to the TUI']];
+    return [['Tab', 'suggestion'], ['Enter', 'send'], ['C-o', 'back to the TUI']];
+  }
+  const nav = [['Up', '↑'], ['Down', '↓']];
+  const common = [['C-h', 'prev page'], ['C-l', 'next page'], ['?', 'help']];
+  switch (M.screen) {
+    case 'sessions': return M.typing ? [['Up', '↑'], ['Down', '↓'], ['Enter', 'keep'], ['Esc', 'clear']]
+      : nav.concat([['Enter', 'attach'], ['i', 'brief'], ['m', 'replies'], ['/', 'search'], ['n', 'new'], ['t', 'time'], ['x', 'end']]).concat(M.search !== null ? [['Esc', 'clear']] : []).concat(common);
+    case 'notices': return nav.concat([['Enter', 'start'], ['d', 'dismiss'], ['o', 'open']]).concat(common);
+    case 'triage': return [['Left', '←'], ['Right', '→']].concat(nav, [['Enter', 'start'], ['o', 'open']], common);
+    case 'coord': return [['r', 'refresh']].concat(common);
+    case 'prs': return nav.concat([['Enter', 'resolve'], ['o', 'open'], ['C', 'copy URLs'], ['P', 'repo PRs']]).concat(common);
+    case 'brief': return [['Up', '↑'], ['Down', '↓'], ['Enter', 'attach'], ['b', 'new brief'], ['m', 'replies'], ['Esc', 'back']];
+    case 'replies': return [['Up', '↑ older'], ['Down', '↓'], ['Enter', 'attach'], ['i', 'brief'], ['Esc', 'back']];
+    case 'help': return [['Esc', 'back']];
+    case 'new': return M.form && M.form.step === 'text' ? [['Enter', 'start'], ['Esc', 'back']] : nav.concat([['Enter', 'next'], ['Esc', 'back']]);
+  }
+  return [];
+}
+const KEYLABEL = { 'C-o': 'Ctrl-O', 'C-h': 'Ctrl-H', 'C-l': 'Ctrl-L', Up: '↑', Down: '↓', Left: '←', Right: '→' };
+function renderKeys() {
+  const ks = keySet();
+  const html = ks.map(([k, d]) => {
+    const lab = KEYLABEL[k] || k;
+    const desc = d && d !== lab ? `<span>${esc(d.replace(/^[↑↓←→] ?/, ''))}</span>` : '';
+    return `<button type="button" data-k="${esc(k)}">${esc(lab)}${desc}</button>`;
+  }).join('');
+  const el = document.getElementById('keys');
+  if (el.dataset.sig !== html) { el.innerHTML = html; el.dataset.sig = html; }
+}
+
+/* ---------------- tour and panel ---------------- */
+const P = (title, day, built, next, nextLabel) => ({ title, day, built, next, nextLabel });
+const PANELS = {
+  welcome: P('A tour of my terminal console',
+    'This is a made-up copy of the terminal app I now use all day instead of the browser page from my last post. You’re on its Sessions screen: every Claude Code session I have running, grouped by what it needs from me. Click the terminal and use your keyboard, or the keys under it. Nothing here does real work.',
+    'A Python curses app, standard library only, that talks to the same local server as the browser console. It keeps no state of its own: every read and write goes through the server, so it behaves exactly like the page did.',
+    'sessions', 'Read the Sessions screen'),
+  sessions: P('What needs me, at the top',
+    'Two sessions need me: one wants permission to run E2E tests, one has a question. Below them, sessions that stopped and are waiting for my next prompt, then the ones still working, then what ended today. The ⏱ marks the session my time is going to. Try <b>j</b> and <b>k</b>.',
+    'A thread polls the server every 2 seconds. The server already sorts the list; the TUI groups it under four headings and keeps the selection on the same session when the list reorders. The colours are the terminal’s basic ones, so it reads on light and dark terminal themes.',
+    'attach/storefront~2', 'Press Enter on storefront~2'),
+  'attach-permission': P('Enter: the session’s real terminal',
+    'This is the point of it. Enter drops me into the session itself. The TUI’s top lines are gone because this is the real Claude Code screen. Press <b>1</b> to say yes, then <b>Ctrl-O</b> to come back to the list, right where I left it.',
+    'Sessions started from the console run in tmux. The TUI steps out of curses, runs <code>tmux attach</code> in the same terminal, and redraws when tmux returns. Before attaching it binds Ctrl-O to “detach” in that tmux server. I first built a mirror of this screen inside the TUI, with rules so I couldn’t answer a prompt by accident. I deleted it the same day: the real terminal was better.',
+    'attach/mobile', 'Answer a question'),
+  'attach-question': P('Answering a question',
+    'Claude asks me something it can’t decide for me. I pick an answer with the arrows or a number, and it carries on. Ctrl-O and I’m back on the list. Most of my mornings are this, several times over.',
+    'It’s the same tmux attach. Entering a session also starts my timer on it, the same as clicking its card in the browser, so my time goes to the right work item without me thinking about it.',
+    'brief/storefront', 'See a session’s brief'),
+  attach: P('Inside a session',
+    'A working session shows Claude working, and Esc interrupts it. One waiting for me shows its prompt, with Claude Code’s suggested next prompt in grey: Tab takes it. Type and press Enter as in any terminal. Ctrl-O comes back.',
+    'Only sessions the console started live in its tmux. For one I started in another window (<code>warehouse~2</code> here), Enter says so instead.',
+    'brief/storefront', 'See a session’s brief'),
+  brief: P('i: what is it doing?',
+    'Before I attach, <b>i</b> shows the session’s brief: a short summary and its plan, which the session keeps up to date for me. Often that’s all I need. <b>b</b> asks the session for a fresh one.',
+    'Sessions write their brief through an MCP tool on the server. The TUI reads the session’s detail every 2 seconds while this view is open. Esc goes back, and m switches to its replies.',
+    'replies/storefront', 'Read its replies'),
+  replies: P('m: what did it tell me?',
+    'Its last replies to me, newest at the bottom, so I can catch up on what happened overnight without scrolling back through a terminal. ↑ and PgUp scroll back.',
+    'A Stop hook in Claude Code sends each reply to the server, which keeps the last ten per session.',
+    'search', 'Search the sessions'),
+  search: P('/: find any session',
+    'Like vim: <b>/</b> and a few words, and only the sessions that have them all stay. Live ones come first, then ended ones going back a week. Enter keeps the filter so j and k work inside it; Esc clears it. Try typing more, or Backspace.',
+    'Opening search fetches the sessions that ended too long ago to be listed. It matches on the name, title, item, project and branch, ignoring case.',
+    'notices', 'F2: notices'),
+  notices: P('F2: someone needs me',
+    'Mentions and review requests from the tracker, newest first, with what was said underneath. I don’t read those emails. <b>Enter</b> starts a session that reads the comment and tells me what it means, <b>d</b> dismisses, <b>o</b> opens it in the browser.',
+    'The server checks the tracker every 15 minutes. If a check fails (usually an expired login), the error shows at the bottom of this screen, which is how I find out.',
+    'new', 'Start a session for it'),
+  new: P('Starting a session',
+    'The form steps through project, then what to do: a prompt, a work item, a card, or one of my commands. From a notice it opens on the prompt, already written, so I can edit it before it runs. Press <b>Enter</b> and watch it appear on the Sessions screen.',
+    'One request to the server, which starts Claude Code in tmux, in its own git worktree. It shows as <code>L45</code> while it starts, and takes its real name once Claude checks in. Starting it from a notice dismisses the notice.',
+    'triage/warehouse', 'F3: what’s next'),
+  triage: P('F3: what’s next',
+    'My work, one project at a time, grouped into session cards. <b>←</b> and <b>→</b> switch projects. Enter on a card starts a session on the whole card; on an item, on just that item.',
+    'Read-only, from the server’s MCP tools called over HTTP. It caches each project for 30 seconds, since the data only changes on a sync.',
+    'coord', 'F4: coordination'),
+  coord: P('F4: who has what',
+    'Which session holds the desktop for E2E tests and who’s queued behind it, which session is building which item, and what the sessions have told each other. I rarely need it, but when two sessions seem stuck, this is where I look.',
+    'Claims and messages are the server’s coordination tools from my last post. The TUI needed one new read-only endpoint for the messages, because reading them through the normal tool would mark them read.',
+    'prs', 'F5: my pull requests'),
+  prs: P('F5: my pull requests',
+    'Every PR I have open, across every project, with its URL, its votes and how many review comments wait on me. <b>Enter</b> starts a session that works through them and shows me its changes and draft replies before it pushes anything. <b>C</b> copies the URLs of all my PRs in that repo, for a reviewer.',
+    'Read in the background, because it asks the tracker once per project and can take a few seconds. A thread waits on me when it’s still open and someone else wrote last.',
+    'flash', 'When a session needs me'),
+  flash: P('When a session newly needs me',
+    'Watch the top right: when a session starts waiting on me, the “need you” count flashes and the terminal beeps once. Here <code>warehouse</code> just asked for permission. It’s the only thing in the TUI built to interrupt me.',
+    'Each poll compares the sessions in permission or question with the last poll. Anything new flashes the count for 3 seconds and rings the terminal bell. The count is the server’s, so it always matches the browser.',
+    'help', '?: every key'),
+  help: P('?: every key',
+    'Everything, by screen. I use h j k l and g G everywhere, Ctrl-H and Ctrl-L to flip through the screens, and Ctrl-O to come back from a session.',
+    'Key handling is a pure function from (model, key) to a list of actions, which is why it has more tests than anything else in the TUI.',
+    '', 'Back to the start'),
+};
+const STOPS = ['', 'sessions', 'attach/storefront~2', 'attach/mobile', 'brief/storefront', 'replies/storefront', 'search', 'notices', 'new', 'triage/warehouse', 'coord', 'prs', 'flash', 'help'];
+const panelOfHash = (h) => {
+  if (h === '') return 'welcome';
+  const [a, b] = h.split('/');
+  if (a === 'attach') return b === 'storefront~2' ? 'attach-permission' : b === 'mobile' ? 'attach-question' : 'attach';
+  return PANELS[a] ? a : 'welcome';
+};
+const state = { hash: '', seen: new Set([]), panelOpen: true, embedded: false };
+function contextHash() {
+  if (M.attached) {
+    const a = M.attached.agent;
+    return 'attach/' + a;
+  }
+  if (M.screen === 'brief' || M.screen === 'replies') return M.screen + '/' + M.agent;
+  if (M.screen === 'sessions') return M.search !== null ? 'search' : (['', 'flash'].includes(state.hash) ? state.hash : 'sessions');
+  if (M.screen === 'triage') return 'triage/' + PROJECTS[M.proj].key;
+  return M.screen;
+}
+function syncContext() {
+  const h = contextHash();
+  if (h !== state.hash) {
+    state.hash = h;
+    try { history.replaceState(null, '', h ? '#' + h : location.pathname); } catch (e) { /* sandboxed: hash stays */ }
+    renderPanel();
+  }
+}
+function panelNow() {
+  if (M.attached && state.hash.startsWith('attach/')) return { permission: 'attach-permission', question: 'attach-question' }[M.attached.kind0] || 'attach';
+  return panelOfHash(state.hash);
+}
+function renderPanel() {
+  const key = panelNow();
+  state.seen.add(key);
+  const p = PANELS[key];
+  const stopKeys = STOPS.map(panelOfHash);
+  const n = stopKeys.indexOf(key) + 1;
+  const stops = STOPS.map((h, i) => `<li><a href="#${h}"${stopKeys[i] === key ? ' aria-current="true"' : ''}>${PANELS[stopKeys[i]].title}</a>${state.seen.has(stopKeys[i]) && stopKeys[i] !== key ? ' ✓' : ''}</li>`).join('');
+  const seenN = stopKeys.filter((k) => state.seen.has(k)).length;
+  const el = document.getElementById('panel');
+  el.innerHTML = `<div class="phead"><span class="k">${n ? `Stop ${n} of ${STOPS.length}` : 'Exploring'}</span><span class="spacer"></span>
+    ${state.embedded ? `<a href="${location.pathname}#${state.hash}" target="_blank" rel="noopener">Full screen ↗</a>` : ''}
+    <button class="iconbtn toggle" data-act="panel" aria-expanded="${state.panelOpen}">${state.panelOpen ? 'Hide' : 'Explain'}</button></div>
+    <div class="pbody"><h2>${p.title}</h2>
+    <h4>In my day</h4><p>${p.day}</p>
+    <h4>How it’s built</h4><p>${p.built}</p>
+    <p class="next">Try next: <a href="#${p.next}">${p.nextLabel} →</a></p>
+    <details class="stops"><summary>All stops</summary><ol>${stops}</ol></details>
+    <p class="seen">${seenN} of ${STOPS.length} seen</p></div>`;
+  el.classList.toggle('closed', !state.panelOpen);
+  el.scrollTop = 0;
+}
+function goStop(hash) {
+  hash = String(hash || '').replace(/^#/, '');
+  try { hash = decodeURIComponent(hash); } catch (e) { /* keep */ }
+  const [a, b] = hash.split('/');
+  const fresh = seedSessions();
+  M.attached = null; M.confirm = null; M.form = null; M.statusUntil = 0; M.search = null; M.typing = false;
+  if (a === 'attach' && S[b] && fresh[b]) {
+    S[b] = fresh[b]; M.screen = 'sessions'; keepSel(); M.selKey = b; keepSel(); attach(b);
+  } else if ((a === 'brief' || a === 'replies') && sessOf(b)) {
+    M.prev = 'sessions'; M.screen = a; M.agent = b; M.scroll = 0;
+  } else if (a === 'search') {
+    M.screen = 'sessions'; M.search = 'gift'; M.typing = true; M.ended = Object.assign({}, OLDER); select(0);
+  } else if (a === 'notices' || a === 'coord' || a === 'prs' || a === 'help') {
+    if (a === 'notices') M.dismissed.clear();
+    if (a === 'help') { M.prev = 'sessions'; M.screen = 'help'; } else { goScreen(a); M.screen = a; M.sel = 0; M.selKey = null; keepSel(); }
+  } else if (a === 'new') {
+    M.dismissed.delete('n1'); M.screen = 'notices'; openForm({ project: 'storefront', prompt: NOTICES_SEED[0].prompt, notice: 'n1' });
+  } else if (a === 'triage') {
+    const i = PROJECTS.findIndex((p) => p.key === b); M.screen = 'triage'; M.proj = i < 0 ? 0 : i; M.triSel = 0;
+  } else if (a === 'flash') {
+    M.screen = 'sessions'; M.sel = 0; M.selKey = null;
+    S.warehouse = fresh.warehouse; M.needSeen = null;
+    setTimeout(() => { triggerWarehouse(); render(); }, 900);
+  } else {
+    M.screen = 'sessions'; M.selKey = 'storefront~2'; hash = a === 'sessions' ? 'sessions' : '';
+  }
+  state.hash = M.attached || ['brief', 'replies', 'triage'].includes(M.screen) ? contextHash() : (STOPS.includes(hash) ? hash : '');
+  renderPanel();
+  render();
+}
+function triggerWarehouse() {
+  const w = S.warehouse;
+  if (!w || w.state === 'ended' || M.flashed && w.state === 'permission') return;
+  M.flashed = true;
+  Object.assign(w, { state: 'permission', since: now(), kind: 'permission', last: 'Bash: npm run print-preview',
+    cmd: ['npm run print-preview -- --aisle 4', 'Print a preview of aisle 4\'s pick list'],
+    lead: 'The aisle headings are in. I\'ll print a preview to check the layout.' });
+}
+
+/* ---------------- input ---------------- */
+function keyFromEvent(e) {
+  if (e.metaKey) return null;
+  if (e.ctrlKey && !e.altKey) {
+    const k = e.key.toLowerCase();
+    return ['h', 'l', 'o', 'j'].includes(k) ? 'C-' + k : null;
+  }
+  const map = { ArrowUp: 'Up', ArrowDown: 'Down', ArrowLeft: 'Left', ArrowRight: 'Right', PageUp: 'PgUp', PageDown: 'PgDn', Home: 'Home', End: 'End', Escape: 'Esc', Backspace: 'Backspace' };
+  if (map[e.key]) return map[e.key];
+  if (e.key === 'Enter') return e.altKey || e.shiftKey ? 'M-Enter' : 'Enter';
+  if (e.key === 'Tab') return e.shiftKey ? null : 'Tab';
+  if (/^F[1-5]$/.test(e.key)) return e.key;
+  if (e.key.length === 1 && !e.altKey) return e.key;
+  return null;
+}
+const term = document.getElementById('term');
+term.addEventListener('keydown', (e) => {
+  const k = keyFromEvent(e);
+  if (!k) return;
+  if (k === 'Tab' && !(M.attached && M.attached.kind === 'prompt')) return; // let Tab leave the terminal
+  e.preventDefault();
+  key(k);
+  render();
+});
+term.addEventListener('paste', (e) => {
+  e.preventDefault();
+  const text = (e.clipboardData || window.clipboardData).getData('text');
+  if (M.screen === 'new' && M.form && M.form.step === 'text') M.form.value += text;
+  else if (M.attached && M.attached.kind === 'prompt') M.attached.input += text;
+  else if (M.screen === 'sessions' && M.typing) { M.search += text.split(/\s+/).join(' '); select(0); }
+  else say('Ignored a paste: attach to the session (Enter) and paste there', 3);
+  render();
+});
+term.addEventListener('focus', () => { document.getElementById('kbhint').innerHTML = '<span class="kbd">Keyboard is on.</span> Keys go to the terminal. Tab moves on.'; });
+term.addEventListener('blur', () => { document.getElementById('kbhint').textContent = 'Click the terminal, then use your keyboard, or the keys below it.'; });
+term.addEventListener('pointerdown', (e) => {
+  if (e.button !== 0) return;
+  e.preventDefault();
+  term.focus({ preventScroll: true });
+  const kEl = e.target.closest('[data-key]');
+  if (kEl) { key(kEl.dataset.key); render(); return; }
+  const ln = e.target.closest('.ln');
+  if (!ln) return;
+  const L = LINES[+ln.dataset.i];
+  if (!L || !L.click) return;
+  const c = L.click;
+  if (c.list !== undefined) { if (M.sel === c.list) key('Enter'); else select(c.list); }
+  else if (c.tri !== undefined) { if (M.triSel === c.tri) triageKey('Enter'); else M.triSel = c.tri; }
+  else if (c.form !== undefined) { if (M.form.sel === c.form) formKey('Enter'); else M.form.sel = c.form; }
+  render();
+});
+document.getElementById('keys').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-k]');
+  if (!b) return;
+  key(b.dataset.k);
+  render();
+});
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('#panel a[href^="#"]');
+  if (a) {
+    e.preventDefault();
+    const h = a.getAttribute('href').slice(1);
+    if (!state.embedded) history.pushState(null, '', h ? '#' + h : location.pathname);
+    goStop(h);
+    return;
+  }
+  const t = e.target.closest('[data-act="panel"]');
+  if (t) { state.panelOpen = !state.panelOpen; renderPanel(); }
+});
+function isDark() {
+  const t = document.documentElement.dataset.theme;
+  return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+}
+function themeLabel() { document.getElementById('theme').textContent = isDark() ? 'Light' : 'Dark'; }
+document.getElementById('theme').addEventListener('click', () => { document.documentElement.dataset.theme = isDark() ? 'light' : 'dark'; themeLabel(); });
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeLabel);
+window.addEventListener('hashchange', () => goStop(location.hash));
+let lastBox = '';
+new ResizeObserver(() => {
+  const t = document.getElementById('term'), box = t.clientWidth + 'x' + t.clientHeight;
+  if (box === lastBox) return;
+  lastBox = box; measure(); render();
+}).observe(document.getElementById('term'));
+
+try { state.embedded = window.top !== window; } catch (e) { state.embedded = true; }
+themeLabel();
+measure();
+goStop(location.hash);
+setInterval(render, 500);
+setTimeout(() => { if (!M.flashed && S.warehouse && S.warehouse.state === 'working' && !M.attached) triggerWarehouse(); }, 60000);
+</script>
+</body>
+</html>
